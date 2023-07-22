@@ -1,4 +1,3 @@
-import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
