@@ -4,6 +4,7 @@ import Circles from "@/../public/circles.svg";
 import Blob from "@/components/Blob";
 import Footer from "@/components/Footer";
 import Arrow from "@/../public/arrow.svg";
+import WhoWeAre from "@/components/WhoWeAre";
 
 const Header = () => (
   <div className="h-screen">
@@ -55,7 +56,7 @@ const Header = () => (
 const Home = () => (
   <div>
     <Header />
-    {/* <div>who we are</div> */}
+    <WhoWeAre />
     {/* <div>projects</div> */}
     {/* <div>projects</div> */}
     {/* <div>testimonials</div> */}
