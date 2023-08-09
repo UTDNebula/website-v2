@@ -47,13 +47,16 @@ module.exports = {
         'wide': '32rem'
       },
       animation: {
-        "slow-pulse": 'subtle-pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        "slow-pulse": 'subtle-pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         "subtle-pulse": {
           '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.75' },
+          '50%': { opacity: '0.6' },
         }
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(circle closest-side, var(--tw-gradient-stops))',
       }
     },
   },
