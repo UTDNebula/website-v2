@@ -86,13 +86,12 @@ const Navbar = () => {
                     <li key={`menu-${outerIndex}`} className='group'>
                         <Link href={item.link} >
                             {item.name}
+                        {/* TODO: chevron up icon. note rotate doesn't work */}
+                        {item.children && (<span className='group-hover:rotate-180'>^</span>)}
                         </Link>
                         {item.children && (
-                            <>
-                            {/* TODO: chevron up icon. note rotate doesn't work */}
-                            <span className='group-hover:rotate-180'>^</span>
-                            {/* TODO: this bg is a gradient in figma */}
-                            <ul className={"absolute w-screen bg-black/40 backdrop-blur-md left-0 py-16 px-20 justify-items-center flex-wrap" + (outerIndex == 0 ? " flex" : " group-hover:flex hidden")}>
+                            // TODO: this bg is a gradient in figma
+                            <ul className="absolute w-screen bg-black/40 backdrop-blur-md left-0 py-16 px-20 justify-items-center flex-wrap group-hover:flex hidden">
                                 {item.children.map((child, innerIndex) => (
                                     // TODO link
                                     <li key={`menu-${outerIndex}-${innerIndex}`} className='hover:transition-none transition-all w-96 border border-white hover:border-opacity-100 border-opacity-0 rounded-3xl p-8 m-8 flex flex-col gap-1'>
@@ -106,15 +105,13 @@ const Navbar = () => {
                                     </li>
                                 ))}
                             </ul>
-                            </>
                         )}
                     </li>
                 ))}
-                </ul>
-                <button className='justify-self-end'>
-                    Get Involved
-                </button>
-              
+            </ul>
+            <button className='justify-self-end'>
+                Get Involved
+            </button>
         </nav>
     )
 }
