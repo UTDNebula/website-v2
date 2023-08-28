@@ -90,7 +90,7 @@ const Navbar = () => {
                         burger
                     </Disclosure.Button>
                     <Disclosure.Panel static as="nav" className={clsx(open ? 'flex flex-col absolute top-0 left-0 bg-black/40 backdrop-blur-md' : 'hidden','md:flex justify-between py-10 items-center w-full text-white')}>
-                        <button className='md:hidden justify-self-start' onClick={()=>close()}>
+                        <button className={clsx('justify-self-start', open ? 'block' : 'hidden')} onClick={()=>close()}>
                             X
                             {/* TODO: real icon lol */}
                             </button>
