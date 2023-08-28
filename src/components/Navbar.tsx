@@ -5,48 +5,74 @@ import Link from 'next/link'
 type Item = {
     name: string
     link: string
+    icon?: string
+    // idk what type icon should be lol
 }
 
 type TopLevelItem = Item & {
-    children?: Item[]
+    children?: (Item & {description: string})[]
 }
 
 const items: TopLevelItem[] = [
     {
-        name: 'About',
+        name: 'About Us',
         link: '/about',
+        children: [
+            {
+                name: 'Mission & Values',
+                link: '/about/mission',
+                description: 'About our organization\'s mission and values',
+            },
+            {
+                name: 'Governance',
+                "description": "Learn about the structure of the club and different leadership positions",
+                link: '/about/governance',
+            }
+        ]
     },
     {
-        name: 'Projects',
+        name: 'Our Projects',
         link: '/projects',
+        // TODO: include icons
         children: [
             {
-                name: 'Project 1',
-                link: '/project-1',
+                name: 'Planner',
+                link: '/projects/planner',
+                description: 'Help plan degree and course requirements',
             },
             {
-                name: 'Project 2',
-                link: '/project-2',
+                name: 'Jupiter',
+                link: '/projects/jupiter',
+                description: 'Find and connect with student organizations',
             },
-        ],
+            {
+                name: 'Sk.edge/Trends',
+                link: '/projects/skedge',
+                "description": "Help plan UTD coursework through stats"
+            },
+            {
+                name: 'API and Platform',
+                link: '/projects/api',
+                "description": "Integrate our database of X+ years of historical UTD data into your own applications"
+            },
+            {   
+                name: 'Guide',
+                link: '/projects/guide',
+                "description": "An all-in-one guide to life at UTD"
+            }
+        ]
     },
     {
-        name: 'Contact',
+        name: 'Membership',
+        link: '/membership',
+    },
+    {
+        name: 'Newsletter',
+        link: '/newsletter',
+    },
+    {
+        name: 'Contact Us',
         link: '/contact',
-    },
-    {
-        name: 'Resources',
-        link: '/resources',
-        children: [
-            {
-                name: 'Resource 1',
-                link: '/resource-1',
-            },
-            {
-                name: 'Resource 2',
-                link: '/resource-2',
-            },
-        ],
     },
 ]
 const Navbar = () => {
