@@ -84,18 +84,29 @@ const Navbar = () => {
             <ul className='flex justify-around w-full h-min'>
                 {items.map((item, outerIndex) => (
                     <li key={`menu-${outerIndex}`} className='group'>
-                        <a>
-                           
+                        <Link href={item.link} >
                             {item.name}
-                            </a>
+                        </Link>
                         {item.children && (
-                            <ul className="group-hover:block hidden">
+                            <>
+                            {/* TODO: chevron up icon. note rotate doesn't work */}
+                            <span className='group-hover:rotate-180'>^</span>
+                            {/* TODO: this bg is a gradient in figma */}
+                            <ul className={"absolute w-screen bg-black/40 backdrop-blur-md left-0 py-16 px-20 justify-items-center flex-wrap" + (outerIndex == 0 ? " flex" : " group-hover:flex hidden")}>
                                 {item.children.map((child, innerIndex) => (
-                                    <li key={`menu-${outerIndex}-${innerIndex}`}>
-                                        {child.name}
+                                    // TODO link
+                                    <li key={`menu-${outerIndex}-${innerIndex}`} className='hover:transition-none transition-all w-96 border border-white hover:border-opacity-100 border-opacity-0 rounded-3xl p-8 m-8 flex flex-col gap-1'>
+                                        <h2 className="font-bold text-2xl">
+                                            {child.name}
+                                            {/* TODO: arrow right icon */}
+                                        </h2>
+                                        <p>
+                                            {child.description}
+                                        </p>
                                     </li>
                                 ))}
                             </ul>
+                            </>
                         )}
                     </li>
                 ))}
