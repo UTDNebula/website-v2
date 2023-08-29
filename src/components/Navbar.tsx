@@ -2,22 +2,27 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Disclosure } from '@headlessui/react'
+import { useEffect } from 'react'
 
-type Item = {
-    name: string
+type BaseItem = {name: string}
+
+interface LinkItem extends BaseItem {
     link: string
-    icon?: string
-    // idk what type icon should be lol
 }
 
-type TopLevelItem = Item & {
-    children?: (Item & {description: string})[]
+interface ParentItem extends BaseItem {
+    children: {
+        name: string
+        link: string
+        // icon?: string
+        // TODO: idk what type icon should be lol
+        description: string
+    }[]
 }
 
-const items: TopLevelItem[] = [
-    {
+const parentItems: Array<ParentItem> = [
+        {
         name: 'About Us',
-        link: '/about',
         children: [
             {
                 name: 'Mission & Values',
@@ -33,8 +38,6 @@ const items: TopLevelItem[] = [
     },
     {
         name: 'Our Projects',
-        link: '/projects',
-        // TODO: include icons
         children: [
             {
                 name: 'Planner',
@@ -62,7 +65,11 @@ const items: TopLevelItem[] = [
                 "description": "An all-in-one guide to life at UTD"
             }
         ]
-    },
+}
+]
+
+const childItems: Array<LinkItem> = [
+    
     {
         name: 'Membership',
         link: '/membership',
@@ -76,39 +83,47 @@ const items: TopLevelItem[] = [
         link: '/contact',
     },
 ]
+
 const Navbar = () => {
-    // TODO: when breakpoint switches from desktop -> mobile or vice versa, close the menu
+    // NOTE: weird hover issue is caused by the relative class on the explore the galaxy text
     return (
-        <Disclosure as="div" className="flex justify-between">
-            {({ open, close }) => (
+        <Disclosure as="nav" className="flex py-10 items-center md:place-content-evenly place-content-between px-4">
+            {({ open: displayMobileMenu, close }) => (
                 <>
+                    <CloseOnResizeManager call={close} />
                     <Link className='flex items-center' href='/'>
-                    <Image src={'/icon-white.svg'} alt={'logo'} width={90} height={70} priority />
+                        <Image src={'/icon-white.svg'} alt={'logo'} width={90} height={70} priority />
                     </Link>
                     <Disclosure.Button className="md:hidden">
                         {/* TODO: icon */}
                         burger
                     </Disclosure.Button>
-                    <Disclosure.Panel static as="nav" className={clsx(open ? 'flex flex-col absolute top-0 left-0 bg-black/40 backdrop-blur-md' : 'hidden','md:flex justify-between py-10 items-center w-full text-white')}>
-                        <button className={clsx('justify-self-start', open ? 'block' : 'hidden')} onClick={()=>close()}>
-                            X
-                            {/* TODO: real icon lol */}
-                            </button>
-                        <ul className='flex justify-around w-full h-min flex-col md:flex-row'>
-                            {items.map((item, outerIndex) => (
-                                <li key={`menu-${outerIndex}`} className='group'>
-                                    <Link href={item.link} >
-                                        {item.name}
-                                    {/* TODO: chevron up icon. note rotate doesn't work */}
-                                    {item.children && (<span className='group-hover:rotate-180'>^</span>)}
-                                    </Link>
-                                    {/* TODO: will need to render another disclosure here */}
-                                    {item.children && (
-                                        // TODO: this bg is a gradient in figma
-                                        <ul className="absolute w-screen bg-black/40 backdrop-blur-md left-0 py-16 px-20 justify-items-center flex-wrap group-hover:flex hidden">
+                    <Disclosure.Panel static as="div" className={clsx(displayMobileMenu ? 'flex flex-col absolute top-0 left-0 bg-black/40 backdrop-blur-md p-4 gap-4' : 'hidden', 'md:contents w-full text-white font-semibold')}>
+                        {({open: submenuOpen})=>(
+                            <>
+                            <button className={clsx(displayMobileMenu ? 'block' : 'hidden', 'place-self-end')} onClick={()=>close()}>
+                                X
+                                {/* TODO: real icon lol */}
+                                </button>
+                            <ul className='contents w-full h-min'>
+                                {parentItems.map((item, outerIndex) => {
+                                    const classes = clsx(displayMobileMenu && 'flex place-content-between w-full')
+                                    return (
+                                    <Disclosure as="li" key={`menu-parent-${outerIndex}`} className='group'>
+                                        <Disclosure.Button className='w-full'>
+                                            {<span className={classes}>
+                                                {item.name}
+                                                {/* TODO: chevron up icon. */}
+                                                <span className={clsx( submenuOpen && 'rotate-180')}>^</span>
+                                            </span>}
+                                        </Disclosure.Button>
+
+                                        {/* // TODO: this bg is a gradient in figma
+                                        // md:group-hover:flex md:hidden */}
+                                        <Disclosure.Panel as="ul" className={clsx("md:absolute md:w-screen md:bg-black/40 md:backdrop-blur-md md:left-0 md:py-16 md:px-20 justify-items-center flex-wrap  flex")}>
                                             {item.children.map((child, innerIndex) => (
                                                 // TODO link
-                                                <li key={`menu-${outerIndex}-${innerIndex}`} className='hover:transition-none transition-all w-96 border border-white hover:border-opacity-100 border-opacity-0 rounded-3xl p-8 m-8 flex flex-col gap-1'>
+                                                <li key={`menu-${outerIndex}-${innerIndex}`} className='hover:transition-none transition-all md:w-96 border border-white hover:border-opacity-100 border-opacity-0 rounded-3xl p-8 m-8 flex flex-col gap-1'>
                                                     <h2 className="font-bold text-2xl">
                                                         {child.name}
                                                         {/* TODO: arrow right icon */}
@@ -118,22 +133,43 @@ const Navbar = () => {
                                                     </p>
                                                 </li>
                                             ))}
-                                        </ul>
-                                    )}
-                                </li>
-                            ))}
-                        </ul>
-                        <button className='justify-self-end'>
-                            {/* TODO: style this button */}
-                            Get Involved
-                        </button>
+                                        </Disclosure.Panel>
+
+                                    </Disclosure>
+                                )})}
+                                {childItems.map((item, outerIndex) => {
+                                    const classes = clsx(displayMobileMenu && 'flex place-content-between w-full')
+                                    return (
+                                    <li key={`menu-child-${outerIndex}`}>
+                                        <Link href={item.link} className={classes}>
+                                            {item.name}
+                                        </Link>
+                                    </li>
+                                )})}
+                            </ul>
+                            <button className='justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap'>
+                                {/* TODO: where is this supposed to link to */}
+                                Get Involved
+                            </button>
+                        </>
+                        )}
                     </Disclosure.Panel>
-                    
                 </>
             )}
         </Disclosure>
         
     )
+}
+
+const CloseOnResizeManager = (props: {call: ()=> void}) => {
+    useEffect(()=>{
+        const obs = new ResizeObserver(()=>{
+            props.call()
+        })
+        obs.observe(document.body)
+        return ()=>obs.disconnect()
+    }, [])
+    return null
 }
 
 export default Navbar
