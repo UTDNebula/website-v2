@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Disclosure } from '@headlessui/react'
-import { useEffect } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import FilledChevronUp from "@/../public/filled-chevron-up.svg"
 import Arrow from "@/../public/arrow.svg";
 import X from "@/../public/x.svg";
@@ -103,13 +103,18 @@ const childItems: Array<LinkItem> = [
 ]
 
 const Navbar = () => {
-    // NOTE: weird hover issue is caused by the relative class on the explore the galaxy text
-    // TODO: only allow one submenu to be open at once in non mobile view
+    const [submenuCloseCallbacks, setSubmenuCloseCallbacks] = useState<Record<string, () => void>>({})
+    const closeAllSubmenus = useCallback(()=>{
+        Object.values(submenuCloseCallbacks).forEach((cb)=>cb())
+    }, [submenuCloseCallbacks])
     return (
         <Disclosure as="nav" className="flex py-10 items-center md:place-content-evenly place-content-between px-4">
             {({ open: displayMobileMenu, close }) => (
                 <>
-                    <CloseOnResizeManager call={close} />
+                    <CloseOnResizeManager call={()=>{
+                        close();
+                        closeAllSubmenus();
+                    }} />
                     <Link className='flex items-center' href='/'>
                         <Image src={'/icon-white.svg'} alt={'logo'} width={90} height={70} priority />
                     </Link>
@@ -123,9 +128,15 @@ const Navbar = () => {
                         <ul className='contents w-full h-min'>
                             {parentItems.map((item, outerIndex) => 
                                 <Disclosure as="li" key={`menu-parent-${outerIndex}`} className='group contents md:block'>
-                                    {({open: submenuOpen})=>(
+                                    {({open: submenuOpen, close: closeSubmenu})=>{
+                                        const handler = () => { 
+                                            setSubmenuCloseCallbacks((prev) => ({...prev, [item.name]: closeSubmenu}))
+                                            if (displayMobileMenu) return
+                                            Object.entries(submenuCloseCallbacks).filter(([k])=>k!=item.name).forEach(([,v])=>v())
+                                        }
+                                        return (
                                         <>
-                                            <Disclosure.Button className={clsx(displayMobileMenu && 'place-content-between', 'w-full flex gap-1 items-center')}>
+                                            <Disclosure.Button onClick={handler} className={clsx(displayMobileMenu && 'place-content-between', 'w-full flex gap-1 items-center')}>
                                                 <p>{item.name}</p>
                                                 <Image src={FilledChevronUp} alt="" className={clsx( submenuOpen ? 'rotate-0' : 'rotate-180', "w-3 transition-transform")}/>
                                             </Disclosure.Button>
@@ -158,7 +169,7 @@ const Navbar = () => {
                                                 ))}
                                             </Disclosure.Panel>
                                         </>
-                                    )}
+                                    )}}
                                 </Disclosure>
                             )}
                             {childItems.map((item, outerIndex) => 
@@ -182,13 +193,13 @@ const Navbar = () => {
 }
 
 const CloseOnResizeManager = (props: {call: ()=> void}) => {
+    const { call } = props
     useEffect(() => {
-        const obs = new ResizeObserver(()=>{
-            // props.call()
-        })
-        obs.observe(document.body)
-        return () => obs.disconnect()
-    }, [props])
+        window.addEventListener('resize', call)
+        return () => {
+            window.removeEventListener('resize', call)
+        }
+    }, [call])
     return null
 }
 
