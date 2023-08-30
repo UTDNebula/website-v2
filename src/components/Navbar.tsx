@@ -107,6 +107,7 @@ const Navbar = () => {
     const closeAllSubmenus = useCallback(()=>{
         Object.values(submenuCloseCallbacks).forEach((cb)=>cb())
     }, [submenuCloseCallbacks])
+    
     return (
         <Disclosure as="nav" className="flex py-10 items-center md:place-content-evenly place-content-between px-4">
             {({ open: displayMobileMenu, close }) => (
@@ -121,7 +122,7 @@ const Navbar = () => {
                     <Disclosure.Button className="md:hidden">
                         <Image src={Hamburger} alt=""className="w-8"/>
                     </Disclosure.Button>
-                    <Disclosure.Panel static as="div" className={clsx(displayMobileMenu ? 'flex flex-col absolute top-0 left-0 bg-black/40 backdrop-blur-md p-4 gap-5' : 'hidden', 'md:contents w-full text-white font-semibold')}>
+                    <Disclosure.Panel static as="div" className={clsx(displayMobileMenu ? 'flex flex-col absolute top-0 left-0 bg-dark-gradient outline backdrop-blur-md p-4 gap-5' : 'hidden', 'md:contents w-full text-white font-semibold')}>
                         <button className={clsx(displayMobileMenu ? 'block' : 'hidden', 'place-self-end')} onClick={()=>close()}>
                             <Image src={X} alt="" className="w-4" />
                         </button>
@@ -141,8 +142,7 @@ const Navbar = () => {
                                                 <Image src={FilledChevronUp} alt="" className={clsx( submenuOpen ? 'rotate-0' : 'rotate-180', "w-3 transition-transform")}/>
                                             </Disclosure.Button>
 
-                                            {/* TODO: this bg is a gradient in figma */}
-                                            <Disclosure.Panel as="ul" className={clsx("md:absolute md:w-screen md:bg-black/40 md:backdrop-blur-md md:left-0 md:py-12 md:px-20 justify-items-center md:flex-wrap md:flex md:gap-10 contents")}>
+                                            <Disclosure.Panel as="ul" className={clsx('md:absolute md:w-screen md:bg-dark-gradient md:backdrop-blur-md outline md:left-0 md:py-12 md:px-20 justify-items-center md:flex-wrap md:flex md:gap-10 contents')}>
                                                 {item.children.map((child, innerIndex) => (
                                                     <li key={`menu-${outerIndex}-${innerIndex}`} className='hover:transition-none transition-all md:w-96 border border-white md:hover:border-opacity-100 border-opacity-0 md:rounded-3xl md:p-8 flex md:flex-col gap-2'>
                                                         {child.iconSrc && <Image

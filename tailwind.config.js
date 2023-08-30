@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'brand-gradient': "url('/gradient.png')"
+        'brand-gradient': "url('/gradient.png')",
+        'dark-gradient': "linear-gradient(135deg, rgba(21, 21, 21, 0.50) 62.50%, rgba(21, 21, 21, 0.00) 100%)"
       },
       colors: {
         'haiti': '#090b2c', // brand black
