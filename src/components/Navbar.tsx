@@ -116,13 +116,13 @@ const Navbar = () => {
                     <Disclosure.Button className="md:hidden">
                         <Image src={Hamburger} alt=""className="w-8"/>
                     </Disclosure.Button>
-                    <Disclosure.Panel static as="div" className={clsx(displayMobileMenu ? 'flex flex-col absolute top-0 left-0 bg-black/40 backdrop-blur-md p-4 gap-4' : 'hidden', 'md:contents w-full text-white font-semibold')}>
+                    <Disclosure.Panel static as="div" className={clsx(displayMobileMenu ? 'flex flex-col absolute top-0 left-0 bg-black/40 backdrop-blur-md p-4 gap-5' : 'hidden', 'md:contents w-full text-white font-semibold')}>
                         <button className={clsx(displayMobileMenu ? 'block' : 'hidden', 'place-self-end')} onClick={()=>close()}>
                             <Image src={X} alt="" className="w-4" />
                         </button>
                         <ul className='contents w-full h-min'>
                             {parentItems.map((item, outerIndex) => 
-                                <Disclosure as="li" key={`menu-parent-${outerIndex}`} className='group'>
+                                <Disclosure as="li" key={`menu-parent-${outerIndex}`} className='group contents md:block'>
                                     {({open: submenuOpen})=>(
                                         <>
                                             <Disclosure.Button className={clsx(displayMobileMenu && 'place-content-between', 'w-full flex gap-1 items-center')}>
@@ -131,7 +131,7 @@ const Navbar = () => {
                                             </Disclosure.Button>
 
                                             {/* TODO: this bg is a gradient in figma */}
-                                            <Disclosure.Panel as="ul" className={clsx("md:absolute md:w-screen md:bg-black/40 md:backdrop-blur-md md:left-0 md:py-12 md:px-20 justify-items-center flex-wrap flex gap-10")}>
+                                            <Disclosure.Panel as="ul" className={clsx("md:absolute md:w-screen md:bg-black/40 md:backdrop-blur-md md:left-0 md:py-12 md:px-20 justify-items-center md:flex-wrap md:flex md:gap-10 contents")}>
                                                 {item.children.map((child, innerIndex) => (
                                                     <li key={`menu-${outerIndex}-${innerIndex}`} className='hover:transition-none transition-all md:w-96 border border-white md:hover:border-opacity-100 border-opacity-0 md:rounded-3xl md:p-8 flex md:flex-col gap-2'>
                                                         {child.iconSrc && <Image
@@ -139,9 +139,9 @@ const Navbar = () => {
                                                             alt=""
                                                             className=""
                                                         />}
-                                                            <Link href={child.link} className='md:contents'>
+                                                            <Link href={child.link} className='md:flex md:flex-col gap-1'>
                                                                 <span className="flex gap-2 w-full">
-                                                                    <h2 className="font-bold text-2xl">
+                                                                    <h2 className="font-bold md:text-2xl">
                                                                         {child.name}
                                                                     </h2>
                                                                     <Image
