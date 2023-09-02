@@ -160,11 +160,13 @@ closeAllSubmenus();
                             <ul className='contents w-full h-min'>
                                     {parentItems.map((item, outerIndex) => 
                                         <Disclosure as="li" key={`menu-parent-${outerIndex}`} className='group contents lg:block' onMouseEnter={(e) => {
+                                            if (!shouldDisplayDesktopMenu) return
                                             if (e.currentTarget.getAttribute("data-headlessui-state") !== 'open') {
                                                 buttonRefs.current[outerIndex]?.click()
                                                 buttonRefs.current[outerIndex]?.focus()
                                             }
                                         }} onMouseLeave={(e) => {
+                                            if (!shouldDisplayDesktopMenu) return
                                             setTimeout(()=>{
                                                 const li = buttonRefs.current[outerIndex]?.parentElement
                                                 if (li?.matches(':hover')) {
