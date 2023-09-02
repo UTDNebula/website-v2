@@ -1,8 +1,8 @@
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Disclosure } from '@headlessui/react'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { Disclosure, Transition, TransitionRootProps } from '@headlessui/react'
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react'
 import FilledChevronUp from "@/../public/filled-chevron-up.svg"
 import Arrow from "@/../public/arrow.svg";
 import X from "@/../public/x.svg";
@@ -102,89 +102,121 @@ const childItems: Array<LinkItem> = [
     },
 ]
 
+const transitionProps: TransitionRootProps<typeof Fragment> = {
+    as: Fragment,
+    enter:"transition duration-100 ease-out",
+    enterFrom:"transform scale-95 -translate-y-5 opacity-0",
+    enterTo:"transform scale-100 translate-y-0 opacity-100",
+    leave:"transition duration-25 ease-out",
+    leaveFrom:"transform scale-100 translate-y-0 opacity-100",
+    leaveTo:"transform scale-95 -translate-y-5 opacity-0",
+}
+
 const Navbar = () => {
     const [submenuCloseCallbacks, setSubmenuCloseCallbacks] = useState<Record<string, () => void>>({})
     const closeAllSubmenus = useCallback(()=>{
         Object.values(submenuCloseCallbacks).forEach((cb)=>cb())
     }, [submenuCloseCallbacks])
-    
+
+    const ref = useRef<HTMLSpanElement>(null)
+    const [shouldDisplayDesktopMenu, setShouldDisplayDesktopMenu] = useState(true)
+    useEffect(()=>{
+        if (!ref.current) {
+            return
+        }
+
+        setShouldDisplayDesktopMenu(ref.current.clientWidth > 0)
+        
+        const obs = new ResizeObserver(([entry]) => {
+            setShouldDisplayDesktopMenu(entry.contentRect.width > 0)
+        })
+        obs.observe(ref.current)
+
+        return () => {
+            obs.disconnect()
+        }
+    }, [ref])
     return (
-        <Disclosure as="nav" className="flex py-10 items-center md:place-content-evenly place-content-between px-4">
-            {({ open: displayMobileMenu, close }) => (
+        <Disclosure as="nav" className="flex py-10 items-center lg:place-content-evenly place-content-between px-4">
+            {({ open: displayMobileMenu, close: closeMobileMenu }) => (
                 <>
+                    <span ref={ref} className="w-0 h-0 absolute invisible lg:w-5"/>
                     <CloseOnResizeManager call={()=>{
-                        close();
+                        closeMobileMenu();
                         closeAllSubmenus();
                     }} />
                     <Link className='flex items-center' href='/'>
                         <Image src={'/icon-white.svg'} alt={'logo'} width={90} height={70} priority />
                     </Link>
-                    <Disclosure.Button className="md:hidden">
+                    <Disclosure.Button className="lg:hidden">
                         <Image src={Hamburger} alt=""className="w-8"/>
                     </Disclosure.Button>
-                    <Disclosure.Panel static as="div" className={clsx(displayMobileMenu ? 'flex flex-col absolute top-0 left-0 bg-dark-gradient outline backdrop-blur-md p-4 gap-5' : 'hidden', 'md:contents w-full text-white font-semibold')}>
-                        <button className={clsx(displayMobileMenu ? 'block' : 'hidden', 'place-self-end')} onClick={()=>close()}>
-                            <Image src={X} alt="" className="w-4" />
-                        </button>
-                        <ul className='contents w-full h-min'>
-                            {parentItems.map((item, outerIndex) => 
-                                <Disclosure as="li" key={`menu-parent-${outerIndex}`} className='group contents md:block'>
-                                    {({open: submenuOpen, close: closeSubmenu})=>{
-                                        const handler = () => { 
-                                            setSubmenuCloseCallbacks((prev) => ({...prev, [item.name]: closeSubmenu}))
-                                            if (displayMobileMenu) return
-                                            Object.entries(submenuCloseCallbacks).filter(([k])=>k!=item.name).forEach(([,v])=>v())
-                                        }
-                                        return (
-                                        <>
-                                            <Disclosure.Button onClick={handler} className={clsx(displayMobileMenu && 'place-content-between', 'w-full flex gap-1 items-center')}>
-                                                <p>{item.name}</p>
-                                                <Image src={FilledChevronUp} alt="" className={clsx( submenuOpen ? 'rotate-0' : 'rotate-180', "w-3 transition-transform")}/>
-                                            </Disclosure.Button>
-
-                                            <Disclosure.Panel as="ul" className={clsx('md:absolute md:w-screen md:bg-dark-gradient md:backdrop-blur-md outline md:left-0 md:py-12 md:px-20 justify-items-center md:flex-wrap md:flex md:gap-10 contents')}>
-                                                {item.children.map((child, innerIndex) => (
-                                                    <li key={`menu-${outerIndex}-${innerIndex}`} className='hover:transition-none transition-all md:w-96 border border-white md:hover:border-opacity-100 border-opacity-0 md:rounded-3xl md:p-8 flex md:flex-col gap-2'>
-                                                        {child.iconSrc && <Image
-                                                            src={child.iconSrc}
-                                                            alt=""
-                                                            className=""
-                                                        />}
-                                                            <Link href={child.link} className='md:flex md:flex-col gap-1'>
-                                                                <span className="flex gap-2 w-full">
-                                                                    <h2 className="font-bold md:text-2xl">
-                                                                        {child.name}
-                                                                    </h2>
-                                                                    <Image
-                                                                        src={Arrow}
-                                                                        alt=""
-                                                                        className="-rotate-90 md:block hidden"
-                                                                        />
-                                                                </span>
-                                                            <p>
-                                                                {child.description}
-                                                            </p>
-                                                            </Link>
-                                                    </li>
-                                                ))}
-                                            </Disclosure.Panel>
-                                        </>
-                                    )}}
-                                </Disclosure>
-                            )}
-                            {childItems.map((item, outerIndex) => 
-                                <li key={`menu-child-${outerIndex}`}>
-                                    <Link href={item.link} className={clsx(displayMobileMenu && 'flex place-content-between w-full')}>
-                                        {item.name}
-                                    </Link>
-                                </li>
-                            )}
-                        </ul>
-                        <button className='justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap'>
-                            {/* TODO: where is this supposed to link to */}
-                            Get Involved
-                        </button>
-                    </Disclosure.Panel>
+                    <Transition {...transitionProps} show={shouldDisplayDesktopMenu || displayMobileMenu}>
+                        <Disclosure.Panel static as="div" className={clsx(displayMobileMenu ? 'flex flex-col absolute top-0 left-0 bg-dark-gradient outline backdrop-blur-md p-4 gap-5' : 'hidden', 'lg:contents w-full text-white font-semibold')}>
+                            <button className={clsx(displayMobileMenu ? 'block' : 'hidden', 'place-self-end')} onClick={()=>closeMobileMenu()}>
+                                <Image src={X} alt="" className="w-4" />
+                            </button>
+                            <ul className='contents w-full h-min'>
+                                {parentItems.map((item, outerIndex) => 
+                                    <Disclosure as="li" key={`menu-parent-${outerIndex}`} className='group contents lg:block'>
+                                        {({open: submenuOpen, close: closeSubmenu})=>{
+                                            const handler = () => { 
+                                                setSubmenuCloseCallbacks((prev) => ({...prev, [item.name]: closeSubmenu}))
+                                                if (displayMobileMenu) return
+                                                Object.entries(submenuCloseCallbacks).filter(([k])=>k!=item.name).forEach(([,v])=>v())
+                                            }
+                                            return (
+                                            <>
+                                                <Disclosure.Button onClick={handler} className={clsx(displayMobileMenu && 'place-content-between', 'w-full flex gap-1 items-center')}>
+                                                    <p>{item.name}</p>
+                                                    <Image src={FilledChevronUp} alt="" className={clsx( submenuOpen ? 'rotate-0' : 'rotate-180', "w-3 transition-transform")}/>
+                                                </Disclosure.Button>
+                                                <Transition {...transitionProps} >
+                                                    <Disclosure.Panel as="ul" className={clsx('lg:absolute lg:w-screen lg:bg-dark-gradient lg:backdrop-blur-md border border-x-0 border-opacity-50 lg:left-0 lg:top-32 lg:py-10 lg:px-20 justify-items-center lg:flex-wrap lg:flex lg:gap-10 contents')}>
+                                                        {item.children.map((child, innerIndex) => (
+                                                            <li key={`menu-${outerIndex}-${innerIndex}`} className='hover:transition-none transition-all lg:w-96 border border-white lg:hover:border-opacity-100 border-opacity-0 lg:rounded-3xl lg:p-8 flex lg:flex-col gap-2'>
+                                                                {child.iconSrc && <Image
+                                                                    src={child.iconSrc}
+                                                                    alt=""
+                                                                    className=""
+                                                                />}
+                                                                    <Link href={child.link} className='lg:flex lg:flex-col gap-1'>
+                                                                        <span className="flex gap-2 w-full">
+                                                                            <h2 className="font-bold lg:text-2xl">
+                                                                                {child.name}
+                                                                            </h2>
+                                                                            <Image
+                                                                                src={Arrow}
+                                                                                alt=""
+                                                                                className="-rotate-90 lg:block hidden"
+                                                                                />
+                                                                        </span>
+                                                                        <p>
+                                                                            {child.description}
+                                                                        </p>
+                                                                    </Link>
+                                                            </li>
+                                                        ))}
+                                                    </Disclosure.Panel>
+                                                </Transition>
+                                            </>
+                                        )}}
+                                    </Disclosure>
+                                )}
+                                {childItems.map((item, outerIndex) => 
+                                    <li key={`menu-child-${outerIndex}`}>
+                                        <Link href={item.link} className={clsx(displayMobileMenu && 'flex place-content-between w-full')}>
+                                            {item.name}
+                                        </Link>
+                                    </li>
+                                )}
+                            </ul>
+                            <button className='justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap'>
+                                {/* TODO: where is this supposed to link to */}
+                                Get Involved
+                            </button>
+                        </Disclosure.Panel>
+                    </Transition>
                 </>
             )}
         </Disclosure>
