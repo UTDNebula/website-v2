@@ -104,21 +104,22 @@ const childItems: Array<LinkItem> = [
 
 const transitionProps: TransitionRootProps<typeof Fragment> = {
     as: Fragment,
-    enter:"transition duration-100 ease-out",
+    enter:"transition duration-75 ease-out",
     enterFrom:"transform scale-95 -translate-y-5 opacity-0",
     enterTo:"transform scale-100 translate-y-0 opacity-100",
-    leave:"transition duration-25 ease-out",
+    leave:"transition duration-75 ease-out",
     leaveFrom:"transform scale-100 translate-y-0 opacity-100",
     leaveTo:"transform scale-95 -translate-y-5 opacity-0",
 }
 
 const Navbar = () => {
-    const [submenuCloseCallbacks, setSubmenuCloseCallbacks] = useState<Record<string, () => void>>({})
+const [submenuCloseCallbacks, setSubmenuCloseCallbacks] = useState<Record<string, () => void>>({})
     const closeAllSubmenus = useCallback(()=>{
         Object.values(submenuCloseCallbacks).forEach((cb)=>cb())
     }, [submenuCloseCallbacks])
 
     const ref = useRef<HTMLSpanElement>(null)
+    const buttonRefs = useRef<(HTMLButtonElement|null)[]>(Array(parentItems.length))
     const [shouldDisplayDesktopMenu, setShouldDisplayDesktopMenu] = useState(true)
     useEffect(()=>{
         if (!ref.current) {
@@ -143,7 +144,7 @@ const Navbar = () => {
                     <span ref={ref} className="w-0 h-0 absolute invisible lg:w-5"/>
                     <CloseOnResizeManager call={()=>{
                         closeMobileMenu();
-                        closeAllSubmenus();
+closeAllSubmenus();
                     }} />
                     <Link className='flex items-center' href='/'>
                         <Image src={'/icon-white.svg'} alt={'logo'} width={90} height={70} priority />
@@ -157,53 +158,68 @@ const Navbar = () => {
                                 <Image src={X} alt="" className="w-4" />
                             </button>
                             <ul className='contents w-full h-min'>
-                                {parentItems.map((item, outerIndex) => 
-                                    <Disclosure as="li" key={`menu-parent-${outerIndex}`} className='group contents lg:block'>
-                                        {({open: submenuOpen, close: closeSubmenu})=>{
+                                    {parentItems.map((item, outerIndex) => 
+                                        <Disclosure as="li" key={`menu-parent-${outerIndex}`} className='group contents lg:block' onMouseEnter={(e) => {
+                                            if (e.currentTarget.getAttribute("data-headlessui-state") !== 'open') {
+                                                buttonRefs.current[outerIndex]?.click()
+                                                buttonRefs.current[outerIndex]?.focus()
+                                            }
+                                        }} onMouseLeave={(e) => {
+                                            setTimeout(()=>{
+                                                const li = buttonRefs.current[outerIndex]?.parentElement
+                                                if (li?.matches(':hover')) {
+                                                    return
+                                                }
+                                                if (li?.getAttribute("data-headlessui-state") === 'open') {
+                                                    buttonRefs.current[outerIndex]?.click()
+                                                }
+                                            }, 500)
+                                        }}>
+                                            {({open: submenuOpen, close: closeSubmenu})=>{
                                             const handler = () => { 
                                                 setSubmenuCloseCallbacks((prev) => ({...prev, [item.name]: closeSubmenu}))
                                                 if (displayMobileMenu) return
                                                 Object.entries(submenuCloseCallbacks).filter(([k])=>k!=item.name).forEach(([,v])=>v())
                                             }
-                                            return (
-                                            <>
-                                                <Disclosure.Button onClick={handler} className={clsx(displayMobileMenu && 'place-content-between', 'w-full flex gap-1 items-center')}>
-                                                    <p>{item.name}</p>
-                                                    <Image src={FilledChevronUp} alt="" className={clsx( submenuOpen ? 'rotate-0' : 'rotate-180', "w-3 transition-transform")}/>
-                                                </Disclosure.Button>
-                                                <Transition {...transitionProps} >
-                                                    <Disclosure.Panel as="ul" className={clsx('lg:absolute lg:w-screen lg:bg-dark-gradient lg:backdrop-blur-md border border-x-0 border-opacity-50 lg:left-0 lg:top-32 lg:py-10 lg:px-20 justify-items-center lg:flex-wrap lg:flex lg:gap-10 contents')}>
-                                                        {item.children.map((child, innerIndex) => (
-                                                            <li key={`menu-${outerIndex}-${innerIndex}`} className='hover:transition-none transition-all lg:w-96 border border-white lg:hover:border-opacity-100 border-opacity-0 lg:rounded-3xl lg:p-8 flex lg:flex-col gap-2'>
-                                                                {child.iconSrc && <Image
-                                                                    src={child.iconSrc}
-                                                                    alt=""
-                                                                    className=""
-                                                                />}
-                                                                    <Link href={child.link} className='lg:flex lg:flex-col gap-1'>
-                                                                        <span className="flex gap-2 w-full">
-                                                                            <h2 className="font-bold lg:text-2xl">
-                                                                                {child.name}
-                                                                            </h2>
-                                                                            <Image
-                                                                                src={Arrow}
-                                                                                alt=""
-                                                                                className="-rotate-90 lg:block hidden"
-                                                                                />
-                                                                        </span>
-                                                                        <p>
-                                                                            {child.description}
-                                                                        </p>
-                                                                    </Link>
-                                                            </li>
-                                                        ))}
-                                                    </Disclosure.Panel>
-                                                </Transition>
-                                            </>
-                                        )}}
-                                    </Disclosure>
-                                )}
-                                {childItems.map((item, outerIndex) => 
+                                                return (
+                                                <>
+                                                    <Disclosure.Button ref={el => buttonRefs.current[outerIndex] = el} onClick={handler} className={clsx(displayMobileMenu && 'place-content-between', 'w-full flex gap-1 items-center')}>
+                                                        <p>{item.name}</p>
+                                                        <Image src={FilledChevronUp} alt="" className={clsx( submenuOpen ? 'rotate-0' : 'rotate-180', "w-3 transition-transform")}/>
+                                                    </Disclosure.Button>
+                                                    <Transition {...transitionProps} >
+                                                        <Disclosure.Panel as="ul" className={clsx('lg:absolute lg:w-screen lg:bg-dark-gradient lg:backdrop-blur-md border border-x-0 border-opacity-25 lg:left-0 lg:top-20 lg:mt-6 lg:py-10 lg:px-20 justify-items-center lg:flex-wrap lg:flex lg:gap-10 contents')}>
+                                                            {item.children.map((child, innerIndex) => (
+                                                                <li key={`menu-${outerIndex}-${innerIndex}`} className='hover:transition-none transition-all lg:w-96 border border-white lg:hover:border-opacity-100 border-opacity-0 lg:rounded-3xl lg:p-8 flex lg:flex-col gap-2'>
+                                                                    {child.iconSrc && <Image
+                                                                        src={child.iconSrc}
+                                                                        alt=""
+                                                                        className=""
+                                                                    />}
+                                                                        <Link href={child.link} className='lg:flex lg:flex-col gap-1'>
+                                                                            <span className="flex gap-2 w-full">
+                                                                                <h2 className="font-bold lg:text-2xl">
+                                                                                    {child.name}
+                                                                                </h2>
+                                                                                <Image
+                                                                                    src={Arrow}
+                                                                                    alt=""
+                                                                                    className="-rotate-90 lg:block hidden"
+                                                                                    />
+                                                                            </span>
+                                                                            <p>
+                                                                                {child.description}
+                                                                            </p>
+                                                                        </Link>
+                                                                </li>
+                                                            ))}
+                                                        </Disclosure.Panel>
+                                                    </Transition>
+                                                </>
+                                            )}}
+                                        </Disclosure>
+                                    )}
+                                                                {childItems.map((item, outerIndex) => 
                                     <li key={`menu-child-${outerIndex}`}>
                                         <Link href={item.link} className={clsx(displayMobileMenu && 'flex place-content-between w-full')}>
                                             {item.name}
