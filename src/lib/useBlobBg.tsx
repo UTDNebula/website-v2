@@ -1,9 +1,5 @@
-
-// TODO: cleanup bg code
-
 import { CSSProperties, useEffect, useState } from "react"
 
-// TODO: Figure out why the animations only start on a fast refresh...
 const createBg = () => {
   const bgInstance = crypto.randomUUID()
   const varGen = (idx: number) => `--opacity-${bgInstance}-${idx+1}`
@@ -40,17 +36,19 @@ const generateVars = (cssVars: ReturnType<typeof createBg>['cssVars']) => {
   const keys = Object.keys(newVars)
   const idx1 = Math.floor(Math.random()*keys.length)
   const idx2 = Math.floor(Math.random()*keys.length)
+  const idx3 = Math.floor(Math.random()*keys.length)
+  const idx4 = Math.floor(Math.random()*keys.length)
   newVars[keys[idx1]] = '0.6'
   newVars[keys[idx2]] = '0.6'
+  newVars[keys[idx3]] = '0.2'
+  newVars[keys[idx4]] = '0.2'
   return newVars
 }
 
 const generateKeyframes = (count: number, id: string, cssVars: Record<string, string>) => {
   const frames = []
   for (let i = 0; i < count; i++) {
-    frames.push(generateKeyframe(frames.length/count*3, cssVars))
-    frames.push(generateKeyframe((frames.length)/count*3, generateVars(cssVars)))
-    frames.push(generateKeyframe(frames.length/count*3, cssVars))
+    frames.push(generateKeyframe((frames.length)/count, generateVars(cssVars)))
   }
   return `@keyframes switchColor-${id} { ${frames.join(" ")} }`
 }
@@ -76,7 +74,7 @@ const useBlobBg = (): [JSX.Element, CSSProperties] => {
         // registering properties may fail if they've already been registered
         console.error(e)
       }
-      const frames = generateKeyframes(7, bg.bgInstance, bg.cssVars)
+      const frames = generateKeyframes(18, bg.bgInstance, bg.cssVars)
       setData({...bg, frames})
     }, [])
     return [
@@ -85,7 +83,7 @@ const useBlobBg = (): [JSX.Element, CSSProperties] => {
             ...data?.cssVars,
             backgroundColor: 'hsla(0,0%,100%,0.5)',
             background: data?.background,
-            animation: `2500ms infinite alternate switchColor-${data?.bgInstance} cubic-bezier(0.4, 0, 0.6, 1)`,
+            animation: `15000ms infinite alternate switchColor-${data?.bgInstance} cubic-bezier(0.4, 0, 0.6, 1)`,
         }
     ]
 }
