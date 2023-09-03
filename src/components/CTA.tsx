@@ -14,8 +14,8 @@ const CTA = () => {
     />
     <Blob className="left-[70%] -top-16 -z-20" color="periwinkle" size="medium" />
         </div>
-    {/* TODO: stroke */}
-      <div className="mx-6 md:max-w-3xl md:px-32 py-8 sm:px-20 px-12 text-white text-center flex flex-col place-items-center rounded-lg gap-3 font-semibold drop-shadow-2xl hover:scale-105 duration-200 scale-100 transition-transform border border-opacity-50 border-white" style={{
+
+      <div className="mx-6 md:max-w-5xl md:px-36 py-8 sm:px-20 px-12 text-white text-center flex flex-col place-items-center rounded-lg gap-3 font-semibold drop-shadow-2xl hover:scale-105 duration-200 scale-100 transition-transform border border-opacity-50 border-white" style={{
           backgroundColor:'hsla(226,100%,93%,1)',
           backgroundImage: `radial-gradient(circle at 58% 94%, hsla(43,96%,56%,1) 0px, transparent 50%),
           radial-gradient(circle at 87% 89%, hsla(10,100%,64%,1) 0px, transparent 50%),
