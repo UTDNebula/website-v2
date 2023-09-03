@@ -5,22 +5,17 @@ import Blob from "@/components/Blob";
 import Footer from "@/components/Footer";
 import Arrow from "@/../public/arrow.svg";
 import WhoWeAre from "@/components/WhoWeAre";
+import useBlobBg from "@/lib/useBlobBg";
 import CTA from "@/components/CTA";
 
-const Header = () => (
+
+const Header = () => {
+  const [frames, bgStyles] = useBlobBg()
+
+  return (
   <div className="h-screen">
-    <div className="absolute -z-30 w-full h-full">
-      <Blob
-        className="-left-[10%] -top-[10%]"
-        color="periwinkle"
-        size="medium"
-      />
-      <Blob className="-right-[15%] -top-[10%]" color="blue-1" size="medium" />
-      <Blob className="-left-[20%] top-[20%]" color="blue-1" size="large" />
-      <Blob className="left-[20%] -top-[10%]" color="926FDB" size="large" />
-      <Blob className="left-[30%] top-[30%]" color="pink" size="large" />
-      <Blob className="left-[70%] top-[30%]" color="orange" size="medium" />
-    </div>
+    {frames}
+    <div style={bgStyles} className="absolute -z-30 w-full h-full text-xl" />
     <Image
       src={Circles}
       alt={""}
@@ -52,7 +47,7 @@ const Header = () => (
       </div>
     </main>
   </div>
-);
+)};
 
 const Home = () => (
   <div>

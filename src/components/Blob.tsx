@@ -1,6 +1,6 @@
 import clsx from "clsx"
 
-const Blob = (props: {className: string, color: keyof typeof colors, size: keyof typeof sizes}) => {
+const Blob = (props: {className: string, color: keyof typeof colors, size: keyof typeof sizes, animate?: boolean}) => {
     const colors = {
         "orange": "bg-[#FDBB59]",
         "blue-1": "bg-[#687BE8]",
@@ -13,14 +13,15 @@ const Blob = (props: {className: string, color: keyof typeof colors, size: keyof
     } as const 
     
     const sizes = {
-        medium: "h-[35vw] w-[35vw]",
-        large: "h-[45vw] w-[45vw]",
+        medium: "lg:h-[35vw] lg:w-[35vw]",
+        large: "lg:h-[45vw] lg:w-[45vw]",
     } as const
 
     const classes = clsx(
         "absolute rounded-full blur-[120px] mix-blend-multiply",
         sizes[props.size], 
         colors[props.color], 
+        "to-transparent bg-gradient-radial",
         props.className
     )
 
