@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Arrow from "@/../public/arrow.svg";
 import WhoWeAre from "@/components/WhoWeAre";
 import useBlobBg from "@/lib/useBlobBg";
+import CTA from "@/components/CTA";
 
 
 const Header = () => {
@@ -56,7 +57,7 @@ const Home = () => (
     {/* <div>projects</div> */}
     {/* <div>testimonials</div> */}
     {/* <div>beliefs</div> */}
-    {/* <div>cta card</div> */}
+    <CTA/>
     <Footer />
   </div>
 );
