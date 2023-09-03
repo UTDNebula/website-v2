@@ -8,7 +8,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         'brand-gradient': "url('/gradient.png')",
-        'dark-gradient': "linear-gradient(135deg, rgba(21, 21, 21, 0.50) 62.50%, rgba(21, 21, 21, 0.00) 100%)"
+        'dark-gradient': "linear-gradient(135deg, rgba(21, 21, 21, 0.35) 62.50%, rgba(21, 21, 21, 0.00) 100%)",
+        'gradient-radial': 'radial-gradient(circle closest-side, var(--tw-gradient-stops))',
       },
       colors: {
         'haiti': '#090b2c', // brand black
@@ -56,9 +57,6 @@ module.exports = {
           '50%': { opacity: '0.6' },
         }
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(circle closest-side, var(--tw-gradient-stops))',
-      }
     },
   },
   plugins: []
