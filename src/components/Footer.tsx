@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Footer = () => {
 	return (
-		<footer className="bg-[#573DFF] w-screen rounded-t-[3.125rem] pb-10">
+		<footer className="bg-royal w-screen rounded-t-[3.125rem] pb-10">
 			<div className="flex justify-between px-40 py-28">
 				<Image
 					src="/logo-name-white.svg"
