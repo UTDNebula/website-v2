@@ -2,7 +2,7 @@ function WhoWeAre() {
   return (
     <div className="xl:pt-32 px-40 flex justify-between">
       <div className="w-[340px]">
-        <h1 className="font-inter font-bold text-[80px] text-transparent bg-clip-text bg-gradient-to-br from-[#3634BB] via-royal to-[#6166FA]">
+        <h1 className="font-inter font-bold text-[80px] text-gradient">
           Who We Are
         </h1>
       </div>

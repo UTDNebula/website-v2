@@ -79,14 +79,20 @@ const Home = () => (
     {/* <WhoWeAre /> */}
     {/* <div>projects</div> */}
     {/* <div>projects</div> */}
-    <div className="flex overflow-x-scroll w-screen text-white my-16">
+    <div className="flex flex-col gap-8 text-center items-center mx-auto mt-24 my-12 max-w-3xl px-4">
+
+      <h4 className="text-gradient font-semibold lg:font-bold text-4xl">We Got Something For Everyone</h4>
+      <p className="">Our organization has something for everyone. Whether you&apos;re a seasoned pro or just starting out, we offer a range of opportunities to help you grow and develop.</p>
+
+    </div>
+    <div className="flex overflow-x-scroll text-white">
       {testimonials.map((t, idx, arr)=>(
-        <div key={`testimonial-${t.name}`} className="flex flex-shrink-0 w-screen px-8 relative lg:max-w-5xl">
+        <div key={`testimonial-${t.name}`} className="flex flex-shrink-0 w-screen px-8  lg:px-32 xl:px-48 relative">
           <span id={`testimonial-${idx}`} className="absolute -top-6 right-0 w-full h-0"/>
 <div className="bg-royal rounded-3xl flex-shrink-0 flex flex-col md:flex-row w-fit items-center md:items-center text-center gap-8 p-8 font-medium md:text-lg md:justify-start">
 
 
-          <Image className="md:w-2/5" src={t.image} alt={t.name} />
+          <Image className="md:w-2/5 lg:w-1/3" src={t.image} alt={t.name} />
           <span className="contents md:flex flex-col md:text-left gap-8 md:h-full md:justify-center relative">
 
           <p>{t.quote}</p>
@@ -106,7 +112,7 @@ const Home = () => (
     </div>
     {/* <div>beliefs</div> */}
     <CTA/>
-    {/* <Footer /> */}
+    <Footer />
   </div>
 );
 

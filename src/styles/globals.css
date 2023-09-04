@@ -5,3 +5,7 @@
 html {
   scroll-behavior: smooth;
 }
+
+.text-gradient {
+  @apply text-transparent bg-clip-text bg-gradient-to-br from-[#3634BB] via-royal to-cornflower-500;
+}
