@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ArrowButton from "@/../public/testimonials/arrow-button.svg";
 import Amrit from "@/../public/testimonials/amrit.png";
 import JC from "@/../public/testimonials/jc.png";
 import Kevin from "@/../public/testimonials/kevin.png";
@@ -42,10 +43,14 @@ const Testimonials = () => (
                     {t.name}, {t.classification}
                     </h3>
                     
-                    <span className="flex gap-2 mt-auto mb-8 md:mb-0 md:mt-0 place-self-end md:absolute md:bottom-0">
-                        <a href={`#testimonial-${Math.max(0, idx-1)}`}>prev</a>
-                        <p>{idx+1}/{arr.length}</p>
-                        <a href={`#testimonial-${Math.min(arr.length-1, idx+1)}`}>next</a>
+                    <span className="flex gap-3 mt-auto mb-8 md:mb-0 md:mt-0 place-self-end md:absolute md:bottom-0 items-center">
+                        <a href={`#testimonial-${Math.max(0, idx-1)}`}>
+                            <Image src={ArrowButton} alt="arrow" />
+                        </a>
+                        <p className="h-min">{idx+1}/{arr.length}</p>
+                        <a href={`#testimonial-${Math.min(arr.length-1, idx+1)}`}>
+                            <Image src={ArrowButton} alt="arrow" className="rotate-180"  />
+                        </a>
                     </span>
                 </span>
             </div>
