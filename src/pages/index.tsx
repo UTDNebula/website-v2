@@ -53,7 +53,7 @@ const Header = () => {
 const Home = () => (
   <div>
     <Header />
-    {/* <WhoWeAre /> */}
+    <WhoWeAre />
     {/* <div>projects</div> */}
     {/* <div>projects</div> */}
     <Testimonials/>
