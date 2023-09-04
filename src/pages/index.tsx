@@ -11,7 +11,6 @@ import CTA from "@/components/CTA";
 import Amrit from "@/../public/testimonials/amrit.png";
 import JC from "@/../public/testimonials/jc.png";
 import Kevin from "@/../public/testimonials/kevin.png";
-import { t } from "nextra/dist/types-c8e621b7";
 
 const Header = () => {
   const [frames, bgStyles] = useBlobBg()
@@ -77,24 +76,29 @@ const testimonials = [
 const Home = () => (
   <div>
     <Header />
-    <WhoWeAre />
+    {/* <WhoWeAre /> */}
     {/* <div>projects</div> */}
     {/* <div>projects</div> */}
-    <div className="flex overflow-x-scroll w-screen text-white">
+    <div className="flex overflow-x-scroll w-screen text-white my-16">
       {testimonials.map((t, idx, arr)=>(
-        <div key={`testimonial-${t.name}`} id={`testimonial-${idx}`} className="flex flex-shrink-0 w-screen px-8">
-<div className="bg-royal rounded-3xl flex-shrink-0 flex flex-col w-fit items-center text-center gap-8 p-8 font-medium text-lg">
+        <div key={`testimonial-${t.name}`} className="flex flex-shrink-0 w-screen px-8 relative lg:max-w-5xl">
+          <span id={`testimonial-${idx}`} className="absolute -top-6 right-0 w-full h-0"/>
+<div className="bg-royal rounded-3xl flex-shrink-0 flex flex-col md:flex-row w-fit items-center md:items-center text-center gap-8 p-8 font-medium md:text-lg md:justify-start">
 
 
-          <Image src={t.image} alt={t.name} />
+          <Image className="md:w-2/5" src={t.image} alt={t.name} />
+          <span className="contents md:flex flex-col md:text-left gap-8 md:h-full md:justify-center relative">
+
           <p>{t.quote}</p>
-          <h3>
+          <h3 className="text-2xl font-bold">
             {t.name}, {t.classification}
           </h3>
-          <span className="flex gap-2 mt-auto mb-8">
-            <a href={`#testimonial-${Math.max(0, idx-1)}`}>prev</a>
-            <p className="">{idx+1}/{arr.length}</p>
-            <a href={`#testimonial-${Math.min(arr.length-1, idx+1)}`}>next</a>
+          
+            <span className="flex gap-2 mt-auto mb-8 md:mb-0 md:mt-0 place-self-end md:absolute md:bottom-0">
+              <a href={`#testimonial-${Math.max(0, idx-1)}`}>prev</a>
+              <p>{idx+1}/{arr.length}</p>
+              <a href={`#testimonial-${Math.min(arr.length-1, idx+1)}`}>next</a>
+            </span>
           </span>
           </div>
         </div>
@@ -102,7 +106,7 @@ const Home = () => (
     </div>
     {/* <div>beliefs</div> */}
     <CTA/>
-    <Footer />
+    {/* <Footer /> */}
   </div>
 );
 
