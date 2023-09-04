@@ -8,6 +8,10 @@ import WhoWeAre from "@/components/WhoWeAre";
 import useBlobBg from "@/lib/useBlobBg";
 import CTA from "@/components/CTA";
 
+import Amrit from "@/../public/testimonials/amrit.png";
+import JC from "@/../public/testimonials/jc.png";
+import Kevin from "@/../public/testimonials/kevin.png";
+import { t } from "nextra/dist/types-c8e621b7";
 
 const Header = () => {
   const [frames, bgStyles] = useBlobBg()
@@ -49,13 +53,53 @@ const Header = () => {
   </div>
 )};
 
+const testimonials = [
+  {
+    name: 'Amrit',
+    classification: 'Junior',
+    image: Amrit,
+    quote: '“Being a part of Nebula has been a huge part of my college career. I\'ve made some of my best friends and had some of my best experiences being a part of the group. I love creating software that helps students and I love teaching people web technologies.”'
+  },
+  {
+  name: 'Kevin',
+  classification: 'Sophomore',
+  image: Kevin,
+  quote: '“I love the team, I love the product, I love the unique challenges that the project presents. What more can I ask for :)”'
+}, 
+{
+  name: 'JC',
+  classification: 'Junior',
+  image: JC,
+  quote: '“I enjoyed interacting with an open source project which I’d never done before. The team working skills are also great to know and the people I have interacted with so far have been great.”'
+},
+]
+
 const Home = () => (
   <div>
     <Header />
     <WhoWeAre />
     {/* <div>projects</div> */}
     {/* <div>projects</div> */}
-    {/* <div>testimonials</div> */}
+    <div className="flex overflow-x-scroll w-screen text-white">
+      {testimonials.map((t, idx, arr)=>(
+        <div key={`testimonial-${t.name}`} id={`testimonial-${idx}`} className="flex flex-shrink-0 w-screen px-8">
+<div className="bg-royal rounded-3xl flex-shrink-0 flex flex-col w-fit items-center text-center gap-8 p-8 font-medium text-lg">
+
+
+          <Image src={t.image} alt={t.name} />
+          <p>{t.quote}</p>
+          <h3>
+            {t.name}, {t.classification}
+          </h3>
+          <span className="flex gap-2 mt-auto mb-8">
+            <a href={`#testimonial-${Math.max(0, idx-1)}`}>prev</a>
+            <p className="">{idx+1}/{arr.length}</p>
+            <a href={`#testimonial-${Math.min(arr.length-1, idx+1)}`}>next</a>
+          </span>
+          </div>
+        </div>
+      ))}
+    </div>
     {/* <div>beliefs</div> */}
     <CTA/>
     <Footer />
