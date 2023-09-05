@@ -33,10 +33,9 @@ const Testimonials = () => (
       </div>
       <div className="flex overflow-x-scroll text-white scroll-smooth" style={{scrollSnapType: 'x mandatory'}}>
         {testimonials.map((t, idx, arr)=>(
-          <div key={`testimonial-${t.name}`} className="flex flex-shrink-0 w-screen px-8 snap-start lg:px-32 xl:px-48 relative">
-            <span id={`testimonial-${idx}`} className="absolute -top-6 right-0 w-full h-0"/>
+          <div id={`testimonial-${idx}`} key={`testimonial-${t.name}`} className="flex flex-shrink-0 w-screen px-8 snap-start lg:px-32 xl:px-48 relative">
             <div className="bg-royal rounded-3xl flex-shrink-0 flex flex-col md:flex-row w-fit items-center md:items-center text-center gap-8 p-8 font-medium md:text-lg md:justify-start">
-                <Image className="md:w-2/5 lg:w-1/3" src={t.image} alt={t.name} />
+                <Image className="md:w-2/5 lg:w-1/5" src={t.image} alt={t.name} />
                 <span className="contents md:flex flex-col md:text-left gap-8 md:h-full md:justify-center relative">
                     <p>{t.quote}</p>
                     <h3 className="text-2xl font-bold">
@@ -44,13 +43,19 @@ const Testimonials = () => (
                     </h3>
                     
                     <span className="flex gap-3 mt-auto mb-8 md:mb-0 md:mt-0 place-self-end md:absolute md:bottom-0 items-center">
-                        <a href={`#testimonial-${Math.max(0, idx-1)}`}>
+                        <button onClick={()=>{
+                          const el = document.querySelector(`#testimonial-${Math.max(0, idx-1)}`)
+                          el?.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'start'})
+                        }}>
                             <Image src={ArrowButton} alt="arrow" />
-                        </a>
+                        </button>
                         <p className="h-min">{idx+1}/{arr.length}</p>
-                        <a href={`#testimonial-${Math.min(arr.length-1, idx+1)}`}>
+                        <button onClick={()=>{
+                          const el = document.querySelector(`#testimonial-${Math.min(arr.length-1, idx+1)}`)
+                          el?.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'start'})
+                        }}>
                             <Image src={ArrowButton} alt="arrow" className="rotate-180"  />
-                        </a>
+                        </button>
                     </span>
                 </span>
             </div>
