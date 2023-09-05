@@ -7,6 +7,7 @@ import Arrow from "@/../public/arrow.svg";
 import WhoWeAre from "@/components/WhoWeAre";
 import useBlobBg from "@/lib/useBlobBg";
 import CTA from "@/components/CTA";
+import Testimonials from "@/components/Testimonials";
 
 
 const Header = () => {
@@ -55,7 +56,7 @@ const Home = () => (
     <WhoWeAre />
     {/* <div>projects</div> */}
     {/* <div>projects</div> */}
-    {/* <div>testimonials</div> */}
+    <Testimonials/>
     {/* <div>beliefs</div> */}
     <CTA/>
     <Footer />
