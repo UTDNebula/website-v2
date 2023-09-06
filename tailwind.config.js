@@ -7,7 +7,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'brand-gradient': "url('/gradient.png')"
+        'brand-gradient': "url('/gradient.png')",
+        'dark-gradient': "linear-gradient(135deg, rgba(21, 21, 21, 0.35) 62.50%, rgba(21, 21, 21, 0.00) 100%)",
+        'gradient-radial': 'radial-gradient(circle closest-side, var(--tw-gradient-stops))',
       },
       colors: {
         'haiti': '#090b2c', // brand black
@@ -47,14 +49,14 @@ module.exports = {
         'wide': '32rem'
       },
       animation: {
-        "slow-pulse": 'subtle-pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        "slow-pulse": 'subtle-pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         "subtle-pulse": {
           '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.75' },
+          '50%': { opacity: '0.6' },
         }
-      }
+      },
     },
   },
   plugins: []
