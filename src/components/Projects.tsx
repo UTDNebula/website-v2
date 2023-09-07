@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const PROJECTS = ["Planner", "Sk.edge", "Trends & API", "Jupiter", "Guides"];
+const PROJECTS = ["Planner", "Sk.edge", "Trends & API", "Jupiter", "Guide"];
 
 export default function Projects() {
 	const [selected, setSelected] = useState(0);
@@ -63,9 +63,9 @@ const PROJECTS_INFO: { title: string; description: string }[] = [
 			"Student organization portal to connect organizations on campus with interested students at UTD.",
 	},
 	{
-		title: "Guides",
+		title: "Guide",
 		description:
-			"Sk.edge is a browser extension designed to simplify the process of selecting classes by providing students with valuable information all in one place.",
+			"Guide allows the students at UTD to search for popular and niche questions they might have, allowing for a one-stop shop for all their UTD queries.",
 	},
 ];
 
