@@ -1,31 +1,39 @@
 import { useState } from "react";
 import Image from "next/image";
+import galaxy_circle from "@/../../public/galaxy_circle.svg";
+
 
 const PROJECTS = ["Planner", "Sk.edge", "Trends & API", "Jupiter", "Guide"];
 
 export default function Projects() {
 	const [selected, setSelected] = useState(0);
 	return (
-		<div className="h-[1623px] shrink-0 flex flex-col justify-center">
+		<div className="h-[1623px] shrink-0 flex flex-col justify-center ">
+            <Image
+                src={galaxy_circle}
+                alt={""}
+                priority
+                className="absolute -z-20 h-auto w-full"
+            />
 			<div className="text-center">
 				<h3 className="text-4xl">Check Out Our </h3>
 				<h1 className="font-kallisto text-7xl text-transparent bg-clip-text bg-gradient-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
 					Projects
 				</h1>
 			</div>
-			<div className="text-center">
+			<div className="text-center pt-4 text-white">
 				<p>
 					Check out what we have been creating in our lab up in the
 					galaxy
 				</p>
 			</div>
-			<div className="grid gap-16 grid-cols-5 mx-auto pt-6">
+			<div className="grid gap-8 grid-cols-5 mx-auto pt-6 text-white">
 				{PROJECTS.map((project, index) => (
 					<div
 						key={index}
-						className={`flex h-16 px-12 justify-center items-center rounded-full cursor-pointer ${
+						className={`flex h-16 px-10 justify-center items-center rounded-full cursor-pointer ${
 							selected === index
-								? "bg-[#6166FA] border-transparent"
+								? "bg-[#6166FA] border-black"
 								: "border-white"
 						} transition-colors duration-300 ease-in-out border-2`}
 						onClick={() => setSelected(index)}
@@ -72,9 +80,9 @@ const PROJECTS_INFO: { title: string; description: string }[] = [
 function ProjectCard(props: { index: number }) {
 	const currentProj = PROJECTS_INFO[props.index];
 	return (
-		<div className="w-[1172px] h-[531px] shrink-0 rounded-3x border border-white">
+		<div className="w-[1172px] h-[531px] shrink-0 rounded-3x border border-white text-white">
 			<div className="flex w-80 h-96 flex-col items-start gap-11 flex-shrink-0">
-				<h1 className="font-kallisto text-3xl">{currentProj.title}</h1>
+				<h1 className="font-kallisto text-3xl ">{currentProj.title}</h1>
 				<p className="w-80 h-40 flex-shrink-0 font-inter text-lg">
 					{currentProj.description}
 				</p>
