@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import galaxy_circle from "@/../../public/galaxy_circle.svg";
+import planner_card from "@/../../public/planner_card.svg";
 
 
 const PROJECTS = ["Planner", "Sk.edge", "Trends & API", "Jupiter", "Guide"];
@@ -80,10 +81,18 @@ const PROJECTS_INFO: { title: string; description: string }[] = [
 function ProjectCard(props: { index: number }) {
 	const currentProj = PROJECTS_INFO[props.index];
 	return (
-		<div className="w-[1172px] h-[531px] shrink-0 rounded-3x border border-white text-white">
-			<div className="flex w-80 h-96 flex-col items-start gap-11 flex-shrink-0">
-				<h1 className="font-kallisto text-3xl ">{currentProj.title}</h1>
-				<p className="w-80 h-40 flex-shrink-0 font-inter text-lg">
+		<div className="w-[1172px] h-[531px] rounded-3xl shrink-0 border border-white text-white">
+			<div className="flex w-90 h-96 flex-col items-start gap-8 flex-shrink-0">
+                <h1>
+                    <Image
+                        src={planner_card}
+                        alt={""}
+                        priority
+                        className="absolute h-auto w-auto"
+                    />
+                </h1>
+				<h1 className="font-kallisto text-3xl">{currentProj.title}</h1>
+				<p className=" w-80 h-40 flex-shrink-0 font-inter text-lg">
 					{currentProj.description}
 				</p>
 				<div className="flex justify-between">
@@ -94,7 +103,7 @@ function ProjectCard(props: { index: number }) {
 						&gt;
 					</a>
 				</div>
-				<div className="flex p-3 justify-center items-center gap-10">
+				<div className="flex p-3 justify-center items-center gap-10 ">
 					<button className="flex p-3 items-start gap-3 rounded-full bg-white">
 						<Image
 							src="/arrow.svg"
