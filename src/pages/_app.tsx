@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import localFont from 'next/font/local';
 import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
@@ -61,6 +62,22 @@ const kallisto = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return <>
+    <Head>
+      <title>Nebula Labs</title>
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicon-16x16.png"
+      />
+      <link rel="icon" href="/logoIcon.svg" type="image/svg+xml" />
+    </Head>
     <style jsx global>{`
           :root {
             --font-kallisto: ${kallisto.style.fontFamily};
