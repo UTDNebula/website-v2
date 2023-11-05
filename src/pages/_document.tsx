@@ -8,7 +8,7 @@ export default function Document() {
           name="description"
           content="An initiative to build tools to make students' lives easier at UT Dallas."
         />
-        <meta name="theme-color" content="#7486ce" />
+        <meta name="theme-color" content="#573DFF" />
 
         <meta property="og:title" content="Nebula Labs" />
         <meta
