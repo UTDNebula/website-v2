@@ -8,6 +8,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - run: pnpm install next
-      - run: pnpm run lint:check
-      - run: pnpm run format:check
+      - run: npm install next
+      - run: npm run lint:check
+      - run: npm run format:check
