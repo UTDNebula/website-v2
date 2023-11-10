@@ -3,7 +3,7 @@ import Image from "next/image";
 import Circles from "@/../public/circles.svg";
 import Blob from "@/components/Blob";
 import Footer from "@/components/Footer";
-import Arrow from "@/../public/arrow.svg";
+import Arrow from "@/../public/arrow-white.svg";
 import WhoWeAre from "@/components/WhoWeAre";
 import useBlobBg from "@/lib/useBlobBg";
 import CTA from "@/components/CTA";

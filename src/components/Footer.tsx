@@ -1,20 +1,27 @@
 import Image from "next/image";
 
-const Footer = () => {
+interface Props {
+  royalBg?: Boolean;
+}
+
+const Footer = (props: Props) => {
+  const {royalBg = true} = props;
+  const color = royalBg ? 'white' : 'black';
+
 	return (
-		<footer className="bg-royal w-screen rounded-t-[3.125rem] pb-10 md:px-40 px-8 text-white text-sm">
+		<footer className={(royalBg ? 'bg-royal ' : 'text-black ') + 'w-full rounded-t-[3.125rem] pb-10 md:px-40 px-8 text-white text-sm'}>
 			<div className="flex justify-between py-16 sm:py-28 flex-wrap gap-8">
 				<Image
-					src="/logo-name-white.svg"
+					src={'/logo-name-' + color + '.svg'}
 					alt="logo"
 					width="360"
 					height="53"
 				/>
 				<a href="#" className="order-first sm:order-1">
-					<div className="text-white items-center flex flex-col rounded-full border border-white border-opacity-0 hover:border-opacity-100 p-2 transition">
+					<div className={'items-center flex flex-col rounded-full p-2 transition ' + (royalBg ? 'border-white/0 hover:border-white/100' : 'border-black/0 hover:border-black/100')}>
 						<button>
 							<Image
-								src="/arrow.svg"
+								src={'/arrow-' + color + '.svg'}
 								alt="arrow"
 								width="20"
 								height="20"
@@ -50,16 +57,17 @@ const Footer = () => {
 					<p className="">Design Guide</p>
 				</div>
 				<div className="flex flex-col gap-4 lg:ml-auto">
-					<Image
-						src="/join-discord.svg"
-						alt="discord"
-						width="200"
-						height="60"
-						className="mb-6"
-					/>
+          <a className="mb-6" href="https://discord.gg/tcpcnfxmeQ">
+            <Image
+              src={'/join-discord-' + color + '.svg'}
+              alt="discord"
+              width="200"
+              height="60"
+            />
+					</a>
 					<a className="flex items-center gap-2 " href="https://instagram.com/utdnebula">
 						<Image
-							src="/instagram.svg"
+							src={'/instagram-' + color + '.svg'}
 							alt="Instagram logo"
 							width="30"
 							height="30"
@@ -68,7 +76,7 @@ const Footer = () => {
 					</a>
 					<a className="flex items-center gap-2 " href="https://linkedin.com/company/utdnebula">
 						<Image
-							src="/linkedin.svg"
+							src={'/linkedin-' + color + '.svg'}
 							alt="LinkedIn logo"
 							width="30"
 							height="30"
@@ -77,7 +85,7 @@ const Footer = () => {
 					</a>
 					<a className="flex items-center gap-2 " href="https://github.com/utdnebula">
 						<Image
-							src="/github.svg"
+							src={'/github-' + color + '.svg'}
 							alt="GitHub logo"
 							width="30"
 							height="30"
@@ -87,7 +95,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<div className="md:pt-40 pt-10">
-				<div className="border-t-2 border-white" />
+				<div className={'border-t-2 ' + (royalBg ? 'border-white' : 'border-black')} />
 				<div className="flex md:flex-row flex-col justify-between gap-8 pt-8">
 					<div className="flex gap-x-8 gap-y-1 justify-around md:justify-normal flex-wrap">
 						<p className="">Terms of Service</p>
