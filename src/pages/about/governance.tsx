@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Link from 'next/image';
 
 import LinkedIn from '@/../public/linkedin-royal.svg';
@@ -262,12 +262,12 @@ const Header = () => {
 };
 
 interface LeadershipCardProps {
-  image: string;
+  image: string | StaticImageData;
   name: string;
   title: string;
   links: {
     link: string;
-    image: string;
+    image: string | StaticImageData;
   }[];
 }
 [];
