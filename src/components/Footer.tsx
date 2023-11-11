@@ -9,7 +9,7 @@ const Footer = (props: Props) => {
   const color = royalBg ? 'white' : 'black';
 
 	return (
-		<footer className={(royalBg ? 'bg-royal ' : 'text-black ') + 'w-full rounded-t-[3.125rem] pb-10 md:px-40 px-8 text-sm'}>
+		<footer className={(royalBg ? 'bg-royal text-white ' : 'text-black ') + 'w-full rounded-t-[3.125rem] pb-10 md:px-40 px-8 text-sm'}>
 			<div className="flex justify-between py-16 sm:py-28 flex-wrap gap-8">
 				<Image
 					src={'/logo-name-' + color + '.svg'}
