@@ -18,7 +18,7 @@ const Footer = (props: Props) => {
 					height="53"
 				/>
 				<a href="#" className="order-first sm:order-1">
-					<div className={'items-center flex flex-col rounded-full p-2 transition ' + (royalBg ? 'border-white/0 hover:border-white/100' : 'border-black/0 hover:border-black/100')}>
+					<div className={'items-center flex flex-col rounded-full p-2 transition border ' + (royalBg ? 'border-white/0 hover:border-white' : 'border-black/0 hover:border-black')}>
 						<button>
 							<Image
 								src={'/arrow-' + color + '.svg'}
