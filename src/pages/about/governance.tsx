@@ -7,6 +7,8 @@ import LinkedIn from '@/../public/linkedin-royal.svg';
 import Website from '@/../public/website.svg';
 import Email from '@/../public/email.svg';
 
+import Amrit from '@/../public/governance/amrit.png';
+
 const governance = [
   {
     name: 'Officers',
@@ -74,7 +76,7 @@ const governance = [
         ],
       },
       {
-        image: '',
+        image: Amrit,
         name: 'Amrit Rathie',
         title: 'Treasurer',
         links: [
