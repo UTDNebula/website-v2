@@ -19,15 +19,15 @@ html {
   }
 }
 
-
 .bg-stars {
-  background-image: 
-    url('/stars.png'),
-    linear-gradient(lightgray, lightgray);
-    background-size: cover, cover, 50%;
-    background-repeat: repeat-x, no-repeat, no-repeat;
-    animation: animatedBackground 40s linear infinite alternate;
-    animation-timing-function: ease-in-out;
+  background-image: url('/stars.png'), linear-gradient(lightgray, lightgray);
+  background-size: cover, cover, 50%;
+  background-repeat: repeat-x, no-repeat, no-repeat;
+  animation-timing-function: ease-in-out;
+  animation: animatedBackground 40s linear infinite alternate;
+  @media (max-width: 640px) {
+    animation: animatedBackground 120s linear infinite alternate;
+  }
 }
 
 @layer utilities {
