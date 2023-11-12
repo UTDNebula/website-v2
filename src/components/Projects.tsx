@@ -7,6 +7,7 @@ type Project = {
   title: string;
   shortName: string;
   description: string;
+  url: string;
 };
 
 const PROJECTS_INFO: Project[] = [
@@ -15,30 +16,35 @@ const PROJECTS_INFO: Project[] = [
     shortName: 'Planner',
     description:
       'Planner is a tool designed to help students with their degree plans. With a user-friendly interface, students can easily map out their course requirements, track their progress, and make adjustments as needed.',
+    url: '/',
   },
   {
     title: 'Sk.edge',
     shortName: 'Sk.edge',
     description:
       'Sk.edge is a browser extension designed to simplify the process of selecting classes by providing students with valuable information all in one place.',
+    url: '/',
   },
   {
     title: 'Nebula Trends & API',
     shortName: 'Trends & API',
     description:
       'Nebula API is a public API containing resources for UTD student data, including grade distribution information, and more. Trends is data visualization tool to inform student about import info at UTD.',
+    url: '/',
   },
   {
     title: 'Jupiter',
     shortName: 'Jupiter',
     description:
       'Student organization portal to connect organizations on campus with interested students at UTD.',
+    url: '/',
   },
   {
     title: 'Guide',
     shortName: 'Guide',
     description:
       'Guide allows the students at UTD to search for popular and niche questions they might have, allowing for a one-stop shop for all their UTD queries.',
+    url: '/',
   },
 ];
 
@@ -49,15 +55,15 @@ export default function Projects() {
   useEffect(() => {
     if (!carouselRef.current) return;
     const cb: IntersectionObserverCallback = (entries) => {
-      if (entries.length == 0) return
-      const sorted = entries.sort((a,b)=>b.intersectionRatio - a.intersectionRatio)
-      const current = sorted[0]
-      setSelected(parseInt(current.target.id.split('-')[1]))
+      if (entries.length === 0) return;
+      const sorted = entries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      const current = sorted[0];
+      setSelected(parseInt(current.target.id.split('-')[1]));
     };
 
     const obs = new IntersectionObserver(cb, {
       root: carouselRef.current,
-      threshold: 1.0
+      threshold: 1.0,
     });
 
     for (const child of carouselRef.current.children) {
@@ -71,8 +77,8 @@ export default function Projects() {
   const carouselKeyBase = 'projects';
   return (
     <div className="w-screen overflow-x-clip">
-      <div className="bg-black rounded-full flex items-center justify-center w-screen aspect-square scale-[115%] my-52">
-        <div className="shrink-0 flex flex-col justify-center scale-[calc(1/1.15)] h-min">
+      <div className="bg-stars bg-cover rounded-full flex items-center justify-center w-screen aspect-square lg:scale-[115%] scale-[200%] lg:my-52 my-96 shadow-[0px_0px_87px_-1px_#312E81]">
+        <div className="shrink-0 flex flex-col justify-center lg:scale-[calc(1/1.15)] scale-[calc(1/2)] h-min">
           <div className="text-center flex flex-col items-center">
             <h3 className="text-4xl text-white">Check Out Our </h3>
             <h1 className="font-kallisto text-7xl text-transparent w-min bg-clip-text bg-gradient-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
@@ -99,18 +105,18 @@ export default function Projects() {
               </button>
             ))}
           </div>
-          <div className='pt-6'>
-          <Carousel data={PROJECTS_INFO} keyBase={carouselKeyBase} ref={carouselRef}>
-            {(project, index, valueCount, prev, next) => (
-              <ProjectCard
-                valueCount={valueCount}
-                prev={prev}
-                next={next}
-                index={index}
-                project={project}
-              />
-            )}
-          </Carousel>
+          <div className="pt-6">
+            <Carousel data={PROJECTS_INFO} keyBase={carouselKeyBase} ref={carouselRef}>
+              {(project, index, valueCount, prev, next) => (
+                <ProjectCard
+                  valueCount={valueCount}
+                  prev={prev}
+                  next={next}
+                  index={index}
+                  project={project}
+                />
+              )}
+            </Carousel>
           </div>
         </div>
       </div>
@@ -131,11 +137,9 @@ function ProjectCard(props: {
       <h1 className="font-kallisto text-3xl">{project.title}</h1>
       <p className=" w-80 h-40 flex-shrink-0 font-inter text-lg">{project.description}</p>
       <div className="flex justify-between">
-        <a className="text-lg font-bold underline" href="#">
+        <a className="text-lg font-bold underline" href={project.url}>
           More Information&nbsp;
-        </a>
-        <a className="text-lg" href="#">
-          &rarr;
+          <p className="text-lg">&rarr;</p>
         </a>
       </div>
       <span className="flex gap-3 mt-auto mb-8 items-center">
