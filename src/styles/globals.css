@@ -10,11 +10,24 @@ html {
   @apply text-transparent bg-clip-text bg-gradient-to-br from-[#3634BB] via-royal to-cornflower-500;
 }
 
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+
 .bg-stars {
-  background:
+  background-image: 
     url('/stars.png'),
-    lightgray 50% / cover no-repeat;
-  background-size: cover;
+    linear-gradient(lightgray, lightgray);
+    background-size: cover, cover, 50%;
+    background-repeat: repeat-x, no-repeat, no-repeat;
+    animation: animatedBackground 40s linear infinite alternate;
+    animation-timing-function: ease-in-out;
 }
 
 @layer utilities {
