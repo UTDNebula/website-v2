@@ -2,10 +2,10 @@ import ArrowButton from '@/../public/testimonials/arrow-button.svg';
 import { createRef, useEffect, useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import Carousel from './Carousel';
-import Planner from "@/../public/projects/planner.png"
-import API from "@/../public/projects/skedge.png"
-import Skedge from "@/../public/projects/skedge.png"
-import Jupiter from "@/../public/projects/jupiter.png"
+import Planner from '@/../public/projects/planner.png';
+import API from '@/../public/projects/skedge.png';
+import Skedge from '@/../public/projects/skedge.png';
+import Jupiter from '@/../public/projects/jupiter.png';
 import FilledChevronUp from '@/../public/filled-chevron-up.svg';
 import clsx from 'clsx';
 
@@ -14,9 +14,9 @@ type Project = {
   shortName: string;
   description: string;
   url: string;
-  image: StaticImageData
-  alt: string
-  color: string
+  image: StaticImageData;
+  alt: string;
+  color: string;
 };
 
 const PROJECTS_INFO: Project[] = [
@@ -28,7 +28,7 @@ const PROJECTS_INFO: Project[] = [
     url: '/',
     image: Planner,
     alt: "A laptop displaying Planner's dashboard, showing a list of degree plan cards",
-    color: '#523DFF'
+    color: '#523DFF',
   },
   {
     title: 'Sk.edge',
@@ -37,8 +37,8 @@ const PROJECTS_INFO: Project[] = [
       'Sk.edge is a browser extension designed to simplify the process of selecting classes by providing students with valuable information all in one place.',
     url: '/',
     image: Skedge,
-    alt: 'A mockup of Sk.edge\'s dashboard, displaying statistics for a professor',
-    color: '#6366F1'
+    alt: "A mockup of Sk.edge's dashboard, displaying statistics for a professor",
+    color: '#6366F1',
   },
   {
     title: 'Nebula Trends & API',
@@ -48,7 +48,7 @@ const PROJECTS_INFO: Project[] = [
     url: '/',
     image: API,
     alt: '',
-    color: '#FF6B4A'
+    color: '#FF6B4A',
   },
   {
     title: 'Jupiter',
@@ -57,9 +57,9 @@ const PROJECTS_INFO: Project[] = [
       'Jupiter is the best way to get involved on campus. It’s easy to discover new organizations or exciting events to make the most of the on-campus experience.',
     url: '/',
     image: Jupiter,
-    alt: 'A laptop displaying Jupiter\'s dashboard, with a list of clubs and organizations.',
-    color: '#926FDB'
-  }
+    alt: "A laptop displaying Jupiter's dashboard, with a list of clubs and organizations.",
+    color: '#926FDB',
+  },
 ];
 
 export default function Projects() {
@@ -148,9 +148,7 @@ function ProjectCard(props: {
   const { project, index, next, valueCount, prev } = props;
   return (
     <div className="rounded-3xl border w-full border-white text-white flex flex-col items-start gap-8 flex-shrink-0 p-10 relative overflow-clip">
-
       <Image src={project.image} alt={project.alt} />
-
 
       <h1 className="font-kallisto text-xl md:text-3xl">{project.title}</h1>
       <p className="md:text-lg text-base">{project.description}</p>
@@ -160,11 +158,31 @@ function ProjectCard(props: {
         <Image src={FilledChevronUp} alt="" className="rotate-90" />
       </a>
 
-      <span style={{backgroundColor: '#ffffff'}} className={clsx("absolute -z-20 -top-[66px] -left-[50px] w-72 aspect-square overflow-clip rounded-full shrink-0 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]")} />
-      <span style={{backgroundColor: project.color}} className={clsx("absolute -z-10 -top-10 -left-[50px] w-72 aspect-square overflow-clip rounded-full shrink-0 blur-[75px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]")} />
+      <span
+        style={{ backgroundColor: '#ffffff' }}
+        className={clsx(
+          'absolute -z-20 -top-[66px] -left-[50px] w-72 aspect-square overflow-clip rounded-full shrink-0 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]',
+        )}
+      />
+      <span
+        style={{ backgroundColor: project.color }}
+        className={clsx(
+          'absolute -z-10 -top-10 -left-[50px] w-72 aspect-square overflow-clip rounded-full shrink-0 blur-[75px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]',
+        )}
+      />
 
-      <span style={{backgroundColor: '#ffffff'}} className={clsx("absolute -z-20 -bottom-10 -right-36 w-72 aspect-square overflow-clip rounded-full shrink-0 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]")} />
-      <span style={{backgroundColor: project.color}} className={clsx("absolute -z-10 bottom-0 -right-36 w-72 aspect-square overflow-clip rounded-full shrink-0 blur-[75px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]")} />
+      <span
+        style={{ backgroundColor: '#ffffff' }}
+        className={clsx(
+          'absolute -z-20 -bottom-10 -right-36 w-72 aspect-square overflow-clip rounded-full shrink-0 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]',
+        )}
+      />
+      <span
+        style={{ backgroundColor: project.color }}
+        className={clsx(
+          'absolute -z-10 bottom-0 -right-36 w-72 aspect-square overflow-clip rounded-full shrink-0 blur-[75px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]',
+        )}
+      />
 
       <span className="flex gap-3 md:mt-auto mb-8 items-center">
         <button onClick={prev}>
