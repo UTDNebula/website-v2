@@ -3,7 +3,7 @@ import ArrowButton from '@/../public/testimonials/arrow-button.svg';
 import Amrit from '@/../public/testimonials/amrit.png';
 import JC from '@/../public/testimonials/jc.png';
 import Kevin from '@/../public/testimonials/kevin.png';
-import { useCallback } from 'react';
+import Carousel from './Carousel';
 
 const testimonials = [
   {
@@ -29,58 +29,6 @@ const testimonials = [
   },
 ];
 
-type CarouselProps<T extends any[]> = {
-  data: T;
-  keyBase: string;
-  children: (
-    item: T[number],
-    index: number,
-    valueCount: number,
-    prev: () => void,
-    next: () => void,
-  ) => JSX.Element;
-};
-
-function Carousel<T extends any[]>({ data, keyBase, children }: CarouselProps<T>) {
-  const k = useCallback((idx: number) => `${keyBase}-${idx}`, [keyBase]);
-
-  const next = useCallback(
-    (index: number) => () => {
-      const el = document.querySelector(`#${k(Math.min(data.length - 1, index + 1))}`);
-      el?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-    },
-    [data.length, k],
-  );
-
-  const prev = useCallback(
-    (index: number) => () => {
-      const el = document.querySelector(`#${k(Math.min(data.length - 1, index - 1))}`);
-      el?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-    },
-    [data.length, k],
-  );
-
-  return (
-    <div
-      className="flex overflow-x-scroll text-white scroll-smooth no-scrollbar"
-      style={{ scrollSnapType: 'x mandatory' }}
-    >
-      {data.map((item, idx, arr) => {
-        const key = k(idx);
-        return (
-          <div
-            id={key}
-            key={key}
-            className="flex flex-shrink-0 w-screen px-8 snap-start lg:px-32 xl:px-48 relative"
-          >
-            {children(item, idx, arr.length, prev(idx), next(idx))}
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
 const Testimonials = () => {
   return (
     <>
@@ -93,10 +41,7 @@ const Testimonials = () => {
           starting out, we offer a range of opportunities to help you grow and develop.
         </p>
       </div>
-      <Carousel
-        data={testimonials}
-        keyBase="testimonials"
-      >
+      <Carousel data={testimonials} keyBase="testimonials">
         {(item, idx, valueCount, prev, next) => (
           <div className="bg-royal rounded-3xl flex-shrink-0 flex flex-col md:flex-row w-fit items-center md:items-center text-center gap-8 p-8 font-medium md:text-lg md:justify-start">
             <Image className="md:w-2/5 lg:w-1/5" src={item.image} alt={item.name} />
