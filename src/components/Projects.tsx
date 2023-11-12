@@ -77,8 +77,8 @@ export default function Projects() {
   const carouselKeyBase = 'projects';
   return (
     <div className="w-screen overflow-x-clip">
-      <div className="bg-stars bg-cover rounded-full flex items-center justify-center w-screen aspect-square lg:scale-[115%] scale-[200%] lg:my-52 my-[28rem] shadow-[0px_0px_87px_-1px_#312E81]">
-        <div className="shrink-0 flex flex-col justify-center lg:scale-[calc(1/1.15)] scale-[calc(1/2)] h-min">
+      <div className="bg-stars bg-cover rounded-full flex items-center justify-center w-screen aspect-square lg:scale-[115%] scale-[200%] lg:my-52 my-[34rem] shadow-[0px_0px_87px_-1px_#312E81]">
+        <div className="shrink-0 flex flex-col justify-center lg:scale-[calc(1/1.15)] scale-[calc(1/2)] h-min w-screen">
           <div className="text-center flex flex-col items-center">
             <h3 className="text-4xl text-white">Check Out Our </h3>
             <h1 className="font-kallisto text-7xl text-transparent w-min bg-clip-text bg-gradient-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
