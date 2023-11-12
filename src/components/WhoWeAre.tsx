@@ -6,8 +6,8 @@ function WhoWeAre() {
       </h1>
       <div>
         <h3 className="lg:text-4xl text-lg lg:leading-normal">
-          We&apos;re a community of student developers and designers crafting
-          innovative tools to empower UT Dallas students, one galaxy at a time.
+          We&apos;re a community of student developers and designers crafting innovative tools to
+          empower UT Dallas students, one galaxy at a time.
         </h3>
         <button className="mt-6 p-3 text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors">
           Learn More
