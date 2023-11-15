@@ -147,7 +147,14 @@ function ProjectCard(props: {
 }) {
   const { project, index, next, valueCount, prev } = props;
   return (
-    <div className={clsx("rounded-3xl border w-full border-white text-white gap-8 flex-shrink-0 p-10 relative overflow-clip md:items-center", project.image ? 'grid md:grid-cols-2 grid-cols-1' : 'flex flex-col items-start justify-between')}>
+    <div
+      className={clsx(
+        'rounded-3xl border w-full border-white text-white gap-8 flex-shrink-0 p-10 relative overflow-clip md:items-center',
+        project.image
+          ? 'grid md:grid-cols-2 grid-cols-1'
+          : 'flex flex-col items-start justify-between',
+      )}
+    >
       {project.image && <Image src={project.image} alt={project.alt} className="md:order-2" />}
 
       <div className="flex flex-col gap-8 md:order-1">
