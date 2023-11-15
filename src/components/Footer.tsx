@@ -1,10 +1,43 @@
 import Image from 'next/image';
+import Link, { LinkProps } from 'next/link';
 
-interface Props {
+interface StyledLinkProps {
+  useNextLink?: boolean;
+  className: string;
+  children: React.ReactNode;
+}
+
+const StyledLink = (props: StyledLinkProps & LinkProps) => {
+  const { useNextLink, className, children, ...rest } = props;
+  if (typeof useNextLink == 'undefined' || useNextLink) {
+    return (
+      <Link
+        {...props}
+        className={
+          'underline decoration-transparent hover:decoration-inherit transition ' + className ?? ''
+        }
+      >
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <a
+      {...props}
+      className={
+        'underline decoration-transparent hover:decoration-inherit transition ' + className ?? ''
+      }
+    >
+      {children}
+    </a>
+  );
+};
+
+interface FooterProps {
   royalBg?: Boolean;
 }
 
-const Footer = (props: Props) => {
+const Footer = (props: FooterProps) => {
   const { royalBg = true } = props;
   const color = royalBg ? 'white' : 'black';
 
@@ -38,68 +71,88 @@ const Footer = (props: Props) => {
         </a>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-semibold mb-4">About us</h3>
-          <p className="">About</p>
-          <p className="">Roles</p>
-          <p className="">Members</p>
-          <p className="">Blog</p>
-          <p className="">Boot Camp</p>
+        <div className="flex flex-col items-start gap-3">
+          <StyledLink href="/about">
+            <h3 className="text-xl font-semibold mb-4">About us</h3>
+          </StyledLink>
+          <StyledLink href="/about/mission">Mission</StyledLink>
+          <StyledLink href="/about/governace">Project Governance</StyledLink>
+          <StyledLink href="/membership">Membership</StyledLink>
+          <StyledLink href="/newsletter">Newsletter</StyledLink>
+          <StyledLink href="/contact">Contact Us</StyledLink>
         </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-semibold mb-4">Projects</h3>
-          <p className="">Planner</p>
-          <p className="">Sk.edge</p>
-          <p className="">Jupiter</p>
-          <p className="">Survival Guide</p>
-          <p className="">API & Trends</p>
+        <div className="flex flex-col items-start gap-3">
+          <StyledLink href="/projects">
+            <h3 className="text-xl font-semibold mb-4">Projects</h3>
+          </StyledLink>
+          <StyledLink href="/projects/planner">Planner</StyledLink>
+          <StyledLink href="/projects/jupiter">Jupiter</StyledLink>
+          <StyledLink href="/projects/skedge">Skedge</StyledLink>
+          <StyledLink href="/projects/trends">Trends</StyledLink>
+          <StyledLink href="/projects/api">API & Platform</StyledLink>
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col items-start gap-3">
           <h3 className="text-xl font-semibold mb-4">Resources</h3>
-          <p className="">Roles</p>
-          <p className="">Project Governance</p>
-          <p className="">Meetings</p>
-          <p className="">Design Guide</p>
+          <StyledLink href="/">Roles</StyledLink>
+          <StyledLink href="/about/governace">Project Governance</StyledLink>
+          <StyledLink href="/">Meetings</StyledLink>
+          <StyledLink href="/">Design Guide</StyledLink>
         </div>
-        <div className="flex flex-col gap-4 lg:ml-auto">
-          <a className="mb-6" href="https://discord.gg/tcpcnfxmeQ">
+        <div className="flex flex-col items-start  gap-4 lg:ml-auto">
+          <a className="mb-6 hover:scale-105 transition" href="https://discord.gg/tcpcnfxmeQ">
             <Image src={'/join-discord-' + color + '.svg'} alt="discord" width="200" height="60" />
           </a>
-          <a className="flex items-center gap-2 " href="https://instagram.com/utdnebula">
+          <StyledLink
+            useNextLink={false}
+            className="flex items-center gap-2"
+            href="https://instagram.com/utdnebula"
+          >
             <Image
               src={'/instagram-' + color + '.svg'}
               alt="Instagram logo"
               width="30"
               height="30"
             />
-            <p>Instagram</p>
-          </a>
-          <a className="flex items-center gap-2 " href="https://linkedin.com/company/utdnebula">
+            Instagram
+          </StyledLink>
+          <StyledLink
+            useNextLink={false}
+            className="flex items-center gap-2"
+            href="https://linkedin.com/company/utdnebula"
+          >
             <Image src={'/linkedin-' + color + '.svg'} alt="LinkedIn logo" width="30" height="30" />
-            <p>LinkedIn</p>
-          </a>
-          <a className="flex items-center gap-2 " href="https://github.com/utdnebula">
+            LinkedIn
+          </StyledLink>
+          <StyledLink
+            useNextLink={false}
+            className="flex items-center gap-2"
+            href="https://github.com/utdnebula"
+          >
             <Image src={'/github-' + color + '.svg'} alt="GitHub logo" width="30" height="30" />
-            <p>GitHub</p>
-          </a>
+            GitHub
+          </StyledLink>
         </div>
       </div>
       <div className="md:pt-40 pt-10">
         <div className={'border-t-2 ' + (royalBg ? 'border-white' : 'border-black')} />
         <div className="flex md:flex-row flex-col justify-between gap-8 pt-8">
           <div className="flex gap-x-8 gap-y-1 justify-around md:justify-normal flex-wrap">
-            <p className="">Terms of Service</p>
-            <p className="">Privacy Policy</p>
-            <p className="">Security</p>
-            <p className="">Sitemap</p>
+            <StyledLink href="/">Terms of Service</StyledLink>
+            <StyledLink href="/">Privacy Policy</StyledLink>
+            <StyledLink href="/">Security</StyledLink>
+            <StyledLink href="/">Sitemap</StyledLink>
           </div>
           <div className="md:text-right text-center text-xs">
-            <p className="">© 2023 Nebula Labs Maintainers. All rights reserved.</p>
-            <p className="">
+            <p>© 2023 Nebula Labs Maintainers. All rights reserved.</p>
+            <p>
               Site design by{' '}
-              <a href="https://hilary-nguyen.com/" className="font-bold underline">
+              <StyledLink
+                useNextLink={false}
+                className="font-bold"
+                href="https://hilary-nguyen.com/"
+              >
                 Hilary Nguyen
-              </a>
+              </StyledLink>
             </p>
           </div>
         </div>
