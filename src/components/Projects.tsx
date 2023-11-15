@@ -14,7 +14,7 @@ type Project = {
   shortName: string;
   description: string;
   url: string;
-  image: StaticImageData;
+  image?: StaticImageData;
   alt: string;
   color: string;
 };
@@ -24,29 +24,29 @@ const PROJECTS_INFO: Project[] = [
     title: 'Planner',
     shortName: 'Planner',
     description:
-      'Planner is a tool designed to help students with their degree plans. With a user-friendly interface, students can easily map out their course requirements, track their progress, and make adjustments as needed.',
+      'Planner is a student-focused tool for creating and tracking degree plans, offering a user-friendly interface to simplify course mapping and progress tracking.',
     url: '/',
     image: Planner,
     alt: "A laptop displaying Planner's dashboard, showing a list of degree plan cards",
     color: '#523DFF',
   },
   {
-    title: 'Sk.edge',
-    shortName: 'Sk.edge',
+    title: 'Sk.edge/Trends',
+    shortName: 'Sk.edge/Trends',
     description:
-      'Sk.edge is a browser extension designed to simplify the process of selecting classes by providing students with valuable information all in one place.',
+      'Sk.edge and Trends are tools designed to simplify the course selection and registration process by providing students with valuable data, all in one place.',
     url: '/',
     image: Skedge,
     alt: "A mockup of Sk.edge's dashboard, displaying statistics for a professor",
     color: '#6366F1',
   },
   {
-    title: 'Nebula Trends & API',
-    shortName: 'Trends & API',
+    title: 'Nebula API',
+    shortName: 'API',
     description:
-      'Nebula API is a public API containing resources for UTD student data, including grade distribution information, and more. Trends is data visualization tool to inform student about import info at UTD.',
+      'The Nebula API serves as the authoritative data source for UTD information such as courses, student organizations, and more.',
     url: '/',
-    image: API,
+    // image: API,
     alt: '',
     color: '#FF6B4A',
   },
@@ -102,7 +102,7 @@ export default function Projects() {
           <div className="text-center pt-4 text-white px-4">
             <p>Check out what we have been creating in our lab up in the galaxy</p>
           </div>
-          <div className="gap-8 grid-cols-5 mx-auto pt-6 text-white hidden lg:grid">
+          <div className="gap-8 grid-cols-4 mx-auto pt-6 text-white hidden lg:grid">
             {PROJECTS_INFO.map((project, index) => (
               <button
                 type="button"
@@ -147,16 +147,18 @@ function ProjectCard(props: {
 }) {
   const { project, index, next, valueCount, prev } = props;
   return (
-    <div className="rounded-3xl border w-full border-white text-white flex flex-col items-start gap-8 flex-shrink-0 p-10 relative overflow-clip">
-      <Image src={project.image} alt={project.alt} />
+    <div className={clsx("rounded-3xl border w-full border-white text-white gap-8 flex-shrink-0 p-10 relative overflow-clip md:items-center", project.image ? 'grid md:grid-cols-2 grid-cols-1' : 'flex flex-col items-start justify-between')}>
+      {project.image && <Image src={project.image} alt={project.alt} className="md:order-2" />}
 
-      <h1 className="font-kallisto text-xl md:text-3xl">{project.title}</h1>
-      <p className="md:text-lg text-base">{project.description}</p>
+      <div className="flex flex-col gap-8 md:order-1">
+        <h1 className="font-kallisto text-xl md:text-3xl">{project.title}</h1>
+        <p className="md:text-lg text-base">{project.description}</p>
 
-      <a className="text-base md:text-lg font-bold underline flex gap-2" href={project.url}>
-        More Information
-        <Image src={FilledChevronUp} alt="" className="rotate-90" />
-      </a>
+        <a className="text-base md:text-lg font-bold underline flex gap-2" href={project.url}>
+          More Information
+          <Image src={FilledChevronUp} alt="" className="rotate-90" />
+        </a>
+      </div>
 
       <span
         style={{ backgroundColor: '#ffffff' }}
@@ -184,7 +186,7 @@ function ProjectCard(props: {
         )}
       />
 
-      <span className="flex gap-3 md:mt-auto mb-8 items-center">
+      <span className="flex gap-3 items-center mt-auto md:mt-0 md:order-3 mr-auto place-self-end">
         <button onClick={prev}>
           <Image src={ArrowButton} alt="arrow" />
         </button>
