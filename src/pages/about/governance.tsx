@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar';
+import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/image';
@@ -250,17 +250,6 @@ const governance = [
   },
 ];
 
-const Header = () => {
-  return (
-    <div className="bg-gradient-to-b from-royal to-white to-75%">
-      <Navbar />
-      <div className="px-8 h-[40vh] flex justify-center items-center">
-        <h1 className="text-6xl font-bold text-royal text-center">Our Leadership Team</h1>
-      </div>
-    </div>
-  );
-};
-
 interface LeadershipCardProps {
   image: string | StaticImageData;
   name: string;
@@ -322,7 +311,7 @@ const LeadershipGroup = (props: LeadershipGroupProps) => {
 
 const Governance = () => (
   <div className="bg-white">
-    <Header />
+    <Header text="Our Leadership Team" />
     {governance.map((group) => (
       <LeadershipGroup {...group} key={group.name} />
     ))}
