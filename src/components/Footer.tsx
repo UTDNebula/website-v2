@@ -1,37 +1,44 @@
 import Image from 'next/image';
 import Link, { LinkProps } from 'next/link';
 
-interface StyledLinkProps {
-  useNextLink?: boolean;
-  className: string;
-  children: React.ReactNode;
+interface StyledNextLinkBaseProps {
+  className?: string;
+  children?: React.ReactNode;
 }
 
-const StyledLink = (props: StyledLinkProps & LinkProps) => {
-  const { useNextLink, className, children, ...rest } = props;
-  if (typeof useNextLink == 'undefined' || useNextLink) {
-    return (
-      <Link
-        {...props}
-        className={
-          'underline decoration-transparent hover:decoration-inherit transition ' + className ?? ''
-        }
-      >
-        {children}
-      </Link>
-    );
-  }
+type StyledNextLinkProps = StyledNextLinkBaseProps & LinkProps;
+
+const StyledNextLink = (props: StyledNextLinkProps) => {
+  const { className, children, ...rest } = props;
   return (
-    <a
+    <Link
       {...props}
       className={
         'underline decoration-transparent hover:decoration-inherit transition ' + className ?? ''
       }
     >
-      {children}
-    </a>
+      {children ?? null}
+    </Link>
   );
 };
+
+interface StyledALinkProps {
+  className?: string;
+  children?: React.ReactNode;
+  href?: string;
+}
+
+const StyledALink = (props: StyledALinkProps) => (
+  <a
+    href={props.href ?? ''}
+    target="_blank"
+    className={
+      'underline decoration-transparent hover:decoration-inherit transition ' + props.className ?? ''
+    }
+  >
+    {props.children ?? null}
+  </a>
+);
 
 interface FooterProps {
   royalBg?: Boolean;
@@ -72,38 +79,37 @@ const Footer = (props: FooterProps) => {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         <div className="flex flex-col items-start gap-3">
-          <StyledLink href="/about">
+          <StyledNextLink href="/about">
             <h3 className="text-xl font-semibold mb-4">About us</h3>
-          </StyledLink>
-          <StyledLink href="/about/mission">Mission</StyledLink>
-          <StyledLink href="/about/governace">Project Governance</StyledLink>
-          <StyledLink href="/membership">Membership</StyledLink>
-          <StyledLink href="/newsletter">Newsletter</StyledLink>
-          <StyledLink href="/contact">Contact Us</StyledLink>
+          </StyledNextLink>
+          <StyledNextLink href="/about/mission">Mission</StyledNextLink>
+          <StyledNextLink href="/about/governace">Project Governance</StyledNextLink>
+          <StyledNextLink href="/membership">Membership</StyledNextLink>
+          <StyledNextLink href="/newsletter">Newsletter</StyledNextLink>
+          <StyledNextLink href="/contact">Contact Us</StyledNextLink>
         </div>
         <div className="flex flex-col items-start gap-3">
-          <StyledLink href="/projects">
+          <StyledNextLink href="/projects">
             <h3 className="text-xl font-semibold mb-4">Projects</h3>
-          </StyledLink>
-          <StyledLink href="/projects/planner">Planner</StyledLink>
-          <StyledLink href="/projects/jupiter">Jupiter</StyledLink>
-          <StyledLink href="/projects/skedge">Skedge</StyledLink>
-          <StyledLink href="/projects/trends">Trends</StyledLink>
-          <StyledLink href="/projects/api">API & Platform</StyledLink>
+          </StyledNextLink>
+          <StyledNextLink href="/projects/planner">Planner</StyledNextLink>
+          <StyledNextLink href="/projects/jupiter">Jupiter</StyledNextLink>
+          <StyledNextLink href="/projects/skedge">Skedge</StyledNextLink>
+          <StyledNextLink href="/projects/trends">Trends</StyledNextLink>
+          <StyledNextLink href="/projects/api">API & Platform</StyledNextLink>
         </div>
         <div className="flex flex-col items-start gap-3">
           <h3 className="text-xl font-semibold mb-4">Resources</h3>
-          <StyledLink href="/">Roles</StyledLink>
-          <StyledLink href="/about/governace">Project Governance</StyledLink>
-          <StyledLink href="/">Meetings</StyledLink>
-          <StyledLink href="/">Design Guide</StyledLink>
+          <StyledNextLink href="/">Roles</StyledNextLink>
+          <StyledNextLink href="/about/governace">Project Governance</StyledNextLink>
+          <StyledNextLink href="/">Meetings</StyledNextLink>
+          <StyledNextLink href="/">Design Guide</StyledNextLink>
         </div>
         <div className="flex flex-col items-start  gap-4 lg:ml-auto">
           <a className="mb-6 hover:scale-105 transition" href="https://discord.gg/tcpcnfxmeQ">
             <Image src={'/join-discord-' + color + '.svg'} alt="discord" width="200" height="60" />
           </a>
-          <StyledLink
-            useNextLink={false}
+          <StyledALink
             className="flex items-center gap-2"
             href="https://instagram.com/utdnebula"
           >
@@ -114,45 +120,42 @@ const Footer = (props: FooterProps) => {
               height="30"
             />
             Instagram
-          </StyledLink>
-          <StyledLink
-            useNextLink={false}
+          </StyledALink>
+          <StyledALink
             className="flex items-center gap-2"
             href="https://linkedin.com/company/utdnebula"
           >
             <Image src={'/linkedin-' + color + '.svg'} alt="LinkedIn logo" width="30" height="30" />
             LinkedIn
-          </StyledLink>
-          <StyledLink
-            useNextLink={false}
+          </StyledALink>
+          <StyledALink
             className="flex items-center gap-2"
             href="https://github.com/utdnebula"
           >
             <Image src={'/github-' + color + '.svg'} alt="GitHub logo" width="30" height="30" />
             GitHub
-          </StyledLink>
+          </StyledALink>
         </div>
       </div>
       <div className="md:pt-40 pt-10">
         <div className={'border-t-2 ' + (royalBg ? 'border-white' : 'border-black')} />
         <div className="flex md:flex-row flex-col justify-between gap-8 pt-8">
           <div className="flex gap-x-8 gap-y-1 justify-around md:justify-normal flex-wrap">
-            <StyledLink href="/">Terms of Service</StyledLink>
-            <StyledLink href="/">Privacy Policy</StyledLink>
-            <StyledLink href="/">Security</StyledLink>
-            <StyledLink href="/">Sitemap</StyledLink>
+            <StyledNextLink href="/">Terms of Service</StyledNextLink>
+            <StyledNextLink href="/">Privacy Policy</StyledNextLink>
+            <StyledNextLink href="/">Security</StyledNextLink>
+            <StyledNextLink href="/">Sitemap</StyledNextLink>
           </div>
           <div className="md:text-right text-center text-xs">
             <p>© 2023 Nebula Labs Maintainers. All rights reserved.</p>
             <p>
               Site design by{' '}
-              <StyledLink
-                useNextLink={false}
+              <StyledALink
                 className="font-bold"
                 href="https://hilary-nguyen.com/"
               >
                 Hilary Nguyen
-              </StyledLink>
+              </StyledALink>
             </p>
           </div>
         </div>
