@@ -56,29 +56,32 @@ const Footer = (props: FooterProps) => {
         'w-full rounded-t-[3.125rem] pb-10 md:px-40 px-8 text-sm'
       }
     >
-      <div className="flex justify-between py-16 sm:py-28 flex-wrap gap-8">
-        <Image src={'/logo-name-' + color + '.svg'} alt="logo" width="360" height="53" />
-        <a href="#" className="order-first sm:order-1">
-          <div
-            className={
-              'items-center flex flex-col rounded-full p-2 transition border ' +
-              (royalBg ? 'border-white/0 hover:border-white' : 'border-black/0 hover:border-black')
-            }
-          >
-            <button>
-              <Image
-                src={'/arrow-' + color + '.svg'}
-                alt="arrow"
-                width="20"
-                height="20"
-                className="rotate-180"
-              />
-            </button>
-            <p>Top</p>
-          </div>
-        </a>
+      <div className="flex justify-between py-16 sm:py-28 gap-8">
+        <Image
+          src={'/logo-name-' + color + '.svg'}
+          alt="logo"
+          width="360"
+          height="53"
+          className="shrink min-w-0"
+        />
+        <button
+          onClick={() => window.scrollTo(0, 0)}
+          className={
+            'items-center flex flex-col rounded-full p-2 transition border ' +
+            (royalBg ? 'border-white/0 hover:border-white' : 'border-black/0 hover:border-black')
+          }
+        >
+          <Image
+            src={'/arrow-' + color + '.svg'}
+            alt="arrow"
+            width="20"
+            height="20"
+            className="rotate-180"
+          />
+          Top
+        </button>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="flex flex-col items-start gap-3">
           <StyledNextLink href="/about">
             <h3 className="text-xl font-semibold mb-4">About us</h3>
