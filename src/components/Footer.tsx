@@ -33,7 +33,8 @@ const StyledALink = (props: StyledALinkProps) => (
     href={props.href ?? ''}
     target="_blank"
     className={
-      'underline decoration-transparent hover:decoration-inherit transition ' + props.className ?? ''
+      'underline decoration-transparent hover:decoration-inherit transition ' + props.className ??
+      ''
     }
   >
     {props.children ?? null}
@@ -109,10 +110,7 @@ const Footer = (props: FooterProps) => {
           <a className="mb-6 hover:scale-105 transition" href="https://discord.gg/tcpcnfxmeQ">
             <Image src={'/join-discord-' + color + '.svg'} alt="discord" width="200" height="60" />
           </a>
-          <StyledALink
-            className="flex items-center gap-2"
-            href="https://instagram.com/utdnebula"
-          >
+          <StyledALink className="flex items-center gap-2" href="https://instagram.com/utdnebula">
             <Image
               src={'/instagram-' + color + '.svg'}
               alt="Instagram logo"
@@ -128,10 +126,7 @@ const Footer = (props: FooterProps) => {
             <Image src={'/linkedin-' + color + '.svg'} alt="LinkedIn logo" width="30" height="30" />
             LinkedIn
           </StyledALink>
-          <StyledALink
-            className="flex items-center gap-2"
-            href="https://github.com/utdnebula"
-          >
+          <StyledALink className="flex items-center gap-2" href="https://github.com/utdnebula">
             <Image src={'/github-' + color + '.svg'} alt="GitHub logo" width="30" height="30" />
             GitHub
           </StyledALink>
@@ -150,10 +145,7 @@ const Footer = (props: FooterProps) => {
             <p>© 2023 Nebula Labs Maintainers. All rights reserved.</p>
             <p>
               Site design by{' '}
-              <StyledALink
-                className="font-bold"
-                href="https://hilary-nguyen.com/"
-              >
+              <StyledALink className="font-bold" href="https://hilary-nguyen.com/">
                 Hilary Nguyen
               </StyledALink>
             </p>
