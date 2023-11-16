@@ -98,8 +98,8 @@ const Footer = (props: FooterProps) => {
           </StyledNextLink>
           <StyledNextLink href="/projects/planner">Planner</StyledNextLink>
           <StyledNextLink href="/projects/jupiter">Jupiter</StyledNextLink>
-          <StyledNextLink href="/projects/skedge">Skedge</StyledNextLink>
           <StyledNextLink href="/projects/trends">Trends</StyledNextLink>
+          <StyledNextLink href="/projects/skedge">Skedge</StyledNextLink>
           <StyledNextLink href="/projects/api">API & Platform</StyledNextLink>
         </div>
         <div className="flex flex-col items-start gap-3">
