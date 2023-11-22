@@ -1,16 +1,3 @@
-/*
-
-design nits:
-make links work
-testimonials size wrong
-sizing on cta
-implement core values
-hero blobs going over cutoff
-learn more button pressed+hover states
-lines + arrows on index
-blobs on index
-*/
-
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
 import Circles from '@/../public/circles.svg';
