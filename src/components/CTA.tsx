@@ -4,7 +4,7 @@ import Blob from '@/components/Blob';
 
 const CTA = () => {
   return (
-    <div className="relative flex place-content-center my-24 overflow-visible">
+    <div className="relative flex place-content-center my-24 overflow-y-visible overflow-x-clip">
       <div className="absolute top-0 left-0 w-screen h-full overflow-visible">
         <Blob className="-left-12 -top-[25%] -z-20" color="pink" size="medium" />
         <Blob className="left-[15%] top-[35%] -z-20" color="royal" size="medium" />
