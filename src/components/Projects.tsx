@@ -155,9 +155,13 @@ function ProjectCard(props: {
           : 'flex flex-col items-start justify-between',
       )}
     >
-      {project.image ? <Image src={project.image} alt={project.alt} className="md:order-2" /> : <span></span>}
+      {project.image ? (
+        <Image src={project.image} alt={project.alt} className="md:order-2" />
+      ) : (
+        <span></span>
+      )}
 
-      <div className={clsx("flex flex-col gap-8 md:order-1", !project.image && 'w-full')}>
+      <div className={clsx('flex flex-col gap-8 md:order-1', !project.image && 'w-full')}>
         <h1 className="font-kallisto text-xl md:text-3xl">{project.title}</h1>
         <p className="md:text-lg text-base">{project.description}</p>
 
