@@ -3,6 +3,7 @@ import ArrowButton from '@/../public/testimonials/arrow-button.svg';
 import Amrit from '@/../public/testimonials/amrit.png';
 import JC from '@/../public/testimonials/jc.png';
 import Kevin from '@/../public/testimonials/kevin.png';
+import Carousel from './Carousel';
 
 const testimonials = [
   {
@@ -28,64 +29,45 @@ const testimonials = [
   },
 ];
 
-const Testimonials = () => (
-  <>
-    <div className="flex flex-col gap-8 text-center items-center mx-auto mt-24 my-12 max-w-3xl px-4">
-      <h4 className="text-gradient font-semibold lg:font-bold text-4xl">
-        We Got Something For Everyone
-      </h4>
-      <p>
-        Our organization has something for everyone. Whether you&apos;re a seasoned pro or just
-        starting out, we offer a range of opportunities to help you grow and develop.
-      </p>
-    </div>
-    <div
-      className="flex overflow-x-scroll text-white scroll-smooth"
-      style={{ scrollSnapType: 'x mandatory' }}
-    >
-      {testimonials.map((t, idx, arr) => (
-        <div
-          id={`testimonial-${idx}`}
-          key={`testimonial-${t.name}`}
-          className="flex flex-shrink-0 w-screen px-8 snap-start lg:px-32 xl:px-48 relative"
-        >
+const Testimonials = () => {
+  return (
+    <>
+      <div className="flex flex-col gap-8 text-center items-center mx-auto mt-24 my-12 max-w-3xl px-4">
+        <h4 className="text-gradient font-semibold lg:font-bold text-4xl">
+          We Got Something For Everyone
+        </h4>
+        <p>
+          Our organization has something for everyone. Whether you&apos;re a seasoned pro or just
+          starting out, we offer a range of opportunities to help you grow and develop.
+        </p>
+      </div>
+      <Carousel data={testimonials} keyBase="testimonials">
+        {(item, idx, valueCount, prev, next) => (
           <div className="bg-royal rounded-3xl flex-shrink-0 flex flex-col md:flex-row w-fit items-center md:items-center text-center gap-8 p-8 font-medium md:text-lg md:justify-start">
-            <Image className="md:w-2/5 lg:w-1/5" src={t.image} alt={t.name} />
+            <Image className="md:w-2/5 lg:w-1/5" src={item.image} alt={item.name} />
             <span className="contents md:flex flex-col md:text-left gap-8 md:h-full md:justify-center relative">
-              <p>{t.quote}</p>
+              <p>{item.quote}</p>
               <h3 className="text-2xl font-bold">
-                {t.name}, {t.classification}
+                {item.name}, {item.classification}
               </h3>
 
               <span className="flex gap-3 mt-auto mb-8 md:mb-0 md:mt-0 place-self-end md:absolute md:bottom-0 items-center">
-                <button
-                  onClick={() => {
-                    const el = document.querySelector(`#testimonial-${Math.max(0, idx - 1)}`);
-                    el?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-                  }}
-                >
+                <button onClick={prev}>
                   <Image src={ArrowButton} alt="arrow" />
                 </button>
                 <p className="h-min">
-                  {idx + 1}/{arr.length}
+                  {idx + 1}/{valueCount}
                 </p>
-                <button
-                  onClick={() => {
-                    const el = document.querySelector(
-                      `#testimonial-${Math.min(arr.length - 1, idx + 1)}`,
-                    );
-                    el?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-                  }}
-                >
+                <button onClick={next}>
                   <Image src={ArrowButton} alt="arrow" className="rotate-180" />
                 </button>
               </span>
             </span>
           </div>
-        </div>
-      ))}
-    </div>
-  </>
-);
+        )}
+      </Carousel>
+    </>
+  );
+};
 
 export default Testimonials;

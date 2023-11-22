@@ -8,6 +8,7 @@ import WhoWeAre from '@/components/WhoWeAre';
 import useBlobBg from '@/lib/useBlobBg';
 import CTA from '@/components/CTA';
 import Testimonials from '@/components/Testimonials';
+import Projects from '@/components/Projects';
 
 const Header = () => {
   const [frames, bgStyles] = useBlobBg();
@@ -49,11 +50,10 @@ const Home = () => (
   <div>
     <Header />
     <WhoWeAre />
-    {/* <div>projects</div> */}
-    {/* <div>projects</div> */}
+    <Projects />
     <Testimonials />
     {/* <div>beliefs</div> */}
-    <CTA />
+    {/* <div>cta card</div> */}
     <Footer />
   </div>
 );
