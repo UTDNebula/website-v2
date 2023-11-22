@@ -107,9 +107,9 @@ export default function Projects() {
               <button
                 type="button"
                 key={`project-selector-${index}`}
-                className={`flex h-16 px-10 justify-center items-center rounded-full cursor-pointer ${
+                className={`hover:scale-105 active:scale-95 transition flex h-16 px-10 justify-center items-center rounded-full cursor-pointer ${
                   selected === index ? 'bg-[#6166FA] border-black' : 'border-white'
-                } transition-colors duration-300 ease-in-out border-2`}
+                } transition duration-300 ease-in-out border-2`}
                 onClick={() => {
                   const el = document.querySelector(`#${carouselKeyBase}-${index}`);
                   el?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
@@ -194,13 +194,13 @@ function ProjectCard(props: {
       />
 
       <span className="flex gap-3 items-center mt-auto md:mt-0 md:order-3 mr-auto place-self-end">
-        <button onClick={prev}>
+        <button onClick={prev} className="hover:scale-105 active:scale-95 transition">
           <Image src={ArrowButton} alt="arrow" />
         </button>
         <p className="h-min">
           {index + 1}/{valueCount}
         </p>
-        <button onClick={next}>
+        <button onClick={next} className="hover:scale-105 active:scale-95 transition">
           <Image src={ArrowButton} alt="arrow" className="rotate-180" />
         </button>
       </span>
