@@ -53,7 +53,7 @@ const Home = () => (
     <Projects />
     <Testimonials />
     {/* <div>beliefs</div> */}
-    {/* <div>cta card</div> */}
+    <CTA />
     <Footer />
   </div>
 );
