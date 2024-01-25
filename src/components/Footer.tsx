@@ -87,7 +87,7 @@ const Footer = (props: FooterProps) => {
             <h3 className="text-xl font-semibold mb-4">About us</h3>
           </StyledNextLink>
           <StyledNextLink href="/about/mission">Mission</StyledNextLink>
-          <StyledNextLink href="/about/governace">Project Governance</StyledNextLink>
+          <StyledNextLink href="/about/governance">Project Governance</StyledNextLink>
           <StyledNextLink href="/membership">Membership</StyledNextLink>
           <StyledNextLink href="/newsletter">Newsletter</StyledNextLink>
           <StyledNextLink href="/contact">Contact Us</StyledNextLink>
@@ -105,7 +105,7 @@ const Footer = (props: FooterProps) => {
         <div className="flex flex-col items-start gap-3">
           <h3 className="text-xl font-semibold mb-4">Resources</h3>
           <StyledNextLink href="/">Roles</StyledNextLink>
-          <StyledNextLink href="/about/governace">Project Governance</StyledNextLink>
+          <StyledNextLink href="/about/governance">Project Governance</StyledNextLink>
           <StyledNextLink href="/">Meetings</StyledNextLink>
           <StyledNextLink href="/">Design Guide</StyledNextLink>
         </div>
