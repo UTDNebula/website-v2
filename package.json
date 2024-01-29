@@ -14,6 +14,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "clsx": "^2.0.0",
+    "google-auth-library": "^9.5.0",
     "next": "^13.4.19",
     "nextra": "^2.12.3",
     "nextra-theme-docs": "^2.12.3",
