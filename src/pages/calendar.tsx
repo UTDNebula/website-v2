@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 const timeFormat = new Intl.DateTimeFormat('en-US', {
   hour: 'numeric',
   minute: 'numeric',
-  hour12: 'true',
+  hour12: true,
 });
 
 const dateFormat = new Intl.DateTimeFormat('en-US', {
@@ -19,14 +19,14 @@ const monthFormat = new Intl.DateTimeFormat('en-US', {
 
 const fullFormat = new Intl.DateTimeFormat('en-US');
 
-interface EventProps {
+interface EventReactProps {
   name: string;
   start: string;
   end: string;
   location: string;
 }
 
-const Event = (props: EventProps) => {
+const Event = (props: EventReactProps) => {
   const important =
     props.name.includes('Kickoff') ||
     props.name.includes('Social') ||
@@ -54,17 +54,45 @@ const Event = (props: EventProps) => {
 };
 
 const Calendar = () => {
-  const [events, setEvents] = useState();
+  const [events, setEvents] = useState<EventFetchProps[]>([]);
   const [error, setError] = useState(false);
+
+  interface EventFetchProps {
+    status: string;
+    id: string;
+    summary: string;
+    start: {
+      dateTime: string;
+    };
+    end: {
+      dateTime: string;
+    };
+    location: string;
+  }
+
+  interface FetchProps {
+    message: string;
+    data: {
+      data: {
+        items: EventFetchProps[];
+      };
+    };
+  }
 
   useEffect(() => {
     fetch('/api/getCalendar')
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json() as Promise<FetchProps>;
+      })
       .then((data) => {
+        console.log(data);
         if (data.message !== 'success') {
           throw new Error(data.message);
         }
-        setEvents(data.data);
+        setEvents(data.data.data.items);
       })
       .catch((error) => {
         setError(true);
@@ -76,7 +104,7 @@ const Calendar = () => {
   let firstYear = true;
   const labelsAndEvents = [];
   if (typeof events !== 'undefined') {
-    for (const event of events.data.items) {
+    for (const event of events) {
       if (event.status !== 'confirmed') {
         continue;
       }
@@ -131,10 +159,12 @@ const Calendar = () => {
       <Header text="Calendar of Events" />
       {error ? (
         <h2 className="text-5xl font-bold pb-4 text-center">Error loading calendar</h2>
-      ) : typeof events !== 'undefined' && (
-        <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center">
-          <div className="flex flex-col gap-4 w-full max-w-[40ch]">{...labelsAndEvents}</div>
-        </div>
+      ) : (
+        events.length !== 0 && (
+          <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center">
+            <div className="flex flex-col gap-4 w-full max-w-[40ch]">{...labelsAndEvents}</div>
+          </div>
+        )
       )}
       <Footer royalBg={false} />
     </div>
