@@ -4,14 +4,10 @@ import { useEffect, useState } from 'react';
 
 interface EventProps {
   name: string;
-};
+}
 
 const Event = (props: EventProps) => {
-  return (
-    <div className="p-2 flex flex-col items-center grow-0 w-72 gap-4">
-      {props.name}
-    </div>
-  );
+  return <div className="p-2 flex flex-col items-center grow-0 w-72 gap-4">{props.name}</div>;
 };
 
 const Calendar = () => {
@@ -38,21 +34,18 @@ const Calendar = () => {
       <Header text="Calendar of Events" />
       {error ? (
         <h2 className="text-5xl font-bold pb-4 text-center">Error loading calendar</h2>
-      ) : (
-        typeof events === 'undefined' ? null :
-          events.data.items.map((event) => {
-            if (event.status !== 'confirmed') {
-              return null;
-            }
-            console.log(event)
-            return (
-              <Event name={event.summary} />
-            );
-          })
+      ) : typeof events === 'undefined' ? null : (
+        events.data.items.map((event) => {
+          if (event.status !== 'confirmed') {
+            return null;
+          }
+          console.log(event);
+          return <Event name={event.summary} key={event.id} />;
+        })
       )}
       <Footer royalBg={false} />
     </div>
   );
-}
+};
 
 export default Calendar;

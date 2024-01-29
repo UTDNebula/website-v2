@@ -2,17 +2,15 @@
 import { auth, JWT } from 'google-auth-library';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-const CALENDAR_ID = 'c_64bca4fdc75077d852bc5236ec20402d8514792841894b264da57d41bb0ee32e@group.calendar.google.com'
+const CALENDAR_ID =
+  'c_64bca4fdc75077d852bc5236ec20402d8514792841894b264da57d41bb0ee32e@group.calendar.google.com';
 
 type Data = {
   message: string;
   data?: unknown;
 };
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>,
-) {
+export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   if (
     !(
       'REACT_APP_GOOGLE_CREDENTIALS' in process.env &&
@@ -23,13 +21,13 @@ export default function handler(
     return;
   }
   return new Promise<void>((resolve) => {
-    const client = auth.fromJSON(
-      JSON.parse(process.env.REACT_APP_GOOGLE_CREDENTIALS as string),
-    );
+    const client = auth.fromJSON(JSON.parse(process.env.REACT_APP_GOOGLE_CREDENTIALS as string));
     if (client instanceof JWT) {
       client.scopes = ['https://www.googleapis.com/auth/calendar.readonly'];
     }
-    const url = new URL('https://www.googleapis.com/calendar/v3/calendars/' + CALENDAR_ID + '/events');
+    const url = new URL(
+      'https://www.googleapis.com/calendar/v3/calendars/' + CALENDAR_ID + '/events',
+    );
     url.searchParams.append('singleEvents', 'True');
     url.searchParams.append('orderBy', 'startTime');
     url.searchParams.append('maxResults', '100');
