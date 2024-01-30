@@ -8,8 +8,8 @@
     "start": "next start",
     "lint:check": "next lint",
     "lint": "next lint --fix",
-    "format": "prettier --write . --log-level debug",
-    "format:check": "prettier --check . --log-level debug"
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
