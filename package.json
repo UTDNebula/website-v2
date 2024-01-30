@@ -9,7 +9,7 @@
     "lint:check": "next lint",
     "lint": "next lint --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check . --log-level debug"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
