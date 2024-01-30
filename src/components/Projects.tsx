@@ -77,7 +77,7 @@ export default function Projects() {
 
     const obs = new IntersectionObserver(cb, {
       root: carouselRef.current,
-      threshold: 1.0,
+      threshold: 0.5,
     });
 
     for (const child of carouselRef.current.children) {
