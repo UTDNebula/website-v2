@@ -9,6 +9,12 @@ jobs:
         with:
           node-version: '18'
       - run: npm install next
+      - name: Debug Info
+        run: |
+          echo "Node Version: $(node --version)"
+          echo "Prettier Version: $(npx prettier --version)"
+          echo "Prettier Config: $(cat .prettierrc)"
+          echo "GitHub Actions Environment: ${{ toJson(env) }}"
       - run: npm run lint:check
       - run: npm run format
       - run: cat tsconfig.json
