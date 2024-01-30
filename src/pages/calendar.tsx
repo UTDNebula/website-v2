@@ -194,6 +194,9 @@ const Calendar = () => {
         >
           Subscribe with iCal
         </a>
+        <a className={buttonLinkClasses} href="https://discord.gg/tcpcnfxmeQ">
+          View on Discord
+        </a>
       </div>
       {result}
       <Footer royalBg={false} />
