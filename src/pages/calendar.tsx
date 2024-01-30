@@ -180,6 +180,21 @@ const Calendar = () => {
   return (
     <div className="bg-white">
       <Header text="Calendar of Events" />
+      <div className="px-8 lg:px-16 xl:px-32 pb-12 flex justify-center gap-2 flex-wrap">
+        <a
+          className={buttonLinkClasses}
+          target="_blank"
+          href="https://accounts.google.com/AccountChooser?continue=https://calendar.google.com/calendar/?cid=Y182NGJjYTRmZGM3NTA3N2Q4NTJiYzUyMzZlYzIwNDAyZDg1MTQ3OTI4NDE4OTRiMjY0ZGE1N2Q0MWJiMGVlMzJlQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
+        >
+          Subscribe in Google Calendar
+        </a>
+        <a
+          className={buttonLinkClasses}
+          href="https://calendar.google.com/calendar/ical/c_64bca4fdc75077d852bc5236ec20402d8514792841894b264da57d41bb0ee32e%40group.calendar.google.com/public/basic.ics"
+        >
+          Subscribe with iCal
+        </a>
+      </div>
       {result}
       <Footer royalBg={false} />
     </div>
