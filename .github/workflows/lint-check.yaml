@@ -11,3 +11,7 @@ jobs:
       - run: npm install next
       - run: npm run lint:check
       - run: npm run format:check
+      - run: npm run format
+      - run: cat tsconfig.json
+      - run: git diff tsconfig.json
+      - run: npm run format:check

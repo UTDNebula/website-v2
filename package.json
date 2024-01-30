@@ -8,7 +8,7 @@
     "start": "next start",
     "lint:check": "next lint",
     "lint": "next lint --fix",
-    "format": "prettier --write .",
+    "format": "prettier --write . --log-level debug",
     "format:check": "prettier --check . --log-level debug"
   },
   "dependencies": {
