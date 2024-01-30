@@ -107,6 +107,7 @@ const Footer = (props: FooterProps) => {
           <StyledNextLink href="/">Roles</StyledNextLink>
           <StyledNextLink href="/about/governance">Project Governance</StyledNextLink>
           <StyledNextLink href="/">Meetings</StyledNextLink>
+          <StyledNextLink href="/calendar">Calendar</StyledNextLink>
           <StyledNextLink href="/">Design Guide</StyledNextLink>
         </div>
         <div className="flex flex-col items-start  gap-4 lg:ml-auto">
