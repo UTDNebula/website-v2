@@ -55,7 +55,7 @@ const Event = (props: EventReactProps) => {
 
 const Calendar = () => {
   const [events, setEvents] = useState<EventFetchProps[]>([]);
-  const [error, setError] = useState(false);
+  const [state, setState] = useState('loading');
 
   interface EventFetchProps {
     status: string;
@@ -93,9 +93,10 @@ const Calendar = () => {
           throw new Error(data.message);
         }
         setEvents(data.data.data.items);
+        setState('done');
       })
       .catch((error) => {
-        setError(true);
+        setState('error');
         console.error('Feedback', error);
       });
   }, []);
@@ -154,18 +155,22 @@ const Calendar = () => {
     }
   }
 
+  let result = <h2 className="text-5xl font-bold pb-4 text-center">Error loading calendar</h2>;
+
+  if (state === 'loading') {
+    result = <h2 className="text-5xl font-bold pb-4 text-center">Loading...</h2>;
+  } else if (state === 'done') {
+    result = (
+      <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center">
+        <div className="flex flex-col gap-4 w-full max-w-[40ch]">{...labelsAndEvents}</div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white">
       <Header text="Calendar of Events" />
-      {error ? (
-        <h2 className="text-5xl font-bold pb-4 text-center">Error loading calendar</h2>
-      ) : (
-        events.length !== 0 && (
-          <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center">
-            <div className="flex flex-col gap-4 w-full max-w-[40ch]">{...labelsAndEvents}</div>
-          </div>
-        )
-      )}
+      {result}
       <Footer royalBg={false} />
     </div>
   );
