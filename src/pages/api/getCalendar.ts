@@ -32,6 +32,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
     url.searchParams.append('orderBy', 'startTime');
     url.searchParams.append('maxResults', '100');
     url.searchParams.append('timeMin', new Date().toISOString());
+    const date = new Date();
+    date.setDate(date.getDate() + 30);
+    url.searchParams.append('timeMax', date.toISOString());
     client
       .request({
         url: url.href,
