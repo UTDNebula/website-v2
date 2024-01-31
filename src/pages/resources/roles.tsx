@@ -6,8 +6,8 @@ const Roles = () => (
   <>
     <Head>
       <title>Roles - Nebula Labs</title>
-      <link rel="canonical" href="https://www.utdnebula.com/about/roles" key="canonical" />
-      <meta property="og:url" content="https://www.utdnebula.com/about/roles" />
+      <link rel="canonical" href="https://www.utdnebula.com/resources/roles" key="canonical" />
+      <meta property="og:url" content="https://www.utdnebula.com/resources/roles" />
     </Head>
     <Header text="Roles" />
     <Footer royalBg={false} />

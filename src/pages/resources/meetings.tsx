@@ -6,8 +6,8 @@ const Meetings = () => (
   <>
     <Head>
       <title>Meetings - Nebula Labs</title>
-      <link rel="canonical" href="https://www.utdnebula.com/about/Meetings" key="canonical" />
-      <meta property="og:url" content="https://www.utdnebula.com/about/Meetings" />
+      <link rel="canonical" href="https://www.utdnebula.com/resources/Meetings" key="canonical" />
+      <meta property="og:url" content="https://www.utdnebula.com/resources/Meetings" />
     </Head>
     <Header text="Roles" />
     <Footer royalBg={false} />
