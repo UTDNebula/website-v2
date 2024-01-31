@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/image';
+import Head from 'next/head';
 
 import LinkedIn from '@/../public/linkedin-royal.svg';
 import Website from '@/../public/website.svg';
@@ -310,13 +311,18 @@ const LeadershipGroup = (props: LeadershipGroupProps) => {
 };
 
 const Governance = () => (
-  <div className="bg-white">
+  <>
+    <Head>
+      <title>Governance - Nebula Labs</title>
+      <link rel="canonical" href="https://www.utdnebula.com/about/governance" key="canonical" />
+      <meta property="og:url" content="https://www.utdnebula.com/about/governance" />
+    </Head>
     <Header text="Our Leadership Team" />
     {governance.map((group) => (
       <LeadershipGroup {...group} key={group.name} />
     ))}
     <Footer royalBg={false} />
-  </div>
+  </>
 );
 
 export default Governance;
