@@ -6,7 +6,11 @@ const DesignGuide = () => (
   <>
     <Head>
       <title>Design Guide - Nebula Labs</title>
-      <link rel="canonical" href="https://www.utdnebula.com/resources/design-guide" key="canonical" />
+      <link
+        rel="canonical"
+        href="https://www.utdnebula.com/resources/design-guide"
+        key="canonical"
+      />
       <meta property="og:url" content="https://www.utdnebula.com/resources/design-guide" />
     </Head>
     <Header text="Design Guide" />
