@@ -33,7 +33,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
     url.searchParams.append('maxResults', '100');
     url.searchParams.append('timeMin', new Date().toISOString());
     const date = new Date();
-    date.setDate(date.getDate() + 30);
+    date.setMonth(date.getMonth() + 1);
     url.searchParams.append('timeMax', date.toISOString());
     client
       .request({
