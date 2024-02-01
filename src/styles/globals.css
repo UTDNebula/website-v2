@@ -12,21 +12,27 @@ html {
 
 @keyframes animatedBackground {
   from {
-    background-position: 0 0;
+    transform: translate(-100%);
   }
   to {
-    background-position: 100% 0;
+    transform: translate(100%);
   }
 }
 
 .bg-stars {
-  background-image: url('/stars.png'), linear-gradient(lightgray, lightgray);
-  background-size: cover, cover, 50%;
-  background-repeat: repeat-x, no-repeat, no-repeat;
-  animation-timing-function: ease-in-out;
-  animation: animatedBackground 40s linear infinite alternate;
+  background-image: url('/stars.png'), linear-gradient(black, black);
+  background-size: cover, cover;
+  animation-timing-function: linear;
+  animation: animatedBackground 40s linear infinite;
   @media (max-width: 640px) {
-    animation: animatedBackground 120s linear infinite alternate;
+    animation: animatedBackground 120s linear infinite;
+  }
+}
+
+.bg-stars-delay {
+  animation-delay: -20s;
+  @media (max-width: 640px) {
+    animation-delay: -60s;
   }
 }
 
