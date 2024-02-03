@@ -88,7 +88,7 @@ const useBlobBg = (): [JSX.Element, CSSProperties] => {
       ...data?.cssVars,
       backgroundColor: 'hsla(0,0%,100%,0.5)',
       background: data?.background,
-      animation: `15000ms infinite alternate switchColor-${data?.bgInstance} cubic-bezier(0.4, 0, 0.6, 1)`,
+      // animation: `15000ms infinite alternate switchColor-${data?.bgInstance} cubic-bezier(0.4, 0, 0.6, 1)`,
     },
   ];
 };
