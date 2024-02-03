@@ -235,7 +235,7 @@ const Navbar = () => {
                             <Disclosure.Panel
                               as="ul"
                               className={clsx(
-                                'lg:absolute lg:w-full lg:bg-dark-gradient lg:backdrop-blur-md border border-x-0 border-opacity-25 lg:left-0 lg:top-20 lg:mt-6 lg:py-10 lg:px-20 justify-items-center lg:flex-wrap lg:flex lg:gap-10 contents',
+                                'lg:absolute lg:w-screen lg:bg-dark-gradient lg:backdrop-blur-md border border-x-0 border-opacity-25 lg:left-0 lg:top-20 lg:mt-6 lg:py-10 lg:px-20 justify-items-center lg:flex-wrap lg:flex lg:gap-10 contents',
                               )}
                             >
                               {item.children.map((child, innerIndex) => (

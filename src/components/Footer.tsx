@@ -142,7 +142,7 @@ const Footer = (props: FooterProps) => {
             <StyledNextLink href="/">Terms of Service</StyledNextLink>
             <StyledNextLink href="/">Privacy Policy</StyledNextLink>
             <StyledNextLink href="/">Security</StyledNextLink>
-            <StyledNextLink href="/sitemap.xml">Sitemap</StyledNextLink>
+            <StyledNextLink href="/">Sitemap</StyledNextLink>
           </div>
           <div className="md:text-right text-center text-xs">
             <p>© 2023 Nebula Labs Maintainers. All rights reserved.</p>
