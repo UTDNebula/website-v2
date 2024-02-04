@@ -87,7 +87,7 @@ const Footer = (props: FooterProps) => {
             <h3 className="text-xl font-semibold mb-4">About us</h3>
           </StyledNextLink>
           <StyledNextLink href="/about/mission">Mission</StyledNextLink>
-          <StyledNextLink href="/about/governace">Project Governance</StyledNextLink>
+          <StyledNextLink href="/about/governance">Project Governance</StyledNextLink>
           <StyledNextLink href="/membership">Membership</StyledNextLink>
           <StyledNextLink href="/newsletter">Newsletter</StyledNextLink>
           <StyledNextLink href="/contact">Contact Us</StyledNextLink>
@@ -104,10 +104,10 @@ const Footer = (props: FooterProps) => {
         </div>
         <div className="flex flex-col items-start gap-3">
           <h3 className="text-xl font-semibold mb-4">Resources</h3>
-          <StyledNextLink href="/">Roles</StyledNextLink>
-          <StyledNextLink href="/about/governace">Project Governance</StyledNextLink>
-          <StyledNextLink href="/">Meetings</StyledNextLink>
-          <StyledNextLink href="/">Design Guide</StyledNextLink>
+          <StyledNextLink href="/resources/roles">Roles</StyledNextLink>
+          <StyledNextLink href="/about/governance">Project Governance</StyledNextLink>
+          <StyledNextLink href="/resources/meetings">Meetings</StyledNextLink>
+          <StyledNextLink href="/resources/design-guide">Design Guide</StyledNextLink>
         </div>
         <div className="flex flex-col items-start  gap-4 lg:ml-auto">
           <a className="mb-6 hover:scale-105 transition" href="https://discord.gg/tcpcnfxmeQ">
@@ -139,9 +139,8 @@ const Footer = (props: FooterProps) => {
         <div className={'border-t-2 ' + (royalBg ? 'border-white' : 'border-black')} />
         <div className="flex md:flex-row flex-col justify-between gap-8 pt-8">
           <div className="flex gap-x-8 gap-y-1 justify-around md:justify-normal flex-wrap">
-            <StyledNextLink href="/">Terms of Service</StyledNextLink>
-            <StyledNextLink href="/">Privacy Policy</StyledNextLink>
-            <StyledNextLink href="/">Security</StyledNextLink>
+            <StyledNextLink href="/legal/terms-of-service.txt">Terms of Service</StyledNextLink>
+            <StyledNextLink href="/legal/privacy-policy.txt">Privacy Policy</StyledNextLink>
             <StyledNextLink href="/">Sitemap</StyledNextLink>
           </div>
           <div className="md:text-right text-center text-xs">

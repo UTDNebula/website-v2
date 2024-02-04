@@ -9,6 +9,7 @@ import useBlobBg from '@/lib/useBlobBg';
 import CTA from '@/components/CTA';
 import Testimonials from '@/components/Testimonials';
 import Projects from '@/components/Projects';
+import Head from 'next/head';
 
 const Header = () => {
   const [frames, bgStyles] = useBlobBg();
@@ -47,7 +48,11 @@ const Header = () => {
 };
 
 const Home = () => (
-  <div>
+  <>
+    <Head>
+      <link rel="canonical" href="https://www.utdnebula.com" key="canonical" />
+      <meta property="og:url" content="https://www.utdnebula.com" />
+    </Head>
     <Header />
     <WhoWeAre />
     <Projects />
@@ -55,7 +60,7 @@ const Home = () => (
     {/* <div>beliefs</div> */}
     <CTA />
     <Footer />
-  </div>
+  </>
 );
 
 export default Home;
