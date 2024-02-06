@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { ics } from 'calendar-link';
 
 import ArrowWhite from '@/../public/filled-chevron-up-white.svg';
 import ArrowBlack from '@/../public/filled-chevron-up-black.svg';
@@ -33,8 +34,6 @@ interface EventReactProps {
 }
 
 const Event = (props: EventReactProps) => {
-  const [open, setOpen] = useState(false);
-
   const important =
     props.name.includes('Kickoff') ||
     props.name.includes('Social') ||
@@ -54,14 +53,22 @@ const Event = (props: EventReactProps) => {
       ? 'hover:bg-periwinkle hover:text-haiti border-periwinkle'
       : 'hover:bg-royal hover:text-white border-royal');
 
+  const iCalFileString = ics({
+    title: props.name,
+    start: props.start,
+    end: props.end,
+    location: props.location,
+    description: props.description,
+    url: props.htmlLink,
+  });
+
   return (
-    <button
+    <details
       className={
-        'text-left w-full p-4 rounded-lg ' + (important ? 'bg-royal text-white' : 'bg-periwinkle')
+        'group w-full p-4 rounded-lg ' + (important ? 'bg-royal text-white' : 'bg-periwinkle')
       }
-      onClick={() => setOpen((old) => !old)}
     >
-      <div className="w-full flex">
+      <summary className="w-full flex items-center">
         <div className="grow">
           <p className="text-2xl">{props.name}</p>
           <p>
@@ -69,33 +76,31 @@ const Event = (props: EventReactProps) => {
           </p>
           <p>{props.location === 'Unknown' ? 'TBD' : props.location}</p>
         </div>
-        <Image
-          src={important ? ArrowWhite : ArrowBlack}
-          alt=""
-          className={'w-6 transition-transform' + (open ? '' : ' rotate-180')}
-        />
+        <div className="cursor-pointer px-4 py-[0.9375rem] rounded-full transition-colors hover:bg-black/10">
+          <Image
+            src={important ? ArrowWhite : ArrowBlack}
+            alt="Drowdown arrow"
+            className="w-6 transition-all mb-0.5 group-open:mb-0 group-open:mt-0.5 group-open:rotate-180"
+          />
+        </div>
+      </summary>
+      {typeof props.description !== 'undefined' && <p>{props.description}</p>}
+      <div className="mt-2 flex justify-center gap-2">
+        <a
+          className={buttonLinkClasses}
+          target="_blank"
+          href={
+            'https://accounts.google.com/AccountChooser?continue=https://calendar.google.com/calendar/r/eventedit/copy/' +
+            props.htmlLink.split('eid=')[1]
+          }
+        >
+          Copy to Google Calendar
+        </a>
+        <a download className={buttonLinkClasses} href={iCalFileString}>
+          Copy with iCal
+        </a>
       </div>
-      {open && (
-        <>
-          {typeof props.description !== 'undefined' && <p>{props.description}</p>}
-          <div className="mt-2 flex justify-center gap-2">
-            <a
-              className={buttonLinkClasses}
-              target="_blank"
-              href={'https://accounts.google.com/AccountChooser?continue=https://calendar.google.com/calendar/r/eventedit/copy/' + props.htmlLink.split('eid=')[1]}
-            >
-              Copy to Google Calendar
-            </a>
-            <a
-              className={buttonLinkClasses}
-              href="https://calendar.google.com/calendar/ical/c_64bca4fdc75077d852bc5236ec20402d8514792841894b264da57d41bb0ee32e%40group.calendar.google.com/public/basic.ics"
-            >
-              Copy with iCal
-            </a>
-          </div>
-        </>
-      )}
-    </button>
+    </details>
   );
 };
 
@@ -114,6 +119,8 @@ const Calendar = () => {
       dateTime: string;
     };
     location: string;
+    description?: string;
+    htmlLink: string;
   }
 
   interface FetchProps {
@@ -196,8 +203,7 @@ const Calendar = () => {
           start={event.start.dateTime}
           end={event.end.dateTime}
           location={event.location}
-          description={'hi'}
-          ///description={event.description}
+          description={event.description}
           htmlLink={event.htmlLink}
         />,
       );
@@ -244,7 +250,7 @@ const Calendar = () => {
         >
           Subscribe with iCal
         </a>
-        <a className={buttonLinkClasses} href="https://discord.gg/tcpcnfxmeQ">
+        <a className={buttonLinkClasses} target="_blank" href="https://discord.gg/tcpcnfxmeQ">
           View on Discord
         </a>
       </div>

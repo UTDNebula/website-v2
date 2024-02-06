@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "calendar-link": "^2.6.0",
     "clsx": "^2.0.0",
     "google-auth-library": "^9.5.0",
     "next": "^13.4.19",
