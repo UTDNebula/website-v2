@@ -1,6 +1,10 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
+import ArrowWhite from '@/../public/filled-chevron-up-white.svg';
+import ArrowBlack from '@/../public/filled-chevron-up-black.svg';
 
 const timeFormat = new Intl.DateTimeFormat('en-US', {
   hour: 'numeric',
@@ -24,9 +28,12 @@ interface EventReactProps {
   start: string;
   end: string;
   location: string;
+  description: string | undefined;
 }
 
 const Event = (props: EventReactProps) => {
+  const [open, setOpen] = useState(false);
+
   const important =
     props.name.includes('Kickoff') ||
     props.name.includes('Social') ||
@@ -40,16 +47,54 @@ const Event = (props: EventReactProps) => {
     startTime = startTime.slice(0, -3);
   }
 
+  const buttonLinkClasses =
+    'hover:scale-105 active:scale-95 transition duration-300 ease-in-out px-2 py-1 rounded-lg cursor-pointer border-2 ' +
+    (important
+      ? 'hover:bg-periwinkle hover:text-haiti border-periwinkle'
+      : 'hover:bg-royal hover:text-white border-royal');
+
   return (
-    <div
-      className={'w-full p-4 rounded-lg ' + (important ? 'bg-royal text-white' : 'bg-periwinkle')}
+    <button
+      className={
+        'text-left w-full p-4 rounded-lg ' + (important ? 'bg-royal text-white' : 'bg-periwinkle')
+      }
+      onClick={() => setOpen((old) => !old)}
     >
-      <p className="text-2xl">{props.name}</p>
-      <p>
-        {startTime} - {timeFormat.format(end)}
-      </p>
-      <p>{props.location === 'Unknown' ? 'TBD' : props.location}</p>
-    </div>
+      <div className="w-full flex">
+        <div className="grow">
+          <p className="text-2xl">{props.name}</p>
+          <p>
+            {startTime} - {timeFormat.format(end)}
+          </p>
+          <p>{props.location === 'Unknown' ? 'TBD' : props.location}</p>
+        </div>
+        <Image
+          src={important ? ArrowWhite : ArrowBlack}
+          alt=""
+          className={'w-6 transition-transform' + (open ? '' : ' rotate-180')}
+        />
+      </div>
+      {open && (
+        <>
+          <p>{props.description}</p>
+          <div className="mt-2 flex justify-center gap-2">
+            <a
+              className={buttonLinkClasses}
+              target="_blank"
+              href="https://accounts.google.com/AccountChooser?continue=https://calendar.google.com/calendar/?cid=Y182NGJjYTRmZGM3NTA3N2Q4NTJiYzUyMzZlYzIwNDAyZDg1MTQ3OTI4NDE4OTRiMjY0ZGE1N2Q0MWJiMGVlMzJlQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
+            >
+              Copy to Google Calendar
+            </a>
+            <a
+              className={buttonLinkClasses}
+              href="https://calendar.google.com/calendar/ical/c_64bca4fdc75077d852bc5236ec20402d8514792841894b264da57d41bb0ee32e%40group.calendar.google.com/public/basic.ics"
+            >
+              Copy with iCal
+            </a>
+          </div>
+        </>
+      )}
+    </button>
   );
 };
 
@@ -91,6 +136,7 @@ const Calendar = () => {
         if (data.message !== 'success') {
           throw new Error(data.message);
         }
+        console.log(data.data);
         setEvents(data.data.data.items);
         setState('done');
       })
@@ -149,6 +195,8 @@ const Calendar = () => {
           start={event.start.dateTime}
           end={event.end.dateTime}
           location={event.location}
+          description={'hi'}
+          ///description={event.description}
         />,
       );
     }
