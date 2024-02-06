@@ -76,7 +76,7 @@ const Event = (props: EventReactProps) => {
           </p>
           <p>{props.location === 'Unknown' ? 'TBD' : props.location}</p>
         </div>
-        <div className="cursor-pointer px-4 py-[0.9375rem] rounded-full transition-colors hover:bg-black/10">
+        <div className={'cursor-pointer px-4 py-[0.9375rem] rounded-full transition-colors ' + (important ? 'hover:bg-white/10' : 'hover:bg-black/10')}>
           <Image
             src={important ? ArrowWhite : ArrowBlack}
             alt="Drowdown arrow"
