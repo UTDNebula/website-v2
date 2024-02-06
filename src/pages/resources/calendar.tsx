@@ -29,6 +29,7 @@ interface EventReactProps {
   end: string;
   location: string;
   description: string | undefined;
+  htmlLink: string;
 }
 
 const Event = (props: EventReactProps) => {
@@ -76,12 +77,12 @@ const Event = (props: EventReactProps) => {
       </div>
       {open && (
         <>
-          <p>{props.description}</p>
+          {typeof props.description !== 'undefined' && <p>{props.description}</p>}
           <div className="mt-2 flex justify-center gap-2">
             <a
               className={buttonLinkClasses}
               target="_blank"
-              href="https://accounts.google.com/AccountChooser?continue=https://calendar.google.com/calendar/?cid=Y182NGJjYTRmZGM3NTA3N2Q4NTJiYzUyMzZlYzIwNDAyZDg1MTQ3OTI4NDE4OTRiMjY0ZGE1N2Q0MWJiMGVlMzJlQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
+              href={'https://accounts.google.com/AccountChooser?continue=https://calendar.google.com/calendar/r/eventedit/copy/' + props.htmlLink.split('eid=')[1]}
             >
               Copy to Google Calendar
             </a>
@@ -197,6 +198,7 @@ const Calendar = () => {
           location={event.location}
           description={'hi'}
           ///description={event.description}
+          htmlLink={event.htmlLink}
         />,
       );
     }
