@@ -101,7 +101,7 @@ const Event = (props: EventReactProps) => {
         >
           Copy to Google Calendar
         </a>
-        <a download className={buttonLinkClasses} href={iCalFileString}>
+        <a download={props.name} className={buttonLinkClasses} href={iCalFileString}>
           Copy with iCal
         </a>
       </div>
