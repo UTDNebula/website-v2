@@ -4,7 +4,7 @@ interface Person {
   imageLink: string | undefined;
 }
 
-let myMap = new Map<string, Person>([
+const personMap = new Map<string, Person>([
     ["cnl210000", {
         name: "Caleb Lim",
         linkedIn: "caleeb-lim",
@@ -118,6 +118,11 @@ let myMap = new Map<string, Person>([
     ["axs200279", {
         name: "Adam Szumski",
         linkedIn: "aszumski",
+        imageLink: undefined
+    }],
+    ["jxc064000", {
+        name: "John Cole",
+        linkedIn: "john-cole-52650592",
         imageLink: undefined
     }]
 ]);
