@@ -40,7 +40,7 @@ function Carousel<T extends any[]>(
 
   return (
     <div
-      className="flex overflow-x-scroll text-white scroll-smooth no-scrollbar w-screen"
+      className="flex overflow-x-scroll text-white scroll-smooth no-scrollbar w-full"
       style={{ scrollSnapType: 'x mandatory' }}
       ref={ref}
     >
@@ -50,7 +50,7 @@ function Carousel<T extends any[]>(
           <div
             id={key}
             key={key}
-            className="flex flex-shrink-0 w-screen px-8 snap-start lg:px-32 xl:px-48"
+            className="flex flex-shrink-0 w-full px-8 snap-start lg:px-32 xl:px-48"
           >
             {children(item, idx, data.length, prev(idx), next(idx))}
           </div>
