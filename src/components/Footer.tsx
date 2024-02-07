@@ -141,7 +141,7 @@ const Footer = (props: FooterProps) => {
           <div className="flex gap-x-8 gap-y-1 justify-around md:justify-normal flex-wrap">
             <StyledNextLink href="/legal/terms-of-service.txt">Terms of Service</StyledNextLink>
             <StyledNextLink href="/legal/privacy-policy.txt">Privacy Policy</StyledNextLink>
-            <StyledNextLink href="/">Sitemap</StyledNextLink>
+            <StyledNextLink href="/sitemap.xml">Sitemap</StyledNextLink>
           </div>
           <div className="md:text-right text-center text-xs">
             <p>© 2023 Nebula Labs Maintainers. All rights reserved.</p>

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.utdnebula.com/
+
+# Sitemaps
+Sitemap: https://www.utdnebula.com/sitemap.xml
