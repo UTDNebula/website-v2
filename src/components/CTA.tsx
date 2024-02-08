@@ -11,7 +11,7 @@ const CTA = () => {
         <Image
           src={Circles}
           alt={''}
-          className="absolute -top-48 h-screen w-full overflow-visible -z-10 object-cover"
+          className="absolute -z-20 max-w-[unset] h-[max(120vh,120vw)] w-[max(120vh,120vw)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50"
         />
         <Blob className="left-[70%] -top-16 -z-20" color="periwinkle" size="medium" />
       </div>
