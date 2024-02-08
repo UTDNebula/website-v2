@@ -33,12 +33,12 @@ const Header = () => {
           <h1 className="text-6xl font-bold font-kallisto lg:pb-24 xl:pb-40">
             We are Nebula Labs <br /> We build <b>Products</b> and <b>Talents</b>
           </h1>
-          <div className="flex flex-col relative lg:h-16 xl:h-24">
+          <div className="flex flex-col items-center lg:gap-4 relative lg:h-16 xl:h-24">
             <p className="text-lg font-medium">Explore the Galaxy</p>
             <Image
               src={Arrow}
               alt="Arrow"
-              className="absolute left-1/2 bottom-0 transform -translate-x-1/2 cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+              className="cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
             />
           </div>
         </div>
