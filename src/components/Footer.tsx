@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link, { LinkProps } from 'next/link';
+import Link from 'next/link';
 
 const linkClasses = 'underline decoration-transparent hover:decoration-inherit transition';
 
