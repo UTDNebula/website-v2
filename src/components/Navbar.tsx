@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Disclosure, Transition, TransitionRootProps } from '@headlessui/react';
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
-import FilledChevronUp from '@/../public/filled-chevron-up.svg';
+import FilledChevronUp from '@/../public/filled-chevron-up-white.svg';
 import Arrow from '@/../public/arrow-white.svg';
 import X from '@/../public/x.svg';
 import Hamburger from '@/../public/menu-alt-3.svg';
