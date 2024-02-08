@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ics } from 'calendar-link';
@@ -239,8 +240,13 @@ const Calendar = () => {
   }
 
   return (
-    <div className="bg-white">
-      <Header text="Calendar of Events" />
+    <>
+      <Head>
+        <title>Calendar - Nebula Labs</title>
+        <link rel="canonical" href="https://www.utdnebula.com/resources/calendar" key="canonical" />
+        <meta property="og:url" content="https://www.utdnebula.com/resources/calendar" />
+      </Head>
+      <Header text="Calendar" />
       <div className="px-8 lg:px-16 xl:px-32 pb-12 flex justify-center gap-2 flex-wrap">
         <a
           className={buttonLinkClasses}
@@ -261,7 +267,7 @@ const Calendar = () => {
       </div>
       {result}
       <Footer royalBg={false} />
-    </div>
+    </>
   );
 };
 
