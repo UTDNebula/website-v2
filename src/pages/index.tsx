@@ -33,7 +33,7 @@ const Header = () => {
           <h1 className="text-6xl font-bold font-kallisto lg:pb-24 xl:pb-40">
             We are Nebula Labs <br /> We build <b>Products</b> and <b>Talents</b>
           </h1>
-          <div className="flex flex-col items-center lg:gap-4 relative lg:h-16 xl:h-24">
+          <div className="flex flex-col items-center lg:gap-4 lg:h-16 xl:h-24">
             <p className="text-lg font-medium">Explore the Galaxy</p>
             <Image
               src={Arrow}
