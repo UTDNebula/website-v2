@@ -110,7 +110,11 @@ const transitionProps: TransitionRootProps<typeof Fragment> = {
   leaveTo: 'transform scale-95 -translate-y-5 opacity-0',
 };
 
-const Navbar = () => {
+interface Props {
+  className: string;
+}
+
+const Navbar = (props: Props) => {
   const [submenuCloseCallbacks, setSubmenuCloseCallbacks] = useState<Record<string, () => void>>(
     {},
   );
@@ -140,7 +144,7 @@ const Navbar = () => {
   return (
     <Disclosure
       as="nav"
-      className="flex py-10 items-center lg:place-content-evenly place-content-between px-4"
+      className={'flex py-10 items-center lg:place-content-evenly place-content-between px-4 ' + props.className ?? ''}
     >
       {({ open: displayMobileMenu, close: closeMobileMenu }) => (
         <>

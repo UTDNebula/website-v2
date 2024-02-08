@@ -15,7 +15,7 @@ const Header = () => {
   const [frames, bgStyles] = useBlobBg();
 
   return (
-    <div className="h-screen">
+    <div className="h-screen flex flex-col overflow-hidden relative ">
       {frames}
       <div style={bgStyles} className="absolute -z-30 w-full h-full text-xl" />
       <Image src={Circles} alt={''} priority className="absolute -z-20 h-auto w-full opacity-50" />
@@ -24,8 +24,8 @@ const Header = () => {
         <Blob className="right-[5%] -top-[10%]" color="4835BC" size="large" />
       </div>
 
-      <Navbar />
-      <main className="lg:pt-24 xl:pt-40">
+      <Navbar className="absolute top-0 left-0 right-0" />
+      <div className="grow flex flex-col justify-center">
         <div className="text-center text-white">
           <h3 className="text-xl font-semibold lg:pb-5 xl:pb-20 font-inter">
             Greetings from the stars
@@ -42,7 +42,7 @@ const Header = () => {
             />
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 };
