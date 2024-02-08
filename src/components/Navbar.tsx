@@ -111,7 +111,7 @@ const transitionProps: TransitionRootProps<typeof Fragment> = {
 };
 
 interface Props {
-  className: string;
+  className?: string;
   shadow?: boolean;
 }
 
@@ -149,7 +149,7 @@ const Navbar = (props: Props) => {
   return (
     <Disclosure
       as="nav"
-      className={'flex py-10 items-center lg:place-content-evenly place-content-between px-4 ' + props.className ?? ''}
+      className={clsx('flex py-10 items-center lg:place-content-evenly place-content-between px-4', props.className ?? '')}
     >
       {({ open: displayMobileMenu, close: closeMobileMenu }) => (
         <>
