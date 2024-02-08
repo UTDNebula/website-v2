@@ -9,11 +9,11 @@ const personMap = new Map<string, Person>([
         linkedIn: "caleeb-lim"
     }],
     ["dml190001", {
-        name: "",
+        name: "David Launikitis",
         linkedIn: "dlaunikitis"
     }],
     ["axr200071", {
-        name: "David Launikitis",
+        name: "Amrit Rathie",
         linkedIn: "amrit-rathie"
     }],
     ["jrs190008", {
@@ -56,7 +56,7 @@ const personMap = new Map<string, Person>([
         name: "Ragini Tiwari",
         linkedIn: "msraginitiwari"
     }],
-    ["ryan.radloff", {
+    ["rxr180000", {
         name: "Ryan Radloff",
         linkedIn: "ryan-radloff"
     }],
@@ -72,15 +72,19 @@ const personMap = new Map<string, Person>([
         name: "Rajmeet Juneja",
         linkedIn: "rajmeetjuneja"
     }],
-    ["nate.williams", {
+    ["nxw180000", {
         name: "Nathan Williams",
         linkedIn: "nathan-williams-357a5b61"
     }],
-    ["shreyas.subramanian", {
+    ["sxs180000", {
         name: "Shreyas Subramanian",
         linkedIn: "shreyas-subramanian"
     }],
-    ["harsha.ketaraju", {
+    ["sxn180076", {
+        name: "Shreya Nallamothu",
+        linkedIn: "shreya-n-1a334a1b8"
+    }],
+    ["hxk180000", {
         name: "Harsha Ketaraju",
         linkedIn: "harsha-ketaraju"
     }],
