@@ -33,7 +33,7 @@ const Meeting = (props: MeetingReactProps) => {
   ) {
     return (
       <div>
-        <p className="text-4xl font-semibold text-royal">{props.name}</p>
+        <p className="text-4xl font-semibold">{props.name}</p>
         <p>No meetings currently planned.</p>
       </div>
     );
@@ -61,7 +61,7 @@ const Meeting = (props: MeetingReactProps) => {
   return (
     <div className="flex flex-col md:flex-row items-center">
       <div className="mr-auto">
-        <p className="text-4xl font-semibold text-royal">{props.name}</p>
+        <p className="text-4xl font-semibold">{props.name}</p>
         <p>
           {dateFormat.format(start)} {startTime} - {timeFormat.format(end)}
         </p>
