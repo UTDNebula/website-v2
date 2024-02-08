@@ -277,10 +277,12 @@ const Navbar = () => {
                   </li>
                 ))}
               </ul>
-              <button className="justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap">
-                {/* TODO: where is this supposed to link to */}
+              <Link
+                href="/resources/meetings"
+                className="justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap"
+              >
                 Get Involved
-              </button>
+              </Link>
             </Disclosure.Panel>
           </Transition>
         </>
