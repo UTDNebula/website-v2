@@ -112,6 +112,7 @@ const transitionProps: TransitionRootProps<typeof Fragment> = {
 
 interface Props {
   className: string;
+  shadow?: boolean;
 }
 
 const Navbar = (props: Props) => {
@@ -141,6 +142,10 @@ const Navbar = (props: Props) => {
       obs.disconnect();
     };
   }, [ref]);
+
+  const textShadow = props.shadow === true ? '[text-shadow:_0_0_4px_rgb(0_0_0_/_0.4)]' : '';
+  const dropShadow = props.shadow === true ? '[filter:_drop-shadow(0_0_4px_rgb(0_0_0_/_0.4))]' : '';
+
   return (
     <Disclosure
       as="nav"
@@ -156,10 +161,10 @@ const Navbar = (props: Props) => {
             }}
           />
           <Link className="flex items-center" href="/">
-            <Image src={'/icon-white.svg'} alt={'logo'} width={90} height={70} priority />
+            <Image src={'/icon-white.svg'} alt={'logo'} width={90} height={70} priority className={dropShadow} />
           </Link>
           <Disclosure.Button className="lg:hidden">
-            <Image src={Hamburger} alt="" className="w-8" />
+            <Image src={Hamburger} alt="" className={clsx('w-8', dropShadow)} />
           </Disclosure.Button>
           <Transition {...transitionProps} show={shouldDisplayDesktopMenu || displayMobileMenu}>
             <Disclosure.Panel
@@ -225,13 +230,14 @@ const Navbar = (props: Props) => {
                               'w-full flex gap-1 items-center',
                             )}
                           >
-                            <p>{item.name}</p>
+                            <p className={textShadow} >{item.name}</p>
                             <Image
                               src={FilledChevronUp}
                               alt=""
                               className={clsx(
                                 submenuOpen ? 'rotate-0' : 'rotate-180',
                                 'w-3 transition-transform',
+                                dropShadow,
                               )}
                             />
                           </Disclosure.Button>
@@ -274,14 +280,14 @@ const Navbar = (props: Props) => {
                   <li key={`menu-child-${outerIndex}`}>
                     <Link
                       href={item.link}
-                      className={clsx(displayMobileMenu && 'flex place-content-between w-full')}
+                      className={clsx(displayMobileMenu && 'flex place-content-between w-full', textShadow)}
                     >
                       {item.name}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <button className="justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap">
+              <button className={clsx('justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap', textShadow)}>
                 {/* TODO: where is this supposed to link to */}
                 Get Involved
               </button>

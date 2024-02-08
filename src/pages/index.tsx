@@ -24,23 +24,23 @@ const Header = () => {
         <Blob className="right-[5%] -top-[10%]" color="4835BC" size="large" />
       </div>
 
-      <Navbar className="absolute top-0 left-0 right-0" />
+      <Navbar className="absolute top-0 left-0 right-0" shadow={true} />
       <div className="grow flex flex-col justify-center px-8 lg:px-16 xl:px-32">
         <div className="text-center text-white">
-          <h3 className="text-xl font-semibold lg:pb-5 xl:pb-20 font-inter">
+          <h3 className="text-xl font-semibold lg:pb-5 xl:pb-20 font-inter [text-shadow:_0_0_4px_rgb(0_0_0_/_0.4)]">
             Greetings from the stars
           </h3>
-          <h1 className="text-6xl font-bold font-kallisto">
+          <h1 className="text-6xl font-bold font-kallisto [text-shadow:_0_0_16px_rgb(0_0_0_/_0.4)]">
             We are Nebula Labs <br /> We build <b>Products</b> and <b>Talents</b>
           </h1>
         </div>
       </div>
-      <div className="absolute bottom-8 left-0 right-0 flex flex-col items-center lg:gap-4 lg:h-16 text-white">
+      <div className="absolute bottom-8 left-0 right-0 flex flex-col items-center lg:gap-4 lg:h-16 text-white [text-shadow:_0_0_4px_rgb(0_0_0_/_0.4)]">
         <p className="text-lg font-medium">Explore the Galaxy</p>
         <Image
           src={Arrow}
           alt="Arrow"
-          className="cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+          className="cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out [filter:_drop-shadow(0_0_4px_rgb(0_0_0_/_0.4))]"
         />
       </div>
     </div>
