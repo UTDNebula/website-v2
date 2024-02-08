@@ -149,7 +149,10 @@ const Navbar = (props: Props) => {
   return (
     <Disclosure
       as="nav"
-      className={clsx('flex py-10 items-center lg:place-content-evenly place-content-between px-4', props.className ?? '')}
+      className={clsx(
+        'flex py-10 items-center lg:place-content-evenly place-content-between px-4',
+        props.className ?? '',
+      )}
     >
       {({ open: displayMobileMenu, close: closeMobileMenu }) => (
         <>
@@ -161,7 +164,14 @@ const Navbar = (props: Props) => {
             }}
           />
           <Link className="flex items-center" href="/">
-            <Image src={'/icon-white.svg'} alt={'logo'} width={90} height={70} priority className={dropShadow} />
+            <Image
+              src={'/icon-white.svg'}
+              alt={'logo'}
+              width={90}
+              height={70}
+              priority
+              className={dropShadow}
+            />
           </Link>
           <Disclosure.Button className="lg:hidden">
             <Image src={Hamburger} alt="" className={clsx('w-8', dropShadow)} />
@@ -230,7 +240,7 @@ const Navbar = (props: Props) => {
                               'w-full flex gap-1 items-center',
                             )}
                           >
-                            <p className={textShadow} >{item.name}</p>
+                            <p className={textShadow}>{item.name}</p>
                             <Image
                               src={FilledChevronUp}
                               alt=""
@@ -280,14 +290,22 @@ const Navbar = (props: Props) => {
                   <li key={`menu-child-${outerIndex}`}>
                     <Link
                       href={item.link}
-                      className={clsx(displayMobileMenu && 'flex place-content-between w-full', textShadow)}
+                      className={clsx(
+                        displayMobileMenu && 'flex place-content-between w-full',
+                        textShadow,
+                      )}
                     >
                       {item.name}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <button className={clsx('justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap', textShadow)}>
+              <button
+                className={clsx(
+                  'justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap',
+                  textShadow,
+                )}
+              >
                 {/* TODO: where is this supposed to link to */}
                 Get Involved
               </button>

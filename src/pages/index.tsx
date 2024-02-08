@@ -18,7 +18,12 @@ const Header = () => {
     <div className="h-screen flex flex-col overflow-hidden relative ">
       {frames}
       <div style={bgStyles} className="absolute -z-30 w-full h-full text-xl" />
-      <Image src={Circles} alt={''} priority className="absolute -z-20 max-w-[unset] h-[max(120vh,120vw)] w-[max(120vh,120vw)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50" />
+      <Image
+        src={Circles}
+        alt={''}
+        priority
+        className="absolute -z-20 max-w-[unset] h-[max(120vh,120vw)] w-[max(120vh,120vw)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50"
+      />
       <div className="absolute -z-10 w-full h-full opacity-75">
         <Blob className="-left-[20%] top-[35%]" color="4835BC" size="large" />
         <Blob className="right-[5%] -top-[10%]" color="4835BC" size="large" />
