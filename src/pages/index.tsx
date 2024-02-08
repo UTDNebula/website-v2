@@ -25,7 +25,7 @@ const Header = () => {
       </div>
 
       <Navbar className="absolute top-0 left-0 right-0" />
-      <div className="grow flex flex-col justify-center">
+      <div className="grow flex flex-col justify-center px-8 lg:px-16 xl:px-32">
         <div className="text-center text-white">
           <h3 className="text-xl font-semibold lg:pb-5 xl:pb-20 font-inter">
             Greetings from the stars
