@@ -41,6 +41,7 @@ const Header = () => {
           src={Arrow}
           alt="Arrow"
           className="cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out [filter:_drop-shadow(0_0_4px_rgb(0_0_0_/_0.4))]"
+          onClick={() => window.scrollBy(0, window.innerHeight)}
         />
       </div>
     </div>
