@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PeriodLinks from '@/components/PeriodLinks';
 import Image, { StaticImageData } from 'next/image';
-import { PopulatedGoveranceGroup } from '@/data/period-populator';
+import { PopulatedGoveranceGroup } from '@/lib/period-populator';
 import { Person } from '@/data/person-dictionary';
 
 import LinkedIn from '@/../public/linkedin-royal.svg';
@@ -71,12 +71,7 @@ const Governance = (props: GovernanceProps) => (
     {props.data.map((group) => (
       <LeadershipGroup {...group} key={group.name} />
     ))}
-    <PeriodLinks
-      name="Historical governance periods"
-      isCurrent={props.isCurrent}
-      shownPeriod={props.period}
-      {...props.periodLinks}
-    />
+    <PeriodLinks name="Historical governance periods" {...props.periodLinks} />
     <Footer royalBg={false} />
   </div>
 );

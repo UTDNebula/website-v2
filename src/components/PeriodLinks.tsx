@@ -2,10 +2,8 @@ import Link from 'next/link';
 
 interface GovernanceProps {
   name: string;
-  isCurrent?: string | null;
   path: string;
   periods: string[];
-  shownPeriod: string;
 }
 
 const PeriodLinks = (props: GovernanceProps) => {
