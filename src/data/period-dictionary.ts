@@ -1,8 +1,10 @@
-interface Leadership {
-    [key: string]: {
-        [key: string]: string
+import { netIdToPersonMap } from "./person-dictionary"
+
+export interface Leadership {
+    [group: string]: {
+        [role: string]: string
     }
-}
+};
 
 export const periodToLeadershipMap = new Map<string, Leadership>([
     ['2023-2024', {
@@ -56,5 +58,3 @@ export const periodToLeadershipMap = new Map<string, Leadership>([
         }
     }]
 ])
-
-//module.exports.periodToLeadershipMap = periodToLeadershipMap

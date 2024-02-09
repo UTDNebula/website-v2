@@ -3,15 +3,27 @@ import Footer from '@/components/Footer';
 import PeriodLinks from '@/components/PeriodLinks';
 import Image, { StaticImageData } from 'next/image';
 import { useRouter } from 'next/router';
-import {periodToLeadershipMap} from '@/data/period-dictionary'
+
+import {getPopulatedPeriod, nonCurrentPeriods} from '@/data/period-populator'
+import {netIdToPersonMap} from '@/data/person-dictionary'
+import { Leadership, periodToLeadershipMap } from '@/data/period-dictionary'
 
 import Governance from '@/components/Governance';
-import data, { current } from '@/data/governance';
 
 import fs from 'fs';
 import path from 'path';
 
-const Page = ({ data }) => {
+const Page = ({ period, data, nonCurrentPeriods }: {period: string, data: Leadership, nonCurrentPeriods: string[]}) => {
+
+
+  return (
+    <Governance
+      data={data}
+      period={period}
+      isCurrent={false}
+      otherPeriods={nonCurrentPeriods}
+    />
+  );
 
   // const router = useRouter();
 
@@ -46,7 +58,7 @@ const Page = ({ data }) => {
   return (
     <div>
       <br />
-      {data}
+      {period}
       <br />
     </div>
   );
@@ -66,26 +78,28 @@ export async function getStaticPaths() {
     }
   })
 
-  console.log('paths')
-  console.log(paths)
-
   return {
     paths,
     fallback: false,
   };
 }
 
-export async function getStaticProps({ params }) {
+interface Params {
+  period: string;
+}
+
+export async function getStaticProps({ params }: { params: Params }) {
 
   const period = params.period
-  const data = periodToLeadershipMap.get(period)
-
-
+  const data = getPopulatedPeriod(period)
+  const not2 = nonCurrentPeriods().filter(per => per !== period)
+  const notCurrentPeriods = ['Current',...not2]
 
   return {
     props: {
       period,
-      data
+      data,
+      notCurrentPeriods
     },
   };
 
