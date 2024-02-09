@@ -4,16 +4,16 @@ import PeriodLinks from '@/components/PeriodLinks';
 import Image, { StaticImageData } from 'next/image';
 import { useRouter } from 'next/router';
 
-import {getPopulatedPeriod, nonCurrentPeriods} from '@/data/period-populator'
+import {getPopulatedPeriod, nonCurrentPeriods, PopulatedGoveranceGroup} from '@/data/period-populator'
 import {netIdToPersonMap} from '@/data/person-dictionary'
-import { Leadership, periodToLeadershipMap } from '@/data/period-dictionary'
+import {periodToLeadershipMap } from '@/data/period-dictionary'
 
 import Governance from '@/components/Governance';
 
 import fs from 'fs';
 import path from 'path';
 
-const Page = ({ period, data, nonCurrentPeriods }: {period: string, data: Leadership, nonCurrentPeriods: string[]}) => {
+const Page = ({ period, data, nonCurrentPeriods }: {period: string, data: PopulatedGoveranceGroup[], nonCurrentPeriods: string[]}) => {
 
 
   return (

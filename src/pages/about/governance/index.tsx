@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 
 import {getPopulatedPeriod, currentPeriod, nonCurrentPeriods} from '@/data/period-populator'
 import {netIdToPersonMap} from '@/data/person-dictionary'
-import { Leadership, periodToLeadershipMap } from '@/data/period-dictionary'
+import { periodToLeadershipMap } from '@/data/period-dictionary'
 
 import Governance from '@/components/Governance';
 
@@ -18,7 +18,6 @@ const Page = () => {
     const period = currentPeriod()
     const data = getPopulatedPeriod(period)
     const nonCurrentPeriodsList = nonCurrentPeriods()
-
 
   return (
     <Governance

@@ -8,13 +8,6 @@ import { Person } from '@/data/person-dictionary'
 import LinkedIn from '@/../public/linkedin-royal.svg';
 import Email from '@/../public/email.svg';
 
-interface LeadershipCardProps {
-  role: string;
-  netId: string;
-  name: string;
-  linkedIn: string;
-}
-
 const LeadershipCard = (props: Person) => {
   return (
     <div className="p-2 flex flex-col items-center grow-0 w-72 gap-4">
@@ -32,7 +25,7 @@ const LeadershipCard = (props: Person) => {
       )}
       <h3 className="text-3xl font-bold text-center">{props.name}</h3>
       <p className="text-2xl text-center">{props.role}</p>
-      {<div className="flex gap-4">
+      <div className="flex gap-4">
         <a href={`mailto:${props.netId}@utdallas.edu`} key={'email'} className="w-8 h-8 relative">
           <Image src={Email} alt="Social link" fill />
         </a>
@@ -40,7 +33,7 @@ const LeadershipCard = (props: Person) => {
           <Image src={LinkedIn} alt="Social link" fill />
         </a>
       </div>
-      }
+      
     </div>
   );
 };

@@ -1,12 +1,10 @@
-import { netIdToPersonMap } from "./person-dictionary"
-
-export interface Leadership {
+export interface GoverancePeriod {
     [group: string]: {
         [role: string]: string
     }
 };
 
-export const periodToLeadershipMap = new Map<string, Leadership>([
+export const periodToLeadershipMap = new Map<string, GoverancePeriod>([
     ['2023-2024', {
         'Officers': {
             'President': 'cnl210000',
