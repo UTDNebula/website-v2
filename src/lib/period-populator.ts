@@ -35,20 +35,18 @@ export function getPopulatedPeriod(period: string) {
 }
 
 const allPeriods = () => {
-  return Array.from(periodToLeadershipMap.keys()).sort();
+  return Array.from(periodToLeadershipMap.keys()).sort().reverse();
 };
 
 export const nonCurrentPeriods = () => {
   const all = allPeriods();
-  all.splice(all.length - 1, 1);
+  all.shift();
 
   return all;
 };
 
 export const currentPeriod = () => {
-  const all = allPeriods();
-
-  return all.splice(all.length - 1, 1)[0];
+  return allPeriods()[0];
 };
 
 const groupNameToDescMap = new Map<string, string>([
