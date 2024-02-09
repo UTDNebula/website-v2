@@ -59,7 +59,10 @@ interface GovernanceProps {
   period: string;
   data: PopulatedGoveranceGroup[];
   isCurrent: boolean;
-  otherPeriods: string[];
+  periodLinks: {
+    path: string;
+    periods: string[];
+  };
 }
 
 const Governance = (props: GovernanceProps) => (
@@ -68,7 +71,12 @@ const Governance = (props: GovernanceProps) => (
     {props.data.map((group) => (
       <LeadershipGroup {...group} key={group.name} />
     ))}
-    {/*<PeriodLinks name="Historical governance periods" past={props.past} {...props.periodLinks} />*/}
+    <PeriodLinks
+      name="Historical governance periods"
+      isCurrent={props.isCurrent}
+      shownPeriod={props.period}
+      {...props.periodLinks}
+    />
     <Footer royalBg={false} />
   </div>
 );

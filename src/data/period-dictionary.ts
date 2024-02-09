@@ -2,7 +2,7 @@ export type GoverancePeriod = {
   [group: string]: {
     [role: string]: string;
   };
-}
+};
 
 export const periodToLeadershipMap = new Map<string, GoverancePeriod>([
   [

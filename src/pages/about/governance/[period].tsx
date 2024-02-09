@@ -8,14 +8,11 @@ import {
   getPopulatedPeriod,
   nonCurrentPeriods,
   PopulatedGoveranceGroup,
-} from '@/data/period-populator';
+} from '@/lib/period-populator';
 import { netIdToPersonMap } from '@/data/person-dictionary';
 import { periodToLeadershipMap } from '@/data/period-dictionary';
 
 import Governance from '@/components/Governance';
-
-import fs from 'fs';
-import path from 'path';
 
 const Page = ({
   period,
@@ -26,47 +23,12 @@ const Page = ({
   data: PopulatedGoveranceGroup[];
   nonCurrentPeriods: string[];
 }) => {
-  return (
-    <Governance data={data} period={period} isCurrent={false} otherPeriods={nonCurrentPeriods} />
-  );
+  const periodLinks = {
+    path: '/about/governance/',
+    periods: nonCurrentPeriods,
+  };
 
-  // const router = useRouter();
-
-  // const periodLinks = {
-  //   path: router.pathname.replace(/\[.*\]/, ''),
-  //   periods: Object.keys(data),
-  //   current: current,
-  // };
-
-  // if (
-  //   typeof router.query.period === 'undefined' ||
-  //   Array.isArray(router.query.period) ||
-  //   !(router.query.period in data)
-  // ) {
-  //   return (
-  //     <div className="bg-white">
-  //       <Header text="Period not found" />
-  //       <PeriodLinks name="Historical governance periods" past={null} {...periodLinks} />
-  //       <Footer royalBg={false} />
-  //     </div>
-  //   );
-  // }
-
-  // return (
-  //   <Governance
-  //     data={data[router.query.period]}
-  //     past={router.query.period}
-  //     periodLinks={periodLinks}
-  //   />
-  // );
-
-  return (
-    <div>
-      <br />
-      {period}
-      <br />
-    </div>
-  );
+  return <Governance data={data} period={period} isCurrent={false} periodLinks={periodLinks} />;
 };
 
 export async function getStaticPaths() {
@@ -95,14 +57,13 @@ interface Params {
 export async function getStaticProps({ params }: { params: Params }) {
   const period = params.period;
   const data = getPopulatedPeriod(period);
-  const not2 = nonCurrentPeriods().filter((per) => per !== period);
-  const notCurrentPeriods = ['Current', ...not2];
+  const _nonCurrentPeriods = ['Current', ...nonCurrentPeriods().filter((per) => per !== period)];
 
   return {
     props: {
       period,
       data,
-      notCurrentPeriods,
+      nonCurrentPeriods: _nonCurrentPeriods,
     },
   };
 }
