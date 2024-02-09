@@ -6,6 +6,7 @@ export interface PopulatedGoveranceGroup {
   description: string;
   people: Person[];
 }
+
 export function getPopulatedPeriod(period: string) {
   const goverance: GoverancePeriod = periodToLeadershipMap.get(period)!;
 
