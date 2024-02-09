@@ -15,7 +15,7 @@ const Header = () => {
   const [frames, bgStyles] = useBlobBg();
 
   return (
-    <div className="h-screen h-dvh flex flex-col overflow-hidden relative ">
+    <div className="h-screen flex flex-col overflow-hidden relative ">
       {frames}
       <div style={bgStyles} className="absolute -z-30 w-full h-full text-xl" />
       <Image
