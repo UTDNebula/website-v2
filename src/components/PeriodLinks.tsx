@@ -2,13 +2,13 @@ import Link from 'next/link';
 import { Listbox, Transition } from '@headlessui/react';
 import { forwardRef, ReactNode } from 'react';
 
-interface GovernanceProps {
+interface PeriodLinkProps {
   name: string;
   path: string;
   periods: string[];
 }
 
-const PeriodLinks = (props: GovernanceProps) => {
+const PeriodLinks = (props: PeriodLinkProps) => {
   const periods = props.periods;
   const urls = periods.map((period) => {
     if (period === 'Current') {

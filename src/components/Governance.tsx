@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PeriodLinks from '@/components/PeriodLinks';
@@ -8,21 +9,29 @@ import { Person } from '@/data/person-dictionary';
 import LinkedIn from '@/../public/linkedin-royal.svg';
 import Email from '@/../public/email.svg';
 
+const fallbackSrc = '/governance/blank.jpg';
+
 const LeadershipCard = (props: Person) => {
+  const [src, setSrc] = useState(`/governance/${props.netId}.jpg`);
   return (
     <div className="p-2 flex flex-col items-center grow-0 w-72 gap-4">
-      {undefined !== undefined ? (
-        <div className="bg-cornflower-50 w-full aspect-square rounded-3xl"></div>
-      ) : (
-        <Image
-          src={`/governance/${props.netId}.jpg`}
-          alt="Headshot"
-          height={280}
-          width={280}
-          className="w-full aspect-square rounded-3xl"
-          key={props.netId}
-        />
-      )}
+      <Image
+        src={src}
+        alt="Headshot"
+        height={280}
+        width={280}
+        className="w-full aspect-square rounded-3xl"
+        key={props.netId}
+        onLoadingComplete={(result) => {
+          if (result.naturalWidth === 0) {
+            // Broken image
+            setSrc(fallbackSrc);
+          }
+        }}
+        onError={() => {
+          setSrc(fallbackSrc);
+        }}
+      />
       <h3 className="text-3xl font-bold text-center">{props.name}</h3>
       <p className="text-2xl text-center">{props.role}</p>
       <div className="flex gap-4">
