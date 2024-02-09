@@ -11,14 +11,12 @@ interface GovernanceProps {
 const PeriodLinks = (props: GovernanceProps) => {
   // const periods = props.periods;
   // periods[periods.indexOf(props.current)] = 'Current';
-
   // const urls = periods.map((period) => {
   //   if (period === 'Current') {
   //     return props.path;
   //   }
   //   return props.path + period;
   // });
-
   // return (
   //   <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-wrap justify-center gap-8">
   //     <h2 className="text-5xl font-bold pb-4 text-center">{props.name}</h2>

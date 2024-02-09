@@ -4,9 +4,9 @@ import PeriodLinks from '@/components/PeriodLinks';
 import Image, { StaticImageData } from 'next/image';
 import { useRouter } from 'next/router';
 
-import {getPopulatedPeriod, currentPeriod, nonCurrentPeriods} from '@/data/period-populator'
-import {netIdToPersonMap} from '@/data/person-dictionary'
-import { periodToLeadershipMap } from '@/data/period-dictionary'
+import { getPopulatedPeriod, currentPeriod, nonCurrentPeriods } from '@/data/period-populator';
+import { netIdToPersonMap } from '@/data/person-dictionary';
+import { periodToLeadershipMap } from '@/data/period-dictionary';
 
 import Governance from '@/components/Governance';
 
@@ -14,10 +14,9 @@ import fs from 'fs';
 import path from 'path';
 
 const Page = () => {
-
-    const period = currentPeriod()
-    const data = getPopulatedPeriod(period)
-    const nonCurrentPeriodsList = nonCurrentPeriods()
+  const period = currentPeriod();
+  const data = getPopulatedPeriod(period);
+  const nonCurrentPeriodsList = nonCurrentPeriods();
 
   return (
     <Governance

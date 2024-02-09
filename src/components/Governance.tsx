@@ -2,8 +2,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PeriodLinks from '@/components/PeriodLinks';
 import Image, { StaticImageData } from 'next/image';
-import { PopulatedGoveranceGroup } from '@/data/period-populator'
-import { Person } from '@/data/person-dictionary'
+import { PopulatedGoveranceGroup } from '@/data/period-populator';
+import { Person } from '@/data/person-dictionary';
 
 import LinkedIn from '@/../public/linkedin-royal.svg';
 import Email from '@/../public/email.svg';
@@ -29,11 +29,14 @@ const LeadershipCard = (props: Person) => {
         <a href={`mailto:${props.netId}@utdallas.edu`} key={'email'} className="w-8 h-8 relative">
           <Image src={Email} alt="Social link" fill />
         </a>
-        <a href={`https://www.linkedin.com/in/${props.linkedIn}/`} key={'linkedIn'} className="w-8 h-8 relative">
+        <a
+          href={`https://www.linkedin.com/in/${props.linkedIn}/`}
+          key={'linkedIn'}
+          className="w-8 h-8 relative"
+        >
           <Image src={LinkedIn} alt="Social link" fill />
         </a>
       </div>
-      
     </div>
   );
 };
@@ -56,16 +59,12 @@ interface GovernanceProps {
   period: string;
   data: PopulatedGoveranceGroup[];
   isCurrent: boolean;
-  otherPeriods: string[]
+  otherPeriods: string[];
 }
 
 const Governance = (props: GovernanceProps) => (
   <div className="bg-white">
-    <Header
-      text={
-        'Our ' + (props.isCurrent ? '' : props.period + ' ') + 'Leadership Team'
-      }
-    />
+    <Header text={'Our ' + (props.isCurrent ? '' : props.period + ' ') + 'Leadership Team'} />
     {props.data.map((group) => (
       <LeadershipGroup {...group} key={group.name} />
     ))}
@@ -73,6 +72,5 @@ const Governance = (props: GovernanceProps) => (
     <Footer royalBg={false} />
   </div>
 );
-
 
 export default Governance;

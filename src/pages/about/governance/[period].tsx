@@ -4,25 +4,30 @@ import PeriodLinks from '@/components/PeriodLinks';
 import Image, { StaticImageData } from 'next/image';
 import { useRouter } from 'next/router';
 
-import {getPopulatedPeriod, nonCurrentPeriods, PopulatedGoveranceGroup} from '@/data/period-populator'
-import {netIdToPersonMap} from '@/data/person-dictionary'
-import {periodToLeadershipMap } from '@/data/period-dictionary'
+import {
+  getPopulatedPeriod,
+  nonCurrentPeriods,
+  PopulatedGoveranceGroup,
+} from '@/data/period-populator';
+import { netIdToPersonMap } from '@/data/person-dictionary';
+import { periodToLeadershipMap } from '@/data/period-dictionary';
 
 import Governance from '@/components/Governance';
 
 import fs from 'fs';
 import path from 'path';
 
-const Page = ({ period, data, nonCurrentPeriods }: {period: string, data: PopulatedGoveranceGroup[], nonCurrentPeriods: string[]}) => {
-
-
+const Page = ({
+  period,
+  data,
+  nonCurrentPeriods,
+}: {
+  period: string;
+  data: PopulatedGoveranceGroup[];
+  nonCurrentPeriods: string[];
+}) => {
   return (
-    <Governance
-      data={data}
-      period={period}
-      isCurrent={false}
-      otherPeriods={nonCurrentPeriods}
-    />
+    <Governance data={data} period={period} isCurrent={false} otherPeriods={nonCurrentPeriods} />
   );
 
   // const router = useRouter();
@@ -65,18 +70,17 @@ const Page = ({ period, data, nonCurrentPeriods }: {period: string, data: Popula
 };
 
 export async function getStaticPaths() {
-
-  const periods = Array.from(periodToLeadershipMap.keys())
-  periods.sort()
-  periods.splice(periods.length - 1, 1)
+  const periods = Array.from(periodToLeadershipMap.keys());
+  periods.sort();
+  periods.splice(periods.length - 1, 1);
 
   const paths = periods.map((fileName) => {
     return {
       params: {
         period: fileName,
-      }
-    }
-  })
+      },
+    };
+  });
 
   return {
     paths,
@@ -89,20 +93,18 @@ interface Params {
 }
 
 export async function getStaticProps({ params }: { params: Params }) {
-
-  const period = params.period
-  const data = getPopulatedPeriod(period)
-  const not2 = nonCurrentPeriods().filter(per => per !== period)
-  const notCurrentPeriods = ['Current',...not2]
+  const period = params.period;
+  const data = getPopulatedPeriod(period);
+  const not2 = nonCurrentPeriods().filter((per) => per !== period);
+  const notCurrentPeriods = ['Current', ...not2];
 
   return {
     props: {
       period,
       data,
-      notCurrentPeriods
+      notCurrentPeriods,
     },
   };
-
 }
 
 export default Page;
