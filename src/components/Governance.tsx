@@ -75,14 +75,14 @@ interface GovernanceProps {
 }
 
 const Governance = (props: GovernanceProps) => (
-  <div className="bg-white">
+  <>
     <Header text={'Our ' + (props.isCurrent ? '' : props.period + ' ') + 'Leadership Team'} />
     {props.data.map((group) => (
       <LeadershipGroup {...group} key={group.name} />
     ))}
     <PeriodLinks name="Historical governance periods" {...props.periodLinks} />
     <Footer royalBg={false} />
-  </div>
+  </>
 );
 
 export default Governance;

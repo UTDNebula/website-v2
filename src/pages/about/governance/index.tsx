@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Head from 'next/head';
 import PeriodLinks from '@/components/PeriodLinks';
 import Image, { StaticImageData } from 'next/image';
 import { useRouter } from 'next/router';
@@ -23,7 +24,16 @@ const Page = () => {
     periods: _nonCurrentPeriods,
   };
 
-  return <Governance data={data} period={'Current'} isCurrent={true} periodLinks={periodLinks} />;
+  return (
+    <>
+      <Head>
+        <title>Governance - Nebula Labs</title>
+        <link rel="canonical" href="https://www.utdnebula.com/about/governance" key="canonical" />
+        <meta property="og:url" content="https://www.utdnebula.com/about/governance" />
+      </Head>
+      <Governance data={data} period={'Current'} isCurrent={true} periodLinks={periodLinks} />
+    </>
+  );
 };
 
 export default Page;

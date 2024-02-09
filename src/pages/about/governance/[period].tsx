@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Head from 'next/head';
 import PeriodLinks from '@/components/PeriodLinks';
 import Image, { StaticImageData } from 'next/image';
 import { useRouter } from 'next/router';
@@ -28,7 +29,20 @@ const Page = ({
     periods: nonCurrentPeriods,
   };
 
-  return <Governance data={data} period={period} isCurrent={false} periodLinks={periodLinks} />;
+  return (
+    <>
+      <Head>
+        <title>{period + ' Governance - Nebula Labs'}</title>
+        <link
+          rel="canonical"
+          href={'https://www.utdnebula.com/about/governance/' + period}
+          key="canonical"
+        />
+        <meta property="og:url" content={'https://www.utdnebula.com/about/governance/' + period} />
+      </Head>
+      <Governance data={data} period={period} isCurrent={false} periodLinks={periodLinks} />
+    </>
+  );
 };
 
 export async function getStaticPaths() {
