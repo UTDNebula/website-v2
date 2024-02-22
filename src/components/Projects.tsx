@@ -90,48 +90,48 @@ export default function Projects() {
   }, [carouselRef]);
   const carouselKeyBase = 'projects';
   return (
-    <div className="w-full rounded-full overflow-x-clip relative flex items-center justify-center w-full aspect-square lg:scale-[115%] scale-[200%] lg:my-52 my-[34rem] shadow-[0px_0px_87px_-1px_#312E81]">
-      <div className="bg-stars bg-cover absolute inset-0"></div>
-      <div className="bg-stars bg-stars-delay bg-cover absolute inset-0"></div>
-      <div className="shrink-0 flex flex-col justify-center lg:scale-[calc(1/1.15)] scale-[calc(1/2)] h-min w-full">
-        <div className="text-center flex flex-col items-center">
-          <h3 className="text-2xl md:text-4xl text-white">Check Out Our </h3>
-          <h1 className="font-kallisto md:text-7xl text-4xl font-bold text-transparent w-min bg-clip-text bg-gradient-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
-            Projects
-          </h1>
-        </div>
-        <div className="text-center pt-4 text-white px-4">
-          <p>Check out what we have been creating in our lab up in the galaxy</p>
-        </div>
-        <div className="gap-8 grid-cols-4 mx-auto pt-6 text-white hidden lg:grid">
-          {PROJECTS_INFO.map((project, index) => (
-            <button
-              type="button"
-              key={`project-selector-${index}`}
-              className={`hover:scale-105 active:scale-95 transition flex h-16 px-10 justify-center items-center rounded-full cursor-pointer ${
-                selected === index ? 'bg-[#6166FA] border-black' : 'border-white'
-              } transition duration-300 ease-in-out border-2`}
-              onClick={() => {
-                const el = document.querySelector(`#${carouselKeyBase}-${index}`);
-                el?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-              }}
-            >
-              {project.shortName}
-            </button>
-          ))}
-        </div>
-        <div className="pt-6">
-          <Carousel data={PROJECTS_INFO} keyBase={carouselKeyBase} ref={carouselRef}>
-            {(project, index, valueCount, prev, next) => (
-              <ProjectCard
-                valueCount={valueCount}
-                prev={prev}
-                next={next}
-                index={index}
-                project={project}
-              />
-            )}
-          </Carousel>
+    <div className="w-full overflow-x-clip">
+      <div className="bg-stars bg-cover rounded-full flex items-center justify-center w-full aspect-square lg:scale-[115%] scale-[200%] lg:my-52 my-[34rem] shadow-[0px_0px_87px_-1px_#312E81]">
+        <div className="shrink-0 flex flex-col justify-center lg:scale-[calc(1/1.15)] scale-[calc(1/2)] h-min w-full">
+          <div className="text-center flex flex-col items-center">
+            <h3 className="text-2xl md:text-4xl text-white">Check Out Our </h3>
+            <h1 className="font-kallisto md:text-7xl text-4xl font-bold text-transparent w-min bg-clip-text bg-gradient-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
+              Projects
+            </h1>
+          </div>
+          <div className="text-center pt-4 text-white px-4">
+            <p>Check out what we have been creating in our lab up in the galaxy</p>
+          </div>
+          <div className="gap-8 grid-cols-4 mx-auto pt-6 text-white hidden lg:grid">
+            {PROJECTS_INFO.map((project, index) => (
+              <button
+                type="button"
+                key={`project-selector-${index}`}
+                className={`hover:scale-105 active:scale-95 transition flex h-16 px-10 justify-center items-center rounded-full cursor-pointer ${
+                  selected === index ? 'bg-[#6166FA] border-black' : 'border-white'
+                } transition duration-300 ease-in-out border-2`}
+                onClick={() => {
+                  const el = document.querySelector(`#${carouselKeyBase}-${index}`);
+                  el?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                }}
+              >
+                {project.shortName}
+              </button>
+            ))}
+          </div>
+          <div className="pt-6">
+            <Carousel data={PROJECTS_INFO} keyBase={carouselKeyBase} ref={carouselRef}>
+              {(project, index, valueCount, prev, next) => (
+                <ProjectCard
+                  valueCount={valueCount}
+                  prev={prev}
+                  next={next}
+                  index={index}
+                  project={project}
+                />
+              )}
+            </Carousel>
+          </div>
         </div>
       </div>
     </div>
