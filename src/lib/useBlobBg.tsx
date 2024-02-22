@@ -56,7 +56,7 @@ const generateKeyframes = (count: number, id: string, cssVars: Record<string, st
   return `@keyframes switchColor-${id} { ${frames.join(' ')} }`;
 };
 
-const useBlobBg = (): [JSX.Element, CSSProperties] => {
+const useBlobBg = (animation: boolean): [JSX.Element, CSSProperties] => {
   const [data, setData] = useState<ReturnType<typeof createBg> & { frames: string }>();
   useEffect(() => {
     const bg = createBg();
@@ -88,7 +88,9 @@ const useBlobBg = (): [JSX.Element, CSSProperties] => {
       ...data?.cssVars,
       backgroundColor: 'hsla(0,0%,100%,0.5)',
       background: data?.background,
-      // animation: `15000ms infinite alternate switchColor-${data?.bgInstance} cubic-bezier(0.4, 0, 0.6, 1)`,
+      animation: animation
+        ? `15000ms infinite alternate switchColor-${data?.bgInstance} cubic-bezier(0.4, 0, 0.6, 1)`
+        : '',
     },
   ];
 };

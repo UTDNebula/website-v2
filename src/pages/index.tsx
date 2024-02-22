@@ -11,7 +11,7 @@ import Testimonials from '@/components/Testimonials';
 import Projects from '@/components/Projects';
 
 const Header = () => {
-  const [frames, bgStyles] = useBlobBg();
+  const [frames, bgStyles] = useBlobBg(false);
 
   return (
     <div className="h-screen">
