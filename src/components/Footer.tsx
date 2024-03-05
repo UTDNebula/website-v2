@@ -77,10 +77,18 @@ const Footer = (props: FooterProps) => {
           <Link className={linkClasses} href="https://trends.utdnebula.com/" target="_blank">
             Trends
           </Link>
-          <Link className={linkClasses} href="https://chromewebstore.google.com/detail/skedge/ghipfanpcodcmkjacmmfjdmccdiaahab" target="_blank">
+          <Link
+            className={linkClasses}
+            href="https://chromewebstore.google.com/detail/skedge/ghipfanpcodcmkjacmmfjdmccdiaahab"
+            target="_blank"
+          >
             Skedge
           </Link>
-          <Link className={linkClasses} href="https://github.com/UTDNebula/nebula-api" target="_blank">
+          <Link
+            className={linkClasses}
+            href="https://github.com/UTDNebula/nebula-api"
+            target="_blank"
+          >
             API & Platform
           </Link>
         </div>
