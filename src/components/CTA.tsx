@@ -1,6 +1,7 @@
 import Circles from '@/../public/circles.svg';
 import Image from 'next/image';
 import Blob from '@/components/Blob';
+import Link from 'next/link';
 
 const CTA = () => {
   return (
@@ -34,9 +35,12 @@ const CTA = () => {
           Join Nebula Labs today and be a part of our mission to innovate and create tools that make
           a difference in the world.
         </p>
-        <button className="w-min rounded-full bg-white text-cornflower-500 px-10 py-1 mt-5 whitespace-nowrap font-semibold shadow-xl hover:shadow-lg duration-75 transition-shadow">
+        <Link
+          href="/resources/meetings"
+          className="w-min rounded-full bg-white text-cornflower-500 px-10 py-1 mt-5 whitespace-nowrap font-semibold shadow-xl hover:shadow-lg duration-75 transition-shadow"
+        >
           Get Involved
-        </button>
+        </Link>
       </div>
     </div>
   );
