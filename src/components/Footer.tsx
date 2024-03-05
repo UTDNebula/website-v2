@@ -96,11 +96,24 @@ const Footer = (props: FooterProps) => {
           <StyledNextLink href="/projects">
             <h3 className="text-xl font-semibold mb-4">Projects</h3>
           </StyledNextLink>
-          <StyledNextLink href="/projects/planner">Planner</StyledNextLink>
-          <StyledNextLink href="/projects/jupiter">Jupiter</StyledNextLink>
-          <StyledNextLink href="/projects/trends">Trends</StyledNextLink>
-          <StyledNextLink href="/projects/skedge">Skedge</StyledNextLink>
-          <StyledNextLink href="/projects/api">API & Platform</StyledNextLink>
+          <StyledNextLink href="https://planner.utdnebula.com/" target="_blank">
+            Planner
+          </StyledNextLink>
+          <StyledNextLink href="https://jupiter.utdnebula.com/" target="_blank">
+            Jupiter
+          </StyledNextLink>
+          <StyledNextLink href="https://trends.utdnebula.com/" target="_blank">
+            Trends
+          </StyledNextLink>
+          <StyledNextLink
+            href="https://chromewebstore.google.com/detail/skedge/ghipfanpcodcmkjacmmfjdmccdiaahab"
+            target="_blank"
+          >
+            Skedge
+          </StyledNextLink>
+          <StyledNextLink href="https://github.com/UTDNebula/nebula-api" target="_blank">
+            API & Platform
+          </StyledNextLink>
         </div>
         <div className="flex flex-col items-start gap-3">
           <h3 className="text-xl font-semibold mb-4">Resources</h3>
