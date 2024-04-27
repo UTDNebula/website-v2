@@ -16,7 +16,7 @@ function WhoWeAre() {
         </h3>
         <Link
           className="inline-block mt-6 p-3 text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors"
-          href="/about"
+          href="/about/mission"
         >
           Learn More
         </Link>
