@@ -94,7 +94,7 @@ const parentItems: Array<ParentItem> = [
 const childItems: Array<LinkItem> = [
   {
     name: 'Membership',
-    link: '/resources/roles',
+    link: '/membership',
   },
   {
     name: 'Contact Us',

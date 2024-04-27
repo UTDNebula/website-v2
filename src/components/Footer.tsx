@@ -25,6 +25,9 @@ const Footer = () => {
           <Link className={linkClasses} href="/about/governance">
             Project Governance
           </Link>
+          <Link className={linkClasses} href="/membership">
+            Membership
+          </Link>
           <Link className={linkClasses} href="/contact">
             Contact Us
           </Link>
@@ -59,9 +62,6 @@ const Footer = () => {
         </div>
         <div className="flex flex-col items-start gap-3">
           <h3 className="text-xl font-semibold mb-4">Resources</h3>
-          <Link className={linkClasses} href="/resources/roles">
-            Roles
-          </Link>
           <Link className={linkClasses} href="/about/governance">
             Project Governance
           </Link>
