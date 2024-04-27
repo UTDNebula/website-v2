@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Disclosure, Transition, TransitionRootProps } from '@headlessui/react';
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
-import FilledChevronUp from '@/../public/filled-chevron-up.svg';
+import FilledChevronUp from '@/../public/filled-chevron-up-white.svg';
 import Arrow from '@/../public/arrow-white.svg';
 import X from '@/../public/x.svg';
 import Hamburger from '@/../public/menu-alt-3.svg';
@@ -53,31 +53,31 @@ const parentItems: Array<ParentItem> = [
     children: [
       {
         name: 'Planner',
-        link: '/projects/planner',
+        link: 'https://planner.utdnebula.com/',
         description: 'Help plan degree and course requirements',
         iconSrc: Pencil,
       },
       {
         name: 'Jupiter',
-        link: '/projects/jupiter',
+        link: 'https://jupiter.utdnebula.com/',
         description: 'Find and connect with student organizations',
         iconSrc: Users,
       },
       {
         name: 'Trends',
-        link: '/projects/trends',
+        link: 'https://trends.utdnebula.com/',
         description: 'Help plan coursework through grade and professor stats',
         iconSrc: TrendingUp,
       },
       {
         name: 'Skedge',
-        link: '/projects/skedge',
+        link: 'https://chromewebstore.google.com/detail/skedge/ghipfanpcodcmkjacmmfjdmccdiaahab',
         description: 'Integrate grade and professor stats into Schedule Planner',
         iconSrc: TrendingUp,
       },
       {
         name: 'API & Platform',
-        link: '/projects/api',
+        link: 'https://github.com/UTDNebula/nebula-api',
         description: 'Integrate X+ years of historical UTD data into your applications',
         iconSrc: Puzzle,
       },
@@ -266,7 +266,11 @@ const Navbar = (props: Props) => {
                                   {child.iconSrc && (
                                     <Image src={child.iconSrc} alt="" className="" />
                                   )}
-                                  <Link href={child.link} className="lg:flex lg:flex-col gap-1">
+                                  <Link
+                                    href={child.link}
+                                    className="lg:flex lg:flex-col gap-1"
+                                    target={child.link.includes('http') ? '_blank' : ''}
+                                  >
                                     <span className="flex gap-2 w-full">
                                       <h2 className="font-bold lg:text-2xl">{child.name}</h2>
                                       <Image
@@ -300,15 +304,15 @@ const Navbar = (props: Props) => {
                   </li>
                 ))}
               </ul>
-              <button
+              <Link
+                href="/resources/meetings"
                 className={clsx(
                   'justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap',
                   textShadow,
                 )}
               >
-                {/* TODO: where is this supposed to link to */}
                 Get Involved
-              </button>
+              </Link>
             </Disclosure.Panel>
           </Transition>
         </>

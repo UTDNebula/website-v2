@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 function WhoWeAre() {
   return (
     <div
@@ -12,9 +14,12 @@ function WhoWeAre() {
           We&apos;re a community of student developers and designers crafting innovative tools to
           empower UT Dallas students, one galaxy at a time.
         </h3>
-        <button className="mt-6 p-3 text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors">
+        <Link
+          className="inline-block mt-6 p-3 text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors"
+          href="/about"
+        >
           Learn More
-        </button>
+        </Link>
       </div>
     </div>
   );
