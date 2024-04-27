@@ -103,9 +103,13 @@ const Footer = (props: FooterProps) => {
           <Link className={linkClasses} href="/resources/meetings">
             Meetings
           </Link>
-          <Link className={linkClasses} href="/resources/design-guide">
+          <a
+            className={linkClasses}
+            href="https://nebula-labs.atlassian.net/wiki/spaces/ND/overview?homepageId=23822536"
+            target="_blank"
+          >
             Design Guide
-          </Link>
+          </a>
         </div>
         <div className="flex flex-col items-start  gap-4 lg:ml-auto">
           <a
