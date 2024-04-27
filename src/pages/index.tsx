@@ -12,7 +12,7 @@ import Projects from '@/components/Projects';
 import Head from 'next/head';
 
 const Header = () => {
-  const [frames, bgStyles] = useBlobBg();
+  const [frames, bgStyles] = useBlobBg(false);
 
   return (
     <div className="h-screen">
