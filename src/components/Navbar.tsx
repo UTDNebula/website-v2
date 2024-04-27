@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Disclosure, Transition, TransitionRootProps } from '@headlessui/react';
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import FilledChevronUp from '@/../public/filled-chevron-up-white.svg';
-import Arrow from '@/../public/arrow-white.svg';
+import Arrow from '@/../public/arrow.svg';
 import X from '@/../public/x.svg';
 import Hamburger from '@/../public/menu-alt-3.svg';
 import Puzzle from '@/../public/puzzle.svg';

@@ -10,7 +10,7 @@ const Contact = () => (
       <meta property="og:url" content="https://www.utdnebula.com/about/contact" />
     </Head>
     <Header text="Contact" />
-    <Footer royalBg={false} />
+    <Footer />
   </>
 );
 

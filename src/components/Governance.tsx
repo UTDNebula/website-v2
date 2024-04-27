@@ -81,7 +81,7 @@ const Governance = (props: GovernanceProps) => (
       <LeadershipGroup {...group} key={group.name} />
     ))}
     <PeriodLinks name="Historical governance periods" {...props.periodLinks} />
-    <Footer royalBg={false} />
+    <Footer />
   </>
 );
 

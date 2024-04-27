@@ -266,7 +266,7 @@ const Calendar = () => {
         </a>
       </div>
       {result}
-      <Footer royalBg={false} />
+      <Footer />
     </>
   );
 };

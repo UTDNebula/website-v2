@@ -10,7 +10,7 @@ const Planner = () => (
       <meta property="og:url" content="https://www.utdnebula.com/projects/planner" />
     </Head>
     <Header text="Planner" />
-    <Footer royalBg={false} />
+    <Footer />
   </>
 );
 
