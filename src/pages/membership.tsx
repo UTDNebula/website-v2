@@ -38,7 +38,7 @@ const Membership = () => (
       <h2 className="text-5xl font-bold pb-4 text-center">How to Become a Member</h2>
       <p className="text-3xl pb-4">AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</p>
     </div>
-    <Footer royalBg={false} />
+    <Footer />
   </>
 );
 
