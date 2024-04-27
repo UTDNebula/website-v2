@@ -52,9 +52,6 @@ const Footer = (props: FooterProps) => {
           <Link className={linkClasses} href="/about/governance">
             Project Governance
           </Link>
-          <Link className={linkClasses} href="/membership">
-            Membership
-          </Link>
           <Link className={linkClasses} href="/contact">
             Contact Us
           </Link>

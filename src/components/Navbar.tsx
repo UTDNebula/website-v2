@@ -88,11 +88,7 @@ const parentItems: Array<ParentItem> = [
 const childItems: Array<LinkItem> = [
   {
     name: 'Membership',
-    link: '/membership',
-  },
-  {
-    name: 'Newsletter',
-    link: '/newsletter',
+    link: '/resources/roles',
   },
   {
     name: 'Contact Us',
