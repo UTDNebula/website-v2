@@ -152,17 +152,7 @@ const Footer = (props: FooterProps) => {
             Sitemap
           </Link>
           <div className="md:text-right text-center text-xs">
-            <p>© 2023 Nebula Labs Maintainers. All rights reserved.</p>
-            <p>
-              Site design by{' '}
-              <a
-                className={linkClasses + ' font-bold'}
-                href="https://hilary-nguyen.com/"
-                target="_blank"
-              >
-                Hilary Nguyen
-              </a>
-            </p>
+            <p>© 2024 Nebula Labs Maintainers. All rights reserved.</p>
           </div>
         </div>
       </div>
