@@ -1,4 +1,5 @@
-The source code for the official nebula labs website\(v2\)
+The codebase for the official Nebula Labs website\(v2\).
+
 Built with Next.js, React, & Tailwind
 
 ## Development Guide
