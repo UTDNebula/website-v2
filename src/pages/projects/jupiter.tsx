@@ -10,7 +10,7 @@ const Jupiter = () => (
       <meta property="og:url" content="https://www.utdnebula.com/projects/jupiter" />
     </Head>
     <Header text="Jupiter" />
-    <Footer royalBg={false} />
+    <Footer />
   </>
 );
 

@@ -14,7 +14,7 @@ const DesignGuide = () => (
       <meta property="og:url" content="https://www.utdnebula.com/resources/design-guide" />
     </Head>
     <Header text="Design Guide" />
-    <Footer royalBg={false} />
+    <Footer />
   </>
 );
 

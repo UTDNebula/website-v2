@@ -70,7 +70,7 @@ const Mission = () => (
         for more
       </h3>
     </div>
-    <Footer royalBg={false} />
+    <Footer />
   </>
 );
 
