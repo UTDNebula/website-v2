@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Listbox, Transition } from '@headlessui/react';
-import { forwardRef, ReactNode } from 'react';
 
 interface PeriodLinkProps {
   name: string;
