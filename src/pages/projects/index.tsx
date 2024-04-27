@@ -22,9 +22,8 @@ const Projects = () => (
           <h2 className={headerStyle}>Planner</h2>
         </a>
         <p className={infoStyle}>
-          Planner is a tool to help students craft their college experience the way they want
-          through an intuitive degree planning tool, featuring degree validation and course
-          requirements.
+          Planner is a student-focused tool for creating and tracking degree plans, offering a
+          user-friendly interface to simplify course mapping and progress tracking.
         </p>
       </section>
       <section>
@@ -32,8 +31,8 @@ const Projects = () => (
           <h2 className={headerStyle}>Trends</h2>
         </a>
         <p className={infoStyle}>
-          UTD Trends is a website that lets you visualize and compare historical class grade
-          distributions, and RateMyProfessor data.
+          UTD Trends is a website that lets you visualize and compare grade distributions, and
+          RateMyProfessor data for professors and courses.
         </p>
       </section>
       <section>
@@ -41,7 +40,8 @@ const Projects = () => (
           <h2 className={headerStyle}>Jupiter</h2>
         </a>
         <p className={infoStyle}>
-          A platform to find and keep track of events and organizations at UT Dallas.
+          Jupiter is the best way to get involved on campus. It’s easy to discover new organizations
+          or exciting events to make the most of the on-campus experience.
         </p>
       </section>
       <section>
@@ -50,7 +50,7 @@ const Projects = () => (
         </a>
         <p className={infoStyle}>
           A browser extension that hooks into course planner to give you grade and RateMyProfessor
-          data while picking courses.{' '}
+          data while picking courses, easing your course selection experience.{' '}
         </p>
       </section>
       <section>
@@ -58,8 +58,8 @@ const Projects = () => (
           <h2 className={headerStyle}>API & Platform</h2>
         </a>
         <p className={infoStyle}>
-          The Nebula API is a public API containing resources for UTD student data, including
-          professor information, grade distribution information, and more.
+          The Nebula API serves as the authoritative data source for UTD information such as
+          courses, student organizations, and more.
         </p>
       </section>
     </section>
