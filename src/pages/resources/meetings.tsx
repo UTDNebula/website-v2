@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { ics } from 'calendar-link';
 
@@ -87,6 +88,8 @@ const Meeting = (props: MeetingReactProps) => {
 };
 
 const Meetings = () => {
+  const router = useRouter();
+
   const [events, setEvents] = useState<EventFetchProps[]>([]);
   const [state, setState] = useState('loading');
 
@@ -193,7 +196,7 @@ const Meetings = () => {
   let result = (
     <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center">
       <h2 className="text-5xl font-bold pb-4 text-center">Error loading calendar</h2>
-      <button className={buttonLinkClasses} onClick={() => location.reload()}>
+      <button className={buttonLinkClasses} onClick={() => router.reload()}>
         Reload
       </button>
     </div>
