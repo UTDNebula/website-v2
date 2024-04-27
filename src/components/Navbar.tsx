@@ -48,44 +48,13 @@ const parentItems: Array<ParentItem> = [
       },
     ],
   },
-  {
-    name: 'Our Projects',
-    children: [
-      {
-        name: 'Planner',
-        link: 'https://planner.utdnebula.com/',
-        description: 'Help plan degree and course requirements',
-        iconSrc: Pencil,
-      },
-      {
-        name: 'Jupiter',
-        link: 'https://jupiter.utdnebula.com/',
-        description: 'Find and connect with student organizations',
-        iconSrc: Users,
-      },
-      {
-        name: 'Trends',
-        link: 'https://trends.utdnebula.com/',
-        description: 'Help plan coursework through grade and professor stats',
-        iconSrc: TrendingUp,
-      },
-      {
-        name: 'Skedge',
-        link: 'https://chromewebstore.google.com/detail/skedge/ghipfanpcodcmkjacmmfjdmccdiaahab',
-        description: 'Integrate grade and professor stats into Schedule Planner',
-        iconSrc: TrendingUp,
-      },
-      {
-        name: 'API & Platform',
-        link: 'https://github.com/UTDNebula/nebula-api',
-        description: 'Integrate X+ years of historical UTD data into your applications',
-        iconSrc: Puzzle,
-      },
-    ],
-  },
 ];
 
 const childItems: Array<LinkItem> = [
+  {
+    name: 'Our Projects',
+    link: '/projects',
+  },
   {
     name: 'Membership',
     link: '/membership',
