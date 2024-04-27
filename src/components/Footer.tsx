@@ -119,9 +119,9 @@ const Footer = () => {
           <Link className={linkClasses} href="/sitemap.xml">
             Sitemap
           </Link>
-          <div className="md:text-right text-center text-xs">
-            <p>© 2024 Nebula Labs Maintainers. All rights reserved.</p>
-          </div>
+          <p className="md:text-right text-center text-xs">
+            © {new Date().getFullYear()} Nebula Labs Maintainers. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
