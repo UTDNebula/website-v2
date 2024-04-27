@@ -95,6 +95,9 @@ const Footer = (props: FooterProps) => {
           <Link className={linkClasses} href="/resources/meetings">
             Meetings
           </Link>
+          <Link className={linkClasses} href="/resources/calendar">
+            Calendar
+          </Link>
           <Link className={linkClasses} href="/resources/design-guide">
             Design Guide
           </Link>
