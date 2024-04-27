@@ -10,7 +10,7 @@ const API = () => (
       <meta property="og:url" content="https://www.utdnebula.com/projects/api" />
     </Head>
     <Header text="API & Platform" />
-    <Footer royalBg={false} />
+    <Footer />
   </>
 );
 

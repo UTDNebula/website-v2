@@ -10,7 +10,7 @@ const Trends = () => (
       <meta property="og:url" content="https://www.utdnebula.com/projects/trends" />
     </Head>
     <Header text="Trends" />
-    <Footer royalBg={false} />
+    <Footer />
   </>
 );
 

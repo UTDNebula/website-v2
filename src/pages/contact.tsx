@@ -62,7 +62,7 @@ const Contact = () => (
         </div>
       </div>
     </div>
-    <Footer royalBg={false} />
+    <Footer />
   </>
 );
 

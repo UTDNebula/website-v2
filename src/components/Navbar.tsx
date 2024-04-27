@@ -3,8 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Disclosure, Transition, TransitionRootProps } from '@headlessui/react';
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
-import FilledChevronUp from '@/../public/filled-chevron-up.svg';
-import Arrow from '@/../public/arrow-white.svg';
+import FilledChevronUp from '@/../public/filled-chevron-up-white.svg';
+import Arrow from '@/../public/arrow.svg';
 import X from '@/../public/x.svg';
 import Hamburger from '@/../public/menu-alt-3.svg';
 import Puzzle from '@/../public/puzzle.svg';
@@ -48,51 +48,16 @@ const parentItems: Array<ParentItem> = [
       },
     ],
   },
-  {
-    name: 'Our Projects',
-    children: [
-      {
-        name: 'Planner',
-        link: '/projects/planner',
-        description: 'Help plan degree and course requirements',
-        iconSrc: Pencil,
-      },
-      {
-        name: 'Jupiter',
-        link: '/projects/jupiter',
-        description: 'Find and connect with student organizations',
-        iconSrc: Users,
-      },
-      {
-        name: 'Trends',
-        link: '/projects/trends',
-        description: 'Help plan coursework through grade and professor stats',
-        iconSrc: TrendingUp,
-      },
-      {
-        name: 'Skedge',
-        link: '/projects/skedge',
-        description: 'Integrate grade and professor stats into Schedule Planner',
-        iconSrc: TrendingUp,
-      },
-      {
-        name: 'API & Platform',
-        link: '/projects/api',
-        description: 'Integrate X+ years of historical UTD data into your applications',
-        iconSrc: Puzzle,
-      },
-    ],
-  },
 ];
 
 const childItems: Array<LinkItem> = [
   {
-    name: 'Membership',
-    link: '/membership',
+    name: 'Our Projects',
+    link: '/projects',
   },
   {
-    name: 'Newsletter',
-    link: '/newsletter',
+    name: 'Membership',
+    link: '/resources/roles',
   },
   {
     name: 'Contact Us',
@@ -110,7 +75,12 @@ const transitionProps: TransitionRootProps<typeof Fragment> = {
   leaveTo: 'transform scale-95 -translate-y-5 opacity-0',
 };
 
-const Navbar = () => {
+interface Props {
+  className?: string;
+  shadow?: boolean;
+}
+
+const Navbar = (props: Props) => {
   const [submenuCloseCallbacks, setSubmenuCloseCallbacks] = useState<Record<string, () => void>>(
     {},
   );
@@ -137,10 +107,17 @@ const Navbar = () => {
       obs.disconnect();
     };
   }, [ref]);
+
+  const textShadow = props.shadow === true ? '[text-shadow:_0_0_4px_rgb(0_0_0_/_0.4)]' : '';
+  const dropShadow = props.shadow === true ? '[filter:_drop-shadow(0_0_4px_rgb(0_0_0_/_0.4))]' : '';
+
   return (
     <Disclosure
       as="nav"
-      className="flex py-10 items-center lg:place-content-evenly place-content-between px-4"
+      className={clsx(
+        'flex py-10 items-center lg:place-content-evenly place-content-between px-4',
+        props.className ?? '',
+      )}
     >
       {({ open: displayMobileMenu, close: closeMobileMenu }) => (
         <>
@@ -152,10 +129,17 @@ const Navbar = () => {
             }}
           />
           <Link className="flex items-center" href="/">
-            <Image src={'/icon-white.svg'} alt={'logo'} width={90} height={70} priority />
+            <Image
+              src={'/icon-white.svg'}
+              alt={'logo'}
+              width={90}
+              height={70}
+              priority
+              className={dropShadow}
+            />
           </Link>
           <Disclosure.Button className="lg:hidden">
-            <Image src={Hamburger} alt="" className="w-8" />
+            <Image src={Hamburger} alt="" className={clsx('w-8', dropShadow)} />
           </Disclosure.Button>
           <Transition {...transitionProps} show={shouldDisplayDesktopMenu || displayMobileMenu}>
             <Disclosure.Panel
@@ -221,13 +205,14 @@ const Navbar = () => {
                               'w-full flex gap-1 items-center',
                             )}
                           >
-                            <p>{item.name}</p>
+                            <p className={textShadow}>{item.name}</p>
                             <Image
                               src={FilledChevronUp}
                               alt=""
                               className={clsx(
                                 submenuOpen ? 'rotate-0' : 'rotate-180',
                                 'w-3 transition-transform',
+                                dropShadow,
                               )}
                             />
                           </Disclosure.Button>
@@ -246,7 +231,11 @@ const Navbar = () => {
                                   {child.iconSrc && (
                                     <Image src={child.iconSrc} alt="" className="" />
                                   )}
-                                  <Link href={child.link} className="lg:flex lg:flex-col gap-1">
+                                  <Link
+                                    href={child.link}
+                                    className="lg:flex lg:flex-col gap-1"
+                                    target={child.link.includes('http') ? '_blank' : ''}
+                                  >
                                     <span className="flex gap-2 w-full">
                                       <h2 className="font-bold lg:text-2xl">{child.name}</h2>
                                       <Image
@@ -270,17 +259,25 @@ const Navbar = () => {
                   <li key={`menu-child-${outerIndex}`}>
                     <Link
                       href={item.link}
-                      className={clsx(displayMobileMenu && 'flex place-content-between w-full')}
+                      className={clsx(
+                        displayMobileMenu && 'flex place-content-between w-full',
+                        textShadow,
+                      )}
                     >
                       {item.name}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <button className="justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap">
-                {/* TODO: where is this supposed to link to */}
+              <Link
+                href="/resources/meetings"
+                className={clsx(
+                  'justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap',
+                  textShadow,
+                )}
+              >
                 Get Involved
-              </button>
+              </Link>
             </Disclosure.Panel>
           </Transition>
         </>

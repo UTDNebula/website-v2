@@ -10,7 +10,7 @@ const Mission = () => (
       <meta property="og:url" content="https://www.utdnebula.com/about/mission" />
     </Head>
     <Header text="Mission" />
-    <Footer royalBg={false} />
+    <Footer />
   </>
 );
 
