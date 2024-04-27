@@ -68,19 +68,27 @@ const Footer = (props: FooterProps) => {
           <Link className={linkClasses} href="/projects">
             <h3 className="text-xl font-semibold mb-4">Projects</h3>
           </Link>
-          <Link className={linkClasses} href="/projects/planner">
+          <Link className={linkClasses} href="https://planner.utdnebula.com/" target="_blank">
             Planner
           </Link>
-          <Link className={linkClasses} href="/projects/jupiter">
+          <Link className={linkClasses} href="https://jupiter.utdnebula.com/" target="_blank">
             Jupiter
           </Link>
-          <Link className={linkClasses} href="/projects/trends">
+          <Link className={linkClasses} href="https://trends.utdnebula.com/" target="_blank">
             Trends
           </Link>
-          <Link className={linkClasses} href="/projects/skedge">
+          <Link
+            className={linkClasses}
+            href="https://chromewebstore.google.com/detail/skedge/ghipfanpcodcmkjacmmfjdmccdiaahab"
+            target="_blank"
+          >
             Skedge
           </Link>
-          <Link className={linkClasses} href="/projects/api">
+          <Link
+            className={linkClasses}
+            href="https://github.com/UTDNebula/nebula-api"
+            target="_blank"
+          >
             API & Platform
           </Link>
         </div>
@@ -98,9 +106,13 @@ const Footer = (props: FooterProps) => {
           <Link className={linkClasses} href="/resources/calendar">
             Calendar
           </Link>
-          <Link className={linkClasses} href="/resources/design-guide">
+          <a
+            className={linkClasses}
+            href="https://nebula-labs.atlassian.net/wiki/spaces/ND/overview?homepageId=23822536"
+            target="_blank"
+          >
             Design Guide
-          </Link>
+          </a>
         </div>
         <div className="flex flex-col items-start  gap-4 lg:ml-auto">
           <a
