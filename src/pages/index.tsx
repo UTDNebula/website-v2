@@ -15,7 +15,7 @@ import { useRouter } from 'next/router';
 const Header = () => {
   const router = useRouter();
 
-  const [frames, bgStyles] = useBlobBg();
+  const [frames, bgStyles] = useBlobBg(false);
 
   return (
     <div className="h-screen flex flex-col overflow-hidden relative ">
