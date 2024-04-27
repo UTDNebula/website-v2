@@ -1,6 +1,9 @@
 function WhoWeAre() {
   return (
-    <div className="xl:pt-32 px-8 md:px-32 xl:px-64 flex justify-between flex-col lg:flex-row mx-auto font-inter gap-8 lg:gap-16 lg:text-left text-center my-16">
+    <div
+      id="who-we-are"
+      className="xl:pt-32 px-8 md:px-32 xl:px-64 flex justify-between flex-col lg:flex-row mx-auto font-inter gap-8 lg:gap-16 lg:text-left text-center my-16"
+    >
       <h1 className="font-bold lg:text-6xl text-2xl text-gradient leading-tight">
         Who&nbsp;We Are
       </h1>

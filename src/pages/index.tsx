@@ -10,8 +10,11 @@ import CTA from '@/components/CTA';
 import Testimonials from '@/components/Testimonials';
 import Projects from '@/components/Projects';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 const Header = () => {
+  const router = useRouter();
+
   const [frames, bgStyles] = useBlobBg();
 
   return (
@@ -45,7 +48,7 @@ const Header = () => {
           src={Arrow}
           alt="Arrow"
           className="cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out [filter:_drop-shadow(0_0_4px_rgb(0_0_0_/_0.4))]"
-          onClick={() => window.scrollBy(0, window.innerHeight)}
+          onClick={() => router.replace('/#who-we-are')}
         />
       </div>
     </div>
