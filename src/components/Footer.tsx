@@ -5,7 +5,7 @@ const linkClasses = 'underline decoration-transparent hover:decoration-inherit t
 
 const Footer = () => {
   return (
-    <footer className="bg-royal text-white w-full rounded-t-[3.125rem] pb-10 md:px-40 px-8 text-sm">
+    <footer className="bg-royal text-white w-full rounded-t-[3.125rem] pb-10 md:px-40 px-8 text-sm mt-20">
       <div className="flex justify-between py-16 sm:py-28 gap-8">
         <Image
           src="/logo-name-white.svg"
