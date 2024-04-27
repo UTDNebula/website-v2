@@ -10,7 +10,7 @@ const Roles = () => (
       <meta property="og:url" content="https://www.utdnebula.com/resources/roles" />
     </Head>
     <Header text="Roles" />
-    <Footer royalBg={false} />
+    <Footer />
   </>
 );
 

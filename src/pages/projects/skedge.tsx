@@ -10,7 +10,7 @@ const Skedge = () => (
       <meta property="og:url" content="https://www.utdnebula.com/projects/skedge" />
     </Head>
     <Header text="Skedge" />
-    <Footer royalBg={false} />
+    <Footer />
   </>
 );
 

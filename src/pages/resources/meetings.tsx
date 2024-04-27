@@ -221,7 +221,7 @@ const Meetings = () => {
       </Head>
       <Header text="Meetings" />
       {result}
-      <Footer royalBg={false} />
+      <Footer />
     </>
   );
 };
