@@ -45,9 +45,7 @@ const Footer = (props: FooterProps) => {
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="flex flex-col items-start gap-3">
-          <Link className={linkClasses} href="/about">
-            <h3 className="text-xl font-semibold mb-4">About us</h3>
-          </Link>
+          <h3 className="text-xl font-semibold mb-4">About us</h3>
           <Link className={linkClasses} href="/about/mission">
             Mission
           </Link>
@@ -56,9 +54,6 @@ const Footer = (props: FooterProps) => {
           </Link>
           <Link className={linkClasses} href="/membership">
             Membership
-          </Link>
-          <Link className={linkClasses} href="/newsletter">
-            Newsletter
           </Link>
           <Link className={linkClasses} href="/contact">
             Contact Us
@@ -156,17 +151,9 @@ const Footer = (props: FooterProps) => {
       <div className="md:pt-40 pt-10">
         <div className={'border-t-2 ' + (royalBg ? 'border-white' : 'border-black')} />
         <div className="flex md:flex-row flex-col justify-between gap-8 pt-8">
-          <div className="flex gap-x-8 gap-y-1 justify-around md:justify-normal flex-wrap">
-            <Link className={linkClasses} href="/legal/terms-of-service.txt">
-              Terms of Service
-            </Link>
-            <Link className={linkClasses} href="/legal/privacy-policy.txt">
-              Privacy Policy
-            </Link>
-            <Link className={linkClasses} href="/sitemap.xml">
-              Sitemap
-            </Link>
-          </div>
+          <Link className={linkClasses} href="/sitemap.xml">
+            Sitemap
+          </Link>
           <div className="md:text-right text-center text-xs">
             <p>© 2023 Nebula Labs Maintainers. All rights reserved.</p>
             <p>
