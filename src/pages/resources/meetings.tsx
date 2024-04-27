@@ -135,16 +135,16 @@ const Meetings = () => {
       });
   }, []);
 
-  interface MeetingProps {
-    [key: string]: {
-      name: string;
-      found: boolean;
-      start?: string;
-      end?: string;
-      location?: string;
-      htmlLink?: string;
-    };
+  interface MeetingObject {
+    name: string;
+    found: boolean;
+    start?: string;
+    end?: string;
+    location?: string;
+    htmlLink?: string;
   }
+  type MeetingProps = Record<'planner' | 'jupiter' | 'trends' | 'api', MeetingObject>;
+
   const meetings: MeetingProps = {
     planner: {
       name: 'Planner',
@@ -172,8 +172,8 @@ const Meetings = () => {
         }
         const name = event.summary.toLowerCase();
         if (name.includes('project meeting') && name.includes(project)) {
-          meetings[project] = {
-            ...meetings[project],
+          meetings[project as keyof MeetingProps] = {
+            ...meetings[project as keyof MeetingProps],
             found: true,
             start: event.start.dateTime,
             end: event.end.dateTime,
@@ -182,7 +182,7 @@ const Meetings = () => {
           };
         }
       }
-      elements.push(<Meeting key={project} {...meetings[project]} />);
+      elements.push(<Meeting key={project} {...meetings[project as keyof MeetingProps]} />);
     }
   }
 
