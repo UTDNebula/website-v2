@@ -13,10 +13,11 @@ const Contact = () => (
       <link rel="canonical" href="https://www.utdnebula.com/about/contact" key="canonical" />
       <meta property="og:url" content="https://www.utdnebula.com/about/contact" />
     </Head>
-    <Header text="Contact" />
+
+    <Header text="Contact Us" />
     <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center gap-12">
-      <div className="flex flex-col items-center gap-4">
-        <h2 className="text-2xl">
+      <div className="flex flex-col items-center gap-12">
+        <h2 className="text-2xl gap-2">
           Discord is the best place to stay up to date with our latest updates and events.
         </h2>
         <a
@@ -27,43 +28,39 @@ const Contact = () => (
           <Image src="/join-discord-black.svg" alt="discord" width="200" height="60" />
         </a>
       </div>
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-8">
         <h2 className="text-2xl">You can also find us on these platforms:</h2>
-        <a
-          className={linkClasses + ' flex items-center gap-2'}
-          href="https://instagram.com/utdnebula"
-          target="_blank"
-        >
-          <Image src="/instagram-black.svg" alt="Instagram logo" width="30" height="30" />
-          Instagram
-        </a>
-        <a
-          className={linkClasses + ' flex items-center gap-2'}
-          href="https://linkedin.com/company/utdnebula"
-          target="_blank"
-        >
-          <Image src="/linkedin-black.svg" alt="LinkedIn logo" width="30" height="30" />
-          LinkedIn
-        </a>
-        <a
-          className={linkClasses + ' flex items-center gap-2'}
-          href="https://github.com/utdnebula"
-          target="_blank"
-        >
-          <Image src="/github-black.svg" alt="GitHub logo" width="30" height="30" />
-          GitHub
-        </a>
+        <div className="flex flex-row items-center gap-12">
+          <a
+            className={linkClasses + ' flex items-center gap-2'}
+            href="https://instagram.com/utdnebula"
+            target="_blank"
+          >
+            <Image src="/instagram-black.svg" alt="Instagram logo" width="30" height="30" />
+          </a>
+          <a
+            className={linkClasses + ' flex items-center gap-2'}
+            href="https://linkedin.com/company/utdnebula"
+            target="_blank"
+          >
+            <Image src="/linkedin-black.svg" alt="LinkedIn logo" width="30" height="30" />
+          </a>
+          <a
+            className={linkClasses + ' flex items-center gap-2'}
+            href="https://github.com/utdnebula"
+            target="_blank"
+          >
+            <Image src="/github-black.svg" alt="GitHub logo" width="30" height="30" />
+          </a>
+          <a
+            className={linkClasses + ' flex items-center gap-2'}
+            href="mailto:leadership@utdnebula.com"
+            target="_blank"
+          >
+            <Image src="/gmail-black.svg" alt="GitHub logo" width="30" height="30" />
+          </a>
+        </div>
       </div>
-      <h2 className="text-2xl">
-        {'Contacts for our officers, division heads, and project leads can be found on the '}
-        <Link
-          href="/about/governance"
-          className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
-        >
-          governance page
-        </Link>
-        .
-      </h2>
     </div>
     <Footer royalBg={false} />
   </>
