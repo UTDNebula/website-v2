@@ -3,7 +3,6 @@ import { createRef, useEffect, useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import Carousel from './Carousel';
 import Planner from '@/../public/projects/planner.png';
-import API from '@/../public/projects/skedge.png';
 import Skedge from '@/../public/projects/skedge.png';
 import Jupiter from '@/../public/projects/jupiter.png';
 import FilledChevronUp from '@/../public/filled-chevron-up-white.svg';
@@ -121,7 +120,7 @@ export default function Projects() {
             ))}
           </div>
           <div className="pt-6">
-            <Carousel data={PROJECTS_INFO} keyBase={carouselKeyBase} ref={carouselRef}>
+            <Carousel<Project[]> data={PROJECTS_INFO} keyBase={carouselKeyBase} ref={carouselRef}>
               {(project, index, valueCount, prev, next) => (
                 <ProjectCard
                   valueCount={valueCount}

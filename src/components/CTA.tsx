@@ -1,6 +1,4 @@
-import Circles from '@/../public/circles.svg';
 import Image from 'next/image';
-import Blob from '@/components/Blob';
 import Link from 'next/link';
 
 const CTA = () => {
