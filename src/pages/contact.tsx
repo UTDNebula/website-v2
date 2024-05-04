@@ -2,7 +2,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
 
 const linkClasses = 'text-2xl underline decoration-transparent hover:decoration-inherit transition';
 

@@ -1,8 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Head from 'next/head';
-import Image from 'next/image';
-import Arrow from '@/../public/arrow-white.svg';
 
 const headerStyle =
   'text-3xl md:text-5xl font-bold pb-4 text-left hover:text-royal w-fit underline decoration-transparent hover:decoration-inherit transition';

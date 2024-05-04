@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PeriodLinks from '@/components/PeriodLinks';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { PopulatedGoveranceGroup } from '@/lib/period-populator';
 import { Person } from '@/data/person-dictionary';
 
