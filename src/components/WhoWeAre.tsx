@@ -15,7 +15,7 @@ function WhoWeAre() {
           empower UT Dallas students, one galaxy at a time.
         </h3>
         <Link
-          className="inline-block mt-6 p-3 text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors"
+          className="inline-block mt-6 px-6 py-3 text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors"
           href="/about/mission"
         >
           Learn More

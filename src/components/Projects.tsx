@@ -1,6 +1,7 @@
 import ArrowButton from '@/../public/testimonials/arrow-button.svg';
 import { createRef, useEffect, useState } from 'react';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 import Carousel from './Carousel';
 import Planner from '@/../public/projects/planner.png';
 import Skedge from '@/../public/projects/skedge.png';

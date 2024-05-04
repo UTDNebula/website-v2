@@ -10,9 +10,9 @@ const Membership = () => (
       <meta property="og:url" content="https://www.utdnebula.com/resources/roles" />
     </Head>
     <Header text="Membership" />
-    <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-wrap justify-center gap-8">
-      <h2 className="text-5xl font-bold pb-4 text-center">Why Become a Member?</h2>
-      <p className="text-3xl pb-4">
+    <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
+      <h2 className="text-5xl font-bold text-center">Why Become a Member?</h2>
+      <p className="text-3xl">
         Becoming a member of Nebula Labs offers a unique opportunity to contribute to an
         organization built by students, for students. In accordance with our founding mission and
         core values, we work to develop maintainable, high-quality tools that address gaps in campus
@@ -28,9 +28,9 @@ const Membership = () => (
         community dedicated to making a tangible difference in the lives of students and beyond.
       </p>
     </div>
-    <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-wrap justify-center gap-8">
-      <h2 className="text-5xl font-bold pb-4 text-center">How to Become a Member</h2>
-      <p className="text-3xl pb-4">
+    <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
+      <h2 className="text-5xl font-bold text-center">How to Become a Member</h2>
+      <p className="text-3xl">
         Look out for announcements in{' '}
         <a
           className="text-royal underline decoration-transparent hover:decoration-inherit transition"
