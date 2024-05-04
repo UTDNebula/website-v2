@@ -52,9 +52,9 @@ const LeadershipCard = (props: Person) => {
 
 const LeadershipGroup = (props: PopulatedGoveranceGroup) => {
   return (
-    <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-wrap justify-center gap-8">
-      <h2 className="text-5xl font-bold pb-4 text-center">{props.name}</h2>
-      <p className="text-3xl pb-4">{props.description}</p>
+    <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
+      <h2 className="text-5xl font-bold text-center">{props.name}</h2>
+      <p className="text-3xl">{props.description}</p>
       <div className="flex flex-wrap justify-center gap-16">
         {props.people.map((person) => (
           <LeadershipCard {...person} key={person.role} />

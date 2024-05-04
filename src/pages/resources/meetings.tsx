@@ -194,8 +194,8 @@ const Meetings = () => {
 
   //error state
   let result = (
-    <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center">
-      <h2 className="text-5xl font-bold pb-4 text-center">Error loading calendar</h2>
+    <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center gap-4">
+      <h2 className="text-5xl font-bold text-center">Error loading calendar</h2>
       <button className={buttonLinkClasses} onClick={() => router.reload()}>
         Reload
       </button>

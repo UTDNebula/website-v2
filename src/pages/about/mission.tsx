@@ -62,7 +62,7 @@ const Mission = () => (
       </p>
       <p className="text-3xl pb-4 leading-normal text-center italic">-Ryan Radloff</p>
     </div>
-    <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-wrap justify-center gap-8">
+    <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-8">
       <h2 className="text-5xl font-bold pb-4 text-center">Values</h2>
       <div className="flex flex-wrap justify-center gap-16">
         {values.map((value) => (
@@ -73,19 +73,17 @@ const Mission = () => (
         ))}
       </div>
     </div>
-    <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-wrap justify-center gap-8">
-      <h3 className="text-3xl font-bold pb-4 text-center">
-        See{' '}
-        <a
-          className="text-royal underline decoration-transparent hover:decoration-inherit transition"
-          href="https://nebula-labs.atlassian.net/wiki/spaces/Officers/pages/8716405/Organization+Mission+Goals+and+Values+as+of+Founding"
-          target="_blank"
-        >
-          our Confluence
-        </a>{' '}
-        for more
-      </h3>
-    </div>
+    <h3 className="px-8 lg:px-16 xl:px-32 py-24 text-3xl font-bold text-center">
+      See{' '}
+      <a
+        className="text-royal underline decoration-transparent hover:decoration-inherit transition"
+        href="https://nebula-labs.atlassian.net/wiki/spaces/Officers/pages/8716405/Organization+Mission+Goals+and+Values+as+of+Founding"
+        target="_blank"
+      >
+        our Confluence
+      </a>{' '}
+      for more
+    </h3>
     <Footer />
   </>
 );
