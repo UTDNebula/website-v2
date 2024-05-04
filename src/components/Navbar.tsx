@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { Disclosure, Transition, TransitionRootProps } from '@headlessui/react';
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
