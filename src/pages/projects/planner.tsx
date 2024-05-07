@@ -48,31 +48,33 @@ const Planner = () => (
     <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 flex flex-col items-center gap-8 rounded-3xl text-white relative overflow-hidden">
       <Image src={Rectangle} alt="project background" fill className="-z-20" />
       <a
-        className="justify-self-end w-max px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto"
+        className="justify-self-end w-max px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto drop-shadow"
         href="https://planner.utdnebula.com/"
         target="_blank"
       >
         PLANNER
       </a>
-      <h1 className="text-6xl font-bold text-center">
+      <h1 className="text-6xl font-bold text-center text-shadow">
         Plan your degree
         <br />
         with ease
       </h1>
-      <h2 className="text-3xl text-center">
+      <h2 className="text-3xl text-center text-shadow">
         Blast off your academic journey with Planner - the ultimate tool for customizing your
         four-year degree.
       </h2>
+      <div className="md:mx-4 lg:mx-8 xl:mx-16 rounded-t-2xl overflow-hidden md:mb-[-4rem] lg:mb-[-8rem] xl:mb-[-16rem] ">
+        <Image src={Cover} alt="Planner screenshot" />
+      </div>
+    </div>
+    <div className="relative -top-10 w-full flex justify-center">
       <a
-        className="px-6 py-3 text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors"
+        className="px-10 py-6 text-2xl text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors drop-shadow"
         href="https://planner.utdnebula.com/auth/login"
         target="_blank"
       >
         Get Started
       </a>
-      <div className="md:mx-4 lg:mx-8 xl:mx-16 rounded-t-2xl overflow-hidden md:mb-[-4rem] lg:mb-[-8rem] xl:mb-[-16rem] ">
-        <Image src={Cover} alt="Planner screenshot" className="" />
-      </div>
     </div>
     <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
       <h2 className="text-5xl font-bold text-center">Features</h2>

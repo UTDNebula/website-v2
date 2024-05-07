@@ -149,8 +149,8 @@ const Navbar = (props: Props) => {
     };
   }, [ref]);
 
-  const textShadow = props.shadow ? '[text-shadow:_0_0_4px_rgb(0_0_0_/_0.4)]' : '';
-  const dropShadow = props.shadow ? '[filter:_drop-shadow(0_0_4px_rgb(0_0_0_/_0.4))]' : '';
+  const dropShadow = props.shadow ? 'drop-shadow' : '';
+  const textShadow = props.shadow ? 'text-shadow' : '';
 
   return (
     <Disclosure
