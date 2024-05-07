@@ -47,13 +47,9 @@ const Planner = () => (
     <Navbar royal={true} className="relative z-20" />
     <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 flex flex-col items-center gap-8 rounded-3xl text-white relative overflow-hidden">
       <Image src={Rectangle} alt="project background" fill className="-z-20" />
-      <a
-        className="justify-self-end w-max px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto drop-shadow"
-        href="https://planner.utdnebula.com/"
-        target="_blank"
-      >
+      <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto drop-shadow">
         PLANNER
-      </a>
+      </p>
       <h1 className="text-6xl font-bold text-center text-shadow">
         Plan your degree
         <br />
