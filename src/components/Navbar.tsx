@@ -61,12 +61,6 @@ const parentItems: Array<ParentItem> = [
         iconSrc: Map,
       },
       {
-        name: 'Planner',
-        link: '/projects/planner',
-        description: 'Help plan degree and course requirements',
-        iconSrc: Pencil,
-      },
-      {
         name: 'Jupiter',
         link: '/projects/jupiter',
         description: 'Find and connect with student organizations',
@@ -89,6 +83,12 @@ const parentItems: Array<ParentItem> = [
         link: '/projects/api',
         description: 'Integrate X+ years of historical UTD data into your applications',
         iconSrc: Puzzle,
+      },
+      {
+        name: 'Planner',
+        link: '/projects/planner',
+        description: 'Help plan degree and course requirements',
+        iconSrc: Pencil,
       },
     ],
   },

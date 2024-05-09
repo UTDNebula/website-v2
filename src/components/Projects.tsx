@@ -21,14 +21,14 @@ type Project = {
 
 const PROJECTS_INFO: Project[] = [
   {
-    title: 'Planner',
-    shortName: 'Planner',
+    title: 'Jupiter',
+    shortName: 'Jupiter',
     description:
-      'Planner is a student-focused tool for creating and tracking degree plans, offering a user-friendly interface to simplify course mapping and progress tracking.',
-    url: '/projects/planner',
-    image: Planner,
-    alt: "A laptop displaying Planner's dashboard, showing a list of degree plan cards",
-    color: '#523DFF',
+      'Jupiter is the best way to get involved on campus. It’s easy to discover new organizations or exciting events to make the most of the on-campus experience.',
+    url: '/projects/jupiter',
+    image: Jupiter,
+    alt: "A laptop displaying Jupiter's dashboard, with a list of clubs and organizations.",
+    color: '#926FDB',
   },
   {
     title: 'Sk.edge/Trends',
@@ -51,14 +51,14 @@ const PROJECTS_INFO: Project[] = [
     color: '#FF6B4A',
   },
   {
-    title: 'Jupiter',
-    shortName: 'Jupiter',
+    title: 'Planner',
+    shortName: 'Planner',
     description:
-      'Jupiter is the best way to get involved on campus. It’s easy to discover new organizations or exciting events to make the most of the on-campus experience.',
-    url: '/projects/jupiter',
-    image: Jupiter,
-    alt: "A laptop displaying Jupiter's dashboard, with a list of clubs and organizations.",
-    color: '#926FDB',
+      'Planner is a student-focused tool for creating and tracking degree plans, offering a user-friendly interface to simplify course mapping and progress tracking.',
+    url: '/projects/planner',
+    image: Planner,
+    alt: "A laptop displaying Planner's dashboard, showing a list of degree plan cards",
+    color: '#523DFF',
   },
 ];
 

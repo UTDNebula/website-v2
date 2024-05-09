@@ -17,12 +17,12 @@ const Projects = () => (
     <Header text="Projects" />
     <section className="flex flex-col gap-y-20 md:px-40 px-5">
       <section>
-        <Link href="/projects/planner" className="w-full">
-          <h2 className={headerStyle}>Planner</h2>
+        <Link href="/projects/jupiter">
+          <h2 className={headerStyle}>Jupiter</h2>
         </Link>
         <p className={infoStyle}>
-          Planner is a student-focused tool for creating and tracking degree plans, offering a
-          user-friendly interface to simplify course mapping and progress tracking.
+          Jupiter is the best way to get involved on campus. It’s easy to discover new organizations
+          or exciting events to make the most of the on-campus experience.
         </p>
       </section>
       <section>
@@ -32,15 +32,6 @@ const Projects = () => (
         <p className={infoStyle}>
           UTD Trends is a website that lets you visualize and compare grade distributions, and
           RateMyProfessor data for professors and courses.
-        </p>
-      </section>
-      <section>
-        <Link href="/projects/jupiter">
-          <h2 className={headerStyle}>Jupiter</h2>
-        </Link>
-        <p className={infoStyle}>
-          Jupiter is the best way to get involved on campus. It’s easy to discover new organizations
-          or exciting events to make the most of the on-campus experience.
         </p>
       </section>
       <section>
@@ -59,6 +50,15 @@ const Projects = () => (
         <p className={infoStyle}>
           The Nebula API serves as the authoritative data source for UTD information such as
           courses, student organizations, and more.
+        </p>
+      </section>
+      <section>
+        <Link href="/projects/planner" className="w-full">
+          <h2 className={headerStyle}>Planner</h2>
+        </Link>
+        <p className={infoStyle}>
+          Planner is a student-focused tool for creating and tracking degree plans, offering a
+          user-friendly interface to simplify course mapping and progress tracking.
         </p>
       </section>
     </section>
