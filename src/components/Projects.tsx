@@ -25,7 +25,7 @@ const PROJECTS_INFO: Project[] = [
     shortName: 'Planner',
     description:
       'Planner is a student-focused tool for creating and tracking degree plans, offering a user-friendly interface to simplify course mapping and progress tracking.',
-    url: 'https://planner.utdnebula.com/',
+    url: '/projects/planner',
     image: Planner,
     alt: "A laptop displaying Planner's dashboard, showing a list of degree plan cards",
     color: '#523DFF',
@@ -35,7 +35,7 @@ const PROJECTS_INFO: Project[] = [
     shortName: 'Sk.edge/Trends',
     description:
       'Sk.edge and Trends are tools designed to simplify the course selection and registration process by providing students with valuable data, all in one place.',
-    url: 'https://trends.utdnebula.com/',
+    url: '/projects/skedge',
     image: Skedge,
     alt: "A mockup of Sk.edge's dashboard, displaying statistics for a professor",
     color: '#6366F1',
@@ -45,7 +45,7 @@ const PROJECTS_INFO: Project[] = [
     shortName: 'API',
     description:
       'The Nebula API serves as the authoritative data source for UTD information such as courses, student organizations, and more.',
-    url: 'https://github.com/UTDNebula/nebula-api',
+    url: '/projects/api',
     // image: API,
     alt: '',
     color: '#FF6B4A',
@@ -55,7 +55,7 @@ const PROJECTS_INFO: Project[] = [
     shortName: 'Jupiter',
     description:
       'Jupiter is the best way to get involved on campus. It’s easy to discover new organizations or exciting events to make the most of the on-campus experience.',
-    url: 'https://jupiter.utdnebula.com/',
+    url: '/projects/jupiter',
     image: Jupiter,
     alt: "A laptop displaying Jupiter's dashboard, with a list of clubs and organizations.",
     color: '#926FDB',
