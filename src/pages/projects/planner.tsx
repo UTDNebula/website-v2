@@ -6,8 +6,8 @@ import Rectangle from '@/../public/rectangle.png';
 import Cover from '@/../public/planner/cover.png';
 import Image from 'next/image';
 
-import medal from '@/../public/planner/icons8-gold-medal-100.png';
-import test_tube from '@/../public/planner/icons8-test-tube-100.png';
+import browser from '@/../public/planner/icons8-browser-100.png';
+import sword from '@/../public/planner/icons8-sword-100.png';
 import stopwatch from '@/../public/planner/icons8-stopwatch-100.png';
 
 const features = [
@@ -15,17 +15,15 @@ const features = [
     title: 'Spreadsheet where?',
     description:
       "Bye-bye clunky spreadsheets, hello easy-peasy degree planning with simple click-and-drag action. You're welcome!",
-    img: medal,
-    alt: 'medal',
-    imgOffset: '',
+    img: browser,
+    alt: 'browser',
   },
   {
     title: 'Slay your progress!',
     description:
       "Not sure where you are in your degree plan? That's ok. Tracking your degree plan is now a piece of cake with our degree tracker.",
-    img: test_tube,
-    alt: 'test tube',
-    imgOffset: 'pb-5 pt-3',
+    img: sword,
+    alt: 'sword',
   },
   {
     title: 'Save Time',
@@ -33,7 +31,6 @@ const features = [
       'Planner streamlines academic planning, enabling you to map out your course requirements, track your progress, and adjust your plan as needed so you can focus on what you do best.',
     img: stopwatch,
     alt: 'stopwatch',
-    imgOffset: 'pb-5 pt-3',
   },
 ];
 
@@ -86,7 +83,7 @@ const Planner = () => (
             <Image
               src={feature.img}
               alt={feature.alt}
-              className={clsx('h-24 w-24 p-4', feature.imgOffset)}
+              className={clsx('h-10 w-10 m-7', feature.imgOffset)}
             />
           </div>
           <p className="text-2xl font-bold text-center">{feature.title}</p>
