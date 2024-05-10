@@ -6,34 +6,31 @@ import Rectangle from '@/../public/rectangle.png';
 import Cover from '@/../public/jupiter/cover.png';
 import Image from 'next/image';
 
-import medal from '@/../public/jupiter/icons8-gold-medal-100.png';
-import test_tube from '@/../public/jupiter/icons8-test-tube-100.png';
-import stopwatch from '@/../public/jupiter/icons8-stopwatch-100.png';
+import search from '@/../public/jupiter/icons8-search-100.png';
+import calendar from '@/../public/jupiter/icons8-calendar-100.png';
+import community from '@/../public/jupiter/icons8-community-100.png';
 
 const features = [
   {
-    title: 'Spreadsheet where?',
+    title: 'Browse our communities',
     description:
-      "Bye-bye clunky spreadsheets, hello easy-peasy degree planning with simple click-and-drag action. You're welcome!",
-    img: medal,
-    alt: 'medal',
-    imgOffset: '',
+      'Simplify your search for a community by using our helpful filters. Keep an eye out for our featured organizations for exciting upcoming events.',
+    img: search,
+    alt: 'magnifying glass',
   },
   {
-    title: 'Slay your progress!',
+    title: 'Keep up to date',
     description:
-      "Not sure where you are in your degree plan? That's ok. Tracking your degree plan is now a piece of cake with our degree tracker.",
-    img: test_tube,
-    alt: 'test tube',
-    imgOffset: 'pb-5 pt-3',
+      "Use our events calendar to find out what's going on around campus and register for events to show your interest.",
+    img: calendar,
+    alt: 'calendar',
   },
   {
-    title: 'Save Time',
+    title: 'Growing Community',
     description:
-      'Jupiter streamlines academic planning, enabling you to map out your course requirements, track your progress, and adjust your plan as needed so you can focus on what you do best.',
-    img: stopwatch,
-    alt: 'stopwatch',
-    imgOffset: 'pb-5 pt-3',
+      'Interested in growing your own org, contact us to add you organization to our growing list of on campus communities.',
+    img: community,
+    alt: '3 people icon',
   },
 ];
 
@@ -51,13 +48,12 @@ const Jupiter = () => (
         JUPITER
       </p>
       <h1 className="text-6xl font-bold text-center text-shadow">
-        Hi
+        Find your community
         <br />
-        Hi
+        on campus
       </h1>
       <h2 className="text-3xl text-center text-shadow">
-        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
-        demonstrate the visual...
+        Get connected with student organization and browse events.
       </h2>
       <div className="md:mx-4 lg:mx-8 xl:mx-16 rounded-t-2xl overflow-hidden md:mb-[-4rem] lg:mb-[-8rem] xl:mb-[-16rem] ">
         <Image src={Cover} alt="Jupiter screenshot" />
@@ -75,8 +71,7 @@ const Jupiter = () => (
     <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
       <h2 className="text-5xl font-bold text-center">Features</h2>
       <p className="text-3xl text-center">
-        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
-        demonstrate the visual...
+        Navigate the hundreds of communities on campus all on one platform.
       </p>
     </div>
     <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 grid grid-rows-3 grid-cols-1 md:grid-rows-1 md:grid-cols-3 gap-8">
@@ -86,7 +81,7 @@ const Jupiter = () => (
             <Image
               src={feature.img}
               alt={feature.alt}
-              className={clsx('h-24 w-24 p-4', feature.imgOffset)}
+              className={clsx('h-10 w-10 m-7', feature.imgOffset)}
             />
           </div>
           <p className="text-2xl font-bold text-center">{feature.title}</p>
