@@ -5,19 +5,27 @@ import Head from 'next/head';
 import Rectangle from '@/../public/rectangle.png';
 import Cover from '@/../public/api/cover.png';
 import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 
 import medal from '@/../public/api/icons8-gold-medal-100.png';
 import test_tube from '@/../public/api/icons8-test-tube-100.png';
 import stopwatch from '@/../public/api/icons8-stopwatch-100.png';
 
-const features = [
+interface Feature {
+  title: string;
+  description: string;
+  img: StaticImageData;
+  alt: string;
+  imgOffset?: string;
+}
+
+const features: Feature[] = [
   {
     title: 'Spreadsheet where?',
     description:
       "Bye-bye clunky spreadsheets, hello easy-peasy degree planning with simple click-and-drag action. You're welcome!",
     img: medal,
     alt: 'medal',
-    imgOffset: '',
   },
   {
     title: 'Slay your progress!',

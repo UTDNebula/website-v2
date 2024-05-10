@@ -5,12 +5,21 @@ import Head from 'next/head';
 import Rectangle from '@/../public/rectangle.png';
 import Cover from '@/../public/planner/cover.png';
 import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 
 import browser from '@/../public/planner/icons8-browser-100.png';
 import sword from '@/../public/planner/icons8-sword-100.png';
 import stopwatch from '@/../public/planner/icons8-stopwatch-100.png';
 
-const features = [
+interface Feature {
+  title: string;
+  description: string;
+  img: StaticImageData;
+  alt: string;
+  imgOffset?: string;
+}
+
+const features: Feature[] = [
   {
     title: 'Spreadsheet where?',
     description:

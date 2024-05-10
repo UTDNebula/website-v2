@@ -5,12 +5,21 @@ import Head from 'next/head';
 import Rectangle from '@/../public/rectangle.png';
 import Cover from '@/../public/jupiter/cover.png';
 import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 
 import search from '@/../public/jupiter/icons8-search-100.png';
 import calendar from '@/../public/jupiter/icons8-calendar-100.png';
 import community from '@/../public/jupiter/icons8-community-100.png';
 
-const features = [
+interface Feature {
+  title: string;
+  description: string;
+  img: StaticImageData;
+  alt: string;
+  imgOffset?: string;
+}
+
+const features: Feature[] = [
   {
     title: 'Browse our communities',
     description:
