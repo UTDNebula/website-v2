@@ -56,13 +56,13 @@ const Jupiter = () => (
       <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto drop-shadow">
         JUPITER
       </p>
-      <h1 className="text-6xl font-bold text-center text-shadow">
+      <h1 className="text-5xl md:text-6xl font-bold text-center text-shadow">
         Find your community
         <br />
         on campus
       </h1>
       <h2 className="text-3xl text-center text-shadow">
-        Get connected with student organization and browse events.
+        Get connected with student organizations and browse events.
       </h2>
       <div className="md:mx-4 lg:mx-8 xl:mx-16 rounded-t-2xl overflow-hidden md:mb-[-4rem] lg:mb-[-8rem] xl:mb-[-16rem] ">
         <Image src={Cover} alt="Jupiter screenshot" />

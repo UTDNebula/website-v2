@@ -56,7 +56,7 @@ const Planner = () => (
       <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto drop-shadow">
         PLANNER
       </p>
-      <h1 className="text-6xl font-bold text-center text-shadow">
+      <h1 className="text-5xl md:text-6xl font-bold text-center text-shadow">
         Plan your degree
         <br />
         with ease

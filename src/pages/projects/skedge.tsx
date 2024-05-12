@@ -61,7 +61,7 @@ const Skedge = () => (
       <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto drop-shadow">
         SKEDGE
       </p>
-      <h1 className="text-6xl font-bold text-center text-shadow">
+      <h1 className="text-5xl md:text-6xl font-bold text-center text-shadow">
         Hi
         <br />
         Hi
