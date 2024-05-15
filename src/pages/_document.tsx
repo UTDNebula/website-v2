@@ -25,7 +25,7 @@ export default function Document() {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:domain" content="utdnebula.com" />
       </Head>
-      <body className="font-inter text-haiti">
+      <body className="font-inter text-haiti bg-white">
         <Main />
         <NextScript />
       </body>

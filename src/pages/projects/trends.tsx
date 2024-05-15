@@ -7,9 +7,9 @@ import Cover from '@/../public/trends/cover.png';
 import Image from 'next/image';
 import type { StaticImageData } from 'next/image';
 
-import medal from '@/../public/trends/icons8-gold-medal-100.png';
-import test_tube from '@/../public/trends/icons8-test-tube-100.png';
-import stopwatch from '@/../public/trends/icons8-stopwatch-100.png';
+import input from '@/../public/trends/icons8-input-100.png';
+import aggregate from '@/../public/trends/icons8-aggregate-100.png';
+import scale from '@/../public/trends/icons8-scale-100.png';
 
 interface Feature {
   title: string;
@@ -21,27 +21,24 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    title: 'Spreadsheet where?',
-    description:
-      "Bye-bye clunky spreadsheets, hello easy-peasy degree planning with simple click-and-drag action. You're welcome!",
-    img: medal,
-    alt: 'medal',
+    title: 'Multiple Sources',
+    description: 'Find grade distributions and Rate My Professors scores for any given class.',
+    img: input,
+    alt: 'input',
   },
   {
-    title: 'Slay your progress!',
+    title: 'Aggregate',
     description:
-      "Not sure where you are in your degree plan? That's ok. Tracking your degree plan is now a piece of cake with our degree tracker.",
-    img: test_tube,
-    alt: 'test tube',
-    imgOffset: 'pb-5 pt-3',
+      'Powerful query abilities that aggregate grade and Rate My Professors data across several years to give you a more wholistic view.',
+    img: aggregate,
+    alt: 'aggregate',
   },
   {
-    title: 'Save Time',
+    title: 'Compare',
     description:
-      'Trends streamlines academic planning, enabling you to map out your course requirements, track your progress, and adjust your plan as needed so you can focus on what you do best.',
-    img: stopwatch,
-    alt: 'stopwatch',
-    imgOffset: 'pb-5 pt-3',
+      'See data for multiple courses, professors, and categories on a single graph without switching tabs.',
+    img: scale,
+    alt: 'scale',
   },
 ];
 
@@ -59,13 +56,12 @@ const Trends = () => (
         TRENDS
       </p>
       <h1 className="text-5xl md:text-6xl font-bold text-center text-shadow">
-        Hi
+        Choose the perfect
         <br />
-        Hi
+        classes for you
       </h1>
       <h2 className="text-3xl text-center text-shadow">
-        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
-        demonstrate the visual...
+        Easy access to all the information you need to plan you schedule.
       </h2>
       <div className="md:mx-4 lg:mx-8 xl:mx-16 rounded-t-2xl overflow-hidden md:mb-[-4rem] lg:mb-[-8rem] xl:mb-[-16rem] ">
         <Image src={Cover} alt="Trends screenshot" />
@@ -83,8 +79,7 @@ const Trends = () => (
     <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
       <h2 className="text-5xl font-bold text-center">Features</h2>
       <p className="text-3xl text-center">
-        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
-        demonstrate the visual...
+        Our data analytics platform to help you make informed decisions about your coursework.
       </p>
     </div>
     <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 grid grid-rows-3 grid-cols-1 md:grid-rows-1 md:grid-cols-3 gap-8">
@@ -94,7 +89,7 @@ const Trends = () => (
             <Image
               src={feature.img}
               alt={feature.alt}
-              className={clsx('h-24 w-24 p-4', feature.imgOffset)}
+              className={clsx('h-10 w-10 m-7', feature.imgOffset)}
             />
           </div>
           <p className="text-2xl font-bold text-center">{feature.title}</p>
