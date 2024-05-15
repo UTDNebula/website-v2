@@ -61,7 +61,7 @@ const Trends = () => (
         classes for you
       </h1>
       <h2 className="text-3xl text-center text-shadow">
-        Easy access to all the information you need to plan you schedule.
+        Easy access to all the information you need to plan your schedule.
       </h2>
       <div className="md:mx-4 lg:mx-8 xl:mx-16 rounded-t-2xl overflow-hidden md:mb-[-4rem] lg:mb-[-8rem] xl:mb-[-16rem] ">
         <Image src={Cover} alt="Trends screenshot" />
