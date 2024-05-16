@@ -4,16 +4,17 @@ import type { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { Disclosure, Transition, TransitionRootProps } from '@headlessui/react';
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
-import FilledChevronUp from '@/../public/filled-chevron-up-white.svg';
+import FilledChevronUpWhite from '@/../public/filled-chevron-up-white.svg';
+import FilledChevronUpRoyal from '@/../public/filled-chevron-up-royal.svg';
 import Arrow from '@/../public/arrow-white.svg';
 import X from '@/../public/x.svg';
-import Hamburger from '@/../public/menu-alt-3.svg';
+import HamburgerWhite from '@/../public/menu-white.svg';
+import HamburgerRoyal from '@/../public/menu-royal.svg';
 import Puzzle from '@/../public/puzzle.svg';
 import Users from '@/../public/users.svg';
 import UserGroup from '@/../public/user-group.svg';
 import TrendingUp from '@/../public/trending-up.svg';
 import Pencil from '@/../public/pencil.svg';
-import Map from '@/../public/map.svg';
 import Star from '@/../public/star.svg';
 
 type BaseItem = { name: string };
@@ -53,40 +54,37 @@ const parentItems: Array<ParentItem> = [
     name: 'Our Projects',
     children: [
       {
-        name: 'Overview',
-        link: '/projects',
-        description: 'Get a rundown on all our projects',
-        iconSrc: Map,
-      },
-      {
-        name: 'Planner',
-        link: 'https://planner.utdnebula.com/',
-        description: 'Help plan degree and course requirements',
-        iconSrc: Pencil,
-      },
-      {
         name: 'Jupiter',
-        link: 'https://jupiter.utdnebula.com/',
+        link: '/projects/jupiter',
         description: 'Find and connect with student organizations',
         iconSrc: Users,
       },
       {
         name: 'Trends',
-        link: 'https://trends.utdnebula.com/',
+        link: '/projects/trends',
         description: 'Help plan coursework through grade and professor stats',
         iconSrc: TrendingUp,
       },
       {
         name: 'Skedge',
-        link: 'https://chromewebstore.google.com/detail/skedge/ghipfanpcodcmkjacmmfjdmccdiaahab',
+        link: '/projects/skedge',
         description: 'Integrate grade and professor stats into Schedule Planner',
         iconSrc: TrendingUp,
       },
       {
         name: 'API & Platform',
-        link: 'https://github.com/UTDNebula/nebula-api',
-        description: 'Integrate X+ years of historical UTD data into your applications',
+        link: '/projects/api',
+        description:
+          'Integrate ' +
+          (new Date().getFullYear() - 2017) +
+          '+ years of historical UTD data into your applications',
         iconSrc: Puzzle,
+      },
+      {
+        name: 'Planner',
+        link: '/projects/planner',
+        description: 'Help plan degree and course requirements',
+        iconSrc: Pencil,
       },
     ],
   },
@@ -116,6 +114,7 @@ const transitionProps: TransitionRootProps<typeof Fragment> = {
 interface Props {
   className?: string;
   shadow?: boolean;
+  royal?: boolean;
 }
 
 const Navbar = (props: Props) => {
@@ -146,8 +145,8 @@ const Navbar = (props: Props) => {
     };
   }, [ref]);
 
-  const textShadow = props.shadow === true ? '[text-shadow:_0_0_4px_rgb(0_0_0_/_0.4)]' : '';
-  const dropShadow = props.shadow === true ? '[filter:_drop-shadow(0_0_4px_rgb(0_0_0_/_0.4))]' : '';
+  const dropShadow = props.shadow ? 'drop-shadow' : '';
+  const textShadow = props.shadow ? 'text-shadow' : '';
 
   return (
     <Disclosure
@@ -168,7 +167,7 @@ const Navbar = (props: Props) => {
           />
           <Link className="flex items-center" href="/">
             <Image
-              src={'/icon-white.svg'}
+              src={props.royal ? '/icon-royal.svg' : '/icon-white.svg'}
               alt={'logo'}
               width={90}
               height={70}
@@ -177,7 +176,11 @@ const Navbar = (props: Props) => {
             />
           </Link>
           <Disclosure.Button className="lg:hidden">
-            <Image src={Hamburger} alt="" className={clsx('w-8', dropShadow)} />
+            <Image
+              src={props.royal ? HamburgerRoyal : HamburgerWhite}
+              alt=""
+              className={clsx('w-8', dropShadow)}
+            />
           </Disclosure.Button>
           <Transition {...transitionProps} show={shouldDisplayDesktopMenu || displayMobileMenu}>
             <Disclosure.Panel
@@ -243,9 +246,20 @@ const Navbar = (props: Props) => {
                               'w-full flex gap-1 items-center',
                             )}
                           >
-                            <p className={textShadow}>{item.name}</p>
+                            <p
+                              className={clsx(
+                                textShadow,
+                                props.royal && !displayMobileMenu && 'text-royal',
+                              )}
+                            >
+                              {item.name}
+                            </p>
                             <Image
-                              src={FilledChevronUp}
+                              src={
+                                props.royal && !displayMobileMenu
+                                  ? FilledChevronUpRoyal
+                                  : FilledChevronUpWhite
+                              }
                               alt=""
                               className={clsx(
                                 submenuOpen ? 'rotate-0' : 'rotate-180',
@@ -300,6 +314,7 @@ const Navbar = (props: Props) => {
                       className={clsx(
                         displayMobileMenu && 'flex place-content-between w-full',
                         textShadow,
+                        props.royal && !displayMobileMenu && 'text-royal',
                       )}
                     >
                       {item.name}
@@ -312,6 +327,7 @@ const Navbar = (props: Props) => {
                 className={clsx(
                   'justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap',
                   textShadow,
+                  props.royal && !displayMobileMenu ? 'text-royal border-royal' : 'border-white',
                 )}
               >
                 Get Involved

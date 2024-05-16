@@ -39,31 +39,21 @@ const Footer = () => {
           </Link>
         </div>
         <div className="flex flex-col items-start gap-3">
-          <Link className={linkClasses} href="/projects">
-            <h3 className="text-xl font-semibold mb-4">Projects</h3>
-          </Link>
-          <Link className={linkClasses} href="https://planner.utdnebula.com/" target="_blank">
-            Planner
-          </Link>
-          <Link className={linkClasses} href="https://jupiter.utdnebula.com/" target="_blank">
+          <h3 className="text-xl font-semibold mb-4">Projects</h3>
+          <Link className={linkClasses} href="/projects/jupiter" target="_blank">
             Jupiter
           </Link>
-          <Link className={linkClasses} href="https://trends.utdnebula.com/" target="_blank">
+          <Link className={linkClasses} href="/projects/trends" target="_blank">
             Trends
           </Link>
-          <Link
-            className={linkClasses}
-            href="https://chromewebstore.google.com/detail/skedge/ghipfanpcodcmkjacmmfjdmccdiaahab"
-            target="_blank"
-          >
+          <Link className={linkClasses} href="/projects/skedge" target="_blank">
             Skedge
           </Link>
-          <Link
-            className={linkClasses}
-            href="https://github.com/UTDNebula/nebula-api"
-            target="_blank"
-          >
+          <Link className={linkClasses} href="/projects/api" target="_blank">
             API & Platform
+          </Link>
+          <Link className={linkClasses} href="/projects/planner" target="_blank">
+            Planner
           </Link>
         </div>
         <div className="flex flex-col items-start gap-3">
