@@ -1,25 +1,15 @@
-import clsx from 'clsx';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Head from 'next/head';
 import Rectangle from '@/../public/rectangle.png';
 import Cover from '@/../public/planner/cover.png';
 import Image from 'next/image';
-import type { StaticImageData } from 'next/image';
 
 import browser from '@/../public/planner/icons8-browser-100.png';
 import sword from '@/../public/planner/icons8-sword-100.png';
 import stopwatch from '@/../public/planner/icons8-stopwatch-100.png';
 
-interface Feature {
-  title: string;
-  description: string;
-  img: StaticImageData;
-  alt: string;
-  imgOffset?: string;
-}
-
-const features: Feature[] = [
+const features = [
   {
     title: 'Spreadsheet where?',
     description:
@@ -65,7 +55,7 @@ const Planner = () => (
         Blast off your academic journey with Planner - the ultimate tool for customizing your
         four-year degree.
       </h2>
-      <div className="md:mx-4 lg:mx-8 xl:mx-16 rounded-t-2xl overflow-hidden md:mb-[-4rem] lg:mb-[-8rem] xl:mb-[-16rem] ">
+      <div className="md:mx-4 lg:mx-8 xl:mx-16 rounded-t-2xl overflow-hidden md:mb-[-4rem] lg:mb-[-8rem] xl:mb-[-16rem]">
         <Image src={Cover} alt="Planner screenshot" />
       </div>
     </div>
@@ -89,11 +79,7 @@ const Planner = () => (
       {features.map((feature) => (
         <div key={feature.title} className="flex flex-col items-center gap-4">
           <div className="rounded-full bg-cornflower-50">
-            <Image
-              src={feature.img}
-              alt={feature.alt}
-              className={clsx('h-10 w-10 m-7', feature.imgOffset)}
-            />
+            <Image src={feature.img} alt={feature.alt} className="h-10 w-10 m-7" />
           </div>
           <p className="text-2xl font-bold text-center">{feature.title}</p>
           <p className="text-xl text-center">{feature.description}</p>

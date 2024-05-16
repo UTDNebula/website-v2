@@ -1,25 +1,14 @@
-import clsx from 'clsx';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Head from 'next/head';
 import Rectangle from '@/../public/rectangle.png';
-import Cover from '@/../public/api/cover.png';
 import Image from 'next/image';
-import type { StaticImageData } from 'next/image';
 
 import expand from '@/../public/api/icons8-expand-100.png';
 import crowd from '@/../public/api/icons8-crowd-100.png';
 import support from '@/../public/api/icons8-support-100.png';
 
-interface Feature {
-  title: string;
-  description: string;
-  img: StaticImageData;
-  alt: string;
-  imgOffset?: string;
-}
-
-const features: Feature[] = [
+const features = [
   {
     title: 'Size',
     description: 'The largest dataset of university data on campus.',
@@ -85,11 +74,7 @@ const API = () => (
       {features.map((feature) => (
         <div key={feature.title} className="flex flex-col items-center gap-4">
           <div className="rounded-full bg-cornflower-50">
-            <Image
-              src={feature.img}
-              alt={feature.alt}
-              className={clsx('h-10 w-10 m-7', feature.imgOffset)}
-            />
+            <Image src={feature.img} alt={feature.alt} className="h-10 w-10 m-7" />
           </div>
           <p className="text-2xl font-bold text-center">{feature.title}</p>
           <p className="text-xl text-center">{feature.description}</p>
