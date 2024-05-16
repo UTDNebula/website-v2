@@ -74,7 +74,10 @@ const parentItems: Array<ParentItem> = [
       {
         name: 'API & Platform',
         link: '/projects/api',
-        description: 'Integrate X+ years of historical UTD data into your applications',
+        description:
+          'Integrate ' +
+          (new Date().getFullYear() - 2017) +
+          '+ years of historical UTD data into your applications',
         iconSrc: Puzzle,
       },
       {
