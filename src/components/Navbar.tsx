@@ -15,7 +15,6 @@ import Users from '@/../public/users.svg';
 import UserGroup from '@/../public/user-group.svg';
 import TrendingUp from '@/../public/trending-up.svg';
 import Pencil from '@/../public/pencil.svg';
-import Map from '@/../public/map.svg';
 import Star from '@/../public/star.svg';
 
 type BaseItem = { name: string };
@@ -54,12 +53,6 @@ const parentItems: Array<ParentItem> = [
   {
     name: 'Our Projects',
     children: [
-      {
-        name: 'Overview',
-        link: '/projects',
-        description: 'Get a rundown on all our projects',
-        iconSrc: Map,
-      },
       {
         name: 'Jupiter',
         link: '/projects/jupiter',

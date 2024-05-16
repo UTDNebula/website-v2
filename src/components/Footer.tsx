@@ -39,9 +39,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className="flex flex-col items-start gap-3">
-          <Link className={linkClasses} href="/projects">
-            <h3 className="text-xl font-semibold mb-4">Projects</h3>
-          </Link>
+          <h3 className="text-xl font-semibold mb-4">Projects</h3>
           <Link className={linkClasses} href="/projects/jupiter" target="_blank">
             Jupiter
           </Link>
