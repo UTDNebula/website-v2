@@ -7,9 +7,9 @@ import Cover from '@/../public/api/cover.png';
 import Image from 'next/image';
 import type { StaticImageData } from 'next/image';
 
-import medal from '@/../public/api/icons8-gold-medal-100.png';
-import test_tube from '@/../public/api/icons8-test-tube-100.png';
-import stopwatch from '@/../public/api/icons8-stopwatch-100.png';
+import expand from '@/../public/api/icons8-expand-100.png';
+import crowd from '@/../public/api/icons8-crowd-100.png';
+import support from '@/../public/api/icons8-support-100.png';
 
 interface Feature {
   title: string;
@@ -21,27 +21,24 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    title: 'Spreadsheet where?',
-    description:
-      "Bye-bye clunky spreadsheets, hello easy-peasy degree planning with simple click-and-drag action. You're welcome!",
-    img: medal,
-    alt: 'medal',
+    title: 'Size',
+    description: 'The largest dataset of university data on campus.',
+    img: expand,
+    alt: 'expanding icon',
   },
   {
-    title: 'Slay your progress!',
+    title: 'Public API',
     description:
-      "Not sure where you are in your degree plan? That's ok. Tracking your degree plan is now a piece of cake with our degree tracker.",
-    img: test_tube,
-    alt: 'test tube',
-    imgOffset: 'pb-5 pt-3',
+      'A public API for Nebula products and external developers making data easily accessible.',
+    img: crowd,
+    alt: 'crowd',
   },
   {
-    title: 'Save Time',
+    title: 'Support',
     description:
-      'API streamlines academic planning, enabling you to map out your course requirements, track your progress, and adjust your plan as needed so you can focus on what you do best.',
-    img: stopwatch,
-    alt: 'stopwatch',
-    imgOffset: 'pb-5 pt-3',
+      'Continuously improving and up-to-date data as well as personal support in the Nebula Discord.',
+    img: support,
+    alt: 'wrench',
   },
 ];
 
@@ -59,17 +56,14 @@ const API = () => (
         API & Platform
       </p>
       <h1 className="text-5xl md:text-6xl font-bold text-center text-shadow">
-        Hi
+        The Backbone
         <br />
-        Hi
+        of Nebula Labs
       </h1>
       <h2 className="text-3xl text-center text-shadow">
-        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
-        demonstrate the visual...
+        Providing reliable and feature-rich data infrastructure for all of Nebula’s projects.
       </h2>
-      <div className="md:mx-4 lg:mx-8 xl:mx-16 rounded-t-2xl overflow-hidden md:mb-[-4rem] lg:mb-[-8rem] xl:mb-[-16rem] ">
-        <Image src={Cover} alt="API screenshot" />
-      </div>
+      <div className="h-10"></div>
     </div>
     <div className="relative -top-10 w-full flex justify-center">
       <a
@@ -83,8 +77,8 @@ const API = () => (
     <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
       <h2 className="text-5xl font-bold text-center">Features</h2>
       <p className="text-3xl text-center">
-        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to
-        demonstrate the visual...
+        Discover a realm of possibilities with Nebula API & Platform, where data integration meets
+        streamlined authentication.
       </p>
     </div>
     <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 grid grid-rows-3 grid-cols-1 md:grid-rows-1 md:grid-cols-3 gap-8">
@@ -94,7 +88,7 @@ const API = () => (
             <Image
               src={feature.img}
               alt={feature.alt}
-              className={clsx('h-24 w-24 p-4', feature.imgOffset)}
+              className={clsx('h-10 w-10 m-7', feature.imgOffset)}
             />
           </div>
           <p className="text-2xl font-bold text-center">{feature.title}</p>
