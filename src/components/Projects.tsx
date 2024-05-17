@@ -6,7 +6,7 @@ import Carousel from './Carousel';
 import Planner from '@/../public/projects/planner.png';
 import Skedge from '@/../public/projects/skedge.png';
 import Jupiter from '@/../public/projects/jupiter.png';
-import FilledChevronUp from '@/../public/filled-chevron-up-white.svg';
+import FilledChevronUp from '@/../public/icons/filled-chevron-up-white.svg';
 import clsx from 'clsx';
 import Link from 'next/link';
 

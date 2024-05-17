@@ -1,7 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Head from 'next/head';
-import Rectangle from '@/../public/rectangle.png';
+import Rectangle from '@/../public/images/rectangle.png';
 import Cover from '@/../public/trends/cover.png';
 import Image from 'next/image';
 

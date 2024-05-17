@@ -2,6 +2,11 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Head from 'next/head';
 import Image from 'next/image';
+import Discord from '@/../public/icons/join-discord-black.svg';
+import Instagram from '@/../public/icons/instagram-black.svg';
+import LinkedIn from '@/../public/icons/linkedin-black.svg';
+import GitHub from '@/../public/icons/github-black.svg';
+import Gmail from '@/../public/icons/gmail-black.svg';
 
 const linkClasses = 'text-2xl underline decoration-transparent hover:decoration-inherit transition';
 
@@ -23,7 +28,7 @@ const Contact = () => (
           href="https://discord.gg/tcpcnfxmeQ"
           target="_blank"
         >
-          <Image src="/join-discord-black.svg" alt="discord" width="200" height="60" />
+          <Image src={Discord} alt="discord" width="200" height="60" />
         </a>
       </div>
       <div className="flex flex-col items-center gap-8">
@@ -34,28 +39,28 @@ const Contact = () => (
             href="https://instagram.com/utdnebula"
             target="_blank"
           >
-            <Image src="/instagram-black.svg" alt="Instagram logo" width="30" height="30" />
+            <Image src={Instagram} alt="Instagram logo" width="30" height="30" />
           </a>
           <a
             className={linkClasses + ' flex items-center gap-2'}
             href="https://linkedin.com/company/utdnebula"
             target="_blank"
           >
-            <Image src="/linkedin-black.svg" alt="LinkedIn logo" width="30" height="30" />
+            <Image src={LinkedIn} alt="LinkedIn logo" width="30" height="30" />
           </a>
           <a
             className={linkClasses + ' flex items-center gap-2'}
             href="https://github.com/utdnebula"
             target="_blank"
           >
-            <Image src="/github-black.svg" alt="GitHub logo" width="30" height="30" />
+            <Image src={GitHub} alt="GitHub logo" width="30" height="30" />
           </a>
           <a
             className={linkClasses + ' flex items-center gap-2'}
             href="mailto:leadership@utdnebula.com"
             target="_blank"
           >
-            <Image src="/gmail-black.svg" alt="GitHub logo" width="30" height="30" />
+            <Image src={Gmail} alt="GitHub logo" width="30" height="30" />
           </a>
         </div>
       </div>
