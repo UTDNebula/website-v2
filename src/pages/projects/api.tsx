@@ -1,12 +1,12 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Head from 'next/head';
-import Rectangle from '@/../public/images/rectangle.png';
 import Image from 'next/image';
+import Gradient from '@/../public/images/gradient.png';
 
-import expand from '@/../public/api/icons8-expand-100.png';
-import crowd from '@/../public/api/icons8-crowd-100.png';
-import support from '@/../public/api/icons8-support-100.png';
+import expand from '@/../public/projects/api/icons8-expand-100.png';
+import crowd from '@/../public/projects/api/icons8-crowd-100.png';
+import support from '@/../public/projects/api/icons8-support-100.png';
 
 const features = [
   {
@@ -40,7 +40,7 @@ const API = () => (
     </Head>
     <Navbar royal={true} className="relative z-20" />
     <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 flex flex-col items-center gap-8 rounded-3xl text-white relative overflow-hidden">
-      <Image src={Rectangle} alt="project background" fill className="-z-20" />
+      <Image src={Gradient} alt="project background" fill className="-z-20" />
       <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto drop-shadow">
         API & Platform
       </p>

@@ -1,13 +1,13 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Head from 'next/head';
-import Rectangle from '@/../public/images/rectangle.png';
-import Cover from '@/../public/planner/cover.png';
 import Image from 'next/image';
+import Gradient from '@/../public/images/gradient.png';
 
-import browser from '@/../public/planner/icons8-browser-100.png';
-import sword from '@/../public/planner/icons8-sword-100.png';
-import stopwatch from '@/../public/planner/icons8-stopwatch-100.png';
+import Cover from '@/../public/projects/planner/cover.png';
+import browser from '@/../public/projects/planner/icons8-browser-100.png';
+import sword from '@/../public/projects/planner/icons8-sword-100.png';
+import stopwatch from '@/../public/projects/planner/icons8-stopwatch-100.png';
 
 const features = [
   {
@@ -42,7 +42,7 @@ const Planner = () => (
     </Head>
     <Navbar royal={true} className="relative z-20" />
     <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 flex flex-col items-center gap-8 rounded-3xl text-white relative overflow-hidden">
-      <Image src={Rectangle} alt="project background" fill className="-z-20" />
+      <Image src={Gradient} alt="project background" fill className="-z-20" />
       <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto drop-shadow">
         PLANNER
       </p>
