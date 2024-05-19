@@ -35,16 +35,20 @@ const LeadershipCard = (props: Person) => {
       <h3 className="text-3xl font-bold text-center">{props.name}</h3>
       <p className="text-2xl text-center">{props.role}</p>
       <div className="flex gap-4">
-        <a href={`mailto:${props.netId}@utdallas.edu`} key={'email'} className="w-8 h-8 relative">
-          <Image src={Email} alt="Social link" fill />
-        </a>
-        <a
-          href={`https://www.linkedin.com/in/${props.linkedIn}/`}
-          key={'linkedIn'}
-          className="w-8 h-8 relative"
-        >
-          <Image src={LinkedIn} alt="Social link" fill />
-        </a>
+        {typeof props.netId !== 'undefined' && props.netId !== '' && (
+          <a href={`mailto:${props.netId}@utdallas.edu`} key={'email'} className="w-8 h-8 relative">
+            <Image src={Email} alt="Social link" fill />
+          </a>
+        )}
+        {typeof props.linkedIn !== 'undefined' && props.linkedIn !== '' && (
+          <a
+            href={`https://www.linkedin.com/in/${props.linkedIn}/`}
+            key={'linkedIn'}
+            className="w-8 h-8 relative"
+          >
+            <Image src={LinkedIn} alt="Social link" fill />
+          </a>
+        )}
       </div>
     </div>
   );

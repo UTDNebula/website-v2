@@ -2,10 +2,23 @@ export interface Person {
   netId?: string;
   role?: string;
   name: string;
-  linkedIn: string;
+  linkedIn?: string;
 }
 
 export const netIdToPersonMap = new Map<string, Person>([
+  [
+    '',
+    {
+      name: 'Vacant',
+    },
+  ],
+  [
+    'tgh210002',
+    {
+      name: 'Tyler Hill',
+      linkedIn: 'tylergordonhill',
+    },
+  ],
   [
     'cnl210000',
     {

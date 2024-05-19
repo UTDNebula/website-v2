@@ -6,6 +6,33 @@ export type GoverancePeriod = {
 
 export const periodToLeadershipMap = new Map<string, GoverancePeriod>([
   [
+    '2024-2025',
+    {
+      Officers: {
+        President: 'flh220002',
+        'Vice President': 'tgh210002',
+        'Executive Director': '',
+        Secretary: '',
+        Treasurer: '',
+      },
+      'Division Heads': {
+        'Head of Design': '',
+        'Head of Engineering': '',
+        'Head of Product': '',
+        'Head of Marketing': '',
+      },
+      'Project Leads': {
+        'Planner Lead': '',
+        'Jupiter Lead': '',
+        'Trends & Skedge Lead': '',
+        'API & Platform Lead': 'jjp210000',
+      },
+      'Our Club Sponsor': {
+        'Professor and Club Sponsor': 'jxc064000',
+      },
+    },
+  ],
+  [
     '2023-2024',
     {
       Officers: {
