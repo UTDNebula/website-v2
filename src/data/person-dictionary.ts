@@ -20,6 +20,48 @@ export const netIdToPersonMap = new Map<string, Person>([
     },
   ],
   [
+    'hxn200016',
+    {
+      name: 'Halimah Nadzaku',
+      linkedIn: 'halimah-nadzaku-31aa281a9',
+    },
+  ],
+  [
+    'txr220020',
+    {
+      name: 'Tejas Ramanujam',
+      linkedIn: 'tejas-ramanujam',
+    },
+  ],
+  [
+    'ksi230000',
+    {
+      name: 'Kenneth Imphean',
+      linkedIn: 'kenneth-imphean',
+    },
+  ],
+  [
+    'jaz220003',
+    {
+      name: 'Joel Zuniga',
+      linkedIn: 'joelzunigatx',
+    },
+  ],
+  [
+    'ejb230002',
+    {
+      name: 'Ethan Bickel',
+      linkedIn: 'ethanjbickel',
+    },
+  ],
+  [
+    'axt220137',
+    {
+      name: 'Abriham Tadepalli',
+      linkedIn: 'abhiram-tadepalli',
+    },
+  ],
+  [
     'cnl210000',
     {
       name: 'Caleb Lim',
