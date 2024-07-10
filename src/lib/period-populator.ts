@@ -15,7 +15,7 @@ export function getPopulatedPeriod(period: string) {
 
     const populatedPeople = Object.keys(people).map((role) => {
       const netId = people[role];
-      const personData: Person = netIdToPersonMap.get(netId)!;
+      const personData: Person = Object.assign({}, netIdToPersonMap.get(netId));
       personData['netId'] = netId;
       personData['role'] = role;
 
