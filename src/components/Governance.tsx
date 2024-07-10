@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { PopulatedGoveranceGroup } from '@/lib/period-populator';
 import { Person } from '@/data/person-dictionary';
 
-import LinkedIn from '@/../public/linkedin-royal.svg';
-import Email from '@/../public/email.svg';
+import LinkedIn from '@/../public/icons/linkedin-royal.svg';
+import Email from '@/../public/icons/email.svg';
 
 const fallbackSrc = '/governance/blank.jpg';
 

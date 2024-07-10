@@ -1,16 +1,15 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Head from 'next/head';
-import Rectangle from '@/../public/rectangle.png';
-import Cover from '@/../public/skedge/cover.png';
 import Image from 'next/image';
+import Gradient from '@/../public/images/gradient.png';
 
-import Chrome from '@/../public/skedge/chrome.png';
-import Firefox from '@/../public/skedge/firefox.png';
-
-import input from '@/../public/trends/icons8-input-100.png';
-import aggregate from '@/../public/trends/icons8-aggregate-100.png';
-import calendar from '@/../public/skedge/icons8-calendar-100.png';
+import Cover from '@/../public/projects/skedge/cover.png';
+import input from '@/../public/projects/skedge/icons8-input-100.png';
+import aggregate from '@/../public/projects/skedge/icons8-aggregate-100.png';
+import calendar from '@/../public/projects/skedge/icons8-calendar-100.png';
+import Chrome from '@/../public/projects/skedge/chrome.png';
+import Firefox from '@/../public/projects/skedge/firefox.png';
 
 const features = [
   {
@@ -44,7 +43,7 @@ const Skedge = () => (
     </Head>
     <Navbar royal={true} className="relative z-20" />
     <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 flex flex-col items-center gap-8 rounded-3xl text-white relative overflow-hidden">
-      <Image src={Rectangle} alt="project background" fill className="-z-20" />
+      <Image src={Gradient} alt="project background" fill className="-z-20" />
       <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto drop-shadow">
         SKEDGE
       </p>

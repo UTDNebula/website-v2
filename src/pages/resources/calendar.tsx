@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ics } from 'calendar-link';
 
-import ArrowWhite from '@/../public/filled-chevron-up-white.svg';
-import ArrowBlack from '@/../public/filled-chevron-up-black.svg';
+import ArrowWhite from '@/../public/icons/filled-chevron-up-white.svg';
+import ArrowBlack from '@/../public/icons/filled-chevron-up-black.svg';
 
 const timeFormat = new Intl.DateTimeFormat('en-US', {
   hour: 'numeric',

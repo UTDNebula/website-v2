@@ -11,7 +11,7 @@ html {
 }
 
 .bg-stars {
-  background-image: url('/stars.png'), linear-gradient(lightgray, lightgray);
+  background-image: url('/images/stars.png'), linear-gradient(lightgray, lightgray);
   background-size: cover, cover, 50%;
   background-repeat: repeat-x, no-repeat, no-repeat;
 }
