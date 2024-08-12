@@ -61,9 +61,6 @@ const Footer = () => {
           <Link className={linkClasses} href="/about/governance">
             Project Governance
           </Link>
-          <Link className={linkClasses} href="/resources/meetings">
-            Meetings
-          </Link>
           <Link className={linkClasses} href="/resources/calendar">
             Calendar
           </Link>

@@ -36,9 +36,9 @@ interface EventReactProps {
 
 const Event = (props: EventReactProps) => {
   const important =
-    props.name.includes('Kickoff') ||
-    props.name.includes('Social') ||
-    props.name.includes('All-Hands');
+    !props.name.includes('Project Meeting') &&
+    !props.name.includes('Division Meeting') &&
+    !props.name.includes('After Hours');
 
   const start = new Date(props.start);
   const end = new Date(props.end);
@@ -150,7 +150,6 @@ const Calendar = () => {
         if (data.message !== 'success') {
           throw new Error(data.message);
         }
-        console.log(data.data);
         setEvents(data.data.data.items);
         setState('done');
       })
@@ -230,13 +229,46 @@ const Calendar = () => {
   );
 
   if (state === 'loading') {
-    result = <h2 className="text-5xl font-bold pb-4 text-center">Loading...</h2>;
-  } else if (state === 'done') {
     result = (
-      <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center">
-        <div className="flex flex-col gap-4 w-full max-w-[40ch]">{...labelsAndEvents}</div>
+      <div className="flex flex-col gap-4 w-full max-w-[40ch] animate-pulse">
+        <h3 className="text-transparent w-fit text-4xl font-semibold bg-gray-200 rounded-full">
+          January
+        </h3>
+        <h2 className="text-transparent w-fit text-3xl font-medium bg-gray-200 rounded-full">
+          19 Monday
+        </h2>
+        <div className="text-transparent w-full p-4 bg-gray-200 rounded-lg">
+          <p className="text-2xl">After Hours</p>
+          <p>7:00 - 9:00 PM</p>
+          <p>AD 2.232</p>
+        </div>
+        <h3 className="text-transparent w-fit text-4xl font-semibold bg-gray-200 rounded-full">
+          January
+        </h3>
+        <h2 className="text-transparent w-fit text-3xl font-medium bg-gray-200 rounded-full">
+          19 Monday
+        </h2>
+        <div className="text-transparent w-full p-4 bg-gray-200 rounded-lg">
+          <p className="text-2xl">After Hours</p>
+          <p>7:00 - 9:00 PM</p>
+          <p>AD 2.232</p>
+        </div>
+        <h3 className="text-transparent w-fit text-4xl font-semibold bg-gray-200 rounded-full">
+          January
+        </h3>
+        <h2 className="text-transparent w-fit text-3xl font-medium bg-gray-200 rounded-full">
+          19 Monday
+        </h2>
+        <div className="text-transparent w-full p-4 bg-gray-200 rounded-lg">
+          <p className="text-2xl">After Hours</p>
+          <p>7:00 - 9:00 PM</p>
+          <p>AD 2.232</p>
+        </div>
       </div>
     );
+    //<h2 className="text-5xl font-bold pb-4 text-center">Loading...</h2>;
+  } else if (state === 'done') {
+    result = <div className="flex flex-col gap-4 w-full max-w-[40ch]">{...labelsAndEvents}</div>;
   }
 
   return (
@@ -247,17 +279,20 @@ const Calendar = () => {
         <meta property="og:url" content="https://www.utdnebula.com/resources/calendar" />
       </Head>
       <Header text="Calendar" />
-      <div className="px-8 lg:px-16 xl:px-32 pb-12 flex justify-center gap-2 flex-wrap">
+      <h2 className="px-8 lg:px-16 xl:px-32 text-2xl text-center mb-12">
+        Stop by any of our events to learn more about becoming a new member!
+      </h2>
+      <div className="px-8 lg:px-16 xl:px-32 mb-12 flex justify-center gap-2 flex-wrap">
         <a
           className={buttonLinkClasses}
           target="_blank"
-          href="https://accounts.google.com/AccountChooser?continue=https://calendar.google.com/calendar/?cid=Y182NGJjYTRmZGM3NTA3N2Q4NTJiYzUyMzZlYzIwNDAyZDg1MTQ3OTI4NDE4OTRiMjY0ZGE1N2Q0MWJiMGVlMzJlQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
+          href="https://accounts.google.com/AccountChooser?continue=https://calendar.google.com/calendar/?cid=c_81b7102868d4acac8b7db3a18de6440d45740e4754be4f8a28a5c3915b0d1e71%40group.calendar.google.com"
         >
           Subscribe in Google Calendar
         </a>
         <a
           className={buttonLinkClasses}
-          href="https://calendar.google.com/calendar/ical/c_64bca4fdc75077d852bc5236ec20402d8514792841894b264da57d41bb0ee32e%40group.calendar.google.com/public/basic.ics"
+          href="https://calendar.google.com/calendar/ical/c_81b7102868d4acac8b7db3a18de6440d45740e4754be4f8a28a5c3915b0d1e71%40group.calendar.google.com/public/basic.ics"
         >
           Subscribe with iCal
         </a>
@@ -265,7 +300,7 @@ const Calendar = () => {
           View on Discord
         </a>
       </div>
-      {result}
+      <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center">{result}</div>
       <Footer />
     </>
   );
