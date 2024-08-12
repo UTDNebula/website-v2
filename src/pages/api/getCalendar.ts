@@ -3,7 +3,7 @@ import { auth, JWT } from 'google-auth-library';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 const CALENDAR_ID =
-  'c_64bca4fdc75077d852bc5236ec20402d8514792841894b264da57d41bb0ee32e@group.calendar.google.com';
+  'c_81b7102868d4acac8b7db3a18de6440d45740e4754be4f8a28a5c3915b0d1e71@group.calendar.google.com';
 
 type Data = {
   message: string;

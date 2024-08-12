@@ -323,7 +323,7 @@ const Navbar = (props: Props) => {
                 ))}
               </ul>
               <Link
-                href="/resources/meetings"
+                href="/resources/calendar"
                 className={clsx(
                   'justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap',
                   textShadow,

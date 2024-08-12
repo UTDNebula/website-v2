@@ -20,7 +20,7 @@ const Contact = () => (
     <Header text="Contact Us" />
     <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center gap-12">
       <div className="flex flex-col items-center gap-12">
-        <h2 className="text-2xl gap-2">
+        <h2 className="text-2xl">
           Discord is the best place to stay up to date with our latest updates and events.
         </h2>
         <a
