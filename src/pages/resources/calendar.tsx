@@ -280,7 +280,7 @@ const Calendar = () => {
       </Head>
       <Header text="Calendar" />
       <h2 className="px-8 lg:px-16 xl:px-32 text-2xl text-center mb-12">
-        Stop by any of our events to see about becoming a new member!
+        Stop by any of our events to learn more about becoming a new member!
       </h2>
       <div className="px-8 lg:px-16 xl:px-32 mb-12 flex justify-center gap-2 flex-wrap">
         <a
