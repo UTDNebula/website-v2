@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] });
 const kallisto = localFont({
@@ -80,6 +81,7 @@ export default function App({ Component, pageProps }: AppProps) {
         `}
       </style>
       <Component {...pageProps} />
+      <Analytics />
     </>
   );
 }
