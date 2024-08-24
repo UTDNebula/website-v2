@@ -18,7 +18,6 @@ export const periodToLeadershipMap = new Map<string, GoverancePeriod>([
       'Division Heads': {
         'Head of Design': '',
         'Head of Engineering': 'ksi230000',
-        'Head of Product': '',
         'Head of Marketing': 'jaz220003',
       },
       'Project Leads': {
