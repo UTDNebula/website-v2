@@ -230,7 +230,7 @@ const Calendar = () => {
 
   if (state === 'loading') {
     result = (
-      <div className="flex flex-col gap-4 w-full max-w-[40ch] animate-pulse">
+      <div className="flex flex-col gap-4 w-full max-w-[40ch] animate-pulse -z-10">
         <h3 className="text-transparent w-fit text-4xl font-semibold bg-gray-200 rounded-full">
           January
         </h3>
@@ -242,20 +242,11 @@ const Calendar = () => {
           <p>7:00 - 9:00 PM</p>
           <p>AD 2.232</p>
         </div>
-        <h3 className="text-transparent w-fit text-4xl font-semibold bg-gray-200 rounded-full">
-          January
-        </h3>
-        <h2 className="text-transparent w-fit text-3xl font-medium bg-gray-200 rounded-full">
-          19 Monday
-        </h2>
         <div className="text-transparent w-full p-4 bg-gray-200 rounded-lg">
           <p className="text-2xl">After Hours</p>
           <p>7:00 - 9:00 PM</p>
           <p>AD 2.232</p>
         </div>
-        <h3 className="text-transparent w-fit text-4xl font-semibold bg-gray-200 rounded-full">
-          January
-        </h3>
         <h2 className="text-transparent w-fit text-3xl font-medium bg-gray-200 rounded-full">
           19 Monday
         </h2>
@@ -266,7 +257,6 @@ const Calendar = () => {
         </div>
       </div>
     );
-    //<h2 className="text-5xl font-bold pb-4 text-center">Loading...</h2>;
   } else if (state === 'done') {
     result = <div className="flex flex-col gap-4 w-full max-w-[40ch]">{...labelsAndEvents}</div>;
   }
