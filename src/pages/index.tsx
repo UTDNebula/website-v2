@@ -38,7 +38,7 @@ const Header = () => {
             Greetings from the stars
           </h3>
           <h1 className="text-6xl font-bold font-kallisto [text-shadow:_0_0_16px_rgb(0_0_0_/_0.4)]">
-            We are Nebula Labs <br /> We build <b>Products</b> and <b>Talents</b>
+            We are Nebula Labs <br /> We build <b>Products</b> and <b>People</b>
           </h1>
         </div>
       </div>
