@@ -71,6 +71,13 @@ const Footer = () => {
           >
             Design Guide
           </a>
+          <a
+            className={linkClasses}
+            href="https://nebula-labs.atlassian.net/wiki/x/0YD5AQ"
+            target="_blank"
+          >
+            Confluence
+          </a>
         </div>
         <div className="flex flex-col items-start  gap-4 lg:ml-auto">
           <a
