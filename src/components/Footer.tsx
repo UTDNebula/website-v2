@@ -71,11 +71,18 @@ const Footer = () => {
           >
             Design Guide
           </a>
+          <a
+            className={linkClasses}
+            href="https://nebula-labs.atlassian.net/wiki/x/0YD5AQ"
+            target="_blank"
+          >
+            Confluence
+          </a>
         </div>
         <div className="flex flex-col items-start  gap-4 lg:ml-auto">
           <a
             className="mb-6 hover:scale-105 transition"
-            href="https://discord.gg/tcpcnfxmeQ"
+            href="https://discord.utdnebula.com/"
             target="_blank"
           >
             <Image src={Discord} alt="discord" width="200" height="60" />
