@@ -75,7 +75,7 @@ const Footer = () => {
         <div className="flex flex-col items-start  gap-4 lg:ml-auto">
           <a
             className="mb-6 hover:scale-105 transition"
-            href="https://discord.gg/tcpcnfxmeQ"
+            href="https://discord.utdnebula.com/"
             target="_blank"
           >
             <Image src={Discord} alt="discord" width="200" height="60" />
