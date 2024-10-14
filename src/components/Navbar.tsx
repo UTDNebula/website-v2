@@ -239,7 +239,7 @@ const Navbar = (props: Props) => {
                       return (
                         <>
                           <Disclosure.Button
-                            ref={(el) => (buttonRefs.current[outerIndex] = el)}
+                            ref={(el) => {buttonRefs.current[outerIndex] = el}}
                             onClick={handler}
                             className={clsx(
                               displayMobileMenu && 'place-content-between',
