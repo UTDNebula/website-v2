@@ -31,6 +31,7 @@ const PeriodLinks = (props: PeriodLinkProps) => {
                 {props.name}
               </Listbox.Button>
               <Transition
+                as="div"
                 className="transition-all duration-500 overflow-hidden"
                 enterFrom="transform max-h-0"
                 enterTo="transform opacity-100 max-h-48"
