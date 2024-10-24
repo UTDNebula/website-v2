@@ -9,8 +9,8 @@ dependencies:
     specifier: ^2.1.10
     version: 2.1.10(react-dom@18.3.1)(react@18.3.1)
   '@next/third-parties':
-    specifier: ^14.2.15
-    version: 14.2.15(next@13.4.19)(react@18.2.0)
+    specifier: ^15.0.1
+    version: 15.0.1(next@14.2.15)(react@18.3.1)
   calendar-link:
     specifier: ^2.7.0
     version: 2.7.0
@@ -542,14 +542,14 @@ packages:
     dev: false
     optional: true
 
-  /@next/third-parties@14.2.15(next@13.4.19)(react@18.2.0):
-    resolution: {integrity: sha512-15CvipE1p1GtlzVfbDfXPrAGIhzJJe75Yy6+GIBRTd36lu95BegRsUJwCxJYoKz47Q09stcU2gJDMduMGqrikw==}
+  /@next/third-parties@15.0.1(next@14.2.15)(react@18.3.1):
+    resolution: {integrity: sha512-URkJqgF+75uH6JTZ5bXkVNANO5WDXSPV+IM17DluywUMMkqJvot/LhjgnTZ5TM2X0q7rdQmRHeOxQi2bMbynQQ==}
     peerDependencies:
-      next: ^13.0.0 || ^14.0.0
-      react: ^18.2.0
+      next: ^13.0.0 || ^14.0.0 || ^15.0.0
+      react: ^18.2.0 || 19.0.0-rc-65a56d0e-20241020
     dependencies:
-      next: 13.4.19(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
+      next: 14.2.15(react-dom@18.3.1)(react@18.3.1)
+      react: 18.3.1
       third-party-capital: 1.0.20
     dev: false
 
