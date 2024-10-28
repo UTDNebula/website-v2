@@ -116,9 +116,14 @@ const Footer = () => {
       <div className="md:pt-40 pt-10">
         <div className="border-t-2 border-white" />
         <div className="flex md:flex-row flex-col justify-between gap-8 pt-8">
-          <Link className={linkClasses} href="/sitemap.xml">
-            Sitemap
-          </Link>
+          <div className="flex gap-x-8 gap-y-1 justify-around md:justify-normal flex-wrap">
+            <Link className={linkClasses} href="/legal/privacy-policy.txt">
+              Privacy Policy
+            </Link>
+            <Link className={linkClasses} href="/sitemap.xml">
+              Sitemap
+            </Link>
+          </div>
           <p className="md:text-right text-center text-xs">
             © {new Date().getFullYear()} Nebula Labs Maintainers. All rights reserved.
           </p>
