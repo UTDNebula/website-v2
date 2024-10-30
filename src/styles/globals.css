@@ -35,4 +35,10 @@ html {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+
+  .bg-addition {
+    background: linear-gradient(transparent calc(calc(100% / 130) * 100), white),
+      radial-gradient(at 0% 100%, theme('colors.persimmon.500') 0px, transparent 40%),
+      radial-gradient(at 100% 100%, theme('colors.royal') 0px, transparent 60%);
+  }
 }
