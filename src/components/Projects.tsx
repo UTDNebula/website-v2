@@ -4,7 +4,7 @@ import Image from 'next/image';
 import type { StaticImageData } from 'next/image';
 import Carousel from './Carousel';
 import Planner from '@/../public/projects/planner.png';
-import Skedge from '@/../public/projects/skedge.png';
+import Trends from '@/../public/projects/trends.png';
 import Jupiter from '@/../public/projects/jupiter.png';
 import FilledChevronUp from '@/../public/icons/filled-chevron-up-white.svg';
 import clsx from 'clsx';
@@ -32,13 +32,13 @@ const PROJECTS_INFO: Project[] = [
     color: '#926FDB',
   },
   {
-    title: 'Sk.edge/Trends',
-    shortName: 'Sk.edge/Trends',
+    title: 'Trends & Skedge',
+    shortName: 'Trends',
     description:
-      'Sk.edge and Trends are tools designed to simplify the course selection and registration process by providing students with valuable data, all in one place.',
-    url: '/projects/skedge',
-    image: Skedge,
-    alt: "A mockup of Sk.edge's dashboard, displaying statistics for a professor",
+      'Trends and Skedge are tools designed to simplify the course selection and registration process by providing students with valuable data, all in one place.',
+    url: '/projects/trends',
+    image: Trends,
+    alt: "A laptop displaying Trend's dashboard, with search results for GOVT 2306.",
     color: '#6366F1',
   },
   {
