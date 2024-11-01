@@ -1,0 +1,7 @@
+Our websites use Google Analytics to help us understand how visitors engage with our sites. Google Analytics collects non-identifiable data such as device type, browser information, and approximate location. This data helps us improve the experience of the websites.
+
+Google may process this information in accordance with its Privacy Policy available at https://www.google.com/analytics/terms/default.html.
+
+Users who do not wish to be tracked can install the Google Analytics Opt-out Browser Add-on (https://tools.google.com/dlpage/gaoptout) or disable cookies in their browser settings.
+
+For any privacy-related inquiries, please contact us at contact@utdnebula.com.
