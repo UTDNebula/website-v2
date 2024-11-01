@@ -38,8 +38,9 @@ const Skedge = () => (
   <>
     <Head>
       <title>Skedge - Nebula Labs</title>
-      <meta property="og:title" content="Skedge - Nebula Labs" />
+      <meta key="og:title" property="og:title" content="Skedge - Nebula Labs" />
       <meta
+        key="og:description"
         property="og:description"
         content="Choose the perfect classes for you: easy access to all the information you need to plan your schedule."
       />

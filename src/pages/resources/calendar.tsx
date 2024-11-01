@@ -265,7 +265,7 @@ const Calendar = () => {
     <>
       <Head>
         <title>Calendar - Nebula Labs</title>
-        <meta property="og:title" content="Calendar - Nebula Labs" />
+        <meta key="og:title" property="og:title" content="Calendar - Nebula Labs" />
         <link rel="canonical" href="https://www.utdnebula.com/resources/calendar" key="canonical" />
         <meta property="og:url" content="https://www.utdnebula.com/resources/calendar" />
       </Head>

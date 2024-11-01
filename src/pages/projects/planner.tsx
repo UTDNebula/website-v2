@@ -37,8 +37,9 @@ const Planner = () => (
   <>
     <Head>
       <title>Planner - Nebula Labs</title>
-      <meta property="og:title" content="Planner - Nebula Labs" />
+      <meta key="og:title" property="og:title" content="Planner - Nebula Labs" />
       <meta
+        key="og:description"
         property="og:description"
         content="Plan your degree with ease: Blast off your academic journey with the ultimate tool for customizing your four-year degree."
       />

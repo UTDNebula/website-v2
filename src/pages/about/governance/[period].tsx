@@ -27,7 +27,7 @@ const Page = ({
     <>
       <Head>
         <title>{period + ' Governance - Nebula Labs'}</title>
-        <meta property="og:title" content="Governance - Nebula Labs" />
+        <meta key="og:title" property="og:title" content="Governance - Nebula Labs" />
         <link
           rel="canonical"
           href={'https://www.utdnebula.com/about/governance/' + period}

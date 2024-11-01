@@ -35,8 +35,9 @@ const API = () => (
   <>
     <Head>
       <title>API & Platform - Nebula Labs</title>
-      <meta property="og:title" content="API & Platform - Nebula Labs" />
+      <meta key="og:title" property="og:title" content="API & Platform - Nebula Labs" />
       <meta
+        key="og:description"
         property="og:description"
         content="The Backbone of Nebula Labs: providing reliable and feature-rich data infrastructure for all of Nebula’s projects, and yours!"
       />
