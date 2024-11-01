@@ -10,7 +10,7 @@ export default function Document() {
         />
         <meta name="theme-color" content="#573DFF" />
 
-        <meta key="og:title" key="og:title" property="og:title" content="Nebula Labs" />
+        <meta key="og:title" property="og:title" content="Nebula Labs" />
         <meta
           key="og:description"
           property="og:description"
