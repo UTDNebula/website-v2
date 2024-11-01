@@ -6,6 +6,7 @@ const Membership = () => (
   <>
     <Head>
       <title>Membership - Nebula Labs</title>
+      <meta property="og:title" content="Membership - Nebula Labs" />
       <link rel="canonical" href="https://www.utdnebula.com/resources/roles" key="canonical" />
       <meta property="og:url" content="https://www.utdnebula.com/resources/roles" />
     </Head>

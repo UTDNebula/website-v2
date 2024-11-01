@@ -18,6 +18,7 @@ const Page = () => {
     <>
       <Head>
         <title>Governance - Nebula Labs</title>
+        <meta property="og:title" content="Governance - Nebula Labs" />
         <link rel="canonical" href="https://www.utdnebula.com/about/governance" key="canonical" />
         <meta property="og:url" content="https://www.utdnebula.com/about/governance" />
       </Head>

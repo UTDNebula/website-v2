@@ -36,6 +36,11 @@ const Trends = () => (
   <>
     <Head>
       <title>Trends - Nebula Labs</title>
+      <meta property="og:title" content="Trends - Nebula Labs" />
+      <meta
+        property="og:description"
+        content="Choose the perfect classes for you: easy access to all the information you need to plan your schedule."
+      />
       <link rel="canonical" href="https://www.utdnebula.com/projects/trends" key="canonical" />
       <meta property="og:url" content="https://www.utdnebula.com/projects/trends" />
     </Head>

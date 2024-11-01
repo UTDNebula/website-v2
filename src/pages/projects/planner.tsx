@@ -37,6 +37,11 @@ const Planner = () => (
   <>
     <Head>
       <title>Planner - Nebula Labs</title>
+      <meta property="og:title" content="Planner - Nebula Labs" />
+      <meta
+        property="og:description"
+        content="Plan your degree with ease: Blast off your academic journey with the ultimate tool for customizing your four-year degree."
+      />
       <link rel="canonical" href="https://www.utdnebula.com/projects/planner" key="canonical" />
       <meta property="og:url" content="https://www.utdnebula.com/projects/planner" />
     </Head>
@@ -52,8 +57,8 @@ const Planner = () => (
         with ease
       </h1>
       <h2 className="text-3xl text-center text-shadow">
-        Blast off your academic journey with Planner - the ultimate tool for customizing your
-        four-year degree.
+        Blast off your academic journey with the ultimate tool for customizing your four-year
+        degree.
       </h2>
       <div className="md:mx-4 lg:mx-8 xl:mx-16 rounded-t-2xl overflow-hidden md:mb-[-4rem] lg:mb-[-8rem] xl:mb-[-16rem]">
         <Image src={Cover} alt="Planner screenshot" />
