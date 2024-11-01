@@ -10,12 +10,6 @@ export default function Document() {
         />
         <meta name="theme-color" content="#573DFF" />
 
-        <meta key="og:title" property="og:title" content="Nebula Labs" />
-        <meta
-          key="og:description"
-          property="og:description"
-          content="An initiative to build tools to make students' lives easier at UT Dallas."
-        />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://utdnebula.com/opengraph.png" />
         <meta property="og:image:type" content="image/png" />
