@@ -35,6 +35,12 @@ const API = () => (
   <>
     <Head>
       <title>API & Platform - Nebula Labs</title>
+      <meta key="og:title" property="og:title" content="API & Platform - Nebula Labs" />
+      <meta
+        key="og:description"
+        property="og:description"
+        content="The Backbone of Nebula Labs: providing reliable and feature-rich data infrastructure for all of Nebula’s projects, and yours!"
+      />
       <link rel="canonical" href="https://www.utdnebula.com/projects/api" key="canonical" />
       <meta property="og:url" content="https://www.utdnebula.com/projects/api" />
     </Head>
@@ -50,7 +56,8 @@ const API = () => (
         of Nebula Labs
       </h1>
       <h2 className="text-3xl text-center text-shadow">
-        Providing reliable and feature-rich data infrastructure for all of Nebula’s projects.
+        Providing reliable and feature-rich data infrastructure for all of Nebula’s projects, and
+        yours!
       </h2>
       <div className="h-10"></div>
     </div>

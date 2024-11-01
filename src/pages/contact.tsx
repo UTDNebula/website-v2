@@ -14,6 +14,7 @@ const Contact = () => (
   <>
     <Head>
       <title>Contact - Nebula Labs</title>
+      <meta key="og:title" property="og:title" content="Contact - Nebula Labs" />
       <link rel="canonical" href="https://www.utdnebula.com/about/contact" key="canonical" />
       <meta property="og:url" content="https://www.utdnebula.com/about/contact" />
     </Head>

@@ -33,6 +33,7 @@ const Mission = () => (
   <>
     <Head>
       <title>Mission - Nebula Labs</title>
+      <meta key="og:title" property="og:title" content="Mission - Nebula Labs" />
       <link rel="canonical" href="https://www.utdnebula.com/resources/roles" key="canonical" />
       <meta property="og:url" content="https://www.utdnebula.com/resources/roles" />
     </Head>

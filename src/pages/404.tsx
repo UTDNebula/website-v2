@@ -6,6 +6,7 @@ const _404 = () => (
   <>
     <Head>
       <title>404 - Nebula Labs</title>
+      <meta key="og:title" property="og:title" content="404 - Nebula Labs" />
     </Head>
     <div>
       <Header text="Not Found" />

@@ -37,6 +37,12 @@ const Jupiter = () => (
   <>
     <Head>
       <title>Jupiter - Nebula Labs</title>
+      <meta key="og:title" property="og:title" content="Jupiter - Nebula Labs" />
+      <meta
+        key="og:description"
+        property="og:description"
+        content="Find your community on campus: get connected with student organizations and browse events."
+      />
       <link rel="canonical" href="https://www.utdnebula.com/projects/jupiter" key="canonical" />
       <meta property="og:url" content="https://www.utdnebula.com/projects/jupiter" />
     </Head>
