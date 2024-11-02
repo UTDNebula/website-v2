@@ -21,7 +21,7 @@ const Header = () => {
         alt="gradient background"
         fill
         priority
-        className="object-cover -z-30"
+        className="object-fill -z-30"
       />
 
       <div className="h-screen flex flex-col relative">
