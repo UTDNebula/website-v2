@@ -16,13 +16,7 @@ const Header = () => {
 
   return (
     <div className="h-[130vh] overflow-hidden relative bg-addition">
-      <Image
-        src={Gradient}
-        alt="gradient background"
-        fill
-        priority
-        className="object-fill -z-30"
-      />
+      <Image src={Gradient} alt="gradient background" fill priority className="object-fill -z-30" />
 
       <div className="h-screen flex flex-col relative">
         <Image
