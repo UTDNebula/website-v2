@@ -26,7 +26,7 @@ const Contact = () => (
         </h2>
         <a
           className="hover:scale-105 transition"
-          href="https://discord.gg/tcpcnfxmeQ"
+          href="https://discord.utdnebula.com/"
           target="_blank"
         >
           <Image src={Discord} alt="discord" width="200" height="60" />

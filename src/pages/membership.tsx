@@ -35,7 +35,7 @@ const Membership = () => (
         Look out for announcements in{' '}
         <a
           className="text-royal underline decoration-transparent hover:decoration-inherit transition"
-          href="https://discord.gg/tcpcnfxmeQ"
+          href="https://discord.utdnebula.com/"
           target="_blank"
         >
           our Discord

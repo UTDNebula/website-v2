@@ -287,7 +287,7 @@ const Calendar = () => {
         >
           Subscribe with iCal
         </a>
-        <a className={buttonLinkClasses} target="_blank" href="https://discord.gg/tcpcnfxmeQ">
+        <a className={buttonLinkClasses} target="_blank" href="https://discord.utdnebula.com/">
           View on Discord
         </a>
       </div>
