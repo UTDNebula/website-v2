@@ -21,7 +21,7 @@ const testimonials = [
       "“Nebula's contributions to student life at UTD are the best! I love working with a group that's so student-centric and making products that improve my quality of life as a student. Nebula's a great place to learn and opens so many doors for other opportunities!”",
   },
   {
-    name: 'Valeria',
+    name: 'Valeria G.',
     role: 'Engineer on Jupiter',
     image: Valeria,
     quote:
