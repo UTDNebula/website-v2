@@ -1,31 +1,31 @@
 import Image from 'next/image';
 import ArrowButton from '@/../public/testimonials/arrow-button.svg';
-import Amrit from '@/../public/testimonials/amrit.png';
-import JC from '@/../public/testimonials/jc.png';
-import Kevin from '@/../public/testimonials/kevin.png';
+import Valeria from '@/../public/testimonials/valeria.jpg';
+import Hiba from '@/../public/testimonials/hiba.jpg';
+import Greeshma from '@/../public/testimonials/greeshma.jpg';
 import Carousel from './Carousel';
 
 const testimonials = [
   {
-    name: 'Amrit',
-    classification: 'Junior',
-    image: Amrit,
+    name: 'Hiba M.',
+    role: 'Designer on Trends',
+    image: Hiba,
     quote:
-      "“Being a part of Nebula has been a huge part of my college career. I've made some of my best friends and had some of my best experiences being a part of the group. I love creating software that helps students and I love teaching people web technologies.”",
+      "“Nebula's welcoming environment makes it easy to be passionate about web development while forming valuable friendships! Working on Trends has allowed me to grow as a designer and work alongside other talented individuals. I love how involved everyone is during the meetings, and how every decision, big or small, has so much thought and care put into it.”",
   },
   {
-    name: 'Kevin',
-    classification: 'Sophomore',
-    image: Kevin,
+    name: 'Greeshma N.',
+    role: 'Engineer on API',
+    image: Greeshma,
     quote:
-      '“I love the team, I love the product, I love the unique challenges that the project presents. What more can I ask for :)”',
+      "“Nebula's contributions to student life at UTD are the best! I love working with a group that's so student-centric and making products that improve my quality of life as a student. Nebula's a great place to learn and opens so many doors for other opportunities!”",
   },
   {
-    name: 'JC',
-    classification: 'Junior',
-    image: JC,
+    name: 'Valeria G.',
+    role: 'Engineer on Jupiter',
+    image: Valeria,
     quote:
-      '“I enjoyed interacting with an open source project which I’d never done before. The team working skills are also great to know and the people I have interacted with so far have been great.”',
+      "“Team Jupiter is always encouraging and supportive of each other's craft, and even outside of meetings I can always feel the support of my team. As a beginner designer, it is thanks to their support that I have been able to grow and further improve skills gained at Nebula Labs.”",
   },
 ];
 
@@ -42,27 +42,26 @@ const Testimonials = () => {
         </p>
       </div>
       <Carousel data={testimonials} keyBase="testimonials">
-        {(item, idx, valueCount, prev, next) => (
-          <div className="bg-royal rounded-3xl flex-shrink-0 flex flex-col md:flex-row w-fit items-center md:items-center text-center gap-8 p-8 font-medium md:text-lg md:justify-start">
-            <Image className="md:w-2/5 lg:w-1/5" src={item.image} alt={item.name} />
-            <span className="contents md:flex flex-col md:text-left gap-8 md:h-full md:justify-center relative">
+        {(item, index, valueCount, prev, next) => (
+          <div className="bg-royal rounded-3xl flex flex-col md:flex-row w-fit items-center md:items-start text-center gap-8 p-4 font-medium md:text-lg md:justify-start">
+            <Image className="rounded-lg w-3/5 md:w-2/5" src={item.image} alt={item.name} />
+            <div className="w-full flex flex-col text-center md:text-left h-full relative">
               <p>{item.quote}</p>
-              <h3 className="text-2xl font-bold">
-                {item.name}, {item.classification}
-              </h3>
+              <h3 className="text-2xl font-bold mt-2">{item.name}</h3>
+              <p>{item.role}</p>
 
-              <span className="flex gap-3 mt-auto mb-8 md:mb-0 md:mt-0 place-self-end md:absolute md:bottom-0 items-center">
+              <div className="w-full md:w-auto flex justify-center gap-3 mt-auto md:mt-0 pt-2 md:absolute md:bottom-0 md:right-0 items-center">
                 <button onClick={prev}>
                   <Image src={ArrowButton} alt="arrow" />
                 </button>
                 <p className="h-min">
-                  {idx + 1}/{valueCount}
+                  {index + 1}/{valueCount}
                 </p>
                 <button onClick={next}>
                   <Image src={ArrowButton} alt="arrow" className="rotate-180" />
                 </button>
-              </span>
-            </span>
+              </div>
+            </div>
           </div>
         )}
       </Carousel>
