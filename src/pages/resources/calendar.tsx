@@ -265,6 +265,7 @@ const Calendar = () => {
     <>
       <Head>
         <title>Calendar - Nebula Labs</title>
+        <meta key="og:title" property="og:title" content="Calendar - Nebula Labs" />
         <link rel="canonical" href="https://www.utdnebula.com/resources/calendar" key="canonical" />
         <meta property="og:url" content="https://www.utdnebula.com/resources/calendar" />
       </Head>
@@ -286,7 +287,7 @@ const Calendar = () => {
         >
           Subscribe with iCal
         </a>
-        <a className={buttonLinkClasses} target="_blank" href="https://discord.gg/tcpcnfxmeQ">
+        <a className={buttonLinkClasses} target="_blank" href="https://discord.utdnebula.com/">
           View on Discord
         </a>
       </div>

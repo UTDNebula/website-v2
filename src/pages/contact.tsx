@@ -14,6 +14,7 @@ const Contact = () => (
   <>
     <Head>
       <title>Contact - Nebula Labs</title>
+      <meta key="og:title" property="og:title" content="Contact - Nebula Labs" />
       <link rel="canonical" href="https://www.utdnebula.com/about/contact" key="canonical" />
       <meta property="og:url" content="https://www.utdnebula.com/about/contact" />
     </Head>
@@ -25,7 +26,7 @@ const Contact = () => (
         </h2>
         <a
           className="hover:scale-105 transition"
-          href="https://discord.gg/tcpcnfxmeQ"
+          href="https://discord.utdnebula.com/"
           target="_blank"
         >
           <Image src={Discord} alt="discord" width="200" height="60" />

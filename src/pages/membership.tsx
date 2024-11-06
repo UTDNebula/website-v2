@@ -6,6 +6,7 @@ const Membership = () => (
   <>
     <Head>
       <title>Membership - Nebula Labs</title>
+      <meta key="og:title" property="og:title" content="Membership - Nebula Labs" />
       <link rel="canonical" href="https://www.utdnebula.com/resources/roles" key="canonical" />
       <meta property="og:url" content="https://www.utdnebula.com/resources/roles" />
     </Head>
@@ -34,7 +35,7 @@ const Membership = () => (
         Look out for announcements in{' '}
         <a
           className="text-royal underline decoration-transparent hover:decoration-inherit transition"
-          href="https://discord.gg/tcpcnfxmeQ"
+          href="https://discord.utdnebula.com/"
           target="_blank"
         >
           our Discord

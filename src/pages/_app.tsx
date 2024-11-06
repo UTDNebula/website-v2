@@ -66,6 +66,12 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>Nebula Labs</title>
+        <meta key="og:title" property="og:title" content="Nebula Labs" />
+        <meta
+          key="og:description"
+          property="og:description"
+          content="An initiative to build tools to make students' lives easier at UT Dallas."
+        />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="icon" href="/logoIcon.svg" type="image/svg+xml" />
