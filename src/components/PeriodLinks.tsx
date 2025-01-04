@@ -38,7 +38,7 @@ const PeriodLinks = (props: PeriodLinkProps) => {
                 leaveFrom="transform opacity-100 max-h-48"
                 leaveTo="transform max-h-0"
               >
-                <Listbox.Options className="rounded-b-lg border-2 border-royal max-h-48 overflow-auto">
+                <div className="rounded-b-lg border-2 border-royal max-h-48 overflow-auto">
                   {periods.map((period, index) => (
                     <Listbox.Option
                       key={period}
@@ -47,15 +47,15 @@ const PeriodLinks = (props: PeriodLinkProps) => {
                         'p-2' + (index === periods.length - 1 ? '' : ' border-b-2 border-royal')
                       }
                     >
-                      <a
+                      <Link
                         className="underline decoration-transparent hover:decoration-inherit transition"
                         href={urls[index]}
                       >
                         <h3 className="text-xl font-semibold">{period}</h3>
-                      </a>
+                      </Link>
                     </Listbox.Option>
                   ))}
-                </Listbox.Options>
+                </div>
               </Transition>
             </>
           )}
