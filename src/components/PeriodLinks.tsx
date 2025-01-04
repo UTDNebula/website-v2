@@ -47,12 +47,12 @@ const PeriodLinks = (props: PeriodLinkProps) => {
                         'p-2' + (index === periods.length - 1 ? '' : ' border-b-2 border-royal')
                       }
                     >
-                      <Link
+                      <a
                         className="underline decoration-transparent hover:decoration-inherit transition"
                         href={urls[index]}
                       >
                         <h3 className="text-xl font-semibold">{period}</h3>
-                      </Link>
+                      </a>
                     </Listbox.Option>
                   ))}
                 </Listbox.Options>
