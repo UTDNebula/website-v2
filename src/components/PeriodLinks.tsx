@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Listbox, Transition } from '@headlessui/react';
+import { Listbox, ListboxButton, ListboxOption, Transition } from '@headlessui/react';
 
 interface PeriodLinkProps {
   name: string;
@@ -22,14 +22,14 @@ const PeriodLinks = (props: PeriodLinkProps) => {
         <Listbox>
           {({ open }) => (
             <>
-              <Listbox.Button
+              <ListboxButton
                 className={
                   'transition-all duration-300 ease-in-out px-2 py-1 cursor-pointer border-x-2 border-t-2 hover:bg-royal hover:text-white border-royal rounded-t-lg' +
                   (open ? '' : ' rounded-b-lg border-2')
                 }
               >
                 {props.name}
-              </Listbox.Button>
+              </ListboxButton>
               <Transition
                 as="div"
                 className="transition-all duration-500 overflow-hidden"
@@ -38,9 +38,9 @@ const PeriodLinks = (props: PeriodLinkProps) => {
                 leaveFrom="transform opacity-100 max-h-48"
                 leaveTo="transform max-h-0"
               >
-                <Listbox.Options className="rounded-b-lg border-2 border-royal max-h-48 overflow-auto">
+                <div className="rounded-b-lg border-2 border-royal max-h-48 overflow-auto">
                   {periods.map((period, index) => (
-                    <Listbox.Option
+                    <ListboxOption
                       key={period}
                       value={period}
                       className={
@@ -53,9 +53,9 @@ const PeriodLinks = (props: PeriodLinkProps) => {
                       >
                         <h3 className="text-xl font-semibold">{period}</h3>
                       </Link>
-                    </Listbox.Option>
+                    </ListboxOption>
                   ))}
-                </Listbox.Options>
+                </div>
               </Transition>
             </>
           )}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PeriodLinks from '@/components/PeriodLinks';
@@ -13,6 +13,9 @@ const fallbackSrc = '/governance/blank.jpg';
 
 const LeadershipCard = (props: Person) => {
   const [src, setSrc] = useState(`/governance/${props.netId}.jpg`);
+  useEffect(() => {
+    setSrc(`/governance/${props.netId}.jpg`);
+  }, [props.netId]);
   return (
     <div className="p-2 flex flex-col items-center grow-0 w-72 gap-4">
       <Image
