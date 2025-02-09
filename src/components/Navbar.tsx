@@ -280,25 +280,27 @@ const Navbar = (props: Props) => {
                               {item.children.map((child, innerIndex) => (
                                 <li
                                   key={`menu-${outerIndex}-${innerIndex}`}
-                                  className="hover:transition-none transition-all lg:w-96 border border-white lg:hover:border-opacity-100 border-opacity-0 lg:rounded-3xl lg:p-8 flex lg:flex-col gap-2"
+                                  className="hover:transition-none transition-all lg:w-96 border border-white lg:hover:border-opacity-100 border-opacity-0 lg:rounded-3xl"
                                 >
-                                  {child.iconSrc && (
-                                    <Image src={child.iconSrc} alt="" className="" />
-                                  )}
                                   <Link
                                     href={child.link}
-                                    className="lg:flex lg:flex-col gap-1"
+                                    className="lg:p-8 flex lg:flex-col gap-2"
                                     target={child.link.includes('http') ? '_blank' : ''}
                                   >
-                                    <span className="flex gap-2 w-full">
-                                      <h2 className="font-bold lg:text-2xl">{child.name}</h2>
-                                      <Image
-                                        src={Arrow}
-                                        alt=""
-                                        className="-rotate-90 lg:block hidden"
-                                      />
+                                    {child.iconSrc && (
+                                      <Image src={child.iconSrc} alt="" className="" />
+                                    )}
+                                    <span className="lg:flex lg:flex-col gap-1">
+                                      <span className="flex gap-2 w-full">
+                                        <h2 className="font-bold lg:text-2xl">{child.name}</h2>
+                                        <Image
+                                          src={Arrow}
+                                          alt=""
+                                          className="-rotate-90 lg:block hidden"
+                                        />
+                                      </span>
+                                      <p>{child.description}</p>
                                     </span>
-                                    <p>{child.description}</p>
                                   </Link>
                                 </li>
                               ))}
