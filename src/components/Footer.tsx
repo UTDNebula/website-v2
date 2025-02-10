@@ -125,7 +125,7 @@ const Footer = () => {
             </Link>
           </div>
           <p className="md:text-right text-center text-xs">
-            © {new Date().getFullYear()} Nebula Labs Maintainers. All rights reserved.
+            © 2023-{new Date().getFullYear()} Nebula Labs Maintainers. Open-source under the MIT License.
           </p>
         </div>
       </div>
