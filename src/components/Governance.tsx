@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PeriodLinks from '@/components/PeriodLinks';
@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { PopulatedGoveranceGroup } from '@/lib/period-populator';
 import { Person } from '@/data/person-dictionary';
 
+import OrgMatrix from '@/../public/org-matrix.png';
 import LinkedIn from '@/../public/icons/linkedin-royal.svg';
 import Email from '@/../public/icons/email.svg';
 
@@ -13,6 +14,9 @@ const fallbackSrc = '/governance/blank.jpg';
 
 const LeadershipCard = (props: Person) => {
   const [src, setSrc] = useState(`/governance/${props.netId}.jpg`);
+  useEffect(() => {
+    setSrc(`/governance/${props.netId}.jpg`);
+  }, [props.netId]);
   return (
     <div className="p-2 flex flex-col items-center grow-0 w-72 gap-4">
       <Image
@@ -84,6 +88,18 @@ const Governance = (props: GovernanceProps) => (
     {props.data.map((group) => (
       <LeadershipGroup {...group} key={group.name} />
     ))}
+    <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
+      <h2 className="text-5xl font-bold text-center">Organizational Structure</h2>
+      <p className="text-3xl">
+        Nebula Labs is based on a matrix style organizational structure. This means each member has
+        two points of contact: their project lead and division head. Project leads are overseen by
+        the Executive Director and division heads are overseen by the Vice President.
+      </p>
+      <Image
+        src={OrgMatrix}
+        alt="Organization matrix chart showing the overlap of projects and divisions"
+      />
+    </div>
     <PeriodLinks name="Historical governance periods" {...props.periodLinks} />
     <Footer />
   </>
