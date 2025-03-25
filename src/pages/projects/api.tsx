@@ -64,7 +64,7 @@ const API = () => (
     <div className="relative -top-10 w-full flex justify-center">
       <a
         className="px-10 py-6 text-2xl text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors drop-shadow"
-        href="https://github.com/UTDNebula/nebula-api/blob/develop/docs/index.md"
+        href="https://api.utdnebula.com/swagger/index.html"
         target="_blank"
       >
         Get Started
