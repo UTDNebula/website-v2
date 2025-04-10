@@ -13,29 +13,29 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@headlessui/react": "^2.1.10",
-    "@next/third-parties": "^15.0.1",
-    "calendar-link": "^2.7.0",
+    "@headlessui/react": "^2.2.1",
+    "@next/third-parties": "^15.3.0",
+    "calendar-link": "^2.8.0",
     "clsx": "^2.1.1",
-    "google-auth-library": "^9.14.2",
+    "google-auth-library": "^9.15.1",
     "next": "^14.2.15",
     "next-sitemap": "^4.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sharp": "^0.33.5"
+    "sharp": "^0.34.1"
   },
   "devDependencies": {
-    "@types/node": "^22.7.5",
+    "@types/node": "^22.14.0",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
-    "@typescript-eslint/eslint-plugin": "^8.9.0",
-    "@typescript-eslint/parser": "^8.9.0",
+    "@typescript-eslint/eslint-plugin": "^8.29.1",
+    "@typescript-eslint/parser": "^8.29.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.15",
     "postcss": "^8.4.47",
-    "prettier": "^3.3.3",
+    "prettier": "^3.5.3",
     "tailwindcss": "^3.4.13",
-    "typescript": "5.6.3"
+    "typescript": "5.8.3"
   }
 }
