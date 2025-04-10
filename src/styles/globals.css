@@ -58,11 +58,7 @@
 @utility bg-addition {
   background:
     linear-gradient(transparent calc(calc(100% / 130) * 100), white),
-    radial-gradient(
-      at 0% 100%,
-      var(--color-persimmon-500) 0px,
-      transparent 40%
-    ),
+    radial-gradient(at 0% 100%, var(--color-persimmon-500) 0px, transparent 40%),
     radial-gradient(at 100% 100%, var(--color-royal) 0px, transparent 60%);
 }
 
@@ -76,8 +72,7 @@
   }
 
   .bg-stars {
-    background-image:
-      url('/images/stars.png'), linear-gradient(lightgray, lightgray);
+    background-image: url('/images/stars.png'), linear-gradient(lightgray, lightgray);
     background-size: cover, cover, 50%;
     background-repeat: repeat-x, no-repeat, no-repeat;
   }
