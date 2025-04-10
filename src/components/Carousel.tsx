@@ -50,7 +50,7 @@ function CarouselInner<T extends unknown[]>(
           <div
             id={key}
             key={key}
-            className="flex flex-shrink-0 w-full px-8 snap-start lg:px-32 xl:px-48"
+            className="flex shrink-0 w-full px-8 snap-start lg:px-32 xl:px-48"
           >
             {children(item, idx, data.length, prev(idx), next(idx))}
           </div>

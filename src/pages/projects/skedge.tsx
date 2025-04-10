@@ -50,7 +50,7 @@ const Skedge = () => (
     <Navbar royal={true} className="relative z-20" />
     <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 flex flex-col items-center gap-8 rounded-3xl text-white relative overflow-hidden">
       <Image src={Gradient} alt="project background" fill className="-z-20" />
-      <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto drop-shadow">
+      <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto drop-shadow-sm">
         SKEDGE
       </p>
       <h1 className="text-5xl md:text-6xl font-bold text-center text-shadow">
@@ -66,7 +66,7 @@ const Skedge = () => (
       </div>
     </div>
     <div className="relative -top-20 w-full flex justify-center gap-4">
-      <div className="bg-royal px-10 py-6 flex flex-col gap-4 items-center rounded-2xl drop-shadow">
+      <div className="bg-royal px-10 py-6 flex flex-col gap-4 items-center rounded-2xl drop-shadow-sm">
         <p className="text-3xl text-white font-medium">Get started</p>
         <div className="flex gap-4">
           <a

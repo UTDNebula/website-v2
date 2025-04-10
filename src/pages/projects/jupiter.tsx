@@ -49,7 +49,7 @@ const Jupiter = () => (
     <Navbar royal={true} className="relative z-20" />
     <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 flex flex-col items-center gap-8 rounded-3xl text-white relative overflow-hidden">
       <Image src={Gradient} alt="project background" fill className="-z-20" />
-      <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto drop-shadow">
+      <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto drop-shadow-sm">
         JUPITER
       </p>
       <h1 className="text-5xl md:text-6xl font-bold text-center text-shadow">
@@ -66,7 +66,7 @@ const Jupiter = () => (
     </div>
     <div className="relative -top-10 w-full flex justify-center">
       <a
-        className="px-10 py-6 text-2xl text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors drop-shadow"
+        className="px-10 py-6 text-2xl text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors drop-shadow-sm"
         href="https://jupiter.utdnebula.com"
         target="_blank"
       >
