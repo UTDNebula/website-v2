@@ -1,4 +1,4 @@
-import { useCallback, forwardRef, ForwardedRef, ReactElement } from 'react';
+import { useCallback, forwardRef, ForwardedRef, ReactElement, type JSX } from 'react';
 
 type CarouselProps<T extends unknown[]> = {
   data: T;
@@ -62,6 +62,6 @@ function CarouselInner<T extends unknown[]>(
 
 const Carousel = forwardRef(CarouselInner) as <T extends unknown[]>(
   props: CarouselProps<T> & { ref?: ForwardedRef<HTMLDivElement> },
-) => ReactElement;
+) => ReactElement<unknown>;
 
 export default Carousel;
