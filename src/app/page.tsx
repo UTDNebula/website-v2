@@ -1,19 +1,18 @@
-import Navbar from '@/components/Navbar';
 import Image from 'next/image';
-import Circles from '@/../public/images/circles.svg';
+import React from 'react';
+
 import Gradient from '@/../public/images/BG6.png';
-import Footer from '@/components/Footer';
-import Arrow from '@/../public/icons/arrow-white.svg';
-import WhoWeAre from '@/components/WhoWeAre';
+import Circles from '@/../public/images/circles.svg';
 import CTA from '@/components/CTA';
-import Testimonials from '@/components/Testimonials';
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
 import Projects from '@/components/Projects';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import Testimonials from '@/components/Testimonials';
+import WhoWeAre from '@/components/WhoWeAre';
 
-const Header = () => {
-  const router = useRouter();
+import ScrollDownButton from './ScrollDownButton';
 
+function Header() {
   return (
     <div className="h-[130vh] overflow-hidden relative bg-addition">
       <Image src={Gradient} alt="gradient background" fill priority className="object-fill -z-30" />
@@ -37,37 +36,24 @@ const Header = () => {
         </div>
         <div className="absolute bottom-8 left-0 right-0 flex flex-col items-center lg:gap-4 lg:h-16 text-white [text-shadow:_0_0_4px_rgb(0_0_0_/_0.4)]">
           <p className="text-lg font-medium">Explore the Galaxy</p>
-          <button
-            className="hover:scale-105 transition-transform duration-300 ease-in-out"
-            onClick={() => router.replace('/#who-we-are')}
-          >
-            <Image
-              src={Arrow}
-              alt="Arrow"
-              className="[filter:_drop-shadow(0_0_4px_rgb(0_0_0_/_0.4))]"
-            />
-          </button>
+          <ScrollDownButton />
         </div>
       </div>
     </div>
   );
-};
+}
 
-const Home = () => (
-  <>
-    <Head>
-      <link rel="canonical" href="https://www.utdnebula.com" key="canonical" />
-      <meta property="og:url" content="https://www.utdnebula.com" />
-    </Head>
-    <Header />
-    <Navbar className="absolute top-0 left-0 right-0" shadow={true} />
-    <WhoWeAre />
-    <Projects />
-    <Testimonials />
-    {/* <div>beliefs</div> */}
-    <CTA />
-    <Footer />
-  </>
-);
-
-export default Home;
+export default function Home() {
+  return (
+    <>
+      <Header />
+      <Navbar className="absolute top-0 left-0 right-0" shadow={true} />
+      <WhoWeAre />
+      <Projects />
+      <Testimonials />
+      {/* <div>beliefs</div> */}
+      <CTA />
+      <Footer />
+    </>
+  );
+}

@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import React from 'react';
 
-function WhoWeAre() {
+export default function WhoWeAre() {
   return (
     <div
       id="who-we-are"
@@ -24,5 +25,3 @@ function WhoWeAre() {
     </div>
   );
 }
-
-export default WhoWeAre;

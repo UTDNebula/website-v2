@@ -1,10 +1,12 @@
+import React from 'react';
+
 import Navbar from '@/components/Navbar';
 
 interface Props {
   text: string;
 }
 
-const Header = (props: Props) => {
+export default function Header(props: Props) {
   return (
     <div className="bg-linear-to-b from-royal to-white to-75%">
       <Navbar />
@@ -13,6 +15,4 @@ const Header = (props: Props) => {
       </div>
     </div>
   );
-};
-
-export default Header;
+}

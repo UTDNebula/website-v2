@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
 
-const CTA = () => {
+export default function CTA() {
   return (
     <div className="flex place-content-center my-24">
       <div
@@ -31,6 +32,4 @@ const CTA = () => {
       </div>
     </div>
   );
-};
-
-export default CTA;
+}

@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import { Listbox, ListboxButton, ListboxOption, Transition } from '@headlessui/react';
+import Link from 'next/link';
+import React from 'react';
 
 interface PeriodLinkProps {
   name: string;
@@ -7,7 +8,7 @@ interface PeriodLinkProps {
   periods: string[];
 }
 
-const PeriodLinks = (props: PeriodLinkProps) => {
+export default function PeriodLinks(props: PeriodLinkProps) {
   const periods = props.periods;
   const urls = periods.map((period) => {
     if (period === 'Current') {
@@ -21,7 +22,7 @@ const PeriodLinks = (props: PeriodLinkProps) => {
       <div className="w-fit">
         <Listbox>
           {({ open }) => (
-            <>
+            <div>
               <ListboxButton
                 className={
                   'transition-all duration-300 ease-in-out px-2 py-1 cursor-pointer border-x-2 border-t-2 hover:bg-royal hover:text-white border-royal rounded-t-lg' +
@@ -57,12 +58,10 @@ const PeriodLinks = (props: PeriodLinkProps) => {
                   ))}
                 </div>
               </Transition>
-            </>
+            </div>
           )}
         </Listbox>
       </div>
     </div>
   );
-};
-
-export default PeriodLinks;
+}

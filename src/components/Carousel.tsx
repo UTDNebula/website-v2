@@ -1,4 +1,4 @@
-import { useCallback, forwardRef, ForwardedRef, ReactElement, type JSX } from 'react';
+import React, { ForwardedRef, forwardRef, type JSX, ReactElement, useCallback } from 'react';
 
 type CarouselProps<T extends unknown[]> = {
   data: T;

@@ -1,14 +1,18 @@
-import ArrowButton from '@/../public/testimonials/arrow-button.svg';
-import { createRef, useEffect, useState } from 'react';
-import Image from 'next/image';
+'use client';
+
+import clsx from 'clsx';
 import type { StaticImageData } from 'next/image';
-import Carousel from './Carousel';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { createRef, useEffect, useState } from 'react';
+
+import FilledChevronUp from '@/../public/icons/filled-chevron-up-white.svg';
+import Jupiter from '@/../public/projects/jupiter.png';
 import Planner from '@/../public/projects/planner.png';
 import Trends from '@/../public/projects/trends.png';
-import Jupiter from '@/../public/projects/jupiter.png';
-import FilledChevronUp from '@/../public/icons/filled-chevron-up-white.svg';
-import clsx from 'clsx';
-import Link from 'next/link';
+import ArrowButton from '@/../public/testimonials/arrow-button.svg';
+
+import Carousel from './Carousel';
 
 type Project = {
   title: string;
