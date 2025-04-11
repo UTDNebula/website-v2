@@ -22,7 +22,7 @@ type Data = {
 };
 
 export default async function fetchCalendar(): Promise<Data> {
-  const CREDENTIALS = process.env.REACT_APP_NEBULA_API_KEY;
+  const CREDENTIALS = process.env.REACT_APP_GOOGLE_CREDENTIALS;
   if (typeof CREDENTIALS !== 'string') {
     return { message: 'API key is undefined' };
   }
