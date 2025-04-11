@@ -12,9 +12,6 @@
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
-  "engines": {
-    "node": "22.x"
-  },
   "dependencies": {
     "@headlessui/react": "^2.2.1",
     "@next/third-parties": "^15.3.0",
