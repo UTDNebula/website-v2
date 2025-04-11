@@ -1,11 +1,15 @@
-import Head from 'next/head';
-import localFont from 'next/font/local';
-import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
-import type { AppProps } from 'next/app';
-import { GoogleAnalytics } from '@next/third-parties/google';
 
-const inter = Inter({ subsets: ['latin'] });
+import { GoogleAnalytics } from '@next/third-parties/google';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
+import React from 'react';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
 const kallisto = localFont({
   src: [
     {
@@ -59,35 +63,42 @@ const kallisto = localFont({
       style: 'italic',
     },
   ],
+  variable: '--font-kallisto',
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export const metadata: Metadata = {
+  metadataBase: new URL('https://www.utdnebula.com'),
+  title: {
+    template: '%s - Nebula Labs',
+    default: 'Nebula Labs',
+  },
+  description: "An initiative to build tools to make students' lives easier at UT Dallas.",
+  openGraph: {
+    title: 'Nebula Labs',
+    description: "An initiative to build tools to make students' lives easier at UT Dallas.",
+    url: '/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+  },
+  alternates: {
+    canonical: '/',
+  },
+};
+
+export const viewport = {
+  //copied from tailwind.config.js
+  themeColor: '#573dff',
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <Head>
-        <title>Nebula Labs</title>
-        <meta key="og:title" property="og:title" content="Nebula Labs" />
-        <meta
-          key="og:description"
-          property="og:description"
-          content="An initiative to build tools to make students' lives easier at UT Dallas."
-        />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" href="/logoIcon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-      </Head>
-      <style jsx global>
-        {`
-          :root {
-            --font-kallisto: ${kallisto.style.fontFamily};
-            --font-inter: ${inter.style.fontFamily};
-          }
-        `}
-      </style>
-      <Component {...pageProps} />
-      <GoogleAnalytics gaId="G-Q74JGS7ZPP" />
-    </>
+    <html lang="en">
+      <GoogleAnalytics gaId="G-BKZ9JMC28B" />
+      <body className={`${inter.variable} font-inter ${kallisto.variable} text-haiti`}>
+        {children}
+      </body>
+    </html>
   );
 }

@@ -1,12 +1,22 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Head from 'next/head';
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { ics } from 'calendar-link';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import React from 'react';
 
-import ArrowWhite from '@/../public/icons/filled-chevron-up-white.svg';
 import ArrowBlack from '@/../public/icons/filled-chevron-up-black.svg';
+import ArrowWhite from '@/../public/icons/filled-chevron-up-white.svg';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import fetchCalendar from '@/lib/fetchCalendar';
+
+import Error from './error';
+
+export const metadata: Metadata = {
+  title: 'Calendar',
+  alternates: {
+    canonical: '/calendar',
+  },
+};
 
 const timeFormat = new Intl.DateTimeFormat('en-US', {
   hour: 'numeric',
@@ -99,6 +109,7 @@ const Event = (props: EventReactProps) => {
             'https://accounts.google.com/AccountChooser?continue=https://calendar.google.com/calendar/r/eventedit/copy/' +
             props.htmlLink.split('eid=')[1]
           }
+          rel="noreferrer"
         >
           Copy to Google Calendar
         </a>
@@ -110,54 +121,10 @@ const Event = (props: EventReactProps) => {
   );
 };
 
-const Calendar = () => {
-  const [events, setEvents] = useState<EventFetchProps[]>([]);
-  const [state, setState] = useState('loading');
-
-  interface EventFetchProps {
-    status: string;
-    id: string;
-    summary: string;
-    start: {
-      dateTime: string;
-    };
-    end: {
-      dateTime: string;
-    };
-    location: string;
-    description?: string;
-    htmlLink: string;
-  }
-
-  interface FetchProps {
-    message: string;
-    data: {
-      data: {
-        items: EventFetchProps[];
-      };
-    };
-  }
-
-  useEffect(() => {
-    fetch('/api/getCalendar')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        return response.json() as Promise<FetchProps>;
-      })
-      .then((data) => {
-        if (data.message !== 'success') {
-          throw new Error(data.message);
-        }
-        setEvents(data.data.data.items);
-        setState('done');
-      })
-      .catch((error) => {
-        setState('error');
-        console.error('Feedback', error);
-      });
-  }, []);
+export default async function Calendar() {
+  const data = await fetchCalendar();
+  const state = data.message === 'success' ? 'done' : 'error';
+  const events = typeof data.data !== 'undefined' ? data.data : [];
 
   let lastYear, lastMonth, lastDay;
   let firstYear = true;
@@ -219,56 +186,14 @@ const Calendar = () => {
     'hover:scale-105 active:scale-95 transition duration-300 ease-in-out px-4 py-2 rounded-lg cursor-pointer hover:bg-royal hover:text-white border-royal border-2';
 
   //error state
-  let result = (
-    <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center gap-4">
-      <h2 className="text-5xl font-bold text-center">Error loading calendar</h2>
-      <button className={buttonLinkClasses} onClick={() => location.reload()}>
-        Reload
-      </button>
-    </div>
-  );
+  let result = <Error />;
 
-  if (state === 'loading') {
-    result = (
-      <div className="flex flex-col gap-4 w-full max-w-[40ch] animate-pulse -z-10">
-        <h3 className="text-transparent w-fit text-4xl font-semibold bg-gray-200 rounded-full">
-          January
-        </h3>
-        <h2 className="text-transparent w-fit text-3xl font-medium bg-gray-200 rounded-full">
-          19 Monday
-        </h2>
-        <div className="text-transparent w-full p-4 bg-gray-200 rounded-lg">
-          <p className="text-2xl">After Hours</p>
-          <p>7:00 - 9:00 PM</p>
-          <p>AD 2.232</p>
-        </div>
-        <div className="text-transparent w-full p-4 bg-gray-200 rounded-lg">
-          <p className="text-2xl">After Hours</p>
-          <p>7:00 - 9:00 PM</p>
-          <p>AD 2.232</p>
-        </div>
-        <h2 className="text-transparent w-fit text-3xl font-medium bg-gray-200 rounded-full">
-          19 Monday
-        </h2>
-        <div className="text-transparent w-full p-4 bg-gray-200 rounded-lg">
-          <p className="text-2xl">After Hours</p>
-          <p>7:00 - 9:00 PM</p>
-          <p>AD 2.232</p>
-        </div>
-      </div>
-    );
-  } else if (state === 'done') {
+  if (state === 'done') {
     result = <div className="flex flex-col gap-4 w-full max-w-[40ch]">{...labelsAndEvents}</div>;
   }
 
   return (
     <>
-      <Head>
-        <title>Calendar - Nebula Labs</title>
-        <meta key="og:title" property="og:title" content="Calendar - Nebula Labs" />
-        <link rel="canonical" href="https://www.utdnebula.com/resources/calendar" key="canonical" />
-        <meta property="og:url" content="https://www.utdnebula.com/resources/calendar" />
-      </Head>
       <Header text="Calendar" />
       <h2 className="px-8 lg:px-16 xl:px-32 text-2xl text-center mb-12">
         Stop by any of our events to learn more about becoming a new member!
@@ -278,6 +203,7 @@ const Calendar = () => {
           className={buttonLinkClasses}
           target="_blank"
           href="https://accounts.google.com/AccountChooser?continue=https://calendar.google.com/calendar/?cid=c_81b7102868d4acac8b7db3a18de6440d45740e4754be4f8a28a5c3915b0d1e71%40group.calendar.google.com"
+          rel="noreferrer"
         >
           Subscribe in Google Calendar
         </a>
@@ -287,7 +213,12 @@ const Calendar = () => {
         >
           Subscribe with iCal
         </a>
-        <a className={buttonLinkClasses} target="_blank" href="https://discord.utdnebula.com/">
+        <a
+          className={buttonLinkClasses}
+          target="_blank"
+          href="https://discord.utdnebula.com/"
+          rel="noreferrer"
+        >
           View on Discord
         </a>
       </div>
@@ -295,6 +226,4 @@ const Calendar = () => {
       <Footer />
     </>
   );
-};
-
-export default Calendar;
+}
