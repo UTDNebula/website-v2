@@ -168,6 +168,8 @@ export default async function Calendar() {
         lastDay = day;
       }
 
+      const description = event.description?.replace(/<[^>]*>/g, ' ');
+
       labelsAndEvents.push(
         <Event
           key={event.id}
@@ -175,7 +177,7 @@ export default async function Calendar() {
           start={event.start.dateTime}
           end={event.end.dateTime}
           location={event.location}
-          description={event.description}
+          description={description}
           htmlLink={event.htmlLink}
         />,
       );
