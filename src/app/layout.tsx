@@ -88,7 +88,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  //copied from tailwind.config.js
+  //copied from globals.css
   themeColor: '#573dff',
 };
 

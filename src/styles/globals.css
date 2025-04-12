@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-/*If changing be sure to update in _app.tsx too*/
+/*If changing be sure to update in layout.tsx too*/
 @theme {
   --background-image-brand-gradient: url('/gradient.png');
   --background-image-dark-gradient: linear-gradient(
