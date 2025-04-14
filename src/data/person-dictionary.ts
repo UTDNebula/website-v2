@@ -27,6 +27,13 @@ export const netIdToPersonMap = new Map<string, Person>([
     },
   ],
   [
+    'bck220000',
+    {
+      name: 'Braedon Kotko',
+      linkedIn: 'braedon-kotko',
+    },
+  ],
+  [
     'sxn200066',
     {
       name: 'Spencer Ng',
