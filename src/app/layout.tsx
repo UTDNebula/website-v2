@@ -95,7 +95,9 @@ export const viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <GoogleAnalytics gaId="G-BKZ9JMC28B" />
+      {process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' && (
+        <GoogleAnalytics gaId="G-Q74JGS7ZPP" />
+      )}
       <body className={`${inter.variable} font-inter ${kallisto.variable} text-haiti`}>
         {children}
       </body>
