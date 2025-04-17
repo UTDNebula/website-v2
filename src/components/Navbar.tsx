@@ -1,21 +1,24 @@
-import clsx from 'clsx';
-import Image from 'next/image';
-import type { StaticImageData } from 'next/image';
-import Link from 'next/link';
+'use client';
+
 import { Disclosure, Transition, TransitionRootProps } from '@headlessui/react';
-import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
-import FilledChevronUpWhite from '@/../public/icons/filled-chevron-up-white.svg';
-import FilledChevronUpRoyal from '@/../public/icons/filled-chevron-up-royal.svg';
+import clsx from 'clsx';
+import type { StaticImageData } from 'next/image';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react';
+
 import Arrow from '@/../public/icons/arrow-white.svg';
-import X from '@/../public/icons/x.svg';
-import HamburgerWhite from '@/../public/icons/menu-white.svg';
+import FilledChevronUpRoyal from '@/../public/icons/filled-chevron-up-royal.svg';
+import FilledChevronUpWhite from '@/../public/icons/filled-chevron-up-white.svg';
 import HamburgerRoyal from '@/../public/icons/menu-royal.svg';
-import Puzzle from '@/../public/icons/puzzle.svg';
-import Users from '@/../public/icons/users.svg';
-import UserGroup from '@/../public/icons/user-group.svg';
-import TrendingUp from '@/../public/icons/trending-up.svg';
+import HamburgerWhite from '@/../public/icons/menu-white.svg';
 import Pencil from '@/../public/icons/pencil.svg';
+import Puzzle from '@/../public/icons/puzzle.svg';
 import Star from '@/../public/icons/star.svg';
+import TrendingUp from '@/../public/icons/trending-up.svg';
+import UserGroup from '@/../public/icons/user-group.svg';
+import Users from '@/../public/icons/users.svg';
+import X from '@/../public/icons/x.svg';
 
 type BaseItem = { name: string };
 
@@ -117,7 +120,7 @@ interface Props {
   royal?: boolean;
 }
 
-const Navbar = (props: Props) => {
+export default function Navbar(props: Props) {
   const [submenuCloseCallbacks, setSubmenuCloseCallbacks] = useState<Record<string, () => void>>(
     {},
   );
@@ -145,19 +148,13 @@ const Navbar = (props: Props) => {
     };
   }, [ref]);
 
-  const dropShadow = props.shadow ? 'drop-shadow' : '';
+  const dropShadow = props.shadow ? 'drop-shadow-sm' : '';
   const textShadow = props.shadow ? 'text-shadow' : '';
 
   return (
-    <Disclosure
-      as="nav"
-      className={clsx(
-        'flex py-10 items-center lg:place-content-evenly place-content-between px-4',
-        props.className ?? '',
-      )}
-    >
+    <Disclosure as="nav" className={clsx('py-10 px-4', props.className ?? '')}>
       {({ open: displayMobileMenu, close: closeMobileMenu }) => (
-        <>
+        <div className="flex items-center lg:place-content-evenly place-content-between">
           <span ref={ref} className="w-0 h-0 absolute invisible lg:w-5" />
           <CloseOnResizeManager
             call={() => {
@@ -175,7 +172,7 @@ const Navbar = (props: Props) => {
               className={dropShadow}
             />
           </Link>
-          <Disclosure.Button className="lg:hidden">
+          <Disclosure.Button className="cursor-pointer lg:hidden">
             <Image
               src={props.royal ? HamburgerRoyal : HamburgerWhite}
               alt=""
@@ -194,7 +191,10 @@ const Navbar = (props: Props) => {
               )}
             >
               <button
-                className={clsx(displayMobileMenu ? 'block' : 'hidden', 'place-self-end')}
+                className={clsx(
+                  displayMobileMenu ? 'block' : 'hidden',
+                  'cursor-pointer place-self-end',
+                )}
                 onClick={() => closeMobileMenu()}
               >
                 <Image src={X} alt="" className="w-4" />
@@ -237,7 +237,7 @@ const Navbar = (props: Props) => {
                           .forEach(([, v]) => v());
                       };
                       return (
-                        <>
+                        <div className="contents lg:block">
                           <Disclosure.Button
                             ref={(el) => {
                               buttonRefs.current[outerIndex] = el;
@@ -245,7 +245,7 @@ const Navbar = (props: Props) => {
                             onClick={handler}
                             className={clsx(
                               displayMobileMenu && 'place-content-between',
-                              'w-full flex gap-1 items-center',
+                              'cursor-pointer w-full flex gap-1 items-center',
                             )}
                           >
                             <p
@@ -280,7 +280,7 @@ const Navbar = (props: Props) => {
                               {item.children.map((child, innerIndex) => (
                                 <li
                                   key={`menu-${outerIndex}-${innerIndex}`}
-                                  className="hover:transition-none transition-all lg:w-96 border border-white lg:hover:border-opacity-100 border-opacity-0 lg:rounded-3xl"
+                                  className="hover:transition-none transition-all lg:w-96 lg:border lg:border-white/0 lg:hover:border-white/100 lg:rounded-3xl"
                                 >
                                   <Link
                                     href={child.link}
@@ -306,7 +306,7 @@ const Navbar = (props: Props) => {
                               ))}
                             </Disclosure.Panel>
                           </Transition>
-                        </>
+                        </div>
                       );
                     }}
                   </Disclosure>
@@ -338,11 +338,11 @@ const Navbar = (props: Props) => {
               </Link>
             </Disclosure.Panel>
           </Transition>
-        </>
+        </div>
       )}
     </Disclosure>
   );
-};
+}
 
 const CloseOnResizeManager = (props: { call: () => void }) => {
   const { call } = props;
@@ -354,5 +354,3 @@ const CloseOnResizeManager = (props: { call: () => void }) => {
   }, [call]);
   return null;
 };
-
-export default Navbar;

@@ -1,14 +1,18 @@
-import ArrowButton from '@/../public/testimonials/arrow-button.svg';
-import { createRef, useEffect, useState } from 'react';
-import Image from 'next/image';
+'use client';
+
+import clsx from 'clsx';
 import type { StaticImageData } from 'next/image';
-import Carousel from './Carousel';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { createRef, useEffect, useState } from 'react';
+
+import FilledChevronUp from '@/../public/icons/filled-chevron-up-white.svg';
+import Jupiter from '@/../public/projects/jupiter.png';
 import Planner from '@/../public/projects/planner.png';
 import Trends from '@/../public/projects/trends.png';
-import Jupiter from '@/../public/projects/jupiter.png';
-import FilledChevronUp from '@/../public/icons/filled-chevron-up-white.svg';
-import clsx from 'clsx';
-import Link from 'next/link';
+import ArrowButton from '@/../public/testimonials/arrow-button.svg';
+
+import Carousel from './Carousel';
 
 type Project = {
   title: string;
@@ -96,7 +100,7 @@ export default function Projects() {
         <div className="shrink-0 flex flex-col justify-center lg:scale-[calc(1/1.15)] scale-[calc(1/2)] h-min w-full">
           <div className="text-center flex flex-col items-center">
             <h3 className="text-2xl md:text-4xl text-white">Check Out Our </h3>
-            <h1 className="font-kallisto md:text-7xl text-4xl font-bold text-transparent w-min bg-clip-text bg-gradient-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
+            <h1 className="font-kallisto md:text-7xl text-4xl font-bold text-transparent w-min bg-clip-text bg-linear-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
               Projects
             </h1>
           </div>
@@ -150,7 +154,7 @@ function ProjectCard(props: {
   return (
     <div
       className={clsx(
-        'rounded-3xl border w-full border-white text-white gap-8 flex-shrink-0 p-10 relative overflow-clip md:items-center',
+        'rounded-3xl border w-full border-white text-white gap-8 shrink-0 p-10 relative overflow-clip md:items-center',
         project.image
           ? 'grid md:grid-cols-2 grid-cols-1'
           : 'flex flex-col items-start justify-between',
