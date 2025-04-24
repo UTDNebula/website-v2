@@ -36,19 +36,22 @@ export default function Footer() {
         </div>
         <div className="flex flex-col items-start gap-3">
           <h3 className="text-xl font-semibold mb-4">Projects</h3>
-          <Link className={linkClasses} href="/projects/jupiter" target="_blank">
+          <Link className={linkClasses} href="/projects/jupiter">
             Jupiter
           </Link>
-          <Link className={linkClasses} href="/projects/trends" target="_blank">
+          <Link className={linkClasses} href="/projects/trends">
             Trends
           </Link>
-          <Link className={linkClasses} href="/projects/skedge" target="_blank">
+          <Link className={linkClasses} href="/projects/skedge">
             Skedge
           </Link>
-          <Link className={linkClasses} href="/projects/api" target="_blank">
+          <Link className={linkClasses} href="/projects/rooms">
+            Rooms
+          </Link>
+          <Link className={linkClasses} href="/projects/api">
             API & Platform
           </Link>
-          <Link className={linkClasses} href="/projects/planner" target="_blank">
+          <Link className={linkClasses} href="/projects/planner">
             Planner
           </Link>
         </div>

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     'The Backbone of Nebula Labs: providing reliable and feature-rich data infrastructure for all of Nebula’s projects, and yours!',
   alternates: {
-    canonical: '/api',
+    canonical: '/projects/api',
   },
 };
 

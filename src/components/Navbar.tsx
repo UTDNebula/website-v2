@@ -10,6 +10,7 @@ import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react
 import Arrow from '@/../public/icons/arrow-white.svg';
 import FilledChevronUpRoyal from '@/../public/icons/filled-chevron-up-royal.svg';
 import FilledChevronUpWhite from '@/../public/icons/filled-chevron-up-white.svg';
+import Map from '@/../public/icons/map.svg';
 import HamburgerRoyal from '@/../public/icons/menu-royal.svg';
 import HamburgerWhite from '@/../public/icons/menu-white.svg';
 import Pencil from '@/../public/icons/pencil.svg';
@@ -73,6 +74,12 @@ const parentItems: Array<ParentItem> = [
         link: '/projects/skedge',
         description: 'Integrate grade and professor stats into Schedule Planner',
         iconSrc: TrendingUp,
+      },
+      {
+        name: 'Rooms',
+        link: '/projects/rooms',
+        description: 'Find open rooms at UT Dallas',
+        iconSrc: Map,
       },
       {
         name: 'API & Platform',
