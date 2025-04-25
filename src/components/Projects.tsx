@@ -9,6 +9,7 @@ import React, { createRef, useEffect, useState } from 'react';
 import FilledChevronUp from '@/../public/icons/filled-chevron-up-white.svg';
 import Jupiter from '@/../public/projects/jupiter.png';
 import Planner from '@/../public/projects/planner.png';
+import Rooms from '@/../public/projects/rooms.png';
 import Trends from '@/../public/projects/trends.png';
 import ArrowButton from '@/../public/testimonials/arrow-button.svg';
 
@@ -42,8 +43,18 @@ const PROJECTS_INFO: Project[] = [
       'Trends and Skedge are tools designed to simplify the course selection and registration process by providing students with valuable data, all in one place.',
     url: '/projects/trends',
     image: Trends,
-    alt: "A laptop displaying Trend's dashboard, with search results for GOVT 2306.",
+    alt: "A laptop displaying Trends' dashboard, with search results for GOVT 2306.",
     color: '#6366F1',
+  },
+  {
+    title: 'Rooms',
+    shortName: 'Rooms',
+    description:
+      "Rooms is here to make finding a room for your org meeting, hangout, or studying easy, just put in a date and time and see what's free.",
+    url: '/projects/rooms',
+    image: Rooms,
+    alt: "A laptop displaying Rooms' results page for events in SCI.",
+    color: '#523DFF',
   },
   {
     title: 'Nebula API',
@@ -107,7 +118,7 @@ export default function Projects() {
           <div className="text-center pt-4 text-white px-4">
             <p>Check out what we have been creating in our lab up in the galaxy</p>
           </div>
-          <div className="gap-8 grid-cols-4 mx-auto pt-6 text-white hidden lg:grid">
+          <div className="gap-8 grid-cols-5 mx-auto pt-6 text-white hidden lg:grid">
             {PROJECTS_INFO.map((project, index) => (
               <button
                 type="button"

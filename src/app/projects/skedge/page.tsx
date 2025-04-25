@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     'Choose the perfect classes for you: easy access to all the information you need to plan your schedule.',
   alternates: {
-    canonical: '/skedge',
+    canonical: '/projects/skedge',
   },
 };
 

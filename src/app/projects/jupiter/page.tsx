@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     'Find your community on campus: get connected with student organizations and browse events.',
   alternates: {
-    canonical: '/jupiter',
+    canonical: '/projects/jupiter',
   },
 };
 
