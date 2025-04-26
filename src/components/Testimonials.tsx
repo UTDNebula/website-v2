@@ -56,13 +56,13 @@ export default function Testimonials() {
               <p>{item.role}</p>
 
               <div className="w-full md:w-auto flex justify-center gap-3 mt-auto md:mt-0 pt-2 md:absolute md:bottom-0 md:right-0 items-center">
-                <button onClick={prev}>
+                <button onClick={prev} className="cursor-pointer">
                   <Image src={ArrowButton} alt="arrow" />
                 </button>
                 <p className="h-min">
                   {index + 1}/{valueCount}
                 </p>
-                <button onClick={next}>
+                <button onClick={next} className="cursor-pointer">
                   <Image src={ArrowButton} alt="arrow" className="rotate-180" />
                 </button>
               </div>

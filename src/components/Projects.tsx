@@ -218,13 +218,19 @@ function ProjectCard(props: {
       />
 
       <span className="flex gap-3 items-center mt-auto md:mt-0 md:order-3 mr-auto place-self-end">
-        <button onClick={prev} className="hover:scale-105 active:scale-95 transition">
+        <button
+          onClick={prev}
+          className="hover:scale-105 active:scale-95 transition cursor-pointer"
+        >
           <Image src={ArrowButton} alt="arrow" />
         </button>
         <p className="h-min">
           {index + 1}/{valueCount}
         </p>
-        <button onClick={next} className="hover:scale-105 active:scale-95 transition">
+        <button
+          onClick={next}
+          className="hover:scale-105 active:scale-95 transition cursor-pointer"
+        >
           <Image src={ArrowButton} alt="arrow" className="rotate-180" />
         </button>
       </span>
