@@ -222,7 +222,7 @@ export default function Navbar(props: Props) {
                     onMouseLeave={() => {
                       if (!shouldDisplayDesktopMenu) return;
                       setTimeout(() => {
-                        const li = buttonRefs.current[outerIndex]?.parentElement;
+                        const li = buttonRefs.current[outerIndex]?.parentElement?.parentElement;
                         if (li?.matches(':hover')) {
                           return;
                         }
