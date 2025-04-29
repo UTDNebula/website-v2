@@ -26,7 +26,7 @@ const features = [
     alt: 'input',
   },
   {
-    title: 'Real-time Availability',
+    title: 'Real-Time Availability',
     description: "Availability updates daily so you'll never walk into an occupied room.",
     img: update,
     alt: 'update',
@@ -71,7 +71,7 @@ export default function Rooms() {
       <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
         <h2 className="text-5xl font-bold text-center">Features</h2>
         <p className="text-3xl text-center">
-          Find the perfect spot study, hang out, or host your club meeting.
+          Find the perfect spot to study, hang out, or host your club meeting.
         </p>
       </div>
       <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 grid grid-rows-3 grid-cols-1 md:grid-rows-1 md:grid-cols-3 gap-8">
