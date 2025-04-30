@@ -1,8 +1,13 @@
+'use client';
+
 import Image from 'next/image';
+import React from 'react';
+
 import ArrowButton from '@/../public/testimonials/arrow-button.svg';
-import Valeria from '@/../public/testimonials/valeria.jpg';
-import Hiba from '@/../public/testimonials/hiba.jpg';
 import Greeshma from '@/../public/testimonials/greeshma.jpg';
+import Hiba from '@/../public/testimonials/hiba.jpg';
+import Valeria from '@/../public/testimonials/valeria.jpg';
+
 import Carousel from './Carousel';
 
 const testimonials = [
@@ -29,7 +34,7 @@ const testimonials = [
   },
 ];
 
-const Testimonials = () => {
+export default function Testimonials() {
   return (
     <>
       <div className="flex flex-col gap-8 text-center items-center mx-auto mt-24 my-12 max-w-3xl px-4">
@@ -51,13 +56,13 @@ const Testimonials = () => {
               <p>{item.role}</p>
 
               <div className="w-full md:w-auto flex justify-center gap-3 mt-auto md:mt-0 pt-2 md:absolute md:bottom-0 md:right-0 items-center">
-                <button onClick={prev}>
+                <button onClick={prev} className="cursor-pointer">
                   <Image src={ArrowButton} alt="arrow" />
                 </button>
                 <p className="h-min">
                   {index + 1}/{valueCount}
                 </p>
-                <button onClick={next}>
+                <button onClick={next} className="cursor-pointer">
                   <Image src={ArrowButton} alt="arrow" className="rotate-180" />
                 </button>
               </div>
@@ -67,6 +72,4 @@ const Testimonials = () => {
       </Carousel>
     </>
   );
-};
-
-export default Testimonials;
+}

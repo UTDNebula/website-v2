@@ -3,4 +3,5 @@ module.exports = {
   siteUrl: 'https://www.utdnebula.com/',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
+  outDir: 'src/app',
 };

@@ -1,14 +1,19 @@
-import ArrowButton from '@/../public/testimonials/arrow-button.svg';
-import { createRef, useEffect, useState } from 'react';
-import Image from 'next/image';
-import type { StaticImageData } from 'next/image';
-import Carousel from './Carousel';
-import Planner from '@/../public/projects/planner.png';
-import Trends from '@/../public/projects/trends.png';
-import Jupiter from '@/../public/projects/jupiter.png';
-import FilledChevronUp from '@/../public/icons/filled-chevron-up-white.svg';
+'use client';
+
 import clsx from 'clsx';
+import type { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
+import React, { createRef, useEffect, useState } from 'react';
+
+import FilledChevronUp from '@/../public/icons/filled-chevron-up-white.svg';
+import Jupiter from '@/../public/projects/jupiter.png';
+import Planner from '@/../public/projects/planner.png';
+import Rooms from '@/../public/projects/rooms.png';
+import Trends from '@/../public/projects/trends.png';
+import ArrowButton from '@/../public/testimonials/arrow-button.svg';
+
+import Carousel from './Carousel';
 
 type Project = {
   title: string;
@@ -38,8 +43,18 @@ const PROJECTS_INFO: Project[] = [
       'Trends and Skedge are tools designed to simplify the course selection and registration process by providing students with valuable data, all in one place.',
     url: '/projects/trends',
     image: Trends,
-    alt: "A laptop displaying Trend's dashboard, with search results for GOVT 2306.",
+    alt: "A laptop displaying Trends' dashboard, with search results for GOVT 2306.",
     color: '#6366F1',
+  },
+  {
+    title: 'Rooms',
+    shortName: 'Rooms',
+    description:
+      "Rooms is here to make finding a room for your org meeting, hangout, or studying easy, just put in a date and time and see what's free.",
+    url: '/projects/rooms',
+    image: Rooms,
+    alt: "A laptop displaying Rooms' results page for events in SCI.",
+    color: '#523DFF',
   },
   {
     title: 'Nebula API',
@@ -96,14 +111,14 @@ export default function Projects() {
         <div className="shrink-0 flex flex-col justify-center lg:scale-[calc(1/1.15)] scale-[calc(1/2)] h-min w-full">
           <div className="text-center flex flex-col items-center">
             <h3 className="text-2xl md:text-4xl text-white">Check Out Our </h3>
-            <h1 className="font-kallisto md:text-7xl text-4xl font-bold text-transparent w-min bg-clip-text bg-gradient-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
+            <h1 className="font-kallisto md:text-7xl text-4xl font-bold text-transparent w-min bg-clip-text bg-linear-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
               Projects
             </h1>
           </div>
           <div className="text-center pt-4 text-white px-4">
             <p>Check out what we have been creating in our lab up in the galaxy</p>
           </div>
-          <div className="gap-8 grid-cols-4 mx-auto pt-6 text-white hidden lg:grid">
+          <div className="gap-8 grid-cols-5 mx-auto pt-6 text-white hidden lg:grid">
             {PROJECTS_INFO.map((project, index) => (
               <button
                 type="button"
@@ -150,7 +165,7 @@ function ProjectCard(props: {
   return (
     <div
       className={clsx(
-        'rounded-3xl border w-full border-white text-white gap-8 flex-shrink-0 p-10 relative overflow-clip md:items-center',
+        'rounded-3xl border w-full border-white text-white gap-8 shrink-0 p-10 relative overflow-clip md:items-center',
         project.image
           ? 'grid md:grid-cols-2 grid-cols-1'
           : 'flex flex-col items-start justify-between',
@@ -203,13 +218,19 @@ function ProjectCard(props: {
       />
 
       <span className="flex gap-3 items-center mt-auto md:mt-0 md:order-3 mr-auto place-self-end">
-        <button onClick={prev} className="hover:scale-105 active:scale-95 transition">
+        <button
+          onClick={prev}
+          className="hover:scale-105 active:scale-95 transition cursor-pointer"
+        >
           <Image src={ArrowButton} alt="arrow" />
         </button>
         <p className="h-min">
           {index + 1}/{valueCount}
         </p>
-        <button onClick={next} className="hover:scale-105 active:scale-95 transition">
+        <button
+          onClick={next}
+          className="hover:scale-105 active:scale-95 transition cursor-pointer"
+        >
           <Image src={ArrowButton} alt="arrow" className="rotate-180" />
         </button>
       </span>
