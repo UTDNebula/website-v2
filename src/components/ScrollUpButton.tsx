@@ -9,7 +9,7 @@ export default function ScrollUpButton() {
   return (
     <button
       onClick={() => window.scrollTo(0, 0)}
-      className="items-center flex flex-col rounded-full p-2 transition border border-white/0 hover:border-white"
+      className="items-center flex flex-col rounded-full p-2 transition border border-white/0 hover:border-white cursor-pointer"
     >
       <Image src={Arrow} alt="arrow" width="20" height="20" className="rotate-180" />
       Top
