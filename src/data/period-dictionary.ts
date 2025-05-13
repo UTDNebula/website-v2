@@ -52,7 +52,6 @@ export const periodToLeadershipMap = new Map<string, GoverancePeriod>([
         'Jupiter Lead': 'ejb230002',
         'Trends & Skedge Lead': 'axt220137',
         'API & Platform Lead': 'jjp210000',
-        'Planner Lead': '',
       },
       'Our Club Sponsor': {
         'Professor and Club Sponsor': 'jxc064000',
