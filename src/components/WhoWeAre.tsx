@@ -12,8 +12,8 @@ export default function WhoWeAre() {
       </h1>
       <div>
         <h3 className="lg:text-4xl text-lg lg:leading-normal">
-          We&apos;re a community of student developers and designers crafting innovative tools to
-          empower UT Dallas students, one galaxy at a time.
+          We&apos;re a community of student developers, designers, product specialists, and
+          marketers crafting innovative tools to empower UT Dallas students, one galaxy at a time.
         </h3>
         <Link
           className="inline-block mt-6 px-6 py-3 text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors"
