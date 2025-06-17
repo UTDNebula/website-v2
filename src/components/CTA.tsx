@@ -24,7 +24,7 @@ export default function CTA() {
           a difference in the world.
         </p>
         <Link
-          href="/resources/meetings"
+          href="/resources/calendar"
           className="w-min rounded-full bg-white text-cornflower-500 px-10 py-1 mt-5 whitespace-nowrap font-semibold shadow-xl hover:shadow-lg duration-75 transition-shadow"
         >
           Get Involved

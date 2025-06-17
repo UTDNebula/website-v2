@@ -15,6 +15,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.1",
     "@next/third-parties": "^15.3.0",
+    "@sentry/nextjs": "^9.22.0",
     "calendar-link": "^2.8.0",
     "clsx": "^2.1.1",
     "google-auth-library": "^9.15.1",
