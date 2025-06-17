@@ -36,9 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' && (
         <GoogleAnalytics gaId="G-Q74JGS7ZPP" />
       )}
-      <body className="font-inter text-haiti">
-        {children}
-      </body>
+      <body className="font-inter text-haiti">{children}</body>
     </html>
   );
 }
