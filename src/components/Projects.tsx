@@ -111,7 +111,7 @@ export default function Projects() {
         <div className="shrink-0 flex flex-col justify-center lg:scale-[calc(1/1.15)] scale-[calc(1/2)] h-min w-full">
           <div className="text-center flex flex-col items-center">
             <h3 className="text-2xl md:text-4xl text-white">Check Out Our </h3>
-            <h1 className="font-kallisto md:text-7xl text-4xl font-bold text-transparent w-min bg-clip-text bg-linear-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
+            <h1 className="font-display md:text-7xl text-4xl font-bold text-transparent w-min bg-clip-text bg-linear-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
               Projects
             </h1>
           </div>
@@ -178,7 +178,7 @@ function ProjectCard(props: {
       )}
 
       <div className={clsx('flex flex-col gap-8 md:order-1', !project.image && 'w-full')}>
-        <h1 className="font-kallisto text-xl md:text-3xl">{project.title}</h1>
+        <h1 className="font-display text-xl md:text-3xl">{project.title}</h1>
         <p className="md:text-lg text-base">{project.description}</p>
 
         <Link

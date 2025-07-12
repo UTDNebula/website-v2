@@ -26,10 +26,10 @@ function Header() {
 
         <div className="grow flex flex-col justify-center px-8 lg:px-16 xl:px-32">
           <div className="text-center text-white">
-            <h3 className="text-xl font-semibold lg:pb-5 xl:pb-20 font-inter [text-shadow:_0_0_4px_rgb(0_0_0_/_0.4)]">
+            <h3 className="text-xl font-semibold lg:pb-5 xl:pb-20 font-main [text-shadow:_0_0_4px_rgb(0_0_0_/_0.4)]">
               Greetings from the stars
             </h3>
-            <h1 className="text-6xl font-bold font-kallisto [text-shadow:_0_0_16px_rgb(0_0_0_/_0.4)]">
+            <h1 className="text-6xl font-bold font-display [text-shadow:_0_0_16px_rgb(0_0_0_/_0.4)]">
               We are Nebula Labs <br /> We build <b>Products</b> and <b>People</b>
             </h1>
           </div>
