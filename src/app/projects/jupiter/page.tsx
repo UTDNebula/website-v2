@@ -49,7 +49,7 @@ export default function Jupiter() {
       <Navbar royal={true} className="relative z-20" />
       <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 flex flex-col items-center gap-8 rounded-3xl text-white relative overflow-hidden">
         <Image src={Gradient} alt="project background" fill className="-z-20" />
-        <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-kallisto drop-shadow-sm">
+        <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-display drop-shadow-sm">
           JUPITER
         </p>
         <h1 className="text-5xl md:text-6xl font-bold text-center text-shadow">
