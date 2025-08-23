@@ -59,6 +59,3 @@ export default async function fetchCalendar(): Promise<Data> {
     };
   }
 }
-
-// Do not cache
-export const revalidate = 0;
