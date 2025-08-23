@@ -25,18 +25,23 @@ const timeFormat = new Intl.DateTimeFormat('en-US', {
   hour: 'numeric',
   minute: 'numeric',
   hour12: true,
+  timeZone: 'America/Chicago',
 });
 
 const dateFormat = new Intl.DateTimeFormat('en-US', {
   weekday: 'long',
   day: 'numeric',
+  timeZone: 'America/Chicago',
 });
 
 const monthFormat = new Intl.DateTimeFormat('en-US', {
   month: 'long',
+  timeZone: 'America/Chicago',
 });
 
-const fullFormat = new Intl.DateTimeFormat('en-US');
+const fullFormat = new Intl.DateTimeFormat('en-US', {
+  timeZone: 'America/Chicago',
+});
 
 interface EventReactProps {
   name: string;
@@ -200,9 +205,10 @@ export default async function Calendar() {
   return (
     <>
       <Header text="Calendar" />
-      <h2 className="px-8 lg:px-16 xl:px-32 text-2xl text-center mb-12">
+      <h2 className="px-8 lg:px-16 xl:px-32 text-2xl text-center mb-2">
         Stop by any of our events to learn more about becoming a new member!
       </h2>
+      <p className="px-8 lg:px-16 xl:px-32 text-center mb-8">Times in CT.</p>
       <div className="px-8 lg:px-16 xl:px-32 mb-12 flex justify-center gap-2 flex-wrap">
         <a
           className={buttonLinkClasses}
