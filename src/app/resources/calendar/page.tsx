@@ -11,6 +11,9 @@ import fetchCalendar from '@/lib/fetchCalendar';
 
 import Error from './error';
 
+// Do not cache
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Calendar',
   alternates: {
