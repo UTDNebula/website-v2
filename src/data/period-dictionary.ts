@@ -17,7 +17,7 @@ export const periodToLeadershipMap = new Map<string, GoverancePeriod>([
       },
       'Division Heads': {
         'Head of Engineering': 'axs220398',
-        'Head of Design': 'hxm220064',
+        'Head of Design': 'sxa220254',
         'Head of Product': 'axa240110',
         'Head of Marketing': 'exw210007',
       },
@@ -25,7 +25,7 @@ export const periodToLeadershipMap = new Map<string, GoverancePeriod>([
         'Jupiter Lead': 'bck220000',
         'Trends & Skedge Lead': 'exs210031',
         'API & Platform Lead': 'mxq220004',
-        'New Project Lead': 'sjj220002',
+        'Notebook Lead': 'sjj220002',
       },
       'Our Club Sponsor': {
         'Professor and Club Sponsor': 'jxc064000',
