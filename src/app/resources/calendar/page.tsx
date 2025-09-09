@@ -43,6 +43,21 @@ const fullFormat = new Intl.DateTimeFormat('en-US', {
   timeZone: 'America/Chicago',
 });
 
+const getDateNumber = new Intl.DateTimeFormat('en-US', {
+  day: 'numeric',
+  timeZone: 'America/Chicago',
+});
+
+const getMonthNumber = new Intl.DateTimeFormat('en-US', {
+  month: 'numeric',
+  timeZone: 'America/Chicago',
+});
+
+const getYearNumber = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  timeZone: 'America/Chicago',
+});
+
 interface EventReactProps {
   name: string;
   start: string;
@@ -144,7 +159,7 @@ export default async function Calendar() {
       }
 
       const start = new Date(event.start.dateTime);
-      const year = start.getFullYear();
+      const year = getYearNumber.format(start);
       if (lastYear !== year && !firstYear) {
         labelsAndEvents.push(
           <h2 key={year} className="text-5xl font-bold">
@@ -157,7 +172,7 @@ export default async function Calendar() {
         lastYear = year;
         firstYear = false;
       }
-      const month = start.getMonth();
+      const month = getMonthNumber.format(start);
       if (lastMonth !== month) {
         labelsAndEvents.push(
           <h3 key={String(year) + String(month)} className="text-4xl font-semibold">
@@ -166,7 +181,7 @@ export default async function Calendar() {
         );
         lastMonth = month;
       }
-      const day = start.getDay();
+      const day = getDateNumber.format(start);
       if (lastDay !== day) {
         labelsAndEvents.push(
           <h4 key={fullFormat.format(start)} className="text-3xl font-medium">
