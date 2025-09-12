@@ -39,9 +39,10 @@ export default function Loading() {
   return (
     <>
       <Header text="Calendar" />
-      <h2 className="px-8 lg:px-16 xl:px-32 text-2xl text-center mb-12">
+      <h2 className="px-8 lg:px-16 xl:px-32 text-2xl text-center mb-2">
         Stop by any of our events to learn more about becoming a new member!
       </h2>
+      <p className="px-8 lg:px-16 xl:px-32 text-center mb-8">Times in CT.</p>
       <div className="px-8 lg:px-16 xl:px-32 mb-12 flex justify-center gap-2 flex-wrap">
         <a
           className={buttonLinkClasses}
@@ -51,12 +52,7 @@ export default function Loading() {
         >
           Subscribe in Google Calendar
         </a>
-        <a
-          className={buttonLinkClasses}
-          href="https://calendar.google.com/calendar/ical/c_81b7102868d4acac8b7db3a18de6440d45740e4754be4f8a28a5c3915b0d1e71%40group.calendar.google.com/public/basic.ics"
-        >
-          Subscribe with iCal
-        </a>
+        <button className={buttonLinkClasses}>Subscribe in Apple/Outlook</button>
         <a
           className={buttonLinkClasses}
           target="_blank"
