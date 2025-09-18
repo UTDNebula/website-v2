@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import fetchCalendar from '@/lib/fetchCalendar';
 
+import CopyInput from './CopyInput';
 import Error from './error';
 
 // Do not cache
@@ -233,12 +234,9 @@ export default async function Calendar() {
         >
           Subscribe in Google Calendar
         </a>
-        <a
-          className={buttonLinkClasses}
-          href="https://calendar.google.com/calendar/ical/c_81b7102868d4acac8b7db3a18de6440d45740e4754be4f8a28a5c3915b0d1e71%40group.calendar.google.com/public/basic.ics"
-        >
-          Subscribe with iCal
-        </a>
+        <button className={buttonLinkClasses} popoverTarget="ics-cal-popover">
+          Subscribe in Apple/Outlook
+        </button>
         <a
           className={buttonLinkClasses}
           target="_blank"
@@ -250,6 +248,26 @@ export default async function Calendar() {
       </div>
       <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center">{result}</div>
       <Footer />
+      <div
+        popover="auto"
+        id="ics-cal-popover"
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl p-4 w-[80vw] max-w-[90vw]"
+      >
+        <h3 className="text-xl font-bold mb-2 text-center">Instructions</h3>
+        <p className="mb-1">
+          <b>Apple Calendar on Mac</b>: File &gt; New Calendar Subscription... &gt; Paste in the
+          URL.
+        </p>
+        <p className="mb-1">
+          <b>Apple Calendar on iOS</b>: Calendars &gt; Add Calendar &gt; Add Subscription Calendar
+          &gt; Paste in the URL.
+        </p>
+        <p className="mb-4">
+          <b>Outlook Calendar on Desktop</b>: Add calendar &gt; Subscribe from web &gt; Paste in the
+          URL.
+        </p>
+        <CopyInput href="webcal://calendar.google.com/calendar/ical/c_81b7102868d4acac8b7db3a18de6440d45740e4754be4f8a28a5c3915b0d1e71%40group.calendar.google.com/public/basic.ics" />
+      </div>
     </>
   );
 }
