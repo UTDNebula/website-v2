@@ -114,6 +114,7 @@ export const periodToLeadershipMap = new Map<string, GoverancePeriod>([
       },
     },
   ],
+  // "unknown" in NetID field prevents including a link to their email
   [
     '2021-2022',
     {
@@ -121,15 +122,15 @@ export const periodToLeadershipMap = new Map<string, GoverancePeriod>([
         'Executive Director': 'wec190000',
       },
       'Division Heads': {
-        'Head of Design': '',
+        'Head of Design': 'unknown-lisa',
         'Head of Engineering': 'cbm200003',
-        'Head of Product': '',
+        'Head of Product': 'unknown-talia',
       },
       'Project Leads': {
         'Planner Lead': 'rsj180004',
         'Guide Lead': 'wec190000',
         'Trends Lead': 'ecb180001',
-        'API & Platform Lead': '',
+        'API & Platform Lead': 'unknown-tryston',
       },
     },
   ],

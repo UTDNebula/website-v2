@@ -272,6 +272,13 @@ export const netIdToPersonMap = new Map<string, Person>([
     },
   ],
   [
+    'unknown-tryston',
+    {
+      name: 'Tryston Minsquero',
+      linkedIn: 'tryston-minsquero',
+    },
+  ],
+  [
     'ecb180001',
     {
       name: 'Eric Boysen',
@@ -286,10 +293,24 @@ export const netIdToPersonMap = new Map<string, Person>([
     },
   ],
   [
+    'unknown-talia',
+    {
+      name: 'Talia Devanadero',
+      linkedIn: 'talia-d-b57b6a1a7',
+    },
+  ],
+  [
     'cbm200003',
     {
       name: 'Charlie Mahana',
       linkedIn: 'charliemahana',
+    },
+  ],
+  [
+    'unknown-lisa',
+    {
+      name: 'Lisa Wu',
+      linkedIn: 'litiwu',
     },
   ],
   [
