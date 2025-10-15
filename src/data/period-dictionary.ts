@@ -114,4 +114,23 @@ export const periodToLeadershipMap = new Map<string, GoverancePeriod>([
       },
     },
   ],
+  [
+    '2021-2022',
+    {
+      Officers: {
+        'Executive Director': 'wec190000',
+      },
+      'Division Heads': {
+        'Head of Design': '',
+        'Head of Engineering': 'cbm200003',
+        'Head of Product': '',
+      },
+      'Project Leads': {
+        'Planner Lead': 'rsj180004',
+        'Guide Lead': 'wec190000',
+        'Trends Lead': 'ecb180001',
+        'API & Platform Lead': '',
+      },
+    },
+  ],
 ]);

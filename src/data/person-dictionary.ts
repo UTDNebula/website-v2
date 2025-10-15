@@ -230,27 +230,6 @@ export const netIdToPersonMap = new Map<string, Person>([
     },
   ],
   [
-    'ecb180001',
-    {
-      name: 'Eric Boysen',
-      linkedIn: 'eric-boysen-a16243192',
-    },
-  ],
-  [
-    'cbm200003',
-    {
-      name: 'Charlie Mahana',
-      linkedIn: 'charliemahana',
-    },
-  ],
-  [
-    'rsj180004',
-    {
-      name: 'Rajmeet Juneja',
-      linkedIn: 'rajmeetjuneja',
-    },
-  ],
-  [
     'nxw180000',
     {
       name: 'Nathan Williams',
@@ -286,17 +265,38 @@ export const netIdToPersonMap = new Map<string, Person>([
     },
   ],
   [
-    'wec190000',
-    {
-      name: 'Willie Chalmers III',
-      linkedIn: 'willie-chalmers-iii',
-    },
-  ],
-  [
     'axs200279',
     {
       name: 'Adam Szumski',
       linkedIn: 'aszumski',
+    },
+  ],
+  [
+    'ecb180001',
+    {
+      name: 'Eric Boysen',
+      linkedIn: 'eric-boysen-a16243192',
+    },
+  ],
+  [
+    'rsj180004',
+    {
+      name: 'Rajmeet Juneja',
+      linkedIn: 'rajmeetjuneja',
+    },
+  ],
+  [
+    'cbm200003',
+    {
+      name: 'Charlie Mahana',
+      linkedIn: 'charliemahana',
+    },
+  ],
+  [
+    'wec190000',
+    {
+      name: 'Willie Chalmers III',
+      linkedIn: 'willie-chalmers-iii',
     },
   ],
   [
