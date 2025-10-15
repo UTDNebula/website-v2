@@ -230,27 +230,6 @@ export const netIdToPersonMap = new Map<string, Person>([
     },
   ],
   [
-    'ecb180001',
-    {
-      name: 'Eric Boysen',
-      linkedIn: 'eric-boysen-a16243192',
-    },
-  ],
-  [
-    'cbm200003',
-    {
-      name: 'Charlie Mahana',
-      linkedIn: 'charliemahana',
-    },
-  ],
-  [
-    'rsj180004',
-    {
-      name: 'Rajmeet Juneja',
-      linkedIn: 'rajmeetjuneja',
-    },
-  ],
-  [
     'nxw180000',
     {
       name: 'Nathan Williams',
@@ -286,17 +265,59 @@ export const netIdToPersonMap = new Map<string, Person>([
     },
   ],
   [
-    'wec190000',
-    {
-      name: 'Willie Chalmers III',
-      linkedIn: 'willie-chalmers-iii',
-    },
-  ],
-  [
     'axs200279',
     {
       name: 'Adam Szumski',
       linkedIn: 'aszumski',
+    },
+  ],
+  [
+    'unknown-tryston',
+    {
+      name: 'Tryston Minsquero',
+      linkedIn: 'tryston-minsquero',
+    },
+  ],
+  [
+    'ecb180001',
+    {
+      name: 'Eric Boysen',
+      linkedIn: 'eric-boysen-a16243192',
+    },
+  ],
+  [
+    'rsj180004',
+    {
+      name: 'Rajmeet Juneja',
+      linkedIn: 'rajmeetjuneja',
+    },
+  ],
+  [
+    'unknown-talia',
+    {
+      name: 'Talia Devanadero',
+      linkedIn: 'talia-d-b57b6a1a7',
+    },
+  ],
+  [
+    'cbm200003',
+    {
+      name: 'Charlie Mahana',
+      linkedIn: 'charliemahana',
+    },
+  ],
+  [
+    'unknown-lisa',
+    {
+      name: 'Lisa Wu',
+      linkedIn: 'litiwu',
+    },
+  ],
+  [
+    'wec190000',
+    {
+      name: 'Willie Chalmers III',
+      linkedIn: 'willie-chalmers-iii',
     },
   ],
   [
