@@ -22,7 +22,7 @@ export const periodToLeadershipMap = new Map<string, GoverancePeriod>([
         'Head of Marketing': 'exw210007',
       },
       'Project Leads': {
-        'Jupiter Lead': 'bck220000',
+        'Clubs Lead': 'bck220000',
         'Trends & Skedge Lead': 'exs210031',
         'API & Platform Lead': 'mxq220004',
         'Notebook Lead': 'sjj220002',
@@ -49,7 +49,7 @@ export const periodToLeadershipMap = new Map<string, GoverancePeriod>([
         'Head of Marketing': 'jaz220003',
       },
       'Project Leads': {
-        'Jupiter Lead': 'ejb230002',
+        'Clubs Lead': 'ejb230002',
         'Trends & Skedge Lead': 'axt220137',
         'API & Platform Lead': 'jjp210000',
       },
@@ -76,7 +76,7 @@ export const periodToLeadershipMap = new Map<string, GoverancePeriod>([
       },
       'Project Leads': {
         'Planner Lead': 'rxt220032',
-        'Jupiter Lead': 'rdo190000',
+        'Clubs Lead': 'rdo190000',
         'Trends & Skedge Lead': 'wgs190000',
         'API & Platform Lead': 'jjp210000',
       },
@@ -103,7 +103,7 @@ export const periodToLeadershipMap = new Map<string, GoverancePeriod>([
       },
       'Project Leads': {
         'Planner Lead': 'cnl210000',
-        'Jupiter Lead': 'jrs190008',
+        'Clubs Lead': 'jrs190008',
         'Guide Lead': 'wec190000',
         'Trends Lead': 'wgs190000',
         'Skedge Lead': 'axs200279',

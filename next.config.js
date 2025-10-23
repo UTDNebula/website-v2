@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/projects/jupiter',
+        destination: '/projects/clubs',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

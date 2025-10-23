@@ -7,7 +7,7 @@ import Link from 'next/link';
 import React, { createRef, useEffect, useState } from 'react';
 
 import FilledChevronUp from '@/../public/icons/filled-chevron-up-white.svg';
-import Jupiter from '@/../public/projects/jupiter.png';
+import Clubs from '@/../public/projects/clubs.png';
 import Planner from '@/../public/projects/planner.png';
 import Rooms from '@/../public/projects/rooms.png';
 import Trends from '@/../public/projects/trends.png';
@@ -27,13 +27,13 @@ type Project = {
 
 const PROJECTS_INFO: Project[] = [
   {
-    title: 'Jupiter',
-    shortName: 'Jupiter',
+    title: 'Clubs',
+    shortName: 'Clubs',
     description:
-      'Jupiter is the best way to get involved on campus. It’s easy to discover new organizations or exciting events to make the most of the on-campus experience.',
-    url: '/projects/jupiter',
-    image: Jupiter,
-    alt: "A laptop displaying Jupiter's dashboard, with a list of clubs and organizations.",
+      'Clubs is the best way to get involved on campus. It’s easy to discover new organizations or exciting events to make the most of the on-campus experience.',
+    url: '/projects/clubs',
+    image: Clubs,
+    alt: "A laptop displaying Clubs's dashboard, with a list of clubs and organizations.",
     color: '#926FDB',
   },
   {

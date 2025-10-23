@@ -36,8 +36,8 @@ export default function Footer() {
         </div>
         <div className="flex flex-col items-start gap-3">
           <h3 className="text-xl font-semibold mb-4">Projects</h3>
-          <Link className={linkClasses} href="/projects/jupiter">
-            Jupiter
+          <Link className={linkClasses} href="/projects/clubs">
+            Clubs
           </Link>
           <Link className={linkClasses} href="/projects/trends">
             Trends
