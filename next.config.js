@@ -4,8 +4,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/jupiter',
-        destination: '/clubs',
+        source: '/projects/jupiter',
+        destination: '/projects/clubs',
         permanent: true,
       },
     ];
