@@ -3,19 +3,19 @@ import Image from 'next/image';
 import React from 'react';
 
 import Gradient from '@/../public/images/gradient.png';
-import Cover from '@/../public/projects/jupiter/cover.png';
-import calendar from '@/../public/projects/jupiter/icons8-calendar-100.png';
-import community from '@/../public/projects/jupiter/icons8-community-100.png';
-import search from '@/../public/projects/jupiter/icons8-search-100.png';
+import Cover from '@/../public/projects/clubs/cover.png';
+import calendar from '@/../public/projects/clubs/icons8-calendar-100.png';
+import community from '@/../public/projects/clubs/icons8-community-100.png';
+import search from '@/../public/projects/clubs/icons8-search-100.png';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 
 export const metadata: Metadata = {
-  title: 'Jupiter',
+  title: 'Clubs',
   description:
     'Find your community on campus: get connected with student organizations and browse events.',
   alternates: {
-    canonical: '/projects/jupiter',
+    canonical: '/projects/clubs',
   },
 };
 
@@ -43,14 +43,14 @@ const features = [
   },
 ];
 
-export default function Jupiter() {
+export default function Clubs() {
   return (
     <>
       <Navbar royal={true} className="relative z-20" />
       <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 flex flex-col items-center gap-8 rounded-3xl text-white relative overflow-hidden">
         <Image src={Gradient} alt="project background" fill className="-z-20" />
-        <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-display drop-shadow-sm">
-          JUPITER
+        <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-display font-bold drop-shadow-sm">
+          CLUBS
         </p>
         <h1 className="text-5xl md:text-6xl font-bold text-center text-shadow">
           Find your community
@@ -61,13 +61,13 @@ export default function Jupiter() {
           Get connected with student organizations and browse events.
         </h2>
         <div className="md:mx-4 lg:mx-8 xl:mx-16 rounded-t-2xl overflow-hidden md:mb-[-4rem] lg:mb-[-8rem] xl:mb-[-16rem]">
-          <Image src={Cover} alt="Jupiter screenshot" />
+          <Image src={Cover} alt="Clubs screenshot" />
         </div>
       </div>
       <div className="relative -top-10 w-full flex justify-center">
         <a
           className="px-10 py-6 text-2xl text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors drop-shadow-sm"
-          href="https://jupiter.utdnebula.com"
+          href="https://clubs.utdnebula.com"
           target="_blank"
           rel="noreferrer"
         >
@@ -95,7 +95,7 @@ export default function Jupiter() {
         <h2 className="text-5xl font-bold text-center">Interested? Learn more about our project</h2>
         <a
           className="px-6 py-3 text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors"
-          href="https://github.com/UTDNebula/jupiter"
+          href="https://github.com/UTDNebula/utd-clubs"
           target="_blank"
           rel="noreferrer"
         >
