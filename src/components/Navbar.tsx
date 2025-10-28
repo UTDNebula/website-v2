@@ -58,8 +58,8 @@ const parentItems: Array<ParentItem> = [
     name: 'Our Projects',
     children: [
       {
-        name: 'Jupiter',
-        link: '/projects/jupiter',
+        name: 'Clubs',
+        link: '/projects/clubs',
         description: 'Find and connect with student organizations',
         iconSrc: Users,
       },
