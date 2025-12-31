@@ -1,14 +1,12 @@
-import { ics } from 'calendar-link';
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import React from 'react';
-
 import ArrowBlack from '@/../public/icons/filled-chevron-up-black.svg';
 import ArrowWhite from '@/../public/icons/filled-chevron-up-white.svg';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import fetchCalendar from '@/lib/fetchCalendar';
-
+import { ics } from 'calendar-link';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import React from 'react';
 import CopyInput from './CopyInput';
 import Error from './error';
 

@@ -1,9 +1,8 @@
-import type { Metadata } from 'next';
-import React from 'react';
-
 import Governance from '@/components/Governance';
 import { periodToLeadershipMap } from '@/data/period-dictionary';
 import { getPopulatedPeriod, nonCurrentPeriods } from '@/lib/period-populator';
+import type { Metadata } from 'next';
+import React from 'react';
 
 export async function generateMetadata({
   params,

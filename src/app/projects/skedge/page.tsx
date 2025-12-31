@@ -1,7 +1,3 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import React from 'react';
-
 import Gradient from '@/../public/images/gradient.png';
 import Chrome from '@/../public/projects/skedge/chrome.png';
 import Cover from '@/../public/projects/skedge/cover.png';
@@ -11,6 +7,9 @@ import calendar from '@/../public/projects/skedge/icons8-calendar-100.png';
 import input from '@/../public/projects/skedge/icons8-input-100.png';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import React from 'react';
 
 export const metadata: Metadata = {
   title: 'Skedge',

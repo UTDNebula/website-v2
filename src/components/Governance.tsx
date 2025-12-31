@@ -1,8 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
-
 import Email from '@/../public/icons/email.svg';
 import LinkedIn from '@/../public/icons/linkedin-royal.svg';
 import OrgMatrix from '@/../public/org-matrix.png';
@@ -11,6 +8,8 @@ import Header from '@/components/Header';
 import PeriodLinks from '@/components/PeriodLinks';
 import { Person } from '@/data/person-dictionary';
 import { PopulatedGoveranceGroup } from '@/lib/period-populator';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 
 const fallbackSrc = '/governance/blank.jpg';
 

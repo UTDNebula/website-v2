@@ -1,9 +1,8 @@
 'use client';
 
+import Arrow from '@/../public/icons/arrow-white.svg';
 import Image from 'next/image';
 import React from 'react';
-
-import Arrow from '@/../public/icons/arrow-white.svg';
 
 export default function ScrollUpButton() {
   return (

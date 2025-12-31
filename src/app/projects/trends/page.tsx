@@ -1,7 +1,3 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import React from 'react';
-
 import Gradient from '@/../public/images/gradient.png';
 import Cover from '@/../public/projects/trends/cover.png';
 import aggregate from '@/../public/projects/trends/icons8-aggregate-100.png';
@@ -9,6 +5,9 @@ import input from '@/../public/projects/trends/icons8-input-100.png';
 import scale from '@/../public/projects/trends/icons8-scale-100.png';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import React from 'react';
 
 export const metadata: Metadata = {
   title: 'Trends',
