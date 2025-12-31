@@ -1,8 +1,7 @@
-import type { Metadata } from 'next';
-import React from 'react';
-
 import Governance from '@/components/Governance';
 import { currentPeriod, getPopulatedPeriod, nonCurrentPeriods } from '@/lib/period-populator';
+import type { Metadata } from 'next';
+import React from 'react';
 
 export const metadata: Metadata = {
   title: 'Governance',

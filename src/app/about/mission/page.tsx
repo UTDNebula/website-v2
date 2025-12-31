@@ -1,8 +1,7 @@
-import type { Metadata } from 'next';
-import React from 'react';
-
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import type { Metadata } from 'next';
+import React from 'react';
 
 export const metadata: Metadata = {
   title: 'Mission',

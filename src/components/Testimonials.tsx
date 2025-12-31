@@ -1,13 +1,11 @@
 'use client';
 
-import Image from 'next/image';
-import React from 'react';
-
 import ArrowButton from '@/../public/testimonials/arrow-button.svg';
 import Greeshma from '@/../public/testimonials/greeshma.jpg';
 import Hiba from '@/../public/testimonials/hiba.jpg';
 import Valeria from '@/../public/testimonials/valeria.jpg';
-
+import Image from 'next/image';
+import React from 'react';
 import Carousel from './Carousel';
 
 const testimonials = [

@@ -1,7 +1,3 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import React from 'react';
-
 import GitHub from '@/../public/icons/github-black.svg';
 import Gmail from '@/../public/icons/gmail-black.svg';
 import Instagram from '@/../public/icons/instagram-black.svg';
@@ -9,6 +5,9 @@ import Discord from '@/../public/icons/join-discord-black.svg';
 import LinkedIn from '@/../public/icons/linkedin-black.svg';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import React from 'react';
 
 export const metadata: Metadata = {
   title: 'Contact',

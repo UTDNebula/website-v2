@@ -1,7 +1,3 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import React from 'react';
-
 import Gradient from '@/../public/images/gradient.png';
 import Cover from '@/../public/projects/rooms/cover.png';
 import filter from '@/../public/projects/rooms/icons8-filter-100.png';
@@ -9,6 +5,9 @@ import input from '@/../public/projects/rooms/icons8-input-100.png';
 import update from '@/../public/projects/rooms/icons8-update-64.png';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import React from 'react';
 
 export const metadata: Metadata = {
   title: 'Rooms',

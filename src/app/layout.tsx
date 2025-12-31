@@ -1,5 +1,4 @@
 import '@/styles/globals.css';
-
 import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import { Bai_Jamjuree, Inter } from 'next/font/google';
