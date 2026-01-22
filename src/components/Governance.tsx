@@ -9,15 +9,19 @@ import PeriodLinks from '@/components/PeriodLinks';
 import { Person } from '@/data/person-dictionary';
 import { PopulatedGoveranceGroup } from '@/lib/period-populator';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const fallbackSrc = '/governance/blank.jpg';
 
 function LeadershipCard(props: Person) {
-  const [src, setSrc] = useState(`/governance/${props.netId}.jpg`);
-  useEffect(() => {
-    setSrc(`/governance/${props.netId}.jpg`);
-  }, [props.netId]);
+  const computedSrc = `/governance/${props.netId}.jpg`;
+  const [src, setSrc] = useState(computedSrc);
+
+  // Reset fallback when netId changes
+  if (src !== computedSrc && src !== fallbackSrc) {
+    setSrc(computedSrc);
+  }
+
   return (
     <div className="p-2 flex flex-col items-center grow-0 w-72 gap-4">
       <Image
