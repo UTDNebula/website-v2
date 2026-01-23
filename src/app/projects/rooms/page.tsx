@@ -52,6 +52,7 @@ export default function Rooms() {
       featuresDescription="Find the perfect spot to study, hang out, or host your club meeting."
       features={features}
       learnMoreLink="https://github.com/UTDNebula/utd-rooms"
+      repos="utd-rooms"
     />
   );
 }

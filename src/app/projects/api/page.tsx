@@ -59,6 +59,7 @@ export default function API() {
       featuresDescription="Discover a realm of possibilities with Nebula API & Platform, where data integration meets streamlined authentication."
       features={features}
       learnMoreLink="https://github.com/UTDNebula/nebula-api"
+      repos={['nebula-api', 'api-tools']}
     />
   );
 }

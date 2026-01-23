@@ -65,6 +65,7 @@ export default function Planner() {
       featuresDescription="Say goodbye to the stress and hassle of degree planning and hello to a smooth, organized path towards graduation with Nebula Planner."
       features={features}
       learnMoreLink="https://github.com/UTDNebula/planner"
+      repos="planner"
     />
   );
 }

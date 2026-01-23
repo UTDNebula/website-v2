@@ -65,6 +65,7 @@ export default function Clubs() {
       featuresDescription="Navigate the hundreds of communities on campus all on one platform."
       features={features}
       learnMoreLink="https://github.com/UTDNebula/utd-clubs"
+      repos="utd-clubs"
     />
   );
 }

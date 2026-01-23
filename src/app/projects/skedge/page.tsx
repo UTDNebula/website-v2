@@ -82,6 +82,7 @@ export default function Skedge() {
       featuresDescription="Get all of your Rate My Professors and grade distribution data without ever leaving schedule planner!"
       features={features}
       learnMoreLink="https://github.com/UTDNebula/skedge"
+      repos="skedge"
     />
   );
 }

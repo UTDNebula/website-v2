@@ -1,4 +1,5 @@
 import Gradient from '@/../public/images/gradient.png';
+import Contributors from '@/components/Contributors';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
@@ -23,6 +24,7 @@ interface ProjectProps {
     img: ImageWithAlt;
   }[];
   learnMoreLink: string;
+  repos: string | string[];
 }
 
 export default function Project(props: ProjectProps) {
@@ -83,6 +85,13 @@ export default function Project(props: ProjectProps) {
         >
           Learn More
         </a>
+      </div>
+      <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
+        <h3 className="text-4xl font-bold text-center">Contributors</h3>
+        <Contributors repos={props.repos} />
+        <p className="text-center italic">
+          & all of our designers, product specialists, and marketing managers
+        </p>
       </div>
       <Footer />
     </>
