@@ -1,18 +1,16 @@
 'use client';
 
-import clsx from 'clsx';
-import type { StaticImageData } from 'next/image';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { createRef, useEffect, useState } from 'react';
-
 import FilledChevronUp from '@/../public/icons/filled-chevron-up-white.svg';
 import Clubs from '@/../public/projects/clubs.png';
 import Planner from '@/../public/projects/planner.png';
 import Rooms from '@/../public/projects/rooms.png';
 import Trends from '@/../public/projects/trends.png';
 import ArrowButton from '@/../public/testimonials/arrow-button.svg';
-
+import clsx from 'clsx';
+import type { StaticImageData } from 'next/image';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { createRef, useEffect, useState } from 'react';
 import Carousel from './Carousel';
 
 type Project = {

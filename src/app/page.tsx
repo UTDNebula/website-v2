@@ -1,6 +1,3 @@
-import Image from 'next/image';
-import React from 'react';
-
 import Gradient from '@/../public/images/BG6.png';
 import Circles from '@/../public/images/circles.svg';
 import CTA from '@/components/CTA';
@@ -9,7 +6,8 @@ import Navbar from '@/components/Navbar';
 import Projects from '@/components/Projects';
 import Testimonials from '@/components/Testimonials';
 import WhoWeAre from '@/components/WhoWeAre';
-
+import Image from 'next/image';
+import React from 'react';
 import ScrollDownButton from './ScrollDownButton';
 
 function Header() {

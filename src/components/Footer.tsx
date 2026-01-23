@@ -1,13 +1,12 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
-
 import GitHub from '@/../public/icons/github-white.svg';
 import Instagram from '@/../public/icons/instagram-white.svg';
 import Discord from '@/../public/icons/join-discord-white.svg';
 import LinkedIn from '@/../public/icons/linkedin-white.svg';
 import LogoName from '@/../public/logo-name-white.svg';
 import ScrollUpButton from '@/components/ScrollUpButton';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 const linkClasses = 'underline decoration-transparent hover:decoration-inherit transition';
 

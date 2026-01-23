@@ -1,13 +1,12 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import React from 'react';
-
 import Gradient from '@/../public/images/gradient.png';
 import crowd from '@/../public/projects/api/icons8-crowd-100.png';
 import expand from '@/../public/projects/api/icons8-expand-100.png';
 import support from '@/../public/projects/api/icons8-support-100.png';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import React from 'react';
 
 export const metadata: Metadata = {
   title: 'API & Platform',

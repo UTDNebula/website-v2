@@ -1,12 +1,5 @@
 'use client';
 
-import { Disclosure, Transition, TransitionRootProps } from '@headlessui/react';
-import clsx from 'clsx';
-import type { StaticImageData } from 'next/image';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react';
-
 import Arrow from '@/../public/icons/arrow-white.svg';
 import FilledChevronUpRoyal from '@/../public/icons/filled-chevron-up-royal.svg';
 import FilledChevronUpWhite from '@/../public/icons/filled-chevron-up-white.svg';
@@ -20,6 +13,12 @@ import TrendingUp from '@/../public/icons/trending-up.svg';
 import UserGroup from '@/../public/icons/user-group.svg';
 import Users from '@/../public/icons/users.svg';
 import X from '@/../public/icons/x.svg';
+import { Disclosure, Transition, TransitionRootProps } from '@headlessui/react';
+import clsx from 'clsx';
+import type { StaticImageData } from 'next/image';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 
 type BaseItem = { name: string };
 
