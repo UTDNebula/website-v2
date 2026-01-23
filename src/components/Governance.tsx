@@ -9,6 +9,7 @@ import PeriodLinks from '@/components/PeriodLinks';
 import { Person } from '@/data/person-dictionary';
 import { PopulatedGoveranceGroup } from '@/lib/period-populator';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 const fallbackSrc = '/governance/blank.jpg';
@@ -47,22 +48,22 @@ function LeadershipCard(props: Person) {
         {typeof props.netId !== 'undefined' &&
           props.netId !== '' &&
           !props.netId.includes('unknown') && (
-            <a
+            <Link
               href={`mailto:${props.netId}@utdallas.edu`}
-              key={'email'}
+              target="_blank"
               className="w-8 h-8 relative"
             >
               <Image src={Email} alt="Social link" fill />
-            </a>
+            </Link>
           )}
         {typeof props.linkedIn !== 'undefined' && props.linkedIn !== '' && (
-          <a
+          <Link
             href={`https://www.linkedin.com/in/${props.linkedIn}/`}
-            key={'linkedIn'}
+            target="_blank"
             className="w-8 h-8 relative"
           >
             <Image src={LinkedIn} alt="Social link" fill />
-          </a>
+          </Link>
         )}
       </div>
     </div>

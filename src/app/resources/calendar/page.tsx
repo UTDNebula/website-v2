@@ -6,6 +6,7 @@ import fetchCalendar from '@/lib/fetchCalendar';
 import { ics } from 'calendar-link';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import CopyInput from './CopyInput';
 import Error from './error';
@@ -124,20 +125,19 @@ const Event = (props: EventReactProps) => {
       </summary>
       {typeof props.description !== 'undefined' && <p>{props.description}</p>}
       <div className="mt-2 flex justify-center gap-2">
-        <a
+        <Link
           className={buttonLinkClasses}
           target="_blank"
           href={
             'https://accounts.google.com/AccountChooser?continue=https://calendar.google.com/calendar/r/eventedit/copy/' +
             props.htmlLink.split('eid=')[1]
           }
-          rel="noreferrer"
         >
           Copy to Google Calendar
-        </a>
-        <a download={props.name} className={buttonLinkClasses} href={iCalFileString}>
+        </Link>
+        <Link download={props.name} className={buttonLinkClasses} href={iCalFileString}>
           Copy with iCal
-        </a>
+        </Link>
       </div>
     </details>
   );
@@ -224,25 +224,19 @@ export default async function Calendar() {
       </h2>
       <p className="px-8 lg:px-16 xl:px-32 text-center mb-8">Times in CT.</p>
       <div className="px-8 lg:px-16 xl:px-32 mb-12 flex justify-center gap-2 flex-wrap">
-        <a
+        <Link
           className={buttonLinkClasses}
           target="_blank"
           href="https://accounts.google.com/AccountChooser?continue=https://calendar.google.com/calendar/?cid=c_81b7102868d4acac8b7db3a18de6440d45740e4754be4f8a28a5c3915b0d1e71%40group.calendar.google.com"
-          rel="noreferrer"
         >
           Subscribe in Google Calendar
-        </a>
+        </Link>
         <button className={buttonLinkClasses} popoverTarget="ics-cal-popover">
           Subscribe in Apple/Outlook
         </button>
-        <a
-          className={buttonLinkClasses}
-          target="_blank"
-          href="https://discord.utdnebula.com/"
-          rel="noreferrer"
-        >
+        <Link className={buttonLinkClasses} target="_blank" href="https://discord.utdnebula.com/">
           View on Discord
-        </a>
+        </Link>
       </div>
       <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center">{result}</div>
       <Footer />

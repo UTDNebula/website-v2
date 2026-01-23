@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
 import type { StaticImageData } from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 interface ImageWithAlt {
@@ -50,14 +51,13 @@ export default function Project(props: ProjectProps) {
       </div>
       {typeof props.projectLink === 'string' ? (
         <div className="relative -top-10 w-full flex justify-center drop-shadow">
-          <a
+          <Link
             className="px-10 py-6 text-2xl text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors drop-shadow-sm"
             href={props.projectLink}
             target="_blank"
-            rel="noreferrer"
           >
             Get Started
-          </a>
+          </Link>
         </div>
       ) : (
         props.projectLink
@@ -79,14 +79,13 @@ export default function Project(props: ProjectProps) {
       </div>
       <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
         <h2 className="text-5xl font-bold text-center">Interested? Learn more about our project</h2>
-        <a
+        <Link
           className="px-6 py-3 text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors"
           href={props.learnMoreLink}
           target="_blank"
-          rel="noreferrer"
         >
           Learn More
-        </a>
+        </Link>
       </div>
       <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
         <h3 className="text-4xl font-bold text-center">Contributors</h3>

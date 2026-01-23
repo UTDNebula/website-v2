@@ -1,6 +1,7 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import React from 'react';
 
 export const metadata: Metadata = {
@@ -37,14 +38,13 @@ export default function Membership() {
         <h2 className="text-5xl font-bold text-center">How to Become a Member</h2>
         <p className="text-3xl">
           Look out for announcements in{' '}
-          <a
+          <Link
             className="text-royal underline decoration-transparent hover:decoration-inherit transition"
             href="https://discord.utdnebula.com/"
             target="_blank"
-            rel="noreferrer"
           >
             our Discord
-          </a>
+          </Link>
           . The process generally involves active participation in a team for a semester and a brief
           membership form.
         </p>
