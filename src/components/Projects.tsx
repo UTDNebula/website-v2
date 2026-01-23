@@ -6,7 +6,6 @@ import Planner from '@/../public/projects/planner.png';
 import Rooms from '@/../public/projects/rooms.png';
 import Trends from '@/../public/projects/trends.png';
 import ArrowButton from '@/../public/testimonials/arrow-button.svg';
-import clsx from 'clsx';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -108,7 +107,7 @@ export default function Projects() {
       <div className="bg-stars bg-cover rounded-full flex items-center justify-center w-full aspect-square lg:scale-[115%] scale-[200%] lg:my-52 my-[34rem] shadow-[0px_0px_87px_-1px_#312E81]">
         <div className="shrink-0 flex flex-col justify-center lg:scale-[calc(1/1.15)] scale-[calc(1/2)] h-min w-full">
           <div className="text-center flex flex-col items-center">
-            <h3 className="text-2xl md:text-4xl text-white">Check Out Our </h3>
+            <h3 className="text-2xl md:text-4xl text-white">Check Out Our</h3>
             <h1 className="font-display md:text-7xl text-4xl font-bold text-transparent w-min bg-clip-text bg-linear-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
               Projects
             </h1>
@@ -162,12 +161,10 @@ function ProjectCard(props: {
   const { project, index, next, valueCount, prev } = props;
   return (
     <div
-      className={clsx(
-        'rounded-3xl border w-full border-white text-white gap-8 shrink-0 p-10 relative overflow-clip md:items-center',
-        project.image
+      className={`rounded-3xl border w-full border-white text-white gap-8 shrink-0 p-10 relative overflow-clip md:items-center ${project.image
           ? 'grid md:grid-cols-2 grid-cols-1'
-          : 'flex flex-col items-start justify-between',
-      )}
+          : 'flex flex-col items-start justify-between'}
+      `}
     >
       {project.image ? (
         <Image src={project.image} alt={project.alt} className="md:order-2" />
@@ -175,8 +172,8 @@ function ProjectCard(props: {
         <span></span>
       )}
 
-      <div className={clsx('flex flex-col gap-8 md:order-1', !project.image && 'w-full')}>
-        <h1 className="font-display text-xl md:text-3xl">{project.title}</h1>
+      <div className={`flex flex-col gap-8 md:order-1${!project.image ? ' w-full' : ''}`}>
+        <h1 className="font-display font-bold text-xl md:text-3xl">{project.title}</h1>
         <p className="md:text-lg text-base">{project.description}</p>
 
         <Link
@@ -191,28 +188,20 @@ function ProjectCard(props: {
 
       <span
         style={{ backgroundColor: '#ffffff' }}
-        className={clsx(
-          'absolute -z-20 -top-[66px] -left-[50px] w-72 aspect-square overflow-clip rounded-full shrink-0 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]',
-        )}
+        className="absolute -z-20 -top-[66px] -left-[50px] w-72 aspect-square overflow-clip rounded-full shrink-0 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
       />
       <span
         style={{ backgroundColor: project.color }}
-        className={clsx(
-          'absolute -z-10 -top-10 -left-[50px] w-72 aspect-square overflow-clip rounded-full shrink-0 blur-[75px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]',
-        )}
+        className="absolute -z-10 -top-10 -left-[50px] w-72 aspect-square overflow-clip rounded-full shrink-0 blur-[75px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
       />
 
       <span
         style={{ backgroundColor: '#ffffff' }}
-        className={clsx(
-          'absolute -z-20 -bottom-10 -right-36 w-72 aspect-square overflow-clip rounded-full shrink-0 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]',
-        )}
+        className="absolute -z-20 -bottom-10 -right-36 w-72 aspect-square overflow-clip rounded-full shrink-0 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
       />
       <span
         style={{ backgroundColor: project.color }}
-        className={clsx(
-          'absolute -z-10 bottom-0 -right-36 w-72 aspect-square overflow-clip rounded-full shrink-0 blur-[75px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]',
-        )}
+        className="absolute -z-10 bottom-0 -right-36 w-72 aspect-square overflow-clip rounded-full shrink-0 blur-[75px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
       />
 
       <span className="flex gap-3 items-center mt-auto md:mt-0 md:order-3 mr-auto place-self-end">

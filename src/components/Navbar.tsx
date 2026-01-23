@@ -14,7 +14,6 @@ import UserGroup from '@/../public/icons/user-group.svg';
 import Users from '@/../public/icons/users.svg';
 import X from '@/../public/icons/x.svg';
 import { Disclosure, Transition, TransitionRootProps } from '@headlessui/react';
-import clsx from 'clsx';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -158,7 +157,7 @@ export default function Navbar(props: Props) {
   const textShadow = props.shadow ? 'text-shadow' : '';
 
   return (
-    <Disclosure as="nav" className={clsx('py-10 px-4', props.className ?? '')}>
+    <Disclosure as="nav" className={`py-10 px-4 ${props.className ?? ''}`}>
       {({ open: displayMobileMenu, close: closeMobileMenu }) => (
         <div className="flex items-center lg:place-content-evenly place-content-between">
           <span ref={ref} className="w-0 h-0 absolute invisible lg:w-5" />
@@ -182,25 +181,20 @@ export default function Navbar(props: Props) {
             <Image
               src={props.royal ? HamburgerRoyal : HamburgerWhite}
               alt=""
-              className={clsx('w-8', dropShadow)}
+              className={`w-8 ${dropShadow}`}
             />
           </Disclosure.Button>
           <Transition {...transitionProps} show={shouldDisplayDesktopMenu || displayMobileMenu}>
             <Disclosure.Panel
               static
               as="div"
-              className={clsx(
+              className={`${
                 displayMobileMenu
                   ? 'flex flex-col absolute top-0 left-0 bg-dark-gradient outline backdrop-blur-md p-4 gap-5'
-                  : 'hidden',
-                'lg:contents w-full text-white font-semibold',
-              )}
+                  : 'hidden'} lg:contents w-full text-white font-semibold`}
             >
               <button
-                className={clsx(
-                  displayMobileMenu ? 'block' : 'hidden',
-                  'cursor-pointer place-self-end',
-                )}
+                className={`${displayMobileMenu ? 'block' : 'hidden'} cursor-pointer place-self-end`}
                 onClick={() => closeMobileMenu()}
               >
                 <Image src={X} alt="" className="w-4" />
@@ -249,16 +243,10 @@ export default function Navbar(props: Props) {
                               buttonRefs.current[outerIndex] = el;
                             }}
                             onClick={handler}
-                            className={clsx(
-                              displayMobileMenu && 'place-content-between',
-                              'cursor-pointer w-full flex gap-1 items-center',
-                            )}
+                            className={`${displayMobileMenu && 'place-content-between'} cursor-pointer w-full flex gap-1 items-center`}
                           >
                             <p
-                              className={clsx(
-                                textShadow,
-                                props.royal && !displayMobileMenu && 'text-royal',
-                              )}
+                              className={`${textShadow} ${props.royal && !displayMobileMenu && 'text-royal'}`}
                             >
                               {item.name}
                             </p>
@@ -269,19 +257,13 @@ export default function Navbar(props: Props) {
                                   : FilledChevronUpWhite
                               }
                               alt=""
-                              className={clsx(
-                                submenuOpen ? 'rotate-0' : 'rotate-180',
-                                'w-3 transition-transform',
-                                dropShadow,
-                              )}
+                              className={`${submenuOpen ? 'rotate-0' : 'rotate-180'} w-3 transition-transform ${dropShadow}`}
                             />
                           </Disclosure.Button>
                           <Transition {...transitionProps}>
                             <Disclosure.Panel
                               as="ul"
-                              className={clsx(
-                                'lg:absolute lg:w-full lg:bg-dark-gradient lg:backdrop-blur-md border border-x-0 border-opacity-25 lg:left-0 lg:top-20 lg:mt-6 lg:py-10 lg:px-20 justify-items-center lg:flex-wrap lg:flex lg:gap-10 contents',
-                              )}
+                              className="lg:absolute lg:w-full lg:bg-dark-gradient lg:backdrop-blur-md border border-x-0 border-opacity-25 lg:left-0 lg:top-20 lg:mt-6 lg:py-10 lg:px-20 justify-items-center lg:flex-wrap lg:flex lg:gap-10 contents"
                             >
                               {item.children.map((child, innerIndex) => (
                                 <li
@@ -321,11 +303,7 @@ export default function Navbar(props: Props) {
                   <li key={`menu-child-${outerIndex}`}>
                     <Link
                       href={item.link}
-                      className={clsx(
-                        displayMobileMenu && 'flex place-content-between w-full',
-                        textShadow,
-                        props.royal && !displayMobileMenu && 'text-royal',
-                      )}
+                      className={`${displayMobileMenu && 'flex place-content-between w-full'} ${textShadow} ${props.royal && !displayMobileMenu && 'text-royal'}`}
                     >
                       {item.name}
                     </Link>
@@ -334,11 +312,7 @@ export default function Navbar(props: Props) {
               </ul>
               <Link
                 href="/resources/calendar"
-                className={clsx(
-                  'justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap',
-                  textShadow,
-                  props.royal && !displayMobileMenu ? 'text-royal border-royal' : 'border-white',
-                )}
+                className={`justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap ${textShadow} ${props.royal && !displayMobileMenu ? 'text-royal border-royal' : 'border-white'}`}
               >
                 Get Involved
               </Link>
