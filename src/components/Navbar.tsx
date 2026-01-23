@@ -13,7 +13,7 @@ import TrendingUp from '@/../public/icons/trending-up.svg';
 import UserGroup from '@/../public/icons/user-group.svg';
 import Users from '@/../public/icons/users.svg';
 import X from '@/../public/icons/x.svg';
-import { Disclosure, Transition, TransitionRootProps } from '@headlessui/react';
+import { Disclosure, DisclosureButton, DisclosurePanel, Transition, TransitionRootProps } from '@headlessui/react';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -177,15 +177,15 @@ export default function Navbar(props: Props) {
               className={dropShadow}
             />
           </Link>
-          <Disclosure.Button className="cursor-pointer lg:hidden">
+          <DisclosureButton className="cursor-pointer lg:hidden">
             <Image
               src={props.royal ? HamburgerRoyal : HamburgerWhite}
               alt=""
               className={`w-8 ${dropShadow}`}
             />
-          </Disclosure.Button>
+          </DisclosureButton>
           <Transition {...transitionProps} show={shouldDisplayDesktopMenu || displayMobileMenu}>
-            <Disclosure.Panel
+            <DisclosurePanel
               static
               as="div"
               className={`${
@@ -238,7 +238,7 @@ export default function Navbar(props: Props) {
                       };
                       return (
                         <div className="contents lg:block">
-                          <Disclosure.Button
+                          <DisclosureButton
                             ref={(el) => {
                               buttonRefs.current[outerIndex] = el;
                             }}
@@ -259,9 +259,9 @@ export default function Navbar(props: Props) {
                               alt=""
                               className={`${submenuOpen ? 'rotate-0' : 'rotate-180'} w-3 transition-transform ${dropShadow}`}
                             />
-                          </Disclosure.Button>
+                          </DisclosureButton>
                           <Transition {...transitionProps}>
-                            <Disclosure.Panel
+                            <DisclosurePanel
                               as="ul"
                               className="lg:absolute lg:w-full lg:bg-dark-gradient lg:backdrop-blur-md border border-x-0 border-opacity-25 lg:left-0 lg:top-20 lg:mt-6 lg:py-10 lg:px-20 justify-items-center lg:flex-wrap lg:flex lg:gap-10 contents"
                             >
@@ -292,7 +292,7 @@ export default function Navbar(props: Props) {
                                   </Link>
                                 </li>
                               ))}
-                            </Disclosure.Panel>
+                            </DisclosurePanel>
                           </Transition>
                         </div>
                       );
@@ -316,7 +316,7 @@ export default function Navbar(props: Props) {
               >
                 Get Involved
               </Link>
-            </Disclosure.Panel>
+            </DisclosurePanel>
           </Transition>
         </div>
       )}
