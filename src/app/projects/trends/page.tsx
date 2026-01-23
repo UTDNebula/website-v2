@@ -55,7 +55,7 @@ export default function Trends() {
       featuresDescription="Our data analytics platform to help you make informed decisions about your coursework."
       features={features}
       learnMoreLink="https://github.com/UTDNebula/utd-trends"
-      repos="trends"
+      repos="utd-trends"
     />
   );
 }

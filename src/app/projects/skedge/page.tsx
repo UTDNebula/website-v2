@@ -55,7 +55,7 @@ export default function Skedge() {
         alt: 'Skedge screenshot',
       }}
       projectLink={
-        <div className="relative -top-20 w-full flex justify-center gap-4">
+        <div className="relative -top-20 w-full flex justify-center gap-4 drop-shadow">
           <div className="bg-royal px-10 py-6 flex flex-col gap-4 items-center rounded-2xl drop-shadow-sm">
             <p className="text-3xl text-white font-medium">Get started</p>
             <div className="flex gap-4">

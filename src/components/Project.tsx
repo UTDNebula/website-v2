@@ -36,7 +36,9 @@ export default function Project(props: ProjectProps) {
         <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-display font-bold drop-shadow-sm">
           {props.name}
         </p>
-        <h1 className="text-5xl md:text-6xl font-bold text-center text-shadow">{props.tagline}</h1>
+        <h1 className="font-display text-5xl md:text-6xl font-bold text-center text-shadow">
+          {props.tagline}
+        </h1>
         <h2 className="text-3xl text-center text-shadow">{props.description}</h2>
         {props.cover ? (
           <div className="md:mx-4 lg:mx-8 xl:mx-16 rounded-t-2xl overflow-hidden md:mb-[-4rem] lg:mb-[-8rem] xl:mb-[-16rem]">
@@ -47,7 +49,7 @@ export default function Project(props: ProjectProps) {
         )}
       </div>
       {typeof props.projectLink === 'string' ? (
-        <div className="relative -top-10 w-full flex justify-center">
+        <div className="relative -top-10 w-full flex justify-center drop-shadow">
           <a
             className="px-10 py-6 text-2xl text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors drop-shadow-sm"
             href={props.projectLink}
@@ -89,9 +91,6 @@ export default function Project(props: ProjectProps) {
       <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
         <h3 className="text-4xl font-bold text-center">Contributors</h3>
         <Contributors repos={props.repos} />
-        <p className="text-center italic">
-          & all of our designers, product specialists, and marketing managers
-        </p>
       </div>
       <Footer />
     </>
