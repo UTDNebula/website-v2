@@ -8,26 +8,26 @@ export default function Loading() {
 
   const result = (
     <div className="flex flex-col gap-4 w-full max-w-[40ch] animate-pulse -z-10">
-      <h3 className="text-transparent w-fit text-4xl font-semibold bg-gray-200 rounded-full">
+      <h3 className="text-transparent w-fit text-4xl font-semibold bg-neutral-200 rounded-full">
         January
       </h3>
-      <h2 className="text-transparent w-fit text-3xl font-medium bg-gray-200 rounded-full">
+      <h2 className="text-transparent w-fit text-3xl font-medium bg-neutral-200 rounded-full">
         19 Monday
       </h2>
-      <div className="text-transparent w-full p-4 bg-gray-200 rounded-lg">
+      <div className="text-transparent w-full p-4 bg-neutral-200 rounded-lg">
         <p className="text-2xl">After Hours</p>
         <p>7:00 - 9:00 PM</p>
         <p>AD 2.232</p>
       </div>
-      <div className="text-transparent w-full p-4 bg-gray-200 rounded-lg">
+      <div className="text-transparent w-full p-4 bg-neutral-200 rounded-lg">
         <p className="text-2xl">After Hours</p>
         <p>7:00 - 9:00 PM</p>
         <p>AD 2.232</p>
       </div>
-      <h2 className="text-transparent w-fit text-3xl font-medium bg-gray-200 rounded-full">
+      <h2 className="text-transparent w-fit text-3xl font-medium bg-neutral-200 rounded-full">
         19 Monday
       </h2>
-      <div className="text-transparent w-full p-4 bg-gray-200 rounded-lg">
+      <div className="text-transparent w-full p-4 bg-neutral-200 rounded-lg">
         <p className="text-2xl">After Hours</p>
         <p>7:00 - 9:00 PM</p>
         <p>AD 2.232</p>

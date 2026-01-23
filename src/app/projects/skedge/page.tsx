@@ -7,6 +7,7 @@ import input from '@/../public/projects/skedge/icons8-input-100.png';
 import Project from '@/components/Project';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 export const metadata: Metadata = {
@@ -59,22 +60,20 @@ export default function Skedge() {
           <div className="bg-royal px-10 py-6 flex flex-col gap-4 items-center rounded-2xl drop-shadow-sm">
             <p className="text-3xl text-white font-medium">Get started</p>
             <div className="flex gap-4">
-              <a
-                className="p-2 bg-white rounded-full hover:bg-gray-200 transition-colors"
+              <Link
+                className="p-2 bg-white rounded-full hover:bg-neutral-200 transition-colors"
                 href="https://chromewebstore.google.com/detail/skedge/ghipfanpcodcmkjacmmfjdmccdiaahab"
                 target="_blank"
-                rel="noreferrer"
               >
                 <Image src={Chrome} alt="Chrome icon" className="h-10 w-10" />
-              </a>
-              <a
-                className="p-2 bg-white rounded-full hover:bg-gray-200 transition-colors"
+              </Link>
+              <Link
+                className="p-2 bg-white rounded-full hover:bg-neutral-200 transition-colors"
                 href="https://addons.mozilla.org/en-US/firefox/addon/sk-edge/"
                 target="_blank"
-                rel="noreferrer"
               >
                 <Image src={Firefox} alt="Firefox icon" className="h-10 w-10" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
