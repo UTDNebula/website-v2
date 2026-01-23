@@ -13,7 +13,13 @@ import TrendingUp from '@/../public/icons/trending-up.svg';
 import UserGroup from '@/../public/icons/user-group.svg';
 import Users from '@/../public/icons/users.svg';
 import X from '@/../public/icons/x.svg';
-import { Disclosure, DisclosureButton, DisclosurePanel, Transition, TransitionRootProps } from '@headlessui/react';
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+  Transition,
+  TransitionRootProps,
+} from '@headlessui/react';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -191,7 +197,8 @@ export default function Navbar(props: Props) {
               className={`${
                 displayMobileMenu
                   ? 'flex flex-col absolute top-0 left-0 bg-dark-gradient outline backdrop-blur-md p-4 gap-5'
-                  : 'hidden'} lg:contents w-full text-white font-semibold`}
+                  : 'hidden'
+              } lg:contents w-full text-white font-semibold`}
             >
               <button
                 className={`${displayMobileMenu ? 'block' : 'hidden'} cursor-pointer place-self-end`}

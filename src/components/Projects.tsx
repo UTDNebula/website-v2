@@ -161,9 +161,11 @@ function ProjectCard(props: {
   const { project, index, next, valueCount, prev } = props;
   return (
     <div
-      className={`rounded-3xl border w-full border-white text-white gap-8 shrink-0 p-10 relative overflow-clip md:items-center ${project.image
+      className={`rounded-3xl border w-full border-white text-white gap-8 shrink-0 p-10 relative overflow-clip md:items-center ${
+        project.image
           ? 'grid md:grid-cols-2 grid-cols-1'
-          : 'flex flex-col items-start justify-between'}
+          : 'flex flex-col items-start justify-between'
+      }
       `}
     >
       {project.image ? (
