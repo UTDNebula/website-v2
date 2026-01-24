@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 export const metadata: Metadata = {
@@ -27,50 +28,45 @@ export default function Contact() {
           <h2 className="text-2xl">
             Discord is the best place to stay up to date with our latest updates and events.
           </h2>
-          <a
+          <Link
             className="hover:scale-105 transition"
             href="https://discord.utdnebula.com/"
             target="_blank"
-            rel="noreferrer"
           >
             <Image src={Discord} alt="discord" width="200" height="60" />
-          </a>
+          </Link>
         </div>
         <div className="flex flex-col items-center gap-8">
           <h2 className="text-2xl">You can also find us on these platforms:</h2>
           <div className="flex flex-row items-center gap-12">
-            <a
+            <Link
               className={linkClasses + ' flex items-center gap-2'}
               href="https://instagram.com/utdnebula"
               target="_blank"
-              rel="noreferrer"
             >
               <Image src={Instagram} alt="Instagram logo" width="30" height="30" />
-            </a>
-            <a
+            </Link>
+            <Link
               className={linkClasses + ' flex items-center gap-2'}
               href="https://linkedin.com/company/utdnebula"
               target="_blank"
-              rel="noreferrer"
             >
               <Image src={LinkedIn} alt="LinkedIn logo" width="30" height="30" />
-            </a>
-            <a
+            </Link>
+            <Link
               className={linkClasses + ' flex items-center gap-2'}
               href="https://github.com/utdnebula"
               target="_blank"
-              rel="noreferrer"
             >
               <Image src={GitHub} alt="GitHub logo" width="30" height="30" />
-            </a>
-            <a
+            </Link>
+            <Link
               className={linkClasses + ' flex items-center gap-2'}
               href="mailto:leadership@utdnebula.com"
               target="_blank"
-              rel="noreferrer"
             >
               <Image src={Gmail} alt="GitHub logo" width="30" height="30" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
