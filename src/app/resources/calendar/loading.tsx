@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import Link from 'next/link';
 import React from 'react';
 
 export default function Loading() {
@@ -8,26 +9,26 @@ export default function Loading() {
 
   const result = (
     <div className="flex flex-col gap-4 w-full max-w-[40ch] animate-pulse -z-10">
-      <h3 className="text-transparent w-fit text-4xl font-semibold bg-gray-200 rounded-full">
+      <h3 className="text-transparent w-fit text-4xl font-semibold bg-neutral-200 rounded-full">
         January
       </h3>
-      <h2 className="text-transparent w-fit text-3xl font-medium bg-gray-200 rounded-full">
+      <h2 className="text-transparent w-fit text-3xl font-medium bg-neutral-200 rounded-full">
         19 Monday
       </h2>
-      <div className="text-transparent w-full p-4 bg-gray-200 rounded-lg">
+      <div className="text-transparent w-full p-4 bg-neutral-200 rounded-lg">
         <p className="text-2xl">After Hours</p>
         <p>7:00 - 9:00 PM</p>
         <p>AD 2.232</p>
       </div>
-      <div className="text-transparent w-full p-4 bg-gray-200 rounded-lg">
+      <div className="text-transparent w-full p-4 bg-neutral-200 rounded-lg">
         <p className="text-2xl">After Hours</p>
         <p>7:00 - 9:00 PM</p>
         <p>AD 2.232</p>
       </div>
-      <h2 className="text-transparent w-fit text-3xl font-medium bg-gray-200 rounded-full">
+      <h2 className="text-transparent w-fit text-3xl font-medium bg-neutral-200 rounded-full">
         19 Monday
       </h2>
-      <div className="text-transparent w-full p-4 bg-gray-200 rounded-lg">
+      <div className="text-transparent w-full p-4 bg-neutral-200 rounded-lg">
         <p className="text-2xl">After Hours</p>
         <p>7:00 - 9:00 PM</p>
         <p>AD 2.232</p>
@@ -43,23 +44,17 @@ export default function Loading() {
       </h2>
       <p className="px-8 lg:px-16 xl:px-32 text-center mb-8">Times in CT.</p>
       <div className="px-8 lg:px-16 xl:px-32 mb-12 flex justify-center gap-2 flex-wrap">
-        <a
+        <Link
           className={buttonLinkClasses}
           target="_blank"
           href="https://accounts.google.com/AccountChooser?continue=https://calendar.google.com/calendar/?cid=c_81b7102868d4acac8b7db3a18de6440d45740e4754be4f8a28a5c3915b0d1e71%40group.calendar.google.com"
-          rel="noreferrer"
         >
           Subscribe in Google Calendar
-        </a>
+        </Link>
         <button className={buttonLinkClasses}>Subscribe in Apple/Outlook</button>
-        <a
-          className={buttonLinkClasses}
-          target="_blank"
-          href="https://discord.utdnebula.com/"
-          rel="noreferrer"
-        >
+        <Link className={buttonLinkClasses} target="_blank" href="https://discord.utdnebula.com/">
           View on Discord
-        </a>
+        </Link>
       </div>
       <div className="px-8 lg:px-16 xl:px-32 flex flex-col items-center">{result}</div>
       <Footer />

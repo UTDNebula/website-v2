@@ -62,59 +62,53 @@ export default function Footer() {
           <Link className={linkClasses} href="/resources/calendar">
             Calendar
           </Link>
-          <a
+          <Link
             className={linkClasses}
             href="https://nebula-labs.atlassian.net/wiki/spaces/ND/overview?homepageId=23822536"
             target="_blank"
-            rel="noreferrer"
           >
             Design Guide
-          </a>
-          <a
+          </Link>
+          <Link
             className={linkClasses}
             href="https://nebula-labs.atlassian.net/wiki/x/0YD5AQ"
             target="_blank"
-            rel="noreferrer"
           >
             Confluence
-          </a>
+          </Link>
         </div>
         <div className="flex flex-col items-start  gap-4 lg:ml-auto">
-          <a
+          <Link
             className="mb-6 hover:scale-105 transition"
             href="https://discord.utdnebula.com/"
             target="_blank"
-            rel="noreferrer"
           >
             <Image src={Discord} alt="discord" width="200" height="60" />
-          </a>
-          <a
+          </Link>
+          <Link
             className={linkClasses + ' flex items-center gap-2'}
             href="https://instagram.com/utdnebula"
             target="_blank"
-            rel="noreferrer"
           >
             <Image src={Instagram} alt="Instagram logo" width="30" height="30" />
             Instagram
-          </a>
-          <a
+          </Link>
+          <Link
             className={linkClasses + ' flex items-center gap-2'}
             href="https://linkedin.com/company/utdnebula"
             target="_blank"
-            rel="noreferrer"
           >
             <Image src={LinkedIn} alt="LinkedIn logo" width="30" height="30" />
             LinkedIn
-          </a>
-          <a
+          </Link>
+          <Link
             className={linkClasses + ' flex items-center gap-2'}
             href="https://github.com/utdnebula"
             target="_blank"
-            rel="noreferrer"
           >
             <Image src={GitHub} alt="GitHub logo" width="30" height="30" />
             GitHub
-          </a>
+          </Link>
         </div>
       </div>
       <div className="md:pt-40 pt-10">
