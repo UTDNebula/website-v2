@@ -53,6 +53,9 @@ export default function Footer() {
           <Link className={linkClasses} href="/projects/planner">
             Planner
           </Link>
+          <Link className={linkClasses} href="/projects/notebook">
+            Notebook
+          </Link>
         </div>
         <div className="flex flex-col items-start gap-3">
           <h3 className="text-xl font-semibold mb-4">Resources</h3>

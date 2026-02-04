@@ -6,6 +6,7 @@ import FilledChevronUpWhite from '@/../public/icons/filled-chevron-up-white.svg'
 import Map from '@/../public/icons/map.svg';
 import HamburgerRoyal from '@/../public/icons/menu-royal.svg';
 import HamburgerWhite from '@/../public/icons/menu-white.svg';
+import Notebook from '@/../public/icons/notebook.svg';
 import Pencil from '@/../public/icons/pencil.svg';
 import Puzzle from '@/../public/icons/puzzle.svg';
 import Star from '@/../public/icons/star.svg';
@@ -100,6 +101,12 @@ const parentItems: Array<ParentItem> = [
         description: 'Help plan degree and course requirements',
         iconSrc: Pencil,
       },
+      {
+       name: 'Notebook',
+       link: '/projects/notebook',
+       description: 'Discover and share course notes',
+       iconSrc: Notebook,
+     },
     ],
   },
 ];
