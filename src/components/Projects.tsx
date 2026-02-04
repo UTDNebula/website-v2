@@ -73,6 +73,16 @@ const PROJECTS_INFO: Project[] = [
     alt: "A laptop displaying Planner's dashboard, showing a list of degree plan cards",
     color: '#523DFF',
   },
+  {
+    title: 'Notebook',
+    shortName: 'Notebook',
+    description:
+      'Notebook is a note-sharing platform that allows students to upload their notes to share with their classmates and save others\' notes that they find useful. Currently in development.',
+    url: '/projects/notebook',
+    /* image: Notebook, */ //no image yet
+    alt: "",
+    color: '#523DFF',
+  },
 ];
 
 export default function Projects() {
@@ -115,7 +125,7 @@ export default function Projects() {
           <div className="text-center pt-4 text-white px-4">
             <p>Check out what we have been creating in our lab up in the galaxy</p>
           </div>
-          <div className="gap-8 grid-cols-5 mx-auto pt-6 text-white hidden lg:grid">
+          <div className="gap-8 grid-cols-6 mx-auto pt-6 text-white hidden lg:grid">
             {PROJECTS_INFO.map((project, index) => (
               <button
                 type="button"
