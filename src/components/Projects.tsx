@@ -130,7 +130,7 @@ export default function Projects() {
               <button
                 type="button"
                 key={`project-selector-${index}`}
-                className={`hover:scale-105 active:scale-95 transition flex h-16 px-10 justify-center items-center rounded-full cursor-pointer ${
+                className={`hover:scale-105 active:scale-95 transition flex h-16 px-8 justify-center items-center rounded-full cursor-pointer ${
                   selected === index ? 'bg-[#6166FA] border-black' : 'border-white'
                 } transition duration-300 ease-in-out border-2`}
                 onClick={() => {
