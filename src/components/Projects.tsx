@@ -118,11 +118,11 @@ export default function Projects() {
         <div className="shrink-0 flex flex-col justify-center lg:scale-[calc(1/1.15)] scale-[calc(1/2)] h-min w-full">
           <div className="text-center flex flex-col items-center">
             <h3 className="text-2xl md:text-4xl text-white">Check Out Our</h3>
-            <h1 className="font-display md:text-7xl text-4xl font-bold text-transparent w-min bg-clip-text bg-linear-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
+            <h1 className="pb-2 font-display md:text-7xl text-4xl font-bold text-transparent w-min bg-clip-text bg-linear-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
               Projects
             </h1>
           </div>
-          <div className="text-center pt-4 text-white px-4">
+          <div className="text-center pt-2 text-white px-4">
             <p>Check out what we have been creating in our lab up in the galaxy</p>
           </div>
           <div className="gap-8 grid-cols-6 mx-auto pt-6 text-white hidden lg:grid">
