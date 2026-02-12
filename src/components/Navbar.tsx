@@ -96,10 +96,10 @@ const parentItems: Array<ParentItem> = [
         iconSrc: Puzzle,
       },
       {
-       name: 'Notebook',
-       link: '/projects/notebook',
-       description: 'Discover and share course notes',
-       iconSrc: Notebook,
+        name: 'Notebook',
+        link: '/projects/notebook',
+        description: 'Discover and share course notes',
+        iconSrc: Notebook,
       },
       {
         name: 'Planner',

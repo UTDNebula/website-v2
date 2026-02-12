@@ -68,10 +68,10 @@ const PROJECTS_INFO: Project[] = [
     title: 'Notebook',
     shortName: 'Notebook',
     description:
-      'Notebook is a note-sharing platform that allows students to upload their notes to share with their classmates and save others\' notes that they find useful. Currently in development.',
+      "Notebook is a note-sharing platform that allows students to upload their notes to share with their classmates and save others' notes that they find useful. Currently in development.",
     url: '/projects/notebook',
     image: Notebook,
-    alt: "",
+    alt: '',
     color: '#523DFF',
   },
   {
