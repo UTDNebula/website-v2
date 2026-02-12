@@ -2,6 +2,7 @@
 
 import FilledChevronUp from '@/../public/icons/filled-chevron-up-white.svg';
 import Clubs from '@/../public/projects/clubs.png';
+import Notebook from '@/../public/projects/notebook.png';
 import Planner from '@/../public/projects/planner.png';
 import Rooms from '@/../public/projects/rooms.png';
 import Trends from '@/../public/projects/trends.png';
@@ -69,7 +70,7 @@ const PROJECTS_INFO: Project[] = [
     description:
       'Notebook is a note-sharing platform that allows students to upload their notes to share with their classmates and save others\' notes that they find useful. Currently in development.',
     url: '/projects/notebook',
-    /* image: Notebook, */ //no image yet
+    image: Notebook,
     alt: "",
     color: '#523DFF',
   },
