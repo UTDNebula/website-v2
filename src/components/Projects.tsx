@@ -2,6 +2,7 @@
 
 import FilledChevronUp from '@/../public/icons/filled-chevron-up-white.svg';
 import Clubs from '@/../public/projects/clubs.png';
+import Notebook from '@/../public/projects/notebook.png';
 import Planner from '@/../public/projects/planner.png';
 import Rooms from '@/../public/projects/rooms.png';
 import Trends from '@/../public/projects/trends.png';
@@ -64,6 +65,16 @@ const PROJECTS_INFO: Project[] = [
     color: '#FF6B4A',
   },
   {
+    title: 'Notebook',
+    shortName: 'Notebook',
+    description:
+      'Notebook is a note-sharing platform that allows students to upload their notes to share with their classmates and save others\' notes that they find useful. Currently in development.',
+    url: '/projects/notebook',
+    image: Notebook,
+    alt: "",
+    color: '#523DFF',
+  },
+  {
     title: 'Planner',
     shortName: 'Planner',
     description:
@@ -108,19 +119,19 @@ export default function Projects() {
         <div className="shrink-0 flex flex-col justify-center lg:scale-[calc(1/1.15)] scale-[calc(1/2)] h-min w-full">
           <div className="text-center flex flex-col items-center">
             <h3 className="text-2xl md:text-4xl text-white">Check Out Our</h3>
-            <h1 className="font-display md:text-7xl text-4xl font-bold text-transparent w-min bg-clip-text bg-linear-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
+            <h1 className="pb-2 font-display md:text-7xl text-4xl font-bold text-transparent w-min bg-clip-text bg-linear-to-r from-[#6166FA] via-[#C2C9FF] to-[#FE8164]">
               Projects
             </h1>
           </div>
-          <div className="text-center pt-4 text-white px-4">
+          <div className="text-center pt-2 text-white px-4">
             <p>Check out what we have been creating in our lab up in the galaxy</p>
           </div>
-          <div className="gap-8 grid-cols-5 mx-auto pt-6 text-white hidden lg:grid">
+          <div className="gap-8 grid-cols-6 mx-auto pt-6 text-white hidden lg:grid">
             {PROJECTS_INFO.map((project, index) => (
               <button
                 type="button"
                 key={`project-selector-${index}`}
-                className={`hover:scale-105 active:scale-95 transition flex h-16 px-10 justify-center items-center rounded-full cursor-pointer ${
+                className={`hover:scale-105 active:scale-95 transition flex h-16 px-8 justify-center items-center rounded-full cursor-pointer ${
                   selected === index ? 'bg-[#6166FA] border-black' : 'border-white'
                 } transition duration-300 ease-in-out border-2`}
                 onClick={() => {
