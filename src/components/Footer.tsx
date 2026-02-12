@@ -50,11 +50,11 @@ export default function Footer() {
           <Link className={linkClasses} href="/projects/api">
             API & Platform
           </Link>
-          <Link className={linkClasses} href="/projects/planner">
-            Planner
-          </Link>
           <Link className={linkClasses} href="/projects/notebook">
             Notebook
+          </Link>
+          <Link className={linkClasses} href="/projects/planner">
+            Planner
           </Link>
         </div>
         <div className="flex flex-col items-start gap-3">

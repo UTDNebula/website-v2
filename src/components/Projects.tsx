@@ -64,16 +64,6 @@ const PROJECTS_INFO: Project[] = [
     color: '#FF6B4A',
   },
   {
-    title: 'Planner',
-    shortName: 'Planner',
-    description:
-      'Planner is a student-focused tool for creating and tracking degree plans, offering a user-friendly interface to simplify course mapping and progress tracking.',
-    url: '/projects/planner',
-    image: Planner,
-    alt: "A laptop displaying Planner's dashboard, showing a list of degree plan cards",
-    color: '#523DFF',
-  },
-  {
     title: 'Notebook',
     shortName: 'Notebook',
     description:
@@ -81,6 +71,16 @@ const PROJECTS_INFO: Project[] = [
     url: '/projects/notebook',
     /* image: Notebook, */ //no image yet
     alt: "",
+    color: '#523DFF',
+  },
+  {
+    title: 'Planner',
+    shortName: 'Planner',
+    description:
+      'Planner is a student-focused tool for creating and tracking degree plans, offering a user-friendly interface to simplify course mapping and progress tracking.',
+    url: '/projects/planner',
+    image: Planner,
+    alt: "A laptop displaying Planner's dashboard, showing a list of degree plan cards",
     color: '#523DFF',
   },
 ];

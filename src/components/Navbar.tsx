@@ -96,17 +96,17 @@ const parentItems: Array<ParentItem> = [
         iconSrc: Puzzle,
       },
       {
+       name: 'Notebook',
+       link: '/projects/notebook',
+       description: 'Discover and share course notes',
+       iconSrc: Notebook,
+      },
+      {
         name: 'Planner',
         link: '/projects/planner',
         description: 'Help plan degree and course requirements',
         iconSrc: Pencil,
       },
-      {
-       name: 'Notebook',
-       link: '/projects/notebook',
-       description: 'Discover and share course notes',
-       iconSrc: Notebook,
-     },
     ],
   },
 ];
