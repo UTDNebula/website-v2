@@ -66,8 +66,8 @@ export default function Notebook() {
                 src: Cover,
                 alt: 'Notebook screenshot',
             }}
-            projectLink="https://dev.notebook.utdnebula.com/" // dev version
-            featuresDescription="Browse and save your classmates' notes to study later, and give back to your campus community by sharing your notes." // TODO
+            projectLink="https://notebook.utdnebula.com/"
+            featuresDescription="Browse and save your classmates' notes to study later, and give back to your campus community by sharing your notes."
             features={features}
             learnMoreLink="https://github.com/UTDNebula/utd-notebook"
             repos="utd-notebook"
