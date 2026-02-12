@@ -46,31 +46,31 @@ const features = [
 ];
 
 export default function Notebook() {
-    return (
-        <Project
-            name="NOTEBOOK"
-            tagline={
-                <>
-                    Discover and share
-                    <br />
-                    course notes
-                </>
-            }
-            description={
-                <>
-                    The easiest way to exchange knowledge with your classmates.
-                    <span className="block mt-2 font-display text-lg">* In development</span>
-                </>
-            }
-            cover={{
-                src: Cover,
-                alt: 'Notebook screenshot',
-            }}
-            projectLink="https://notebook.utdnebula.com/"
-            featuresDescription="Browse and save your classmates' notes to study later, and give back to your campus community by sharing your notes."
-            features={features}
-            learnMoreLink="https://github.com/UTDNebula/utd-notebook"
-            repos="utd-notebook"
-        />
-    );
+  return (
+    <Project
+      name={
+        <span className="flex flex-col items-center">
+          <span>NOTEBOOK</span>
+          <span className="font-main font-normal text-sm">In Development</span>
+        </span>
+      }
+      tagline={
+        <>
+          Discover and share
+          <br />
+          course notes
+        </>
+      }
+      description="The easiest way to exchange knowledge with your classmates."
+      cover={{
+        src: Cover,
+        alt: 'Notebook screenshot',
+      }}
+      projectLink="https://notebook.utdnebula.com/"
+      featuresDescription="Browse and save your classmates' notes to study later, and give back to your campus community by sharing your notes."
+      features={features}
+      learnMoreLink="https://github.com/UTDNebula/utd-notebook"
+      repos="utd-notebook"
+    />
+  );
 }
