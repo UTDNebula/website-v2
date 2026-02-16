@@ -3,7 +3,9 @@ import ArrowWhite from '@/../public/icons/filled-chevron-up-white.svg';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import fetchCalendar from '@/lib/fetchCalendar';
+import { TZDateMini } from '@date-fns/tz';
 import { ics } from 'calendar-link';
+import { format } from 'date-fns';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -21,53 +23,25 @@ export const metadata: Metadata = {
   },
 };
 
-const timeFormat = new Intl.DateTimeFormat('en-US', {
-  hour: 'numeric',
-  minute: 'numeric',
-  hour12: true,
-  timeZone: 'America/Chicago',
-});
+const formatTime = (date: Date) => format(date, 'h:mm a');
 
-const dateFormat = new Intl.DateTimeFormat('en-US', {
-  weekday: 'long',
-  day: 'numeric',
-  timeZone: 'America/Chicago',
-});
+const formatDate = (date: Date) => format(date, 'd EEEE');
 
-const fullFormat = new Intl.DateTimeFormat('en-US', {
-  month: 'short',
-  day: 'numeric',
-  timeZone: 'America/Chicago',
-});
+const formatMonth = (date: Date) => format(date, 'MMMM');
 
-const monthFormat = new Intl.DateTimeFormat('en-US', {
-  month: 'long',
-  timeZone: 'America/Chicago',
-});
+const formatKey = (date: Date) => format(date, 'yyyy-MM-dd');
 
-const keyFormat = new Intl.DateTimeFormat('en-US', {
-  timeZone: 'America/Chicago',
-});
+const getDateNumber = (date: Date) => format(date, 'd');
 
-const getDateNumber = new Intl.DateTimeFormat('en-US', {
-  day: 'numeric',
-  timeZone: 'America/Chicago',
-});
+const getMonthNumber = (date: Date) => format(date, 'M');
 
-const getMonthNumber = new Intl.DateTimeFormat('en-US', {
-  month: 'numeric',
-  timeZone: 'America/Chicago',
-});
-
-const getYearNumber = new Intl.DateTimeFormat('en-US', {
-  year: 'numeric',
-  timeZone: 'America/Chicago',
-});
+const getYearNumber = (date: Date) => format(date, 'yyyy');
 
 interface EventReactProps {
   name: string;
   start: string;
   end: string;
+  allDay: boolean;
   location: string;
   description: string | undefined;
   htmlLink: string;
@@ -79,11 +53,9 @@ const Event = (props: EventReactProps) => {
     !props.name.includes('Division Meeting') &&
     !props.name.includes('After Hours');
 
-  const allDay = !props.start.includes('T');
-
-  const start = new Date(props.start);
-  const end = new Date(props.end);
-  let startTime = timeFormat.format(start);
+  const start = new TZDateMini(props.start, 'America/Chicago');
+  const end = new TZDateMini(props.end, 'America/Chicago');
+  let startTime = formatTime(start);
   if (start.getHours() >= 12 === end.getHours() >= 12) {
     //AMPM the same
     startTime = startTime.slice(0, -3);
@@ -114,9 +86,9 @@ const Event = (props: EventReactProps) => {
         <div className="grow">
           <p className="text-2xl">{props.name}</p>
           <p>
-            {allDay
-              ? `All day through ${fullFormat.format(end)}`
-              : `${startTime} - ${timeFormat.format(end)}`}
+            {props.allDay
+              ? `All day through ${format(end, 'MMM d')}`
+              : `${startTime} - ${formatTime(end)}`}
           </p>
           <p>{props.location === 'Unknown' ? 'TBD' : props.location}</p>
         </div>
@@ -167,8 +139,11 @@ export default async function Calendar() {
         continue;
       }
 
-      const start = new Date(event.start.dateTime ?? event.start.date);
-      const year = getYearNumber.format(start);
+      const start = new TZDateMini(
+        event.start.dateTime ?? event.start.date + 'T00:00:00',
+        'America/Chicago',
+      );
+      const year = getYearNumber(start);
       if (lastYear !== year && !firstYear) {
         labelsAndEvents.push(
           <h2 key={year} className="text-5xl font-bold">
@@ -181,21 +156,20 @@ export default async function Calendar() {
         lastYear = year;
         firstYear = false;
       }
-      const month = getMonthNumber.format(start);
+      const month = getMonthNumber(start);
       if (lastMonth !== month) {
         labelsAndEvents.push(
           <h3 key={String(year) + String(month)} className="text-4xl font-semibold">
-            {monthFormat.format(start)}
+            {formatMonth(start)}
           </h3>,
         );
         lastMonth = month;
       }
-      const day = getDateNumber.format(start);
-      console.log(event.summary, start, day);
+      const day = getDateNumber(start);
       if (lastDay !== day) {
         labelsAndEvents.push(
-          <h4 key={keyFormat.format(start)} className="text-3xl font-medium">
-            {dateFormat.format(start)}
+          <h4 key={formatKey(start)} className="text-3xl font-medium">
+            {formatDate(start)}
           </h4>,
         );
         lastDay = day;
@@ -207,8 +181,9 @@ export default async function Calendar() {
         <Event
           key={event.id}
           name={event.summary}
-          start={event.start.dateTime ?? event.start.date}
-          end={event.end.dateTime ?? event.end.date}
+          start={event.start.dateTime ?? event.start.date + 'T00:00:00'}
+          end={event.end.dateTime ?? event.end.date + 'T00:00:00'}
+          allDay={!!event.start.date}
           location={event.location}
           description={description}
           htmlLink={event.htmlLink}
