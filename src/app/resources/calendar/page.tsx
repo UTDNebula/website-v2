@@ -34,12 +34,18 @@ const dateFormat = new Intl.DateTimeFormat('en-US', {
   timeZone: 'America/Chicago',
 });
 
+const fullFormat = new Intl.DateTimeFormat('en-US', {
+  month: 'short',
+  day: 'numeric',
+  timeZone: 'America/Chicago',
+});
+
 const monthFormat = new Intl.DateTimeFormat('en-US', {
   month: 'long',
   timeZone: 'America/Chicago',
 });
 
-const fullFormat = new Intl.DateTimeFormat('en-US', {
+const keyFormat = new Intl.DateTimeFormat('en-US', {
   timeZone: 'America/Chicago',
 });
 
@@ -106,7 +112,8 @@ const Event = (props: EventReactProps) => {
         <div className="grow">
           <p className="text-2xl">{props.name}</p>
           <p>
-            {startTime} - {timeFormat.format(end)}
+            {startTime} - {start.toDateString() !== end.toDateString() && fullFormat.format(end)}{' '}
+            {timeFormat.format(end)}
           </p>
           <p>{props.location === 'Unknown' ? 'TBD' : props.location}</p>
         </div>
@@ -157,7 +164,9 @@ export default async function Calendar() {
         continue;
       }
 
-      const start = new Date(event.start.dateTime);
+      const start = new Date(
+        event.start.date ? event.start.date + 'T00:00:00' : event.start.dateTime,
+      );
       const year = getYearNumber.format(start);
       if (lastYear !== year && !firstYear) {
         labelsAndEvents.push(
@@ -183,7 +192,7 @@ export default async function Calendar() {
       const day = getDateNumber.format(start);
       if (lastDay !== day) {
         labelsAndEvents.push(
-          <h4 key={fullFormat.format(start)} className="text-3xl font-medium">
+          <h4 key={keyFormat.format(start)} className="text-3xl font-medium">
             {dateFormat.format(start)}
           </h4>,
         );
@@ -192,12 +201,19 @@ export default async function Calendar() {
 
       const description = event.description?.replace(/<[^>]*>/g, ' ');
 
+      let end = event.end.date ? event.end.date + 'T23:59:00' : event.end.dateTime;
+      if (event.end.date) {
+        let endDate = new Date(end);
+        endDate.setDate(endDate.getDate() - 1);
+        end = endDate.toISOString();
+      }
+
       labelsAndEvents.push(
         <Event
           key={event.id}
           name={event.summary}
-          start={event.start.dateTime}
-          end={event.end.dateTime}
+          start={event.start.date ? event.start.date + 'T00:00:00' : event.start.dateTime}
+          end={end}
           location={event.location}
           description={description}
           htmlLink={event.htmlLink}

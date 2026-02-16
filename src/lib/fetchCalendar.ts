@@ -1,18 +1,24 @@
 import { CALENDAR_ID } from '@/data/calendarId';
 import { auth, JWT } from 'google-auth-library';
 
+type DateTime =
+  | {
+      date: string;
+      dateTime: never;
+    }
+  | {
+      date: never;
+      dateTime: string;
+    };
+
 type Data = {
   message: string;
   data?: {
     status: string;
     id: string;
     summary: string;
-    start: {
-      dateTime: string;
-    };
-    end: {
-      dateTime: string;
-    };
+    start: DateTime;
+    end: DateTime;
     location: string;
     description?: string;
     htmlLink: string;
