@@ -1,7 +1,15 @@
+import { CALENDAR_ID } from '@/data/calendarId';
 import { auth, JWT } from 'google-auth-library';
 
-const CALENDAR_ID =
-  'c_81b7102868d4acac8b7db3a18de6440d45740e4754be4f8a28a5c3915b0d1e71@group.calendar.google.com';
+type DateTime =
+  | {
+      date: string;
+      dateTime: never;
+    }
+  | {
+      date: never;
+      dateTime: string;
+    };
 
 type Data = {
   message: string;
@@ -9,12 +17,8 @@ type Data = {
     status: string;
     id: string;
     summary: string;
-    start: {
-      dateTime: string;
-    };
-    end: {
-      dateTime: string;
-    };
+    start: DateTime;
+    end: DateTime;
     location: string;
     description?: string;
     htmlLink: string;
