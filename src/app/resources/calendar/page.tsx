@@ -79,6 +79,8 @@ const Event = (props: EventReactProps) => {
     !props.name.includes('Division Meeting') &&
     !props.name.includes('After Hours');
 
+  const allDay = !props.start.includes('T');
+
   const start = new Date(props.start);
   const end = new Date(props.end);
   let startTime = timeFormat.format(start);
@@ -112,8 +114,9 @@ const Event = (props: EventReactProps) => {
         <div className="grow">
           <p className="text-2xl">{props.name}</p>
           <p>
-            {startTime} - {start.toDateString() !== end.toDateString() && fullFormat.format(end)}{' '}
-            {timeFormat.format(end)}
+            {allDay
+              ? `All day through ${fullFormat.format(end)}`
+              : `${startTime} - ${timeFormat.format(end)}`}
           </p>
           <p>{props.location === 'Unknown' ? 'TBD' : props.location}</p>
         </div>
@@ -164,9 +167,7 @@ export default async function Calendar() {
         continue;
       }
 
-      const start = new Date(
-        event.start.date ? event.start.date + 'T00:00:00' : event.start.dateTime,
-      );
+      const start = new Date(event.start.dateTime ?? event.start.date);
       const year = getYearNumber.format(start);
       if (lastYear !== year && !firstYear) {
         labelsAndEvents.push(
@@ -190,6 +191,7 @@ export default async function Calendar() {
         lastMonth = month;
       }
       const day = getDateNumber.format(start);
+      console.log(event.summary, start, day);
       if (lastDay !== day) {
         labelsAndEvents.push(
           <h4 key={keyFormat.format(start)} className="text-3xl font-medium">
@@ -201,19 +203,12 @@ export default async function Calendar() {
 
       const description = event.description?.replace(/<[^>]*>/g, ' ');
 
-      let end = event.end.date ? event.end.date + 'T23:59:00' : event.end.dateTime;
-      if (event.end.date) {
-        let endDate = new Date(end);
-        endDate.setDate(endDate.getDate() - 1);
-        end = endDate.toISOString();
-      }
-
       labelsAndEvents.push(
         <Event
           key={event.id}
           name={event.summary}
-          start={event.start.date ? event.start.date + 'T00:00:00' : event.start.dateTime}
-          end={end}
+          start={event.start.dateTime ?? event.start.date}
+          end={event.end.dateTime ?? event.end.date}
           location={event.location}
           description={description}
           htmlLink={event.htmlLink}
