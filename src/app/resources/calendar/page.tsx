@@ -37,7 +37,12 @@ const getMonthNumber = (date: Date) => format(date, 'M');
 
 const getYearNumber = (date: Date) => format(date, 'yyyy');
 
-interface EventReactProps {
+function parseAllDay(dateStr: string) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  return new TZDateMini(y, m - 1, d, 'America/Chicago');
+}
+
+interface EventProps {
   name: string;
   start: string;
   end: string;
@@ -47,14 +52,16 @@ interface EventReactProps {
   htmlLink: string;
 }
 
-const Event = (props: EventReactProps) => {
+const Event = (props: EventProps) => {
   const important =
     !props.name.includes('Project Meeting') &&
     !props.name.includes('Division Meeting') &&
     !props.name.includes('After Hours');
 
-  const start = new TZDateMini(props.start, 'America/Chicago');
-  const end = new TZDateMini(props.end, 'America/Chicago');
+  const start = props.allDay
+    ? parseAllDay(props.start)
+    : new TZDateMini(props.start, 'America/Chicago');
+  const end = props.allDay ? parseAllDay(props.end) : new TZDateMini(props.end, 'America/Chicago');
   let startTime = formatTime(start);
   if (start.getHours() >= 12 === end.getHours() >= 12) {
     //AMPM the same
@@ -139,10 +146,9 @@ export default async function Calendar() {
         continue;
       }
 
-      const start = new TZDateMini(
-        event.start.dateTime ?? event.start.date + 'T00:00:00',
-        'America/Chicago',
-      );
+      const start = event.start.dateTime
+        ? new TZDateMini(event.start.dateTime, 'America/Chicago')
+        : parseAllDay(event.start.date);
       const year = getYearNumber(start);
       if (lastYear !== year && !firstYear) {
         labelsAndEvents.push(
@@ -181,8 +187,8 @@ export default async function Calendar() {
         <Event
           key={event.id}
           name={event.summary}
-          start={event.start.dateTime ?? event.start.date + 'T00:00:00'}
-          end={event.end.dateTime ?? event.end.date + 'T00:00:00'}
+          start={event.start.dateTime ?? event.start.date}
+          end={event.end.dateTime ?? event.end.date}
           allDay={!!event.start.date}
           location={event.location}
           description={description}
