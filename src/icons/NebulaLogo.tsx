@@ -1,10 +1,6 @@
-import React from 'react';
+import { LogoProps } from './propTypes';
 
-interface Props {
-  className?: string;
-}
-
-export default function NebulaLogo(props: Props) {
+export default function NebulaLogo(props: LogoProps) {
   return (
     <svg
       viewBox="0 0 501.29 381.89"
