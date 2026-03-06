@@ -14,6 +14,7 @@ import TrendingUp from '@/../public/icons/trending-up.svg';
 import UserGroup from '@/../public/icons/user-group.svg';
 import Users from '@/../public/icons/users.svg';
 import X from '@/../public/icons/x.svg';
+import NebulaLogo from '@/icons/NebulaLogo';
 import {
   Disclosure,
   DisclosureButton,
@@ -181,13 +182,8 @@ export default function Navbar(props: Props) {
             }}
           />
           <Link className="flex items-center" href="/">
-            <Image
-              src={props.royal ? '/icon-royal.svg' : '/icon-white.svg'}
-              alt={'logo'}
-              width={90}
-              height={70}
-              priority
-              className={dropShadow}
+            <NebulaLogo
+              className={`w-22 h-17 ${props.royal ? 'fill-royal' : 'fill-white'} ${dropShadow}`}
             />
           </Link>
           <DisclosureButton className="cursor-pointer lg:hidden">
@@ -287,7 +283,7 @@ export default function Navbar(props: Props) {
                                   <Link
                                     href={child.link}
                                     className="lg:p-8 flex lg:flex-col gap-2"
-                                    target={child.link.includes('http') ? '_blank' : ''}
+                                    target={child.link.startsWith('http') ? '_blank' : ''}
                                   >
                                     {child.iconSrc && (
                                       <Image src={child.iconSrc} alt="" className="" />
