@@ -52,7 +52,7 @@ export default function Project(props: ProjectProps) {
       {typeof props.projectLink === 'string' ? (
         <div className="relative -top-10 w-full flex justify-center drop-shadow">
           <Link
-            className="px-10 py-6 text-2xl text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors drop-shadow-sm"
+            className="px-10 py-6 text-2xl text-white bg-royal rounded-full hover:bg-royalDark transition-colors drop-shadow-sm"
             href={props.projectLink}
             target="_blank"
           >
@@ -80,7 +80,7 @@ export default function Project(props: ProjectProps) {
       <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
         <h2 className="text-5xl font-bold text-center">Interested? Learn more about our project</h2>
         <Link
-          className="px-6 py-3 text-white bg-royal rounded-full hover:bg-[#3634BB] transition-colors"
+          className="px-6 py-3 text-white bg-royal rounded-full hover:bg-royalDark transition-colors"
           href={props.learnMoreLink}
           target="_blank"
         >
