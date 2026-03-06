@@ -7,7 +7,7 @@ import React from 'react';
 export const metadata: Metadata = {
   title: 'Membership',
   alternates: {
-    canonical: '/membership',
+    canonical: '/about/membership',
   },
 };
 

@@ -114,11 +114,11 @@ const parentItems: Array<ParentItem> = [
 const childItems: Array<LinkItem> = [
   {
     name: 'Membership',
-    link: '/membership',
+    link: '/about/membership',
   },
   {
     name: 'Contact Us',
-    link: '/contact',
+    link: '/about/contact',
   },
 ];
 

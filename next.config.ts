@@ -12,6 +12,16 @@ const nextConfig: NextConfig = {
         destination: '/projects/clubs',
         permanent: true,
       },
+      {
+        source: '/membership',
+        destination: '/about/membership',
+        permanent: true,
+      },
+      {
+        source: '/contact',
+        destination: '/about/contact',
+        permanent: true,
+      },
     ];
   },
 };
