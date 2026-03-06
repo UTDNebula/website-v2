@@ -170,7 +170,7 @@ export default function Navbar(props: Props) {
   const textShadow = props.shadow ? 'text-shadow' : '';
 
   return (
-    <Disclosure as="nav" className={`py-10 px-4 ${props.className ?? ''}`}>
+    <Disclosure as="nav" className={`relative z-50 py-10 px-4 ${props.className ?? ''}`}>
       {({ open: displayMobileMenu, close: closeMobileMenu }) => (
         <div className="flex items-center lg:place-content-evenly place-content-between">
           <span ref={ref} className="w-0 h-0 absolute invisible lg:w-5" />
