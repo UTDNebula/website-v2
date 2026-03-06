@@ -277,12 +277,12 @@ export default function Navbar(props: Props) {
                           <Transition {...transitionProps}>
                             <DisclosurePanel
                               as="ul"
-                              className="lg:absolute lg:w-full lg:bg-dark-gradient lg:backdrop-blur-md border border-x-0 border-opacity-25 lg:left-0 lg:top-20 lg:mt-6 lg:py-10 lg:px-20 justify-items-center lg:flex-wrap lg:flex lg:gap-10 contents"
+                              className="lg:absolute lg:w-full lg:bg-dark-gradient lg:backdrop-blur-md lg:left-0 lg:top-20 lg:mt-6 lg:py-10 lg:px-20 justify-items-center lg:flex-wrap lg:flex lg:gap-10 contents"
                             >
                               {item.children.map((child, innerIndex) => (
                                 <li
                                   key={`menu-${outerIndex}-${innerIndex}`}
-                                  className="hover:transition-none transition-all lg:w-96 lg:border lg:border-white/0 lg:hover:border-white/100 lg:rounded-3xl"
+                                  className="hover:transition-none transition-all lg:w-96 lg:border-2 lg:border-white/0 lg:hover:border-white/100 lg:rounded-3xl"
                                 >
                                   <Link
                                     href={child.link}
@@ -326,7 +326,7 @@ export default function Navbar(props: Props) {
               </ul>
               <Link
                 href="/resources/calendar"
-                className={`justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap ${textShadow} ${props.royal && !displayMobileMenu ? 'text-royal border-royal' : 'border-white'}`}
+                className={`justify-self-end w-max px-4 py-2 rounded-full border-2 whitespace-nowrap ${textShadow} ${props.royal && !displayMobileMenu ? 'text-royal border-royal' : 'border-white'}`}
               >
                 Get Involved
               </Link>
