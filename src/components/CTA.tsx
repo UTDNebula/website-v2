@@ -1,5 +1,4 @@
 import NebulaLogo from '@/icons/NebulaLogo';
-import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
