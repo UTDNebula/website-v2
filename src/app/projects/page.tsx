@@ -1,4 +1,5 @@
 import Arrow from '@/../public/icons/arrow-black.svg';
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import ApiLogoStandalone from '@/icons/ApiLogo';
 import ClubsLogoStandalone from '@/icons/ClubsLogo';
@@ -95,6 +96,7 @@ export default function Projects() {
           </Link>
         ))}
       </div>
+      <Footer />
     </>
   );
 }
