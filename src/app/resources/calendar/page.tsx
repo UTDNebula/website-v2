@@ -250,7 +250,7 @@ export default async function Calendar() {
           <b>Outlook Calendar on Desktop</b>: Add calendar &gt; Subscribe from web &gt; Paste in the
           URL.
         </p>
-        <CopyInput href="webcal://calendar.google.com/calendar/ical/c_81b7102868d4acac8b7db3a18de6440d45740e4754be4f8a28a5c3915b0d1e71%40group.calendar.google.com/public/basic.ics" />
+        <CopyInput text="webcal://calendar.google.com/calendar/ical/c_81b7102868d4acac8b7db3a18de6440d45740e4754be4f8a28a5c3915b0d1e71%40group.calendar.google.com/public/basic.ics" />
       </div>
     </>
   );
