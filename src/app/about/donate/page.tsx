@@ -41,7 +41,7 @@ export default function Donate() {
           </div>
           <div className="flex flex-col gap-2">
             <p className="text-xl">How would you like to direct your donation?</p>
-            <CopyInput text="Nebula Labs - ECS Student Council - <cost center ID>" />
+            <CopyInput text="Nebula Labs - ECS Student Council - 37650004" />
           </div>
         </div>
         <Link
