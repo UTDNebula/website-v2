@@ -26,8 +26,8 @@ export default function Donate() {
       </div>
       <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
         <h2 className="text-5xl font-bold pb-4 text-center">Mission</h2>
-        <p className="text-3xl">Build open-source software to help UTD students.</p>
-        <p className="text-3xl">
+        <p className="text-3xl text-center">Build open-source software to help UTD students.</p>
+        <p className="text-3xl text-center">
           Cultivate a community for people to learn, grow, and thrive growing.
         </p>
       </div>
