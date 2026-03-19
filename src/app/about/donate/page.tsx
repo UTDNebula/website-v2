@@ -1,7 +1,9 @@
+import DonateForm from '@/../public/donate-form.png';
 import CopyInput from '@/app/resources/calendar/CopyInput';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -44,6 +46,11 @@ export default function Donate() {
             <CopyInput text="Nebula Labs - ECS Student Council - <cost center ID>" />
           </div>
         </div>
+        <Image
+          src={DonateForm}
+          alt="Preview of the donation form, showing the two needed fields filled out"
+          className="rounded-xl border-2 border-haiti max-w-full w-128"
+        />
         <Link
           className="px-10 py-6 text-2xl text-white bg-royal rounded-full hover:bg-royalDark transition-colors drop-shadow-sm"
           href="https://giving.utdallas.edu/"
@@ -51,7 +58,7 @@ export default function Donate() {
         >
           Donate
         </Link>
-        <p className="text-3xl">Thank you for your support!</p>
+        <p className="text-3xl text-center">Thank you for your support!</p>
       </div>
       <Footer />
     </>
