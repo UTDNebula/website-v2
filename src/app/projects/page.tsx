@@ -72,29 +72,31 @@ export default function Projects() {
   return (
     <>
       <Header text="Projects" />
-      <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-wrap justify-center gap-8">
+      <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
         <p className="text-3xl">We build tools that help students at UT Dallas, check them out!</p>
-        {projects.map((project) => (
-          <Link
-            key={project.name}
-            href={project.link}
-            className="p-4 flex flex-col gap-2 group hover:transition-none transition-all w-64 border-2 border-haiti/0 hover:border-haiti/100 rounded-3xl"
-            target={project.link.startsWith('http') ? '_blank' : ''}
-          >
-            {project.icon && <project.icon className="fill-haiti h-16 w-16" />}
-            <span className="flex flex-col gap-1">
-              <span className="flex gap-2 w-full">
-                <h2 className="font-bold text-2xl">{project.name}</h2>
-                <Image
-                  src={Arrow}
-                  alt=""
-                  className="-rotate-90 block transition group-hover:translate-x-1"
-                />
+        <div className="flex flex-wrap justify-center gap-8">
+          {projects.map((project) => (
+            <Link
+              key={project.name}
+              href={project.link}
+              className="p-4 flex flex-col gap-2 group hover:transition-none transition-all w-64 border-2 border-haiti/0 hover:border-haiti/100 rounded-3xl"
+              target={project.link.startsWith('http') ? '_blank' : ''}
+            >
+              {project.icon && <project.icon className="fill-haiti h-16 w-16" />}
+              <span className="flex flex-col gap-1">
+                <span className="flex gap-2 w-full">
+                  <h2 className="font-bold text-2xl">{project.name}</h2>
+                  <Image
+                    src={Arrow}
+                    alt=""
+                    className="-rotate-90 block transition group-hover:translate-x-1"
+                  />
+                </span>
+                <p>{project.description}</p>
               </span>
-              <p>{project.description}</p>
-            </span>
-          </Link>
-        ))}
+            </Link>
+          ))}
+        </div>
       </div>
       <Footer />
     </>
