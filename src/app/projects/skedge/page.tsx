@@ -5,6 +5,7 @@ import aggregate from '@/../public/projects/skedge/icons8-aggregate-100.png';
 import calendar from '@/../public/projects/skedge/icons8-calendar-100.png';
 import input from '@/../public/projects/skedge/icons8-input-100.png';
 import Project from '@/components/Project';
+import SkedgeLogoStandalone from '@/icons/SkedgeLogo';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -43,7 +44,7 @@ export default function Skedge() {
   return (
     <Project
       name="SKEDGE"
-      icon="skedge"
+      logo={SkedgeLogoStandalone}
       tagline={
         <>
           Choose the perfect

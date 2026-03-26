@@ -3,6 +3,7 @@ import bookmark from '@/../public/projects/notebook/icons8-bookmark-100.png';
 import search from '@/../public/projects/notebook/icons8-search-100.png';
 import upload from '@/../public/projects/notebook/icons8-upload-100.png';
 import Project from '@/components/Project';
+import NotebookLogoStandalone from '@/icons/NotebookLogo';
 import type { Metadata } from 'next';
 import React from 'react';
 
@@ -50,7 +51,7 @@ export default function Notebook() {
     <Project
       name="NOTEBOOK"
       inDevelopment
-      icon="notebook"
+      logo={NotebookLogoStandalone}
       tagline={
         <>
           Discover and share

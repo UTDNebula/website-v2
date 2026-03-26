@@ -3,6 +3,7 @@ import calendar from '@/../public/projects/clubs/icons8-calendar-100.png';
 import community from '@/../public/projects/clubs/icons8-community-100.png';
 import search from '@/../public/projects/clubs/icons8-search-100.png';
 import Project from '@/components/Project';
+import ClubsLogoStandalone from '@/icons/ClubsLogo';
 import type { Metadata } from 'next';
 import React from 'react';
 
@@ -49,7 +50,7 @@ export default function Clubs() {
   return (
     <Project
       name="CLUBS"
-      icon="clubs"
+      logo={ClubsLogoStandalone}
       tagline={
         <>
           Find your community

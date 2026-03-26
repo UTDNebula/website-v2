@@ -3,6 +3,7 @@ import filter from '@/../public/projects/rooms/icons8-filter-100.png';
 import input from '@/../public/projects/rooms/icons8-input-100.png';
 import update from '@/../public/projects/rooms/icons8-update-64.png';
 import Project from '@/components/Project';
+import RoomsLogoStandalone from '@/icons/RoomsLogo';
 import type { Metadata } from 'next';
 import React from 'react';
 
@@ -36,7 +37,7 @@ export default function Rooms() {
   return (
     <Project
       name="ROOMS"
-      icon="rooms"
+      logo={RoomsLogoStandalone}
       tagline={
         <>
           Event planning
