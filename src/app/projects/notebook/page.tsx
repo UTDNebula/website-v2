@@ -3,6 +3,7 @@ import bookmark from '@/../public/projects/notebook/icons8-bookmark-100.png';
 import search from '@/../public/projects/notebook/icons8-search-100.png';
 import upload from '@/../public/projects/notebook/icons8-upload-100.png';
 import Project from '@/components/Project';
+import NotebookLogoStandalone from '@/icons/NotebookLogo';
 import type { Metadata } from 'next';
 import React from 'react';
 
@@ -48,12 +49,9 @@ const features = [
 export default function Notebook() {
   return (
     <Project
-      name={
-        <span className="flex flex-col items-center">
-          <span>NOTEBOOK</span>
-          <span className="font-main font-normal text-sm">In Development</span>
-        </span>
-      }
+      name="NOTEBOOK"
+      inDevelopment
+      logo={NotebookLogoStandalone}
       tagline={
         <>
           Discover and share

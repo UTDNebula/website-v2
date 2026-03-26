@@ -14,6 +14,8 @@ interface ImageWithAlt {
 
 interface ProjectProps {
   name: React.ReactNode;
+  inDevelopment?: boolean;
+  logo?: (props: { className: string }) => React.ReactElement;
   tagline: React.ReactNode;
   description: React.ReactNode;
   cover?: ImageWithAlt;
@@ -34,9 +36,15 @@ export default function Project(props: ProjectProps) {
       <Navbar royal={true} className="relative z-20" />
       <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 flex flex-col items-center gap-8 rounded-3xl text-white relative overflow-hidden">
         <Image src={Gradient} alt="project background" fill className="-z-20" />
-        <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-display font-bold drop-shadow-sm">
-          {props.name}
-        </p>
+        <div className="font-display flex gap-1 items-center drop-shadow-sm bg-white rounded-full pl-2 pr-6">
+          {props.logo && <props.logo className="h-16 w-auto fill-haiti" />}
+          <span className="whitespace-nowrap text-2xl font-bold text-haiti flex flex-col items-center">
+            {props.name}
+            {props.inDevelopment && (
+              <span className="font-main font-normal text-sm">In Development</span>
+            )}
+          </span>
+        </div>
         <h1 className="font-display text-5xl md:text-6xl font-bold text-center text-shadow">
           {props.tagline}
         </h1>
