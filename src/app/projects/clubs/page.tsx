@@ -49,6 +49,7 @@ export default function Clubs() {
   return (
     <Project
       name="CLUBS"
+      icon="clubs"
       tagline={
         <>
           Find your community

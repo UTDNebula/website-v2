@@ -49,6 +49,7 @@ export default function Planner() {
   return (
     <Project
       name="PLANNER"
+      icon="planner"
       tagline={
         <>
           Plan your degree

@@ -39,6 +39,7 @@ export default function Trends() {
   return (
     <Project
       name="TRENDS"
+      icon="trends"
       tagline={
         <>
           Choose the perfect

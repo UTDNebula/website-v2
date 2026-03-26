@@ -36,6 +36,7 @@ export default function Rooms() {
   return (
     <Project
       name="ROOMS"
+      icon="rooms"
       tagline={
         <>
           Event planning

@@ -48,12 +48,9 @@ const features = [
 export default function Notebook() {
   return (
     <Project
-      name={
-        <span className="flex flex-col items-center">
-          <span>NOTEBOOK</span>
-          <span className="font-main font-normal text-sm">In Development</span>
-        </span>
-      }
+      name="NOTEBOOK"
+      inDevelopment
+      icon="notebook"
       tagline={
         <>
           Discover and share

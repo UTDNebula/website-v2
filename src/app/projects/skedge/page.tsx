@@ -43,6 +43,7 @@ export default function Skedge() {
   return (
     <Project
       name="SKEDGE"
+      icon="skedge"
       tagline={
         <>
           Choose the perfect

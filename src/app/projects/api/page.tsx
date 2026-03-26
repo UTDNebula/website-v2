@@ -47,6 +47,7 @@ export default function API() {
   return (
     <Project
       name="API & PLATFORM"
+      icon="api"
       tagline={
         <>
           The Backbone

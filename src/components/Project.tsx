@@ -2,10 +2,27 @@ import Gradient from '@/../public/images/gradient.png';
 import Contributors from '@/components/Contributors';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import ApiLogoStandalone from '@/icons/ApiLogo';
+import ClubsLogoStandalone from '@/icons/ClubsLogo';
+import NotebookLogoStandalone from '@/icons/NotebookLogo';
+import PlannerLogoStandalone from '@/icons/PlannerLogo';
+import RoomsLogoStandalone from '@/icons/RoomsLogo';
+import SkedgeLogoStandalone from '@/icons/SkedgeLogo';
+import TrendsLogoStandalone from '@/icons/TrendsLogo';
 import Image from 'next/image';
 import type { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+
+const icons = {
+  clubs: ClubsLogoStandalone,
+  trends: TrendsLogoStandalone,
+  skedge: SkedgeLogoStandalone,
+  rooms: RoomsLogoStandalone,
+  api: ApiLogoStandalone,
+  notebook: NotebookLogoStandalone,
+  planner: PlannerLogoStandalone,
+};
 
 interface ImageWithAlt {
   src: StaticImageData;
@@ -14,6 +31,8 @@ interface ImageWithAlt {
 
 interface ProjectProps {
   name: React.ReactNode;
+  inDevelopment?: boolean;
+  icon?: keyof typeof icons;
   tagline: React.ReactNode;
   description: React.ReactNode;
   cover?: ImageWithAlt;
@@ -29,14 +48,22 @@ interface ProjectProps {
 }
 
 export default function Project(props: ProjectProps) {
+  const Logo = props.icon ? icons[props.icon] : null;
+
   return (
     <>
       <Navbar royal={true} className="relative z-20" />
       <div className="mx-8 lg:mx-16 xl:mx-32 pt-6 px-6 flex flex-col items-center gap-8 rounded-3xl text-white relative overflow-hidden">
         <Image src={Gradient} alt="project background" fill className="-z-20" />
-        <p className="px-16 py-2 rounded-full border-2 border-white whitespace-nowrap font-display font-bold drop-shadow-sm">
-          {props.name}
-        </p>
+        <div className="font-display flex gap-1 items-center drop-shadow-sm bg-white rounded-full pl-2 pr-6">
+          {Logo && <Logo className="h-16 w-auto fill-haiti" />}
+          <span className="whitespace-nowrap text-2xl font-bold text-haiti flex flex-col items-center">
+            {props.name}
+            {props.inDevelopment && (
+              <span className="font-main font-normal text-sm">In Development</span>
+            )}
+          </span>
+        </div>
         <h1 className="font-display text-5xl md:text-6xl font-bold text-center text-shadow">
           {props.tagline}
         </h1>
