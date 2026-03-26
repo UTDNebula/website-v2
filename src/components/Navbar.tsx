@@ -285,12 +285,12 @@ export default function Navbar(props: Props) {
                             <Transition {...transitionProps}>
                               <DisclosurePanel
                                 as="ul"
-                                className="lg:absolute lg:w-full lg:bg-dark-gradient lg:backdrop-blur-md lg:left-0 lg:top-20 lg:mt-6 lg:py-10 lg:px-20 justify-items-center lg:flex-wrap lg:flex lg:gap-10 contents"
+                                className="lg:absolute lg:w-full lg:bg-dark-gradient lg:backdrop-blur-md lg:left-0 lg:top-20 lg:mt-6 lg:py-10 lg:px-20 justify-items-center lg:grid lg:grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] lg:gap-10 contents"
                               >
                                 {item.children.map((child, innerIndex) => (
                                   <li
                                     key={`menu-${outerIndex}-${innerIndex}`}
-                                    className="group hover:transition-none transition-all lg:w-80 lg:border-2 lg:border-white/0 lg:hover:border-white/100 lg:rounded-3xl"
+                                    className="group hover:transition-none transition-all lg:w-full lg:border-2 lg:border-white/0 lg:hover:border-white/100 lg:rounded-3xl"
                                   >
                                     <Link
                                       href={child.link}
