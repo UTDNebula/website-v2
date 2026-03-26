@@ -109,6 +109,12 @@ const items: Array<Item> = [
         description: 'Help plan degree and course requirements',
         icon: PlannerLogoStandalone,
       },
+      {
+        name: 'View list',
+        link: '/projects',
+        description: 'Check out the full list of our projects',
+        icon: NebulaLogo,
+      },
     ],
   },
   {
