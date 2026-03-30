@@ -3,6 +3,7 @@ import browser from '@/../public/projects/planner/icons8-browser-100.png';
 import stopwatch from '@/../public/projects/planner/icons8-stopwatch-100.png';
 import sword from '@/../public/projects/planner/icons8-sword-100.png';
 import Project from '@/components/Project';
+import PlannerLogoStandalone from '@/icons/PlannerLogo';
 import type { Metadata } from 'next';
 import React from 'react';
 
@@ -49,6 +50,7 @@ export default function Planner() {
   return (
     <Project
       name="PLANNER"
+      logo={PlannerLogoStandalone}
       tagline={
         <>
           Plan your degree

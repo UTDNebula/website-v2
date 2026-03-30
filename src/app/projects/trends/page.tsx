@@ -3,6 +3,7 @@ import aggregate from '@/../public/projects/trends/icons8-aggregate-100.png';
 import input from '@/../public/projects/trends/icons8-input-100.png';
 import scale from '@/../public/projects/trends/icons8-scale-100.png';
 import Project from '@/components/Project';
+import TrendsLogoStandalone from '@/icons/TrendsLogo';
 import type { Metadata } from 'next';
 import React from 'react';
 
@@ -39,6 +40,7 @@ export default function Trends() {
   return (
     <Project
       name="TRENDS"
+      logo={TrendsLogoStandalone}
       tagline={
         <>
           Choose the perfect

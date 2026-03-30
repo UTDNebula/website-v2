@@ -45,7 +45,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Navbar className="absolute top-0 left-0 right-0" shadow={true} />
+      <Navbar className="absolute! top-0 left-0 right-0" shadow={true} />
       <WhoWeAre />
       <Projects />
       <Testimonials />

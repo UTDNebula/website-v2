@@ -37,7 +37,9 @@ export default function Footer() {
           </Link>
         </div>
         <div className="flex flex-col items-start gap-3">
-          <h3 className="text-xl font-semibold mb-4">Projects</h3>
+          <Link className={`${linkClasses} decoration-2`} href="/projects">
+            <h3 className="text-xl font-semibold mb-4">Projects</h3>
+          </Link>
           <Link className={linkClasses} href="/projects/clubs">
             Clubs
           </Link>
