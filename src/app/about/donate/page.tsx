@@ -22,8 +22,10 @@ export default function Donate() {
         <p className="text-3xl">
           Nebula Labs is a free and open-source student organization, funded entirely by UT Dallas
           and donations. To support our mission and help us continue to provide valuable resources
-          and tools to students, consider donating. Your contribution will help us host events and
-          fund our monthly cloud service costs.
+          and tools to students, consider donating. Your contribution will help us form a formal
+          mentorship program, run an industry-professional speaker series, plan a Design and
+          Engineering workshop series, fund a hackathon track sponsorship, and with a recruitment
+          push to grow the organization.
         </p>
       </div>
       <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
