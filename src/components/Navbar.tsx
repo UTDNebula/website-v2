@@ -3,6 +3,7 @@
 import Arrow from '@/../public/icons/arrow-white.svg';
 import FilledChevronUpRoyal from '@/../public/icons/filled-chevron-up-royal.svg';
 import FilledChevronUpWhite from '@/../public/icons/filled-chevron-up-white.svg';
+import Heart from '@/../public/icons/heart.svg';
 import HamburgerRoyal from '@/../public/icons/menu-royal.svg';
 import HamburgerWhite from '@/../public/icons/menu-white.svg';
 import Star from '@/../public/icons/star.svg';
@@ -58,6 +59,12 @@ const items: Array<Item> = [
         description: 'Learn about the structure of the club and different leadership positions',
         link: '/about/governance',
         iconSrc: UserGroup,
+      },
+      {
+        name: 'Donate',
+        description: 'Support our mission to build products and people',
+        link: '/about/donate',
+        iconSrc: Heart,
       },
     ],
   },
@@ -119,11 +126,11 @@ const items: Array<Item> = [
   },
   {
     name: 'Membership',
-    link: '/membership',
+    link: '/about/membership',
   },
   {
     name: 'Contact Us',
-    link: '/contact',
+    link: '/about/contact',
   },
 ];
 

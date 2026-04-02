@@ -19,17 +19,20 @@ export default function Footer() {
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="flex flex-col items-start gap-3">
-          <h3 className="text-xl font-semibold mb-4">About us</h3>
+          <h3 className="text-xl font-semibold mb-4">About Us</h3>
           <Link className={linkClasses} href="/about/mission">
             Mission
           </Link>
           <Link className={linkClasses} href="/about/governance">
-            Project Governance
+            Governance
           </Link>
-          <Link className={linkClasses} href="/membership">
+          <Link className={linkClasses} href="/about/membership">
             Membership
           </Link>
-          <Link className={linkClasses} href="/contact">
+          <Link className={linkClasses} href="/about/donate">
+            Donate
+          </Link>
+          <Link className={linkClasses} href="/about/contact">
             Contact Us
           </Link>
         </div>
@@ -62,7 +65,7 @@ export default function Footer() {
         <div className="flex flex-col items-start gap-3">
           <h3 className="text-xl font-semibold mb-4">Resources</h3>
           <Link className={linkClasses} href="/about/governance">
-            Project Governance
+            Governance
           </Link>
           <Link className={linkClasses} href="/resources/calendar">
             Calendar
