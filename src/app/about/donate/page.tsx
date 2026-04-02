@@ -18,15 +18,28 @@ export default function Donate() {
   return (
     <>
       <Header text="Support Nebula Labs" />
-      <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
+      <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col gap-12">
         <p className="text-3xl">
           Nebula Labs is a free and open-source student organization, funded entirely by UT Dallas
           and donations. To support our mission and help us continue to provide valuable resources
-          and tools to students, consider donating. Your contribution will help us form a formal
-          mentorship program, run an industry-professional speaker series, plan a Design and
-          Engineering workshop series, fund a hackathon track sponsorship, and with a recruitment
-          push to grow the organization.
+          and tools to students, consider donating. Your contribution will help us:
         </p>
+        <ul className="text-2xl list-disc list-outside mx-8 flex flex-col gap-4">
+          <li>
+            Launch a formal mentorship program pairing experienced members with new recruits across
+            design and engineering.
+          </li>
+          <li>Fund a semester-long speaker series bringing industry professionals to campus.</li>
+          <li>Host a Nebula-sponsored workshop series on various Design and Engineering topics.</li>
+          <li>Fund a hackathon track sponsorship with HackUTD, HackAI, or WeHack.</li>
+          <li>
+            Expand the API & Platform infrastructure to support more external developers and
+            hackathon projects.
+          </li>
+          <li>
+            Fund an interdisciplinary recruiting push to grow the org with a new wave of members.
+          </li>
+        </ul>
       </div>
       <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
         <h2 className="text-5xl font-bold pb-4 text-center">Mission</h2>
