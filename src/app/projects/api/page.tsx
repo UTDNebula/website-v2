@@ -2,6 +2,7 @@ import crowd from '@/../public/projects/api/icons8-crowd-100.png';
 import expand from '@/../public/projects/api/icons8-expand-100.png';
 import support from '@/../public/projects/api/icons8-support-100.png';
 import Project from '@/components/Project';
+import ApiLogoStandalone from '@/icons/ApiLogo';
 import type { Metadata } from 'next';
 import React from 'react';
 
@@ -47,6 +48,7 @@ export default function API() {
   return (
     <Project
       name="API & PLATFORM"
+      logo={ApiLogoStandalone}
       tagline={
         <>
           The Backbone

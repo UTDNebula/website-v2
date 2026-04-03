@@ -13,7 +13,7 @@ import React from 'react';
 export const metadata: Metadata = {
   title: 'Contact',
   alternates: {
-    canonical: '/contact',
+    canonical: '/about/contact',
   },
 };
 

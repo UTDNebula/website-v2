@@ -3,17 +3,20 @@
 import Arrow from '@/../public/icons/arrow-white.svg';
 import FilledChevronUpRoyal from '@/../public/icons/filled-chevron-up-royal.svg';
 import FilledChevronUpWhite from '@/../public/icons/filled-chevron-up-white.svg';
-import Map from '@/../public/icons/map.svg';
+import Heart from '@/../public/icons/heart.svg';
 import HamburgerRoyal from '@/../public/icons/menu-royal.svg';
 import HamburgerWhite from '@/../public/icons/menu-white.svg';
-import Notebook from '@/../public/icons/notebook.svg';
-import Pencil from '@/../public/icons/pencil.svg';
-import Puzzle from '@/../public/icons/puzzle.svg';
 import Star from '@/../public/icons/star.svg';
-import TrendingUp from '@/../public/icons/trending-up.svg';
 import UserGroup from '@/../public/icons/user-group.svg';
-import Users from '@/../public/icons/users.svg';
 import X from '@/../public/icons/x.svg';
+import ApiLogoStandalone from '@/icons/ApiLogo';
+import ClubsLogoStandalone from '@/icons/ClubsLogo';
+import NebulaLogo from '@/icons/NebulaLogo';
+import NotebookLogoStandalone from '@/icons/NotebookLogo';
+import PlannerLogoStandalone from '@/icons/PlannerLogo';
+import RoomsLogoStandalone from '@/icons/RoomsLogo';
+import SkedgeLogoStandalone from '@/icons/SkedgeLogo';
+import TrendsLogoStandalone from '@/icons/TrendsLogo';
 import {
   Disclosure,
   DisclosureButton,
@@ -26,22 +29,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 
-type BaseItem = { name: string };
+type Item = { name: string } & (
+  | {
+      link: string;
+    }
+  | {
+      children: {
+        name: string;
+        link: string;
+        iconSrc?: StaticImageData;
+        icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+        description: string;
+      }[];
+    }
+);
 
-interface LinkItem extends BaseItem {
-  link: string;
-}
-
-interface ParentItem extends BaseItem {
-  children: {
-    name: string;
-    link: string;
-    iconSrc?: StaticImageData;
-    description: string;
-  }[];
-}
-
-const parentItems: Array<ParentItem> = [
+const items: Array<Item> = [
   {
     name: 'About Us',
     children: [
@@ -57,6 +60,12 @@ const parentItems: Array<ParentItem> = [
         link: '/about/governance',
         iconSrc: UserGroup,
       },
+      {
+        name: 'Donate',
+        description: 'Support our mission to build products and people',
+        link: '/about/donate',
+        iconSrc: Heart,
+      },
     ],
   },
   {
@@ -66,25 +75,25 @@ const parentItems: Array<ParentItem> = [
         name: 'Clubs',
         link: '/projects/clubs',
         description: 'Find and connect with student organizations',
-        iconSrc: Users,
+        icon: ClubsLogoStandalone,
       },
       {
         name: 'Trends',
         link: '/projects/trends',
         description: 'Help plan coursework through grade and professor stats',
-        iconSrc: TrendingUp,
+        icon: TrendsLogoStandalone,
       },
       {
         name: 'Skedge',
         link: '/projects/skedge',
         description: 'Integrate grade and professor stats into Schedule Planner',
-        iconSrc: TrendingUp,
+        icon: SkedgeLogoStandalone,
       },
       {
         name: 'Rooms',
         link: '/projects/rooms',
         description: 'Find open rooms at UT Dallas',
-        iconSrc: Map,
+        icon: RoomsLogoStandalone,
       },
       {
         name: 'API & Platform',
@@ -93,32 +102,35 @@ const parentItems: Array<ParentItem> = [
           'Integrate ' +
           (new Date().getFullYear() - 2017) +
           '+ years of historical UTD data into your applications',
-        iconSrc: Puzzle,
+        icon: ApiLogoStandalone,
       },
       {
         name: 'Notebook',
         link: '/projects/notebook',
         description: 'Discover and share course notes',
-        iconSrc: Notebook,
+        icon: NotebookLogoStandalone,
       },
       {
         name: 'Planner',
         link: '/projects/planner',
         description: 'Help plan degree and course requirements',
-        iconSrc: Pencil,
+        icon: PlannerLogoStandalone,
+      },
+      {
+        name: 'View list',
+        link: '/projects',
+        description: 'Check out the full list of our projects',
+        icon: NebulaLogo,
       },
     ],
   },
-];
-
-const childItems: Array<LinkItem> = [
   {
     name: 'Membership',
-    link: '/membership',
+    link: '/about/membership',
   },
   {
     name: 'Contact Us',
-    link: '/contact',
+    link: '/about/contact',
   },
 ];
 
@@ -147,7 +159,8 @@ export default function Navbar(props: Props) {
   }, [submenuCloseCallbacks]);
 
   const ref = useRef<HTMLSpanElement>(null);
-  const buttonRefs = useRef<(HTMLButtonElement | null)[]>(Array(parentItems.length));
+  const numParentItems = items.filter((item) => 'children' in item).length;
+  const buttonRefs = useRef<(HTMLButtonElement | null)[]>(Array(numParentItems));
   const [shouldDisplayDesktopMenu, setShouldDisplayDesktopMenu] = useState(true);
   useEffect(() => {
     if (!ref.current) {
@@ -170,7 +183,7 @@ export default function Navbar(props: Props) {
   const textShadow = props.shadow ? 'text-shadow' : '';
 
   return (
-    <Disclosure as="nav" className={`py-10 px-4 ${props.className ?? ''}`}>
+    <Disclosure as="nav" className={`relative z-50 py-10 px-4 ${props.className ?? ''}`}>
       {({ open: displayMobileMenu, close: closeMobileMenu }) => (
         <div className="flex items-center lg:place-content-evenly place-content-between">
           <span ref={ref} className="w-0 h-0 absolute invisible lg:w-5" />
@@ -181,13 +194,8 @@ export default function Navbar(props: Props) {
             }}
           />
           <Link className="flex items-center" href="/">
-            <Image
-              src={props.royal ? '/icon-royal.svg' : '/icon-white.svg'}
-              alt={'logo'}
-              width={90}
-              height={70}
-              priority
-              className={dropShadow}
+            <NebulaLogo
+              className={`w-22 h-17 ${props.royal ? 'fill-royal' : 'fill-white'} ${dropShadow}`}
             />
           </Link>
           <DisclosureButton className="cursor-pointer lg:hidden">
@@ -214,119 +222,124 @@ export default function Navbar(props: Props) {
                 <Image src={X} alt="" className="w-4" />
               </button>
               <ul className="contents w-full h-min">
-                {parentItems.map((item, outerIndex) => (
-                  <Disclosure
-                    as="li"
-                    key={`menu-parent-${outerIndex}`}
-                    className="group contents lg:block"
-                    onMouseEnter={(e) => {
-                      if (!shouldDisplayDesktopMenu) return;
-                      if (e.currentTarget.getAttribute('data-headlessui-state') !== 'open') {
-                        buttonRefs.current[outerIndex]?.click();
-                        buttonRefs.current[outerIndex]?.focus();
-                      }
-                    }}
-                    onMouseLeave={() => {
-                      if (!shouldDisplayDesktopMenu) return;
-                      setTimeout(() => {
-                        const li = buttonRefs.current[outerIndex]?.parentElement?.parentElement;
-                        if (li?.matches(':hover')) {
-                          return;
-                        }
-                        if (li?.getAttribute('data-headlessui-state') === 'open') {
+                {items.map((item, outerIndex) => {
+                  if ('link' in item) {
+                    return (
+                      <li key={`menu-child-${outerIndex}`}>
+                        <Link
+                          href={item.link}
+                          className={`${displayMobileMenu && 'flex place-content-between w-full'} ${textShadow} ${props.royal && !displayMobileMenu && 'text-royal'}`}
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    );
+                  }
+                  return (
+                    <Disclosure
+                      as="li"
+                      key={`menu-parent-${outerIndex}`}
+                      className="contents lg:block"
+                      onMouseEnter={(e) => {
+                        if (!shouldDisplayDesktopMenu) return;
+                        if (e.currentTarget.getAttribute('data-headlessui-state') !== 'open') {
                           buttonRefs.current[outerIndex]?.click();
+                          buttonRefs.current[outerIndex]?.focus();
                         }
-                      }, 500);
-                    }}
-                  >
-                    {({ open: submenuOpen, close: closeSubmenu }) => {
-                      const handler = () => {
-                        setSubmenuCloseCallbacks((prev) => ({
-                          ...prev,
-                          [item.name]: closeSubmenu,
-                        }));
-                        if (displayMobileMenu) return;
-                        Object.entries(submenuCloseCallbacks)
-                          .filter(([k]) => k != item.name)
-                          .forEach(([, v]) => v());
-                      };
-                      return (
-                        <div className="contents lg:block">
-                          <DisclosureButton
-                            ref={(el) => {
-                              buttonRefs.current[outerIndex] = el;
-                            }}
-                            onClick={handler}
-                            className={`${displayMobileMenu && 'place-content-between'} cursor-pointer w-full flex gap-1 items-center`}
-                          >
-                            <p
-                              className={`${textShadow} ${props.royal && !displayMobileMenu && 'text-royal'}`}
-                            >
-                              {item.name}
-                            </p>
-                            <Image
-                              src={
-                                props.royal && !displayMobileMenu
-                                  ? FilledChevronUpRoyal
-                                  : FilledChevronUpWhite
-                              }
-                              alt=""
-                              className={`${submenuOpen ? 'rotate-0' : 'rotate-180'} w-3 transition-transform ${dropShadow}`}
-                            />
-                          </DisclosureButton>
-                          <Transition {...transitionProps}>
-                            <DisclosurePanel
-                              as="ul"
-                              className="lg:absolute lg:w-full lg:bg-dark-gradient lg:backdrop-blur-md border border-x-0 border-opacity-25 lg:left-0 lg:top-20 lg:mt-6 lg:py-10 lg:px-20 justify-items-center lg:flex-wrap lg:flex lg:gap-10 contents"
-                            >
-                              {item.children.map((child, innerIndex) => (
-                                <li
-                                  key={`menu-${outerIndex}-${innerIndex}`}
-                                  className="hover:transition-none transition-all lg:w-96 lg:border lg:border-white/0 lg:hover:border-white/100 lg:rounded-3xl"
-                                >
-                                  <Link
-                                    href={child.link}
-                                    className="lg:p-8 flex lg:flex-col gap-2"
-                                    target={child.link.includes('http') ? '_blank' : ''}
-                                  >
-                                    {child.iconSrc && (
-                                      <Image src={child.iconSrc} alt="" className="" />
-                                    )}
-                                    <span className="lg:flex lg:flex-col gap-1">
-                                      <span className="flex gap-2 w-full">
-                                        <h2 className="font-bold lg:text-2xl">{child.name}</h2>
-                                        <Image
-                                          src={Arrow}
-                                          alt=""
-                                          className="-rotate-90 lg:block hidden"
-                                        />
-                                      </span>
-                                      <p>{child.description}</p>
-                                    </span>
-                                  </Link>
-                                </li>
-                              ))}
-                            </DisclosurePanel>
-                          </Transition>
-                        </div>
-                      );
-                    }}
-                  </Disclosure>
-                ))}
-                {childItems.map((item, outerIndex) => (
-                  <li key={`menu-child-${outerIndex}`}>
-                    <Link
-                      href={item.link}
-                      className={`${displayMobileMenu && 'flex place-content-between w-full'} ${textShadow} ${props.royal && !displayMobileMenu && 'text-royal'}`}
+                      }}
+                      onMouseLeave={() => {
+                        if (!shouldDisplayDesktopMenu) return;
+                        setTimeout(() => {
+                          const li = buttonRefs.current[outerIndex]?.parentElement?.parentElement;
+                          if (li?.matches(':hover')) {
+                            return;
+                          }
+                          if (li?.getAttribute('data-headlessui-state') === 'open') {
+                            buttonRefs.current[outerIndex]?.click();
+                          }
+                        }, 500);
+                      }}
                     >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
+                      {({ open: submenuOpen, close: closeSubmenu }) => {
+                        const handler = () => {
+                          setSubmenuCloseCallbacks((prev) => ({
+                            ...prev,
+                            [item.name]: closeSubmenu,
+                          }));
+                          if (displayMobileMenu) return;
+                          Object.entries(submenuCloseCallbacks)
+                            .filter(([k]) => k != item.name)
+                            .forEach(([, v]) => v());
+                        };
+                        return (
+                          <div className="contents lg:block">
+                            <DisclosureButton
+                              ref={(el) => {
+                                buttonRefs.current[outerIndex] = el;
+                              }}
+                              onClick={handler}
+                              className={`${displayMobileMenu && 'place-content-between'} cursor-pointer w-full flex gap-1 items-center`}
+                            >
+                              <p
+                                className={`${textShadow} ${props.royal && !displayMobileMenu && 'text-royal'}`}
+                              >
+                                {item.name}
+                              </p>
+                              <Image
+                                src={
+                                  props.royal && !displayMobileMenu
+                                    ? FilledChevronUpRoyal
+                                    : FilledChevronUpWhite
+                                }
+                                alt=""
+                                className={`${submenuOpen ? 'rotate-0' : 'rotate-180'} w-3 transition-transform ${dropShadow}`}
+                              />
+                            </DisclosureButton>
+                            <Transition {...transitionProps}>
+                              <DisclosurePanel
+                                as="ul"
+                                className="lg:absolute lg:w-full lg:bg-dark-gradient lg:backdrop-blur-md lg:left-0 lg:top-20 lg:mt-6 lg:py-10 lg:px-20 justify-items-center lg:grid lg:grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] lg:gap-10 contents"
+                              >
+                                {item.children.map((child, innerIndex) => (
+                                  <li
+                                    key={`menu-${outerIndex}-${innerIndex}`}
+                                    className="group hover:transition-none transition-all lg:w-full lg:border-2 lg:border-white/0 lg:hover:border-white/100 lg:rounded-3xl"
+                                  >
+                                    <Link
+                                      href={child.link}
+                                      className="lg:p-8 flex lg:flex-col gap-2"
+                                      target={child.link.startsWith('http') ? '_blank' : ''}
+                                    >
+                                      {child.iconSrc && <Image src={child.iconSrc} alt="" />}
+                                      {child.icon && (
+                                        <child.icon className="fill-white h-12 w-12 shrink-0" />
+                                      )}
+                                      <span className="lg:flex lg:flex-col gap-1">
+                                        <span className="flex gap-2 w-full">
+                                          <h2 className="font-bold lg:text-2xl">{child.name}</h2>
+                                          <Image
+                                            src={Arrow}
+                                            alt=""
+                                            className="-rotate-90 lg:block hidden lg:transition lg:group-hover:translate-x-1"
+                                          />
+                                        </span>
+                                        <p>{child.description}</p>
+                                      </span>
+                                    </Link>
+                                  </li>
+                                ))}
+                              </DisclosurePanel>
+                            </Transition>
+                          </div>
+                        );
+                      }}
+                    </Disclosure>
+                  );
+                })}
               </ul>
               <Link
                 href="/resources/calendar"
-                className={`justify-self-end w-max px-4 py-2 rounded-full border whitespace-nowrap ${textShadow} ${props.royal && !displayMobileMenu ? 'text-royal border-royal' : 'border-white'}`}
+                className={`justify-self-end w-max px-4 py-2 rounded-full border-2 whitespace-nowrap ${textShadow} ${props.royal && !displayMobileMenu ? 'text-royal border-royal' : 'border-white'}`}
               >
                 Get Involved
               </Link>
