@@ -59,6 +59,7 @@ const projects = [
     link: 'https://notebook.utdnebula.com/',
     description: 'Discover and share course notes',
     icon: NotebookLogoStandalone,
+    inDevelopment: true,
   },
   {
     name: 'Planner',
@@ -93,6 +94,9 @@ export default function Projects() {
                   />
                 </span>
                 <p>{project.description}</p>
+                {project.inDevelopment && (
+                  <span className="font-main text-royal font-bold text-sm">In Development</span>
+                )}
               </span>
             </Link>
           ))}
