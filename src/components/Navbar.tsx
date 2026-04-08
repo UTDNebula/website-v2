@@ -338,19 +338,6 @@ export default function Navbar(props: Props) {
                 })}
               </ul>
               <Link
-                href="https://givingday.utdallas.edu/giving-day/115742/department/118896"
-                target="_blank"
-              >
-                <Image
-                  unoptimized
-                  width={128}
-                  height={128}
-                  src="/comet-giving-days.png"
-                  alt="UTD Giving Days Comet Logo"
-                  className="h-12 w-12 max-w-none"
-                />
-              </Link>
-              <Link
                 href="/resources/calendar"
                 className={`justify-self-end w-max px-4 py-2 rounded-full border-2 whitespace-nowrap ${textShadow} ${props.royal && !displayMobileMenu ? 'text-royal border-royal' : 'border-white'}`}
               >
