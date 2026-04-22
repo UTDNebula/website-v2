@@ -13,6 +13,69 @@ export const netIdToPersonMap = new Map<string, Person>([
     },
   ],
   [
+    'sxc220171',
+    {
+      name: 'Sreehitha Chadave',
+      linkedIn: 'sreehitha-chadave-3462a3292',
+    },
+  ],
+  [
+    'rmg220003',
+    {
+      name: 'Roua Gouilos',
+      linkedIn: 'roua-gouilos-915800384',
+    },
+  ],
+  [
+    'jhs230002',
+    {
+      name: 'Justin Schwerdtfeger',
+      linkedIn: 'justin-schwerdtfeger',
+    },
+  ],
+  [
+    'axn230085',
+    {
+      name: 'Anila Narula',
+      linkedIn: 'anilanarula',
+    },
+  ],
+  [
+    'zxa220031',
+    {
+      name: 'Zeyad Abbas',
+      linkedIn: 'zeyad-abbas-',
+    },
+  ],
+  [
+    'nsj240001',
+    {
+      name: 'Nishil Jaiswal',
+      linkedIn: 'nishilj',
+    },
+  ],
+  [
+    'dal566247',
+    {
+      name: 'Isaac Young',
+      linkedIn: 'isaac-young-62bb08339',
+    },
+  ],
+  [
+    'irs230003',
+    {
+      name: 'Ian Slot',
+      linkedIn: 'ian-slot',
+    },
+  ],
+  [
+    'sxr230157',
+    {
+      name: 'Simar Rekhi',
+      linkedIn: 'simar-rekhi',
+    },
+  ],
+  [
     'emk230000',
     {
       name: 'Elifsu Kasti',
