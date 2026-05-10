@@ -1,4 +1,4 @@
-import DonateForm from '@/../public/donate-form.png';
+import DonateForm from '@/../public/support/donate-form.png';
 import CopyInput from '@/app/resources/calendar/CopyInput';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
@@ -22,7 +22,7 @@ export default function Support() {
         <p className="text-3xl">
           Nebula Labs is a free and open-source student organization, funded entirely by UT Dallas
           and donations. To support our mission and help us continue to provide valuable resources
-          and tools to students, consider donating. Your contribution will help us:
+          and tools to students, consider donating or sponsoring. Your support will help us:
         </p>
         <ul className="text-2xl list-disc list-outside mx-8 flex flex-col gap-4">
           <li>
@@ -73,6 +73,19 @@ export default function Support() {
         >
           Donate
         </Link>
+      </div>
+      <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
+        <h2 className="text-5xl font-bold pb-4 text-center">Sponsor</h2>
+        <p className="text-3xl">Open the Sponsor Packet below to learn more.</p>
+        <Link
+          className="px-10 py-6 text-2xl text-white bg-royal rounded-full hover:bg-royalDark transition-colors drop-shadow-sm"
+          href="/support/Nebula Labs Sponsor Packet.pdf"
+          target="_blank"
+        >
+          Open Sponsor Packet
+        </Link>
+      </div>
+      <div className="px-8 lg:px-16 xl:px-32 py-24 flex flex-col items-center gap-12">
         <p className="text-3xl text-center">Thank you for your support!</p>
       </div>
       <Footer />
