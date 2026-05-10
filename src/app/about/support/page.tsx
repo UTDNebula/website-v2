@@ -8,13 +8,13 @@ import Link from 'next/link';
 import React from 'react';
 
 export const metadata: Metadata = {
-  title: 'Donate',
+  title: 'Support',
   alternates: {
-    canonical: '/about/donate',
+    canonical: '/about/support',
   },
 };
 
-export default function Donate() {
+export default function Support() {
   return (
     <>
       <Header text="Support Nebula Labs" />
