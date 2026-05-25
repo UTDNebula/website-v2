@@ -29,8 +29,8 @@ export default function Footer() {
           <Link className={linkClasses} href="/about/membership">
             Membership
           </Link>
-          <Link className={linkClasses} href="/about/donate">
-            Donate
+          <Link className={linkClasses} href="/about/support">
+            Support
           </Link>
           <Link className={linkClasses} href="/about/contact">
             Contact Us
