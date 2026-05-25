@@ -63,7 +63,7 @@ const items: Array<Item> = [
       {
         name: 'Support',
         description: 'Support our mission to build products and people',
-        link: '/about/Support',
+        link: '/about/support',
         iconSrc: Heart,
       },
     ],
