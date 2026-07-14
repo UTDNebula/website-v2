@@ -61,9 +61,9 @@ const items: Array<Item> = [
         iconSrc: UserGroup,
       },
       {
-        name: 'Donate',
+        name: 'Support',
         description: 'Support our mission to build products and people',
-        link: '/about/donate',
+        link: '/about/support',
         iconSrc: Heart,
       },
     ],
