@@ -131,7 +131,7 @@ export default function Footer() {
             </Link>
           </div>
           <p className="md:text-right text-center text-xs">
-            © 2023-{new Date().getFullYear()} Nebula Labs Maintainers. Open-source under the MIT
+            © 2023-{new Date().getFullYear()} Nebula Labs Portfolio. Open-source under the MIT
             License.
           </p>
         </div>
