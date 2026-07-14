@@ -1,0 +1,7 @@
+# CODEOWNERS for UTDNebula/website-v2
+# GitHub will automatically request reviews from the owners below
+# when a pull request modifies the matching files.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owners — own everything unless a more specific rule below overrides
+* @TyHil @NishilJ
