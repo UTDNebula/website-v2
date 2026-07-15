@@ -235,7 +235,7 @@ export default async function Calendar() {
       <div
         popover="auto"
         id="ics-cal-popover"
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl p-4 w-[80vw] max-w-[90vw]"
+        className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl p-4 w-[80vw] max-w-[90vw]"
       >
         <h3 className="text-xl font-bold mb-2 text-center">Instructions</h3>
         <p className="mb-1">
