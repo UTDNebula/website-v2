@@ -107,13 +107,13 @@ const items: Array<Item> = [
       {
         name: 'Notebook',
         link: '/projects/notebook',
-        description: 'Discover and share course notes',
+        description: 'Discover and share course notes (In development)',
         icon: NotebookLogoStandalone,
       },
       {
         name: 'Planner',
         link: '/projects/planner',
-        description: 'Help plan degree and course requirements',
+        description: 'Help plan degree and course requirements (Not recommended)',
         icon: PlannerLogoStandalone,
       },
       {
